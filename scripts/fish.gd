@@ -24,6 +24,8 @@ var swimming := false:
 
 @onready var _animated_sprite := $AnimatedSprite2D as AnimatedSprite2D
 @onready var _mouth_area:= $MouthArea2D as Area2D
+@onready var food_bubble := $FoodBubble as FoodBubble
+
 
 func _ready() -> void:
 	_update_animation()
@@ -31,6 +33,8 @@ func _ready() -> void:
 	assert(_mouth_area != null)
 	assert(_mouth_area.collision_layer == 0x4)
 	assert(_mouth_area.collision_mask == 0x4)
+	print(eat)
+	#food_bubble.load_texture(eat)
 
 
 func _physics_process(delta: float) -> void:

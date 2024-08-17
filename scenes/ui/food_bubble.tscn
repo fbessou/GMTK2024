@@ -1,0 +1,51 @@
+[gd_scene load_steps=10 format=3 uid="uid://bbjmu5pwni2sy"]
+
+[ext_resource type="Texture2D" uid="uid://dy85m4sg35vn5" path="res://assets/textures/hud/Crave bubble/frame0000.png" id="1_gt7ln"]
+[ext_resource type="Script" path="res://scripts/ui/FoodBubble.gd" id="1_p4b8f"]
+[ext_resource type="Texture2D" uid="uid://bh5fwwupilf4l" path="res://assets/textures/hud/Crave bubble/frame0001.png" id="2_ngxww"]
+[ext_resource type="Resource" uid="uid://dea811ii52ked" path="res://resources/game data/food_icons.tres" id="2_wh4wj"]
+[ext_resource type="Texture2D" uid="uid://d2vgtl0hvhma5" path="res://assets/textures/hud/Crave bubble/frame0004.png" id="3_xoqs0"]
+[ext_resource type="Texture2D" uid="uid://bvw17sm20whsh" path="res://assets/textures/hud/Crave bubble/frame0006.png" id="4_t2b8p"]
+[ext_resource type="Texture2D" uid="uid://dr1w7tiww58eo" path="res://assets/textures/hud/Crave bubble/frame0008.png" id="5_0yel5"]
+[ext_resource type="Texture2D" uid="uid://by6dkq5sghnbt" path="res://assets/textures/hud/Crave bubble/frame0010.png" id="6_q660x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4rcfi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gt7ln")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ngxww")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xoqs0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_t2b8p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_0yel5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_q660x")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="FoodBubble" type="Node2D"]
+script = ExtResource("1_p4b8f")
+fish_textures_resource = ExtResource("2_wh4wj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4rcfi")
+frame_progress = 0.77117
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
