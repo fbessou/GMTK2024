@@ -9,6 +9,7 @@
 
 [node name="Puffer" parent="." instance=ExtResource("2_uqxxr")]
 position = Vector2(-394, 316)
+state = 0
 
 [node name="Camera2D" type="Camera2D" parent="Puffer"]
 scale = Vector2(0.36, 0.36)

@@ -6,7 +6,7 @@ enum State {
 	NPC, # Moving alone???
 	FROZEN, # Position frozen
 }
-enum Kind { None=0, Plankton=1, Puffer=2, Angler=4 }
+enum Kind { None=0, Plankton=1, Puffer=2, Angler=4, Whale=8 }
 enum Facing { RIGHT = 1, LEFT = -1 }
 
 const FROZEN_DRAG := 0.95
@@ -17,7 +17,7 @@ const FROZEN_DRAG := 0.95
 @export var drag := 0.6
 @export var view_scale := 1.0
 @export var max_inclination := 0.35 # from 0.05 to 0.95
-@export_flags("Plankton", "Puffer", "Angler") var eat := 0
+@export_flags("Plankton", "Puffer", "Angler", "Whale") var eat := 0
 @export var state := State.NPC
 
 var facing := Facing.RIGHT
