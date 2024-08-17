@@ -35,7 +35,9 @@ fill_to = Vector2(0.5, 0)
 
 [node name="Angler" instance=ExtResource("1_i2gp8")]
 script = ExtResource("2_35ved")
+kind = 4
 accel = null
+eat = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_phnip")

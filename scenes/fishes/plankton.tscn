@@ -37,6 +37,7 @@ animations = [{
 radius = 109.225
 
 [node name="Plankton" instance=ExtResource("1_1hy31")]
+kind = 1
 max_inclination = 0.9
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]

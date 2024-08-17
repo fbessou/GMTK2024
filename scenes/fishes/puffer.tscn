@@ -83,6 +83,8 @@ radius = 48.0416
 script = ExtResource("2_tkqsm")
 _small_sprite_frames = SubResource("SpriteFrames_fn0tc")
 _large_sprite_frames = SubResource("SpriteFrames_mxwvv")
+kind = 2
+eat = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_fn0tc")

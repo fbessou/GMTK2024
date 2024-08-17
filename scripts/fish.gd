@@ -2,14 +2,16 @@ class_name Fish
 extends CharacterBody2D
 
 enum State { PLAYER, NPC }
-
+enum Kind { None=0, Plankton=1, Puffer=2, Angler=4 }
 enum Facing { RIGHT = 1, LEFT = -1 }
 
+@export var kind := Kind.None
 @export var max_speed := 200.0
 @export var accel := max_speed / 0.2
 @export var drag := 0.4
 @export var view_scale := 1.0
 @export var max_inclination := 0.35 # from 0.05 to 0.95
+@export_flags("Plankton", "Puffer", "Angler") var eat := 0
 
 var facing := Facing.RIGHT
 var orientation := 0.0
