@@ -1,0 +1,283 @@
+[gd_scene load_steps=17 format=3 uid="uid://dt4infqqtp0ss"]
+
+[ext_resource type="Texture2D" uid="uid://cabga2hoti2hn" path="res://assets/textures/runes/rune.svg" id="2_kq70v"]
+[ext_resource type="Shader" path="res://resources/shaders/background_plankton.gdshader" id="3_8v64i"]
+[ext_resource type="SpriteFrames" uid="uid://biiur0apaynp2" path="res://resources/sprites_frames/plankton.tres" id="4_164xf"]
+
+[sub_resource type="GDScript" id="GDScript_tof11"]
+script/source = "extends Node2D
+
+@onready var original_sprite :AnimatedSprite2D = $PlanktonsBackground/AnimatedSpritePlanktonBg
+@onready var plankton_bg :Node2D = $PlanktonsBackground
+@onready var plankton_path :Path2D = $PlanktonPath
+@onready var plankton_path_follow :PathFollow2D = $PlanktonPath/PlanktonPathFollow
+
+@onready var elected_plankton :AnimatedSprite2D = original_sprite
+
+@export var plankton_count: int = 50;
+
+# 500px, 100px de mou largeur, 100px de bande
+# 250px - 450px hauteur
+var xMiddle := 500
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	for index in range(plankton_count):
+		var sprite := original_sprite.duplicate() as Node2D
+		
+		var x := xMiddle + (randi_range(0, 100) + 100) * (randi_range(0, 1) * -2 + 1)
+		var y := randi_range(250, 450)
+		sprite.position = Vector2(x, y)
+		
+		add_child(sprite)
+
+func elect_plankton() -> void:
+	var start_point := plankton_path.curve.get_point_position(0)
+	var closest_plankton := original_sprite
+	var min_dist := start_point.distance_squared_to(original_sprite.global_position)
+	
+	for plankton in plankton_bg.get_children() as Array[Node2D]:
+		var dist := start_point.distance_squared_to(plankton.global_position)
+		if dist < min_dist:
+			closest_plankton = plankton
+			min_dist = dist
+			
+	plankton_path.curve.set_point_position(0, closest_plankton.position)
+	closest_plankton.reparent(plankton_path_follow)
+	
+	elected_plankton = closest_plankton
+	
+func contaminate() -> void:
+	# change color of elected plankton
+	var mat := (elected_plankton.material as ShaderMaterial).duplicate() as ShaderMaterial
+	mat.set_shader_parameter(\"plankton_contamination\", 1.)
+	elected_plankton.material = mat
+	
+	# remove color from stone
+	# fade out for next stage
+"
+
+[sub_resource type="Gradient" id="Gradient_41m3o"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l4y21"]
+gradient = SubResource("Gradient_41m3o")
+fill_from = Vector2(0.486239, 0)
+fill_to = Vector2(0.486239, 0.376147)
+
+[sub_resource type="Curve2D" id="Curve2D_5yaxt"]
+resource_name = "RuneCurve"
+_data = {
+"points": PackedVector2Array(23.811, -57.1464, -23.811, 57.1464, -5, -214, 33.3641, -184.166, -33.3641, 184.166, 16, -51, 6.52279, -65.7774, -6.52279, 65.7774, 10, 148, 7.11896, -53.021, -7.11896, 53.021, 7, 254, -0.901244, -21.0095, 0.901244, 21.0095, 11, 349)
+}
+point_count = 5
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2mrh5"]
+
+[sub_resource type="Gradient" id="Gradient_3wyr7"]
+resource_name = "RuneLightGradient"
+offsets = PackedFloat32Array(0, 0.675325)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kmflc"]
+gradient = SubResource("Gradient_3wyr7")
+width = 200
+height = 200
+fill = 1
+fill_from = Vector2(0.481651, 0.545872)
+
+[sub_resource type="Curve2D" id="Curve2D_pbuyi"]
+resource_name = "PlanktonCurve"
+_data = {
+"points": PackedVector2Array(-90.3112, -95.9227, 90.3112, 95.9227, 361, 339, 0, 0, 0, 0, 480, 461)
+}
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_nk5pk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RunePath/RunePathFollow:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlanktonPath/PlanktonPathFollow:progress_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:zoom")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qcv60"]
+resource_name = "opening"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RunePath/RunePathFollow:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2, 15.1667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlanktonPath/PlanktonPathFollow:progress_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(15.2, 18.9667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:zoom")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.133333, 10.4333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(3, 3)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(15.2, 19.0667),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"elect_plankton"
+}, {
+"args": [],
+"method": &"contaminate"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o0wly"]
+_data = {
+"RESET": SubResource("Animation_nk5pk"),
+"opening": SubResource("Animation_qcv60")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vhga8"]
+shader = ExtResource("3_8v64i")
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="GDScript" id="GDScript_raxx2"]
+script/source = "class_name PlanktonIdle
+extends AnimatedSprite2D
+
+var _velocity := Vector2.ZERO
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	play(\"idle\")
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
+	if _velocity.length_squared() < 4:
+		_velocity = Vector2.from_angle(randf_range(-PI,PI))*randf_range(10., 50.)
+	else:
+		_velocity *= 0.9
+		
+	translate(_velocity * _delta)
+"
+
+[node name="Opening" type="Node2D"]
+script = SubResource("GDScript_tof11")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-53, -26, 1145, -64, 1136, 830, -53, 887)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(-2, 17.9999)
+scale = Vector2(68.8594, 66.9687)
+blend_mode = 2
+texture = SubResource("GradientTexture2D_l4y21")
+
+[node name="RunePath" type="Path2D" parent="."]
+position = Vector2(503, 124)
+curve = SubResource("Curve2D_5yaxt")
+
+[node name="RunePathFollow" type="PathFollow2D" parent="RunePath"]
+position = Vector2(-5, -214)
+rotates = false
+loop = false
+
+[node name="Rune" type="Sprite2D" parent="RunePath/RunePathFollow"]
+material = SubResource("CanvasItemMaterial_2mrh5")
+scale = Vector2(0.28125, 0.28125)
+texture = ExtResource("2_kq70v")
+
+[node name="PointLight2D" type="PointLight2D" parent="RunePath/RunePathFollow/Rune"]
+position = Vector2(-13, -1)
+scale = Vector2(3.73438, 3.73438)
+texture = SubResource("GradientTexture2D_kmflc")
+
+[node name="PlanktonPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_pbuyi")
+
+[node name="PlanktonPathFollow" type="PathFollow2D" parent="PlanktonPath"]
+position = Vector2(361, 339)
+rotates = false
+cubic_interp = false
+loop = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_o0wly")
+}
+autoplay = "opening"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(512, 384)
+
+[node name="PlanktonsBackground" type="Node2D" parent="."]
+
+[node name="AnimatedSpritePlanktonBg" type="AnimatedSprite2D" parent="PlanktonsBackground"]
+material = SubResource("ShaderMaterial_vhga8")
+position = Vector2(380, 327)
+rotation = 1.5708
+scale = Vector2(0.05, 0.05)
+sprite_frames = ExtResource("4_164xf")
+animation = &"idle"
+script = SubResource("GDScript_raxx2")
