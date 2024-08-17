@@ -11,6 +11,14 @@ var facing := Facing.RIGHT
 var orientation := 0.0
 var orientation_speed := 0.0
 var speed := 0.0
+var swimming := false:
+	set(s):
+		if s != swimming:
+			swimming = s
+			if s:
+				($AnimatedSprite2D as AnimatedSprite2D).play("default")
+			else:
+				($AnimatedSprite2D as AnimatedSprite2D).stop()
 
 @onready var _sprite := $AnimatedSprite2D as AnimatedSprite2D
 
@@ -30,6 +38,8 @@ func _physics_process(delta: float) -> void:
 	var command_direction := Input.get_vector(
 		"fish_left", "fish_right", "fish_up", "fish_down"
 	)
+	swimming = not command_direction.is_zero_approx()
+		
 	
 	velocity += command_direction * accel * delta
 	velocity = velocity.limit_length(max_speed)

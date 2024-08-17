@@ -1,17 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://l4sjy0s8l2d"]
+[gd_scene load_steps=6 format=3 uid="uid://l4sjy0s8l2d"]
 
 [ext_resource type="Script" path="res://scripts/fish.gd" id="1_epr8x"]
-[ext_resource type="Texture2D" uid="uid://cpbu7vljiw8al" path="res://assets/textures/fish.png" id="2_in66y"]
+[ext_resource type="Texture2D" uid="uid://dkxc21dvw24kx" path="res://assets/textures/plankton/frame0000.png" id="2_o7bsb"]
+[ext_resource type="Texture2D" uid="uid://b20ocqcpcjhem" path="res://assets/textures/plankton/frame0001.png" id="3_eap8q"]
+[ext_resource type="Texture2D" uid="uid://dhqa2qbvar8tu" path="res://assets/textures/plankton/frame0002.png" id="4_nqqv1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pubou"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_in66y")
+"texture": ExtResource("2_o7bsb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_eap8q")
+}, {
+"duration": 5.0,
+"texture": ExtResource("4_nqqv1")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [node name="Fish" type="CharacterBody2D"]
@@ -20,6 +28,7 @@ script = ExtResource("1_epr8x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pubou")
+frame_progress = 0.562679
 offset = Vector2(0, 10.035)
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
