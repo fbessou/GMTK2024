@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://l4sjy0s8l2d"]
+
+[ext_resource type="Script" path="res://scripts/fish.gd" id="1_epr8x"]
+[ext_resource type="Texture2D" uid="uid://cpbu7vljiw8al" path="res://assets/textures/fish.png" id="2_in66y"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pubou"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_in66y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Fish" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_epr8x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pubou")
+offset = Vector2(0, 10.035)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
+color = Color(1, 0.564706, 1, 1)
+polygon = PackedVector2Array(0, -8, 121, 0, 1, 6)
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+visible = false
+color = Color(0.286275, 1, 0.556863, 1)
+polygon = PackedVector2Array(0, -8, 121, 0, 1, 6)
