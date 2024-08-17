@@ -1,15 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://pyh7pvrgmnfn"]
+[gd_scene load_steps=3 format=3 uid="uid://kog4n06ycwj0"]
 
 [ext_resource type="PackedScene" uid="uid://cu585kiq766m0" path="res://scenes/Levels/level_1.tscn" id="1_w2214"]
-[ext_resource type="PackedScene" uid="uid://l4sjy0s8l2d" path="res://scenes/fish.tscn" id="2_gsuvp"]
+[ext_resource type="PackedScene" uid="uid://d0kb6abw1g61t" path="res://scenes/fishes/puffer.tscn" id="2_uqxxr"]
 
 [node name="Game" type="Node2D"]
 
 [node name="Level1" parent="." instance=ExtResource("1_w2214")]
 
-[node name="Fish" parent="." instance=ExtResource("2_gsuvp")]
-position = Vector2(-472, 256)
-scale = Vector2(0.36, 0.36)
+[node name="Puffer" parent="." instance=ExtResource("2_uqxxr")]
+position = Vector2(-394, 316)
 
-[node name="Camera2D" type="Camera2D" parent="Fish"]
-zoom = Vector2(2, 2)
+[node name="Camera2D" type="Camera2D" parent="Puffer"]
+scale = Vector2(0.36, 0.36)
