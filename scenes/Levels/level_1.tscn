@@ -18,15 +18,17 @@ size = Vector2(209, 139)
 
 [node name="Level1" type="Node2D"]
 
-[node name="Background Parallax" type="Parallax2D" parent="."]
+[node name="Background Parallax" type="Node2D" parent="."]
 
 [node name="Background" type="Parallax2D" parent="Background Parallax"]
+scroll_scale = Vector2(0.1, 0.1)
+repeat_size = Vector2(1920, 1080)
 
 [node name="Sprite2D" type="Sprite2D" parent="Background Parallax/Background"]
-scale = Vector2(2, 2)
 texture = ExtResource("8_cuxfu")
 
 [node name="Midground" type="Parallax2D" parent="Background Parallax"]
+scroll_scale = Vector2(0.5, 0.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="Background Parallax/Midground"]
 scale = Vector2(1.2, 1.2)
@@ -78,6 +80,7 @@ position = Vector2(-427, -245)
 zoom = Vector2(0.9, 0.9)
 
 [node name="Foreground Parallax" type="Parallax2D" parent="."]
+scroll_scale = Vector2(1.3, 1.3)
 
 [node name="Sprite2D" type="Sprite2D" parent="Foreground Parallax"]
 scale = Vector2(1.3, 1.3)
