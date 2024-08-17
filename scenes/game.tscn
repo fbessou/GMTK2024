@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://pyh7pvrgmnfn"]
+
+[ext_resource type="PackedScene" uid="uid://cu585kiq766m0" path="res://scenes/Levels/level_1.tscn" id="1_w2214"]
+[ext_resource type="PackedScene" uid="uid://l4sjy0s8l2d" path="res://scenes/fish.tscn" id="2_gsuvp"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Level1" parent="." instance=ExtResource("1_w2214")]
+
+[node name="Fish" parent="." instance=ExtResource("2_gsuvp")]
+position = Vector2(-472, 256)
+scale = Vector2(0.36, 0.36)
+
+[node name="Camera2D" type="Camera2D" parent="Fish"]
+zoom = Vector2(2, 2)

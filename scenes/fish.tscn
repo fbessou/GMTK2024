@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://l4sjy0s8l2d"]
+[gd_scene load_steps=11 format=3 uid="uid://l4sjy0s8l2d"]
 
 [ext_resource type="Script" path="res://scripts/fish.gd" id="1_epr8x"]
 [ext_resource type="Texture2D" uid="uid://dkxc21dvw24kx" path="res://assets/textures/plankton/frame0000.png" id="2_o7bsb"]
@@ -54,6 +54,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2mh2n"]
+radius = 89.0505
+
 [node name="Fish" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_epr8x")
@@ -62,7 +65,6 @@ script = ExtResource("1_epr8x")
 sprite_frames = SubResource("SpriteFrames_pubou")
 animation = &"swimming"
 frame_progress = 0.192291
-offset = Vector2(0, 10.035)
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 visible = false
@@ -73,3 +75,6 @@ polygon = PackedVector2Array(0, -8, 121, 0, 1, 6)
 visible = false
 color = Color(0.286275, 1, 0.556863, 1)
 polygon = PackedVector2Array(0, -8, 121, 0, 1, 6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2mh2n")
