@@ -1,7 +1,8 @@
 class_name Fish
 extends CharacterBody2D
 
-enum State { CONTROLLED, }
+enum State { PLAYER, NPC }
+
 enum Facing { RIGHT = 1, LEFT = -1 }
 @export var max_speed := 200.0
 @export var accel := max_speed / 0.2
@@ -11,6 +12,14 @@ var facing := Facing.RIGHT
 var orientation := 0.0
 var orientation_speed := 0.0
 var speed := 0.0
+var swimming := false:
+	set(s):
+		if s != swimming:
+			swimming = s
+			if s:
+				($AnimatedSprite2D as AnimatedSprite2D).play("swimming")
+			else:
+				($AnimatedSprite2D as AnimatedSprite2D).play("idle")
 
 @onready var _sprite := $AnimatedSprite2D as AnimatedSprite2D
 
@@ -19,10 +28,10 @@ func _process(_delta: float) -> void:
 	var rot := 0.0
 	match facing:
 		Facing.LEFT:
-			_sprite.flip_h = true
+			_sprite.flip_h = false
 			rot = -orientation
 		Facing.RIGHT:
-			_sprite.flip_h = false
+			_sprite.flip_h = true
 			rot = orientation
 	_sprite.rotation = rot * .35
 
@@ -30,6 +39,8 @@ func _physics_process(delta: float) -> void:
 	var command_direction := Input.get_vector(
 		"fish_left", "fish_right", "fish_up", "fish_down"
 	)
+	swimming = not command_direction.is_zero_approx()
+		
 	
 	velocity += command_direction * accel * delta
 	velocity = velocity.limit_length(max_speed)
