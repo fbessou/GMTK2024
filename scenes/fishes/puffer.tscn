@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0kb6abw1g61t"]
+
+[ext_resource type="PackedScene" uid="uid://l4sjy0s8l2d" path="res://scenes/fishes/fish.tscn" id="1_b4bhl"]
+
+[node name="Puffer" instance=ExtResource("1_b4bhl")]
