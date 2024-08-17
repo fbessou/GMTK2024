@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cu585kiq766m0"]
+[gd_scene load_steps=9 format=3 uid="uid://cu585kiq766m0"]
 
 [ext_resource type="Script" path="res://movement_test.gd" id="1_wv2pk"]
 [ext_resource type="Texture2D" uid="uid://qunm2c1wf2vh" path="res://assets/textures/plankton_sprite.png" id="5_fi7o7"]
@@ -6,15 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://dgvdxphki1cs8" path="res://assets/textures/environment/level1/3-background.svg" id="8_cuxfu"]
 [ext_resource type="Texture2D" uid="uid://mlwwit4s7j2j" path="res://assets/textures/environment/level1/2-midground.svg" id="10_ypg8p"]
 [ext_resource type="Texture2D" uid="uid://c3i7ffs6568mt" path="res://assets/textures/environment/level1/0-foreground.svg" id="12_wggoc"]
-[ext_resource type="Script" path="res://scripts/TransitionZone.gd" id="13_eqs21"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqavl"]
 size = Vector2(8, 14)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wsdpj"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jhed"]
-size = Vector2(209, 139)
 
 [node name="Level1" type="Node2D"]
 
@@ -22,7 +18,9 @@ size = Vector2(209, 139)
 
 [node name="Background" type="Parallax2D" parent="Background Parallax"]
 scroll_scale = Vector2(0.1, 0.1)
+scroll_offset = Vector2(-210, -144)
 repeat_size = Vector2(1920, 1080)
+repeat_times = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Background Parallax/Background"]
 texture = ExtResource("8_cuxfu")
@@ -64,20 +62,6 @@ scale = Vector2(0.0799988, 0.0799988)
 texture = ExtResource("5_fi7o7")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-zoom = Vector2(5, 5)
-
-[node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("destination", "player")]
-script = ExtResource("13_eqs21")
-destination = NodePath("../Camera2D")
-player = NodePath("../CharacterBody2D")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-198.5, -2.5)
-shape = SubResource("RectangleShape2D_6jhed")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-427, -245)
-zoom = Vector2(0.9, 0.9)
 
 [node name="Foreground Parallax" type="Parallax2D" parent="."]
 scroll_scale = Vector2(1.3, 1.3)
