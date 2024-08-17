@@ -1,17 +1,24 @@
 class_name Fish
 extends CharacterBody2D
 
-enum State { PLAYER, NPC }
+enum State {
+	PLAYER, # Player has control
+	NPC, # Moving alone???
+	FROZEN, # Position frozen
+}
 enum Kind { None=0, Plankton=1, Puffer=2, Angler=4 }
 enum Facing { RIGHT = 1, LEFT = -1 }
+
+const FROZEN_DRAG := 0.95
 
 @export var kind := Kind.None
 @export var max_speed := 200.0
 @export var accel := max_speed / 0.2
-@export var drag := 0.4
+@export var drag := 0.6
 @export var view_scale := 1.0
 @export var max_inclination := 0.35 # from 0.05 to 0.95
 @export_flags("Plankton", "Puffer", "Angler") var eat := 0
+@export var state := State.NPC
 
 var facing := Facing.RIGHT
 var orientation := 0.0
@@ -32,17 +39,27 @@ func _ready() -> void:
 	assert(_mouth_area.collision_layer == 0x4)
 	assert(_mouth_area.collision_mask == 0x4)
 
+func _unhandled_input(event: InputEvent) -> void:
+	if state == State.PLAYER:
+		if event.is_action_pressed("fish_power"):
+			_power_on()
+		elif event.is_action_released("fish_power"):
+			_power_off()
 
 func _physics_process(delta: float) -> void:
-	var command_direction := Input.get_vector(
-		"fish_left", "fish_right", "fish_up", "fish_down"
-	)
+	var command_direction := Vector2.ZERO
+	if state == State.PLAYER:
+		command_direction = Input.get_vector(
+			"fish_left", "fish_right", "fish_up", "fish_down"
+		)
 	
 	# Move
-	velocity += command_direction * accel * delta
-	velocity = velocity.limit_length(max_speed)
-	velocity = velocity * pow(drag, delta)
-
+	var lon_vel := command_direction.dot(velocity)
+	if lon_vel < max_speed:
+		lon_vel = lon_vel + maxf(accel * delta, max_speed - lon_vel)
+	velocity += command_direction * lon_vel - command_direction * command_direction.dot(velocity)
+	var d := FROZEN_DRAG if state == State.FROZEN else drag
+	velocity = velocity * pow(1.0 - d, delta)
 	move_and_slide()
 	
 	# Visual
@@ -81,3 +98,9 @@ func _update_animation() -> void:
 func _flip_horizontal(flip: bool) -> void:
 	_animated_sprite.flip_h = flip
 	_mouth_area.position.x = absf(_mouth_area.position.x) * (1 if flip else -1)
+
+func _power_on() -> void:
+	pass
+
+func _power_off() -> void:
+	pass
