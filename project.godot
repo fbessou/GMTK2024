@@ -70,6 +70,10 @@ window/stretch/mode="viewport"
 2d_physics/layer_1="world"
 3d_physics/layer_1="world"
 
+[physics]
+
+3d/default_gravity=0.0
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
