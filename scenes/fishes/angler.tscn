@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://dqidfykm4q6cs"]
+
+[ext_resource type="PackedScene" uid="uid://l4sjy0s8l2d" path="res://scenes/fishes/fish.tscn" id="1_i2gp8"]
+[ext_resource type="Script" path="res://scripts/fishes/angler.gd" id="2_35ved"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_phnip"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"swimming",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e1h3q"]
+radius = 113.018
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8a8gh"]
+radius = 50.0899
+
+[sub_resource type="Gradient" id="Gradient_jpi24"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xggxc"]
+gradient = SubResource("Gradient_jpi24")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="Angler" instance=ExtResource("1_i2gp8")]
+script = ExtResource("2_35ved")
+accel = null
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_phnip")
+animation = &"swimming"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_e1h3q")
+
+[node name="MouthArea2D" type="Area2D" parent="." index="2"]
+position = Vector2(-116, 0)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouthArea2D" index="0"]
+shape = SubResource("CircleShape2D_8a8gh")
+
+[node name="PointLight2D" type="PointLight2D" parent="." index="3"]
+position = Vector2(-105, -77)
+scale = Vector2(11.2188, 9.64062)
+blend_mode = 2
+texture = SubResource("GradientTexture2D_xggxc")
