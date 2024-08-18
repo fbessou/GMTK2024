@@ -39,16 +39,18 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jjr7s"]
-radius = 9.0
-height = 80.0
+radius = 4.0
+height = 40.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kdyib"]
-radius = 15.0333
+radius = 8.06226
 
 [node name="Anchovy" instance=ExtResource("1_88i4t")]
 z_index = -475
 z_as_relative = false
 kind = 6
+max_speed = 250.0
+accel = 2000.0
 eat = 1
 state = 0
 scarable = true
@@ -56,18 +58,17 @@ eatAnimationSpeed = 0.5
 transType = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_fn0tc")
 animation = &"idle"
 frame_progress = 0.158316
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
-position = Vector2(0, 1)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_jjr7s")
 
 [node name="MouthArea2D" type="Area2D" parent="." index="2"]
-position = Vector2(-48, 1)
+position = Vector2(-21, -1)
 collision_layer = 4
 collision_mask = 4
 
@@ -78,5 +79,5 @@ shape = SubResource("CircleShape2D_kdyib")
 [node name="FoodBubble" parent="." index="3" instance=ExtResource("11_vjekw")]
 z_index = 1500
 z_as_relative = false
-position = Vector2(95, -72)
-scale = Vector2(0.5, 0.5)
+position = Vector2(20, -41)
+scale = Vector2(0.3, 0.3)
