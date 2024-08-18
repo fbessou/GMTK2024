@@ -1,23 +1,43 @@
-[gd_scene load_steps=14 format=3 uid="uid://diht24l3hw71d"]
+[gd_scene load_steps=19 format=3 uid="uid://diht24l3hw71d"]
 
 [ext_resource type="PackedScene" uid="uid://l4sjy0s8l2d" path="res://scenes/fishes/fish.tscn" id="1_3t67g"]
 [ext_resource type="Texture2D" uid="uid://btkts8qjh6lsj" path="res://assets/textures/eel/frame0000.png" id="2_6jwnt"]
 [ext_resource type="Script" path="res://scripts/fishes/eel.gd" id="2_ewc1b"]
 [ext_resource type="Texture2D" uid="uid://d1f66hr6tiaxv" path="res://assets/textures/eel/frame0001.png" id="3_7qg7q"]
+[ext_resource type="Texture2D" uid="uid://beqw8wtctw5qm" path="res://assets/textures/eel/Electricity/frame0000.png" id="3_m370r"]
+[ext_resource type="Texture2D" uid="uid://7io2uhuqmy0f" path="res://assets/textures/eel/Electricity/frame0002.png" id="4_dag5r"]
 [ext_resource type="Texture2D" uid="uid://o01e5q2xf3ee" path="res://assets/textures/eel/frame0004.png" id="4_wnop8"]
+[ext_resource type="Texture2D" uid="uid://ygbkw247gbbx" path="res://assets/textures/eel/Electricity/frame0004.png" id="5_1duvm"]
 [ext_resource type="Texture2D" uid="uid://cphso381iawa3" path="res://assets/textures/eel/frame0006.png" id="5_a3ks6"]
-[ext_resource type="Texture2D" uid="uid://dhheirsgb1yx0" path="res://icon.svg" id="7_yk8he"]
+[ext_resource type="Texture2D" uid="uid://b26g0ltngufp3" path="res://assets/textures/eel/Electricity/frame0006.png" id="6_coajf"]
+[ext_resource type="Texture2D" uid="uid://ccqv01h8cm52p" path="res://assets/textures/eel/Electricity/frame0008.png" id="7_arddo"]
 [ext_resource type="PackedScene" uid="uid://b0phg6atgdkvt" path="res://scenes/ui/food_bubble.tscn" id="8_4itvq"]
+[ext_resource type="Texture2D" uid="uid://ccvc2m412m0mu" path="res://assets/textures/eel/Electricity/frame0010.png" id="8_yetjj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ssdig"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_yk8he")
+"texture": ExtResource("3_m370r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dag5r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1duvm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_coajf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_arddo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_yetjj")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 12.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x2rn5"]
@@ -71,18 +91,21 @@ accel = 1300.0
 drag = 0.75
 view_scale = 1.5
 max_inclination = 0.2
+state = 0
 
 [node name="ElectricityArea2D" type="Area2D" parent="." index="0"]
-position = Vector2(-172, 6)
+position = Vector2(-35, 6)
 collision_layer = 8
 collision_mask = 8
 monitorable = false
 
 [node name="ElectricitySprite" type="AnimatedSprite2D" parent="ElectricityArea2D" index="0"]
 unique_name_in_owner = true
-scale = Vector2(5.835, 5.835)
+scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_ssdig")
 autoplay = "default"
+frame = 5
+frame_progress = 0.224034
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ElectricityArea2D" index="1"]
 shape = SubResource("CircleShape2D_x2rn5")
@@ -91,7 +114,7 @@ shape = SubResource("CircleShape2D_x2rn5")
 scale = Vector2(0.45, 0.45)
 sprite_frames = SubResource("SpriteFrames_r42i2")
 animation = &"swimming"
-frame_progress = 0.247011
+frame_progress = 0.494189
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 rotation = 1.5708
