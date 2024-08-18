@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://kog4n06ycwj0"]
+[gd_scene load_steps=12 format=3 uid="uid://kog4n06ycwj0"]
 
 [ext_resource type="PackedScene" uid="uid://cu585kiq766m0" path="res://scenes/Levels/level_1.tscn" id="1_w2214"]
 [ext_resource type="PackedScene" uid="uid://peng5fbet5c1" path="res://scenes/fishes/plankton.tscn" id="3_fj1y7"]
 [ext_resource type="PackedScene" uid="uid://d0kb6abw1g61t" path="res://scenes/fishes/puffer.tscn" id="3_i6q2y"]
+[ext_resource type="PackedScene" uid="uid://tvq6ijgntio" path="res://scenes/fishes/whale.tscn" id="4_1i483"]
 [ext_resource type="PackedScene" uid="uid://diht24l3hw71d" path="res://scenes/fishes/eel.tscn" id="5_3eui8"]
-[ext_resource type="PackedScene" uid="uid://c0ytf0qqpqkbk" path="res://scenes/ui/pause_menu.tscn" id="6_cigdm"]
 [ext_resource type="Script" path="res://scripts/Scripted Interactions/CaveEel.gd" id="6_pjrvd"]
+
+[sub_resource type="GDScript" id="GDScript_06pgi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_881gm"]
 radius = 140.289
@@ -48,13 +50,13 @@ _data = {
 }
 
 [node name="Game" type="Node2D"]
+script = SubResource("GDScript_06pgi")
 
 [node name="Level1" parent="." instance=ExtResource("1_w2214")]
 
 [node name="Puffer2" parent="." instance=ExtResource("3_i6q2y")]
 z_index = 0
 position = Vector2(255, 5)
-view_scale = 1.0
 eat = 4
 state = 0
 eatAnimationSpeed = 0.5
@@ -62,28 +64,27 @@ eatAnimationSpeed = 0.5
 [node name="Camera2D" type="Camera2D" parent="Puffer2"]
 z_index = 2000
 z_as_relative = false
+position = Vector2(-1, -1)
 zoom = Vector2(2.5, 2.5)
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="Plankton" parent="." instance=ExtResource("3_fj1y7")]
-position = Vector2(-408, 339)
-view_scale = 1.0
-state = 0
+position = Vector2(432, 32)
 scarable = true
 eatAnimationSpeed = 0.5
 transType = 0
+
+[node name="Whale" parent="." instance=ExtResource("4_1i483")]
+position = Vector2(3757, -396)
 
 [node name="Cave Eel" parent="." instance=ExtResource("5_3eui8")]
 position = Vector2(972, -12)
 rotation = 0.0380364
 collision_mask = 6
 script = ExtResource("6_pjrvd")
-max_speed = 200.0
 accel = null
-drag = 0.6
-view_scale = 1.0
 
 [node name="ElectricityArea2D" parent="Cave Eel" index="0"]
 visible = false
@@ -110,8 +111,6 @@ debug_color = Color(0.382633, 0.73574, 0.174925, 0.42)
 libraries = {
 "": SubResource("AnimationLibrary_ifdxn")
 }
-
-[node name="PauseMenu" parent="." instance=ExtResource("6_cigdm")]
 
 [connection signal="body_entered" from="Cave Eel/Scare Anim Area" to="Cave Eel" method="_on_scare_anim_area_body_entered"]
 [connection signal="body_exited" from="Cave Eel/Scare Anim Area" to="Cave Eel" method="_on_scare_anim_area_body_exited"]

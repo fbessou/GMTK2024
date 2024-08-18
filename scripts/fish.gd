@@ -6,7 +6,7 @@ enum State {
 	NPC, # Moving alone???
 	FROZEN, # Position frozen
 }
-enum Kind { None, Plankton, Puffer, Angler, Whale, Eel }
+enum Kind { None, Plankton, Puffer, Angler, Whale, Eel, Anchovy }
 enum Facing { RIGHT = 1, LEFT = -1 }
 
 const FROZEN_DRAG := 1.0
@@ -77,7 +77,7 @@ func _physics_process(delta: float) -> void:
 	# Move
 	var lon_vel := command_direction.dot(velocity)
 	if lon_vel < max_speed:
-		lon_vel = lon_vel + maxf(accel * delta, max_speed - lon_vel)
+		lon_vel = lon_vel + minf(accel * delta, max_speed - lon_vel)
 	velocity += command_direction * lon_vel - command_direction * command_direction.dot(velocity)
 	var d := FROZEN_DRAG if state == State.FROZEN else drag
 	velocity = velocity * pow(1.0 - d, delta)

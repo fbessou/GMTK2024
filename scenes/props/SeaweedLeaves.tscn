@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://5w3u43821a5"]
+
+[ext_resource type="SpriteFrames" uid="uid://do2vherkpf37j" path="res://resources/sprites_frames/seaweed_leaves.tres" id="1_lythx"]
+[ext_resource type="Script" path="res://scripts/props/seaweed_leaves.gd" id="2_ltfs6"]
+
+[node name="SeaweedLeaves" type="AnimatedSprite2D"]
+modulate = Color(0.780392, 0.780392, 0.176471, 1)
+sprite_frames = ExtResource("1_lythx")
+autoplay = "default"
+script = ExtResource("2_ltfs6")
