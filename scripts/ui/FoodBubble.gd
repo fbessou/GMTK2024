@@ -20,6 +20,9 @@ func hide_bubble() -> void:
 	sprite_2d.hide()
 	
 func load_texture_by_fish_type(fishType: int) -> void:
+	if(fishType == 0):
+		sprite_2d.texture = null
+		return
 	sprite_2d.texture = fish_textures_resource.textures[fishType - 1]
 
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:

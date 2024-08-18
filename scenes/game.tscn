@@ -1,45 +1,131 @@
-[gd_scene load_steps=8 format=3 uid="uid://kog4n06ycwj0"]
+[gd_scene load_steps=12 format=3 uid="uid://kog4n06ycwj0"]
 
 [ext_resource type="PackedScene" uid="uid://cu585kiq766m0" path="res://scenes/Levels/level_1.tscn" id="1_w2214"]
 [ext_resource type="PackedScene" uid="uid://peng5fbet5c1" path="res://scenes/fishes/plankton.tscn" id="3_fj1y7"]
 [ext_resource type="PackedScene" uid="uid://d0kb6abw1g61t" path="res://scenes/fishes/puffer.tscn" id="3_i6q2y"]
 [ext_resource type="PackedScene" uid="uid://tvq6ijgntio" path="res://scenes/fishes/whale.tscn" id="4_1i483"]
 [ext_resource type="PackedScene" uid="uid://diht24l3hw71d" path="res://scenes/fishes/eel.tscn" id="5_3eui8"]
-[ext_resource type="PackedScene" uid="uid://dqidfykm4q6cs" path="res://scenes/fishes/angler.tscn" id="6_7iknf"]
+[ext_resource type="Script" path="res://scripts/Scripted Interactions/CaveEel.gd" id="6_pjrvd"]
 
 [sub_resource type="GDScript" id="GDScript_06pgi"]
-script/source = "extends Node2D
-"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_881gm"]
+radius = 140.289
+
+[sub_resource type="Animation" id="Animation_t6teo"]
+resource_name = "Scare"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0682408, 0.166667, 0.268241, 0.334907, 0.4, 0.466667, 0.566667, 0.766667, 1.13333, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(972, -12), Vector2(958, -7.99999), Vector2(950, -23), Vector2(1000, -2), Vector2(972, -12), Vector2(958, -7.99999), Vector2(950, -23), Vector2(1000, -2), Vector2(958, -7.99999), Vector2(952, -13), Vector2(1230, -11)]
+}
+
+[sub_resource type="Animation" id="Animation_eiqqv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(972, -12)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ifdxn"]
+_data = {
+"RESET": SubResource("Animation_eiqqv"),
+"Scare": SubResource("Animation_t6teo")
+}
 
 [node name="Game" type="Node2D"]
 script = SubResource("GDScript_06pgi")
+kind = null
+max_speed = null
+drag = null
+view_scale = null
+max_inclination = null
+eat = null
+state = null
+scarable = null
+eatAnimationSpeed = null
+transType = null
+cameraAnimationSpeed = null
+cameraZoomFactor = null
+facing = null
 
 [node name="Level1" parent="." instance=ExtResource("1_w2214")]
 
 [node name="Puffer2" parent="." instance=ExtResource("3_i6q2y")]
-position = Vector2(-455, 334)
+z_index = 0
+position = Vector2(255, 5)
 eat = 4
-eatAnimationSpeed = 0.5
-
-[node name="Plankton" parent="." instance=ExtResource("3_fj1y7")]
-position = Vector2(551, 14)
 state = 0
 eatAnimationSpeed = 0.5
-transType = 0
 
-[node name="Camera2D" type="Camera2D" parent="Plankton"]
+[node name="Camera2D" type="Camera2D" parent="Puffer2"]
 z_index = 2000
 z_as_relative = false
-position = Vector2(0, -1)
+position = Vector2(-1, -1)
 zoom = Vector2(2.5, 2.5)
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
+[node name="Plankton" parent="." instance=ExtResource("3_fj1y7")]
+position = Vector2(432, 32)
+scarable = true
+eatAnimationSpeed = 0.5
+transType = 0
+
 [node name="Whale" parent="." instance=ExtResource("4_1i483")]
 position = Vector2(-348, -402)
 
-[node name="Eel" parent="." instance=ExtResource("5_3eui8")]
-position = Vector2(979, -15)
+[node name="Cave Eel" parent="." instance=ExtResource("5_3eui8")]
+position = Vector2(972, -12)
+rotation = 0.0380364
+collision_mask = 6
+script = ExtResource("6_pjrvd")
+accel = null
 
-[node name="Angler" parent="." instance=ExtResource("6_7iknf")]
+[node name="ElectricityArea2D" parent="Cave Eel" index="0"]
+visible = false
+
+[node name="ElectricitySprite" parent="Cave Eel/ElectricityArea2D" index="0"]
+visible = false
+
+[node name="MouthArea2D" parent="Cave Eel" index="3"]
+position = Vector2(130.563, -13.9751)
+
+[node name="FoodBubble" parent="Cave Eel" index="4"]
+visible = false
+
+[node name="Scare Anim Area" type="Area2D" parent="Cave Eel"]
+collision_layer = 6
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cave Eel/Scare Anim Area"]
+position = Vector2(-277, 2)
+shape = SubResource("CircleShape2D_881gm")
+debug_color = Color(0.382633, 0.73574, 0.174925, 0.42)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Cave Eel"]
+libraries = {
+"": SubResource("AnimationLibrary_ifdxn")
+}
+
+[connection signal="body_entered" from="Cave Eel/Scare Anim Area" to="Cave Eel" method="_on_scare_anim_area_body_entered"]
+[connection signal="body_exited" from="Cave Eel/Scare Anim Area" to="Cave Eel" method="_on_scare_anim_area_body_exited"]
+
+[editable path="Cave Eel"]

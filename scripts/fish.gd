@@ -151,7 +151,7 @@ func _match_visual_angle(direction: Vector2) -> void:
 	
 	
 func _on_body_entered(body: Fish) -> void:
-	if(body == self):
+	if(body == self || eat == 0):
 		return
 	if(body.kind == eat && body.state == Fish.State.PLAYER):
 		food_bubble.hide_bubble()

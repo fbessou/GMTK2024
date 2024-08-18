@@ -115,6 +115,10 @@ position = Vector2(95, -72)
 scale = Vector2(0.5, 0.5)
 
 [node name="ScareArea" type="Area2D" parent="." index="4"]
+collision_layer = 6
+collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScareArea" index="0"]
 shape = SubResource("CircleShape2D_fiopn")
+
+[connection signal="body_entered" from="ScareArea" to="." method="_on_scare_area_body_entered"]
