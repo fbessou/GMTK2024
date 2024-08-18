@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5n7gn5kuvohj"]
+
+[sub_resource type="GDScript" id="GDScript_c60un"]
+script/source = "@tool
+class_name Prop
+extends Node2D
+
+enum Depth {
+	Background = -800,
+	Foreground = -200,
+}
+
+@export var depth: Depth = Depth.Background:
+	set(new_depth):
+		depth = new_depth
+		if Engine.is_editor_hint():
+			z_as_relative = false
+			z_index = new_depth
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	if Engine.is_editor_hint():
+		z_as_relative = false
+		z_index = depth
+"
+
+[node name="Prop" type="Node2D"]
+script = SubResource("GDScript_c60un")
