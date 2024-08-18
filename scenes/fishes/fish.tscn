@@ -9,6 +9,8 @@ collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_epr8x")
 accel = 1000.0
+eatAnimationSpeed = 2.0
+transType = 10
 
 [node name="FoodBubble" parent="." instance=ExtResource("2_8550e")]
 position = Vector2(165, -206)
