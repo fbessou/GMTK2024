@@ -19,6 +19,7 @@ const FROZEN_DRAG := 1.0
 @export var max_inclination := 0.35 # from 0.05 to 0.95
 @export var eat := Kind.None
 @export var state := State.NPC
+@export var scarable: bool = false
 
 @export_group("Eat Animation")
 @export var eatAnimationSpeed := 0.5
@@ -82,25 +83,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	# Visual
-	
-	if not is_zero_approx(command_direction.x):
-		facing = Facing.LEFT if command_direction.x < 0 else Facing.RIGHT
-	
-	var target_orientation := 0.0
-	if not command_direction.is_zero_approx():
-		target_orientation = command_direction.angle() if facing == Facing.RIGHT else _wrap_angle(PI - command_direction.angle())
-		target_orientation = clampf(target_orientation, -PI/2 * 0.95, PI/2 * 0.95)
-		
-	orientation = lerp_angle(orientation, target_orientation, 0.1)
-	
-	swimming = not command_direction.is_zero_approx()
-	match facing:
-		Facing.LEFT:
-			_flip_horizontal(false)
-			rotation = -orientation * max_inclination
-		Facing.RIGHT:
-			_flip_horizontal(true)
-			rotation = orientation * max_inclination
+	_match_visual_angle(command_direction)
 
 func _wrap_angle(a: float) -> float:
 	return wrapf(a, -PI, PI)
@@ -123,6 +106,48 @@ func _power_on() -> void:
 
 func _power_off() -> void:
 	pass
+	
+func _scare(_scareOrigin: Vector2) -> void:
+	if(!scarable):
+		return
+		
+	var dir := (position - _scareOrigin).normalized() * 0.1
+	var elapsedTime := 0.
+	while(elapsedTime < 0.25):
+		elapsedTime += get_process_delta_time()
+		# Move
+		velocity = dir
+		var lon_vel := dir.dot(velocity)
+		if lon_vel < max_speed:
+			lon_vel = lon_vel + maxf(accel * get_process_delta_time(), max_speed - lon_vel)
+		velocity += dir * lon_vel - dir * dir.dot(velocity)
+		var d := FROZEN_DRAG if state == State.FROZEN else drag
+		velocity = velocity * pow(1.0 - d, get_process_delta_time()) * 5.
+		move_and_slide()
+		
+		# Visual
+		_match_visual_angle(dir)
+
+func _match_visual_angle(direction: Vector2) -> void:
+	if not is_zero_approx(direction.x):
+		facing = Facing.LEFT if direction.x < 0 else Facing.RIGHT
+	
+	var target_orientation := 0.0
+	if not direction.is_zero_approx():
+		target_orientation = direction.angle() if facing == Facing.RIGHT else _wrap_angle(PI - direction.angle())
+		target_orientation = clampf(target_orientation, -PI/2 * 0.95, PI/2 * 0.95)
+		
+	orientation = lerp_angle(orientation, target_orientation, 0.1)
+	
+	swimming = not direction.is_zero_approx()
+	match facing:
+		Facing.LEFT:
+			_flip_horizontal(false)
+			rotation = -orientation * max_inclination
+		Facing.RIGHT:
+			_flip_horizontal(true)
+			rotation = orientation * max_inclination
+	
 	
 func _on_body_entered(body: Fish) -> void:
 	if(body == self):
