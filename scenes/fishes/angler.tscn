@@ -64,6 +64,9 @@ z_index = -400
 z_as_relative = false
 script = ExtResource("2_35ved")
 kind = 3
+max_speed = 160.0
+accel = 1300.0
+view_scale = 1.75
 eat = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
