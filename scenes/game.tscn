@@ -1,12 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://kog4n06ycwj0"]
+[gd_scene load_steps=7 format=3 uid="uid://kog4n06ycwj0"]
 
 [ext_resource type="PackedScene" uid="uid://cu585kiq766m0" path="res://scenes/Levels/level_1.tscn" id="1_w2214"]
 [ext_resource type="PackedScene" uid="uid://peng5fbet5c1" path="res://scenes/fishes/plankton.tscn" id="3_fj1y7"]
 [ext_resource type="PackedScene" uid="uid://d0kb6abw1g61t" path="res://scenes/fishes/puffer.tscn" id="3_i6q2y"]
+[ext_resource type="PackedScene" uid="uid://tvq6ijgntio" path="res://scenes/fishes/whale.tscn" id="4_1i483"]
+[ext_resource type="PackedScene" uid="uid://diht24l3hw71d" path="res://scenes/fishes/eel.tscn" id="5_3eui8"]
 
 [sub_resource type="GDScript" id="GDScript_06pgi"]
 script/source = "extends Node2D
-
 "
 
 [node name="Game" type="Node2D"]
@@ -15,18 +16,27 @@ script = SubResource("GDScript_06pgi")
 [node name="Level1" parent="." instance=ExtResource("1_w2214")]
 
 [node name="Puffer2" parent="." instance=ExtResource("3_i6q2y")]
-position = Vector2(-222, -210)
-kind = 2
-eat = 1
+position = Vector2(-455, 334)
+eat = 4
 eatAnimationSpeed = 0.5
 
 [node name="Plankton" parent="." instance=ExtResource("3_fj1y7")]
-position = Vector2(-600, -146)
-scale = Vector2(0.5, 0.5)
+position = Vector2(551, 14)
 state = 0
 eatAnimationSpeed = 0.5
 transType = 0
 
 [node name="Camera2D" type="Camera2D" parent="Plankton"]
-position = Vector2(4, 50)
-scale = Vector2(2, 2)
+z_index = 2000
+z_as_relative = false
+position = Vector2(0, -1)
+zoom = Vector2(2.5, 2.5)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="Whale" parent="." instance=ExtResource("4_1i483")]
+position = Vector2(-348, -402)
+
+[node name="Eel" parent="." instance=ExtResource("5_3eui8")]
+position = Vector2(979, -15)

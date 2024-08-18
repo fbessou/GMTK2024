@@ -1,9 +1,12 @@
-[gd_resource type="Resource" script_class="FoodIcons" load_steps=4 format=3 uid="uid://dea811ii52ked"]
+[gd_resource type="Resource" script_class="FoodIcons" load_steps=7 format=3 uid="uid://dea811ii52ked"]
 
 [ext_resource type="Script" path="res://scripts/ui/FoodIcons.gd" id="1_a77dq"]
 [ext_resource type="Texture2D" uid="uid://cjtvkke6ru431" path="res://assets/textures/hud/Fishes Icons/plankton_icon.png" id="2_71b3h"]
 [ext_resource type="Texture2D" uid="uid://b7io7uxxfq4o3" path="res://assets/textures/hud/Fishes Icons/pufferfish_icon.png" id="3_i4dng"]
+[ext_resource type="Texture2D" uid="uid://gvfqrmsa702n" path="res://assets/textures/hud/Fishes Icons/anglerfish_icon.png" id="4_alplo"]
+[ext_resource type="Texture2D" uid="uid://b88i5jw176j6t" path="res://assets/textures/hud/Fishes Icons/whale_icon.png" id="5_xkyeh"]
+[ext_resource type="Texture2D" uid="uid://beolqj0kk5kbm" path="res://assets/textures/hud/Fishes Icons/eel_icon.png" id="6_r150q"]
 
 [resource]
 script = ExtResource("1_a77dq")
-textures = Array[Texture2D]([ExtResource("2_71b3h"), ExtResource("3_i4dng")])
+textures = Array[Texture2D]([ExtResource("2_71b3h"), ExtResource("3_i4dng"), ExtResource("4_alplo"), ExtResource("5_xkyeh"), ExtResource("6_r150q")])

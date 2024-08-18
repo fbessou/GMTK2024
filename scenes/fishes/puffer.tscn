@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bihjc4reh8dq0" path="res://assets/textures/pufferfish_small/frame0004.png" id="5_psh0c"]
 [ext_resource type="Texture2D" uid="uid://da0677mnmxsvx" path="res://assets/textures/pufferfish/frame0006.png" id="5_qv4y8"]
 [ext_resource type="Texture2D" uid="uid://xdtsql4vjxha" path="res://assets/textures/pufferfish_small/frame0006.png" id="6_yj4w5"]
+[ext_resource type="PackedScene" uid="uid://b0phg6atgdkvt" path="res://scenes/ui/food_bubble.tscn" id="11_qpdmk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fn0tc"]
 animations = [{
@@ -74,23 +75,22 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_by5v5"]
-radius = 88.0
+radius = 44.1022
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kdyib"]
-radius = 48.0416
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_rqd80"]
-radius = 1.0
+radius = 34.0
 
 [node name="Puffer" instance=ExtResource("1_b4bhl")]
+z_index = -450
+z_as_relative = false
 script = ExtResource("2_tkqsm")
 _small_sprite_frames = SubResource("SpriteFrames_fn0tc")
 _large_sprite_frames = SubResource("SpriteFrames_mxwvv")
-scareRadius = 250.0
 kind = 2
 eat = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_fn0tc")
 animation = &"idle"
 
@@ -98,18 +98,15 @@ animation = &"idle"
 shape = SubResource("CircleShape2D_by5v5")
 
 [node name="MouthArea2D" type="Area2D" parent="." index="2"]
-position = Vector2(-90, 0)
+position = Vector2(-48, 1)
 collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouthArea2D" index="0"]
 shape = SubResource("CircleShape2D_kdyib")
 
-[node name="ScareArea" type="Area2D" parent="." index="4"]
-collision_layer = 6
-collision_mask = 7
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ScareArea" index="0"]
-shape = SubResource("CircleShape2D_rqd80")
-
-[connection signal="body_entered" from="ScareArea" to="." method="_on_scare_area_body_entered"]
+[node name="FoodBubble" parent="." index="3" instance=ExtResource("11_qpdmk")]
+z_index = 1500
+z_as_relative = false
+position = Vector2(95, -72)
+scale = Vector2(0.5, 0.5)

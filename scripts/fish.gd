@@ -6,7 +6,7 @@ enum State {
 	NPC, # Moving alone???
 	FROZEN, # Position frozen
 }
-enum Kind { None, Plankton, Puffer, Angler }
+enum Kind { None, Plankton, Puffer, Angler, Whale, Eel }
 enum Facing { RIGHT = 1, LEFT = -1 }
 
 const FROZEN_DRAG := 1.0
@@ -27,7 +27,7 @@ const FROZEN_DRAG := 1.0
 @export var cameraAnimationSpeed := 1.0
 @export var cameraZoomFactor := 2.0
 
-var facing := Facing.RIGHT
+@export var facing := Facing.LEFT
 var orientation := 0.0
 var target : Fish
 
@@ -46,6 +46,7 @@ func _ready() -> void:
 	_update_animation()
 	assert(_animated_sprite != null)
 	assert(_mouth_area != null)
+	assert(food_bubble != null)
 	assert(_mouth_area.collision_layer == 0x4)
 	assert(_mouth_area.collision_mask == 0x4)
 	match(state):

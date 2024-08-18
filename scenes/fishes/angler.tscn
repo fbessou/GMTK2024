@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dqidfykm4q6cs"]
+[gd_scene load_steps=13 format=3 uid="uid://dqidfykm4q6cs"]
 
 [ext_resource type="PackedScene" uid="uid://l4sjy0s8l2d" path="res://scenes/fishes/fish.tscn" id="1_i2gp8"]
 [ext_resource type="Script" path="res://scripts/fishes/angler.gd" id="2_35ved"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dd6oegkisocnd" path="res://assets/textures/angler_fish/frame0001.png" id="4_0x6cb"]
 [ext_resource type="Texture2D" uid="uid://wnkjxtjtoh4d" path="res://assets/textures/angler_fish/frame0004.png" id="5_clljb"]
 [ext_resource type="Texture2D" uid="uid://dd2trigi5g2lu" path="res://assets/textures/angler_fish/frame0006.png" id="6_hyfbl"]
+[ext_resource type="PackedScene" uid="uid://b0phg6atgdkvt" path="res://scenes/ui/food_bubble.tscn" id="7_51a7h"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_phnip"]
 animations = [{
@@ -59,9 +60,10 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 
 [node name="Angler" instance=ExtResource("1_i2gp8")]
+z_index = -400
+z_as_relative = false
 script = ExtResource("2_35ved")
-kind = 4
-accel = null
+kind = 3
 eat = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
@@ -87,3 +89,8 @@ position = Vector2(-112, -65)
 scale = Vector2(7.99, 7.99)
 blend_mode = 2
 texture = SubResource("GradientTexture2D_xggxc")
+
+[node name="FoodBubble" parent="." index="4" instance=ExtResource("7_51a7h")]
+z_index = 1500
+z_as_relative = false
+position = Vector2(165, -206)
