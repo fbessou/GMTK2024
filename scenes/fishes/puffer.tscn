@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d0kb6abw1g61t"]
+[gd_scene load_steps=17 format=3 uid="uid://d0kb6abw1g61t"]
 
 [ext_resource type="PackedScene" uid="uid://l4sjy0s8l2d" path="res://scenes/fishes/fish.tscn" id="1_b4bhl"]
 [ext_resource type="Script" path="res://scripts/fishes/puffer.gd" id="2_tkqsm"]
@@ -80,12 +80,15 @@ radius = 44.1022
 [sub_resource type="CircleShape2D" id="CircleShape2D_kdyib"]
 radius = 34.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_fiopn"]
+
 [node name="Puffer" instance=ExtResource("1_b4bhl")]
 z_index = -450
 z_as_relative = false
 script = ExtResource("2_tkqsm")
 _small_sprite_frames = SubResource("SpriteFrames_fn0tc")
 _large_sprite_frames = SubResource("SpriteFrames_mxwvv")
+scareRadius = 12.0
 kind = 2
 eat = 1
 
@@ -110,3 +113,8 @@ z_index = 1500
 z_as_relative = false
 position = Vector2(95, -72)
 scale = Vector2(0.5, 0.5)
+
+[node name="ScareArea" type="Area2D" parent="." index="4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScareArea" index="0"]
+shape = SubResource("CircleShape2D_fiopn")
