@@ -73,8 +73,6 @@ eat = 1
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_phnip")
 animation = &"idle"
-frame = 1
-frame_progress = 0.715054
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 rotation = 1.5708
