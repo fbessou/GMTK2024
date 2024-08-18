@@ -6,7 +6,7 @@ enum State {
 	NPC, # Moving alone???
 	FROZEN, # Position frozen
 }
-enum Kind { None=0, Plankton=1, Puffer=2, Angler=4 }
+enum Kind { None, Plankton, Puffer, Angler }
 enum Facing { RIGHT = 1, LEFT = -1 }
 
 const FROZEN_DRAG := 0.95
@@ -17,7 +17,7 @@ const FROZEN_DRAG := 0.95
 @export var drag := 0.6
 @export var view_scale := 1.0
 @export var max_inclination := 0.35 # from 0.05 to 0.95
-@export_flags("Plankton", "Puffer", "Angler") var eat := 0
+@export var eat := Kind.None
 @export var state := State.NPC
 
 var facing := Facing.RIGHT
@@ -40,8 +40,9 @@ func _ready() -> void:
 	assert(_mouth_area != null)
 	assert(_mouth_area.collision_layer == 0x4)
 	assert(_mouth_area.collision_mask == 0x4)
-	print(eat)
-	#food_bubble.load_texture(eat)
+	_mouth_area.body_entered.connect(_on_body_entered)
+	_mouth_area.body_exited.connect(_on_body_exited)
+	food_bubble.load_texture_by_fish_type(eat)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if state == State.PLAYER:
@@ -108,3 +109,16 @@ func _power_on() -> void:
 
 func _power_off() -> void:
 	pass
+	
+func _on_body_entered(body: Fish) -> void:
+	if(body == self):
+		return
+	if(body.kind == eat && body.state == Fish.State.PLAYER):
+		food_bubble.hide_bubble()
+		body.state = State.FROZEN
+		# NPC fish eats target
+	else:
+		food_bubble.show_bubble()
+
+func _on_body_exited(_body: Fish) -> void:
+	food_bubble.hide_bubble()
