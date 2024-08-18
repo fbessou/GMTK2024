@@ -48,6 +48,7 @@ scroll_scale = Vector2(1.3, 1.3)
 [node name="Sprite2D" type="Sprite2D" parent="Parallax/Foreground Parallax"]
 z_index = 1000
 z_as_relative = false
+position = Vector2(195, -327)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("12_wggoc")
 
@@ -150,7 +151,6 @@ scale = Vector2(0.75, 0.75)
 [node name="MediumB2" parent="Environment/NavigableMap/EelCave" instance=ExtResource("13_vbqx5")]
 position = Vector2(3.99999, -472)
 rotation = -1.80769
-scale = Vector2(1, 1)
 
 [node name="LargeA" parent="Environment/NavigableMap/EelCave" instance=ExtResource("14_ucd0q")]
 position = Vector2(416, 293.333)
