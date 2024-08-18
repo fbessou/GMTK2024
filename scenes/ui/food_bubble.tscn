@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bbjmu5pwni2sy"]
+[gd_scene load_steps=19 format=3 uid="uid://b0phg6atgdkvt"]
 
 [ext_resource type="Texture2D" uid="uid://dy85m4sg35vn5" path="res://assets/textures/hud/Crave bubble/frame0000.png" id="1_gt7ln"]
 [ext_resource type="Script" path="res://scripts/ui/FoodBubble.gd" id="1_p4b8f"]
@@ -165,6 +165,7 @@ position = Vector2(-3, 2)
 sprite_frames = SubResource("SpriteFrames_4rcfi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.843137)
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_ycqqp")
