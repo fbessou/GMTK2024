@@ -59,9 +59,10 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 
 [node name="Angler" instance=ExtResource("1_i2gp8")]
+z_index = -400
+z_as_relative = false
 script = ExtResource("2_35ved")
-kind = 4
-accel = null
+kind = 3
 eat = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]

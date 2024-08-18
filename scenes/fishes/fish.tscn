@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://l4sjy0s8l2d"]
 
 [ext_resource type="Script" path="res://scripts/fish.gd" id="1_epr8x"]
-[ext_resource type="PackedScene" uid="uid://bbjmu5pwni2sy" path="res://scenes/ui/food_bubble.tscn" id="2_8550e"]
+[ext_resource type="PackedScene" path="res://scenes/ui/food_bubble.tscn" id="2_8550e"]
 
 [node name="Fish" type="CharacterBody2D"]
 collision_layer = 6
@@ -13,4 +13,6 @@ eatAnimationSpeed = 2.0
 transType = 10
 
 [node name="FoodBubble" parent="." instance=ExtResource("2_8550e")]
+z_index = 1500
+z_as_relative = false
 position = Vector2(165, -206)

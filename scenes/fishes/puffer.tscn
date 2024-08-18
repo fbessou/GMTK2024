@@ -80,6 +80,8 @@ radius = 88.0
 radius = 48.0416
 
 [node name="Puffer" instance=ExtResource("1_b4bhl")]
+z_index = -450
+z_as_relative = false
 script = ExtResource("2_tkqsm")
 _small_sprite_frames = SubResource("SpriteFrames_fn0tc")
 _large_sprite_frames = SubResource("SpriteFrames_mxwvv")

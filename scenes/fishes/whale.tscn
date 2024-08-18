@@ -45,8 +45,10 @@ height = 498.0
 radius = 66.0303
 
 [node name="Whale" instance=ExtResource("1_t0csw")]
-kind = 8
-state = 0
+z_index = -300
+z_as_relative = false
+kind = 4
+eat = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_j2c83")

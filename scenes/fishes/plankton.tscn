@@ -34,9 +34,11 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pjtys"]
-radius = 109.225
+radius = 63.2851
 
 [node name="Plankton" instance=ExtResource("1_1hy31")]
+z_index = -500
+z_as_relative = false
 kind = 1
 max_inclination = 0.9
 

@@ -6,7 +6,7 @@ enum State {
 	NPC, # Moving alone???
 	FROZEN, # Position frozen
 }
-enum Kind { None, Plankton, Puffer, Angler }
+enum Kind { None, Plankton, Puffer, Angler, Whale, Eel }
 enum Facing { RIGHT = 1, LEFT = -1 }
 
 const FROZEN_DRAG := 1.0
