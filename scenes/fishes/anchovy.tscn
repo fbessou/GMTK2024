@@ -1,0 +1,82 @@
+[gd_scene load_steps=10 format=3 uid="uid://bw0b2lrrx1fx0"]
+
+[ext_resource type="PackedScene" uid="uid://l4sjy0s8l2d" path="res://scenes/fishes/fish.tscn" id="1_88i4t"]
+[ext_resource type="Texture2D" uid="uid://dkwxkhtpqtdh2" path="res://assets/textures/anchovy/frame0000.png" id="3_4ya0n"]
+[ext_resource type="Texture2D" uid="uid://lhg0m74m78mx" path="res://assets/textures/anchovy/frame0001.png" id="4_frunx"]
+[ext_resource type="Texture2D" uid="uid://dyn73qrafgwk7" path="res://assets/textures/anchovy/frame0004.png" id="5_dxn4l"]
+[ext_resource type="Texture2D" uid="uid://bdnmd1qgsc3fm" path="res://assets/textures/anchovy/frame0006.png" id="6_cds0u"]
+[ext_resource type="PackedScene" uid="uid://b0phg6atgdkvt" path="res://scenes/ui/food_bubble.tscn" id="11_vjekw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fn0tc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_4ya0n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_frunx")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_4ya0n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_frunx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dxn4l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cds0u")
+}],
+"loop": true,
+"name": &"swimming",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jjr7s"]
+radius = 9.0
+height = 80.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kdyib"]
+radius = 15.0333
+
+[node name="Anchovy" instance=ExtResource("1_88i4t")]
+z_index = -475
+z_as_relative = false
+kind = 6
+eat = 1
+state = 0
+scarable = true
+eatAnimationSpeed = 0.5
+transType = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_fn0tc")
+animation = &"idle"
+frame_progress = 0.158316
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_jjr7s")
+
+[node name="MouthArea2D" type="Area2D" parent="." index="2"]
+position = Vector2(-48, 1)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouthArea2D" index="0"]
+position = Vector2(2, 4)
+shape = SubResource("CircleShape2D_kdyib")
+
+[node name="FoodBubble" parent="." index="3" instance=ExtResource("11_vjekw")]
+z_index = 1500
+z_as_relative = false
+position = Vector2(95, -72)
+scale = Vector2(0.5, 0.5)
