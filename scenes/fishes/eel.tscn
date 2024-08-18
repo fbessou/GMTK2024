@@ -1,0 +1,97 @@
+[gd_scene load_steps=13 format=3 uid="uid://5hndmpfled68"]
+
+[ext_resource type="PackedScene" uid="uid://l4sjy0s8l2d" path="res://scenes/fishes/fish.tscn" id="1_3t67g"]
+[ext_resource type="Texture2D" uid="uid://btkts8qjh6lsj" path="res://assets/textures/eel/frame0000.png" id="2_6jwnt"]
+[ext_resource type="Script" path="res://scripts/fishes/eel.gd" id="2_ewc1b"]
+[ext_resource type="Texture2D" uid="uid://d1f66hr6tiaxv" path="res://assets/textures/eel/frame0001.png" id="3_7qg7q"]
+[ext_resource type="Texture2D" uid="uid://o01e5q2xf3ee" path="res://assets/textures/eel/frame0004.png" id="4_wnop8"]
+[ext_resource type="Texture2D" uid="uid://cphso381iawa3" path="res://assets/textures/eel/frame0006.png" id="5_a3ks6"]
+[ext_resource type="Texture2D" uid="uid://dhheirsgb1yx0" path="res://icon.svg" id="7_yk8he"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ssdig"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_yk8he")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x2rn5"]
+radius = 771.08
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r42i2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6jwnt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7qg7q")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6jwnt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7qg7q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wnop8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a3ks6")
+}],
+"loop": true,
+"name": &"swimming",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4dyx7"]
+radius = 78.0
+height = 1114.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cmsqg"]
+radius = 209.06
+
+[node name="Eel" instance=ExtResource("1_3t67g")]
+script = ExtResource("2_ewc1b")
+max_inclination = 0.2
+
+[node name="ElectricityArea2D" type="Area2D" parent="." index="0"]
+position = Vector2(-427, 1)
+collision_layer = 8
+collision_mask = 8
+monitorable = false
+
+[node name="ElectricitySprite" type="AnimatedSprite2D" parent="ElectricityArea2D" index="0"]
+unique_name_in_owner = true
+scale = Vector2(10.93, 10.93)
+sprite_frames = SubResource("SpriteFrames_ssdig")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ElectricityArea2D" index="1"]
+shape = SubResource("CircleShape2D_x2rn5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_r42i2")
+animation = &"swimming"
+frame_progress = 0.247011
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_4dyx7")
+
+[node name="MouthArea2D" type="Area2D" parent="." index="3"]
+position = Vector2(-556, 4)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="MouthArea2D" index="0"]
+shape = SubResource("CircleShape2D_cmsqg")

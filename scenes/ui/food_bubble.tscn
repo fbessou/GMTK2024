@@ -1,0 +1,178 @@
+[gd_scene load_steps=19 format=3 uid="uid://bbjmu5pwni2sy"]
+
+[ext_resource type="Texture2D" uid="uid://dy85m4sg35vn5" path="res://assets/textures/hud/Crave bubble/frame0000.png" id="1_gt7ln"]
+[ext_resource type="Script" path="res://scripts/ui/FoodBubble.gd" id="1_p4b8f"]
+[ext_resource type="Texture2D" uid="uid://bh5fwwupilf4l" path="res://assets/textures/hud/Crave bubble/frame0001.png" id="2_ngxww"]
+[ext_resource type="Resource" uid="uid://dea811ii52ked" path="res://resources/game data/food_icons.tres" id="2_wh4wj"]
+[ext_resource type="Texture2D" uid="uid://d2vgtl0hvhma5" path="res://assets/textures/hud/Crave bubble/frame0004.png" id="3_xoqs0"]
+[ext_resource type="Texture2D" uid="uid://bvw17sm20whsh" path="res://assets/textures/hud/Crave bubble/frame0006.png" id="4_t2b8p"]
+[ext_resource type="Texture2D" uid="uid://dr1w7tiww58eo" path="res://assets/textures/hud/Crave bubble/frame0008.png" id="5_0yel5"]
+[ext_resource type="Texture2D" uid="uid://by6dkq5sghnbt" path="res://assets/textures/hud/Crave bubble/frame0010.png" id="6_q660x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4rcfi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gt7ln")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ngxww")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xoqs0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_t2b8p")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_0yel5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_q660x")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ygucw"]
+animation = &"Default"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dwjda"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q372g"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_60jv1"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ycqqp"]
+states/Default/node = SubResource("AnimationNodeAnimation_ygucw")
+states/Default/position = Vector2(545, 42)
+states/End/position = Vector2(902, 42)
+states/Idle/node = SubResource("AnimationNodeAnimation_dwjda")
+states/Idle/position = Vector2(663, 44)
+states/Start/position = Vector2(409, 41)
+transitions = ["Start", "Default", SubResource("AnimationNodeStateMachineTransition_q372g"), "Default", "Idle", SubResource("AnimationNodeStateMachineTransition_60jv1")]
+graph_offset = Vector2(-40, -38)
+
+[sub_resource type="Animation" id="Animation_g0xu2"]
+resource_name = "Default"
+length = 0.5
+step = 0.0625
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_kem7t"]
+resource_name = "Idle"
+length = 0.25
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_qy02j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5s46w"]
+_data = {
+"Default": SubResource("Animation_g0xu2"),
+"Idle": SubResource("Animation_kem7t"),
+"RESET": SubResource("Animation_qy02j")
+}
+
+[node name="FoodBubble" type="Node2D"]
+script = ExtResource("1_p4b8f")
+fish_textures_resource = ExtResource("2_wh4wj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3, 2)
+sprite_frames = SubResource("SpriteFrames_4rcfi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_ycqqp")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5s46w")
+}
+
+[connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
