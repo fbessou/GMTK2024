@@ -1,0 +1,33 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://biiur0apaynp2"]
+
+[ext_resource type="Texture2D" uid="uid://dkxc21dvw24kx" path="res://assets/textures/plankton/frame0000.png" id="1_krac1"]
+[ext_resource type="Texture2D" uid="uid://b20ocqcpcjhem" path="res://assets/textures/plankton/frame0001.png" id="2_vkbs3"]
+[ext_resource type="Texture2D" uid="uid://dhqa2qbvar8tu" path="res://assets/textures/plankton/frame0002.png" id="3_5el3w"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_krac1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vkbs3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_krac1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vkbs3")
+}, {
+"duration": 5.0,
+"texture": ExtResource("3_5el3w")
+}],
+"loop": true,
+"name": &"swimming",
+"speed": 5.0
+}]

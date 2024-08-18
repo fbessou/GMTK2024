@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://tvq6ijgntio"]
+
+[ext_resource type="PackedScene" uid="uid://l4sjy0s8l2d" path="res://scenes/fishes/fish.tscn" id="1_t0csw"]
+[ext_resource type="Texture2D" uid="uid://cia8k2mfqsqse" path="res://assets/textures/whale/frame0001.png" id="2_jwkwj"]
+[ext_resource type="Texture2D" uid="uid://dtfsppg6ph3ma" path="res://assets/textures/whale/frame0004.png" id="3_evayt"]
+[ext_resource type="Texture2D" uid="uid://bgwpohfk34juk" path="res://assets/textures/whale/frame0000.png" id="4_4wcpg"]
+[ext_resource type="Texture2D" uid="uid://c8vfj1xh1l87p" path="res://assets/textures/whale/frame0006.png" id="5_i637i"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j2c83"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jwkwj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_evayt")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_4wcpg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jwkwj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_evayt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_i637i")
+}],
+"loop": true,
+"name": &"swimming",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fl5pf"]
+radius = 70.0
+height = 498.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tuujp"]
+radius = 66.0303
+
+[node name="Whale" instance=ExtResource("1_t0csw")]
+kind = 8
+state = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_j2c83")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_fl5pf")
+
+[node name="MouthArea2D" type="Area2D" parent="." index="2"]
+position = Vector2(-218, 60)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouthArea2D" index="0"]
+shape = SubResource("CircleShape2D_tuujp")

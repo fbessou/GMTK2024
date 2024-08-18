@@ -44,7 +44,6 @@ max_inclination = 0.9
 sprite_frames = SubResource("SpriteFrames_hbhm8")
 animation = &"idle"
 frame_progress = 0.832371
-offset = Vector2(10, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CircleShape2D_pjtys")
