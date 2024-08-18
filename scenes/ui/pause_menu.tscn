@@ -1,0 +1,103 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0ytf0qqpqkbk"]
+
+[ext_resource type="Script" path="res://scripts/ui/PauseMenu.gd" id="2_ka4fn"]
+[ext_resource type="Theme" uid="uid://e2qgxo4dwns7" path="res://resources/themes/hud.theme" id="2_tx0lx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b84iw"]
+bg_color = Color(0.596078, 0.921569, 0.858824, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("2_ka4fn")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.372549)
+
+[node name="Panel" type="Panel" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -307.0
+offset_top = -176.0
+offset_right = 307.0
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_b84iw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Panel"]
+layout_mode = 2
+offset_left = 126.0
+offset_top = 136.0
+offset_right = 488.0
+offset_bottom = 272.0
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+theme = ExtResource("2_tx0lx")
+
+[node name="MusicSlider" type="HSlider" parent="UI/Panel/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 0.5
+scrollable = false
+
+[node name="AmbienceSlider" type="HSlider" parent="UI/Panel/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 0.5
+scrollable = false
+
+[node name="SfxSlider" type="HSlider" parent="UI/Panel/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+value = 0.5
+scrollable = false
+
+[node name="ResumeButton" type="Button" parent="UI/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+theme = ExtResource("2_tx0lx")
+text = "Resume"
+
+[node name="Label" type="Label" parent="UI/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -115.0
+offset_top = 16.0
+offset_right = 118.0
+offset_bottom = 93.0
+grow_horizontal = 2
+text = "Pause"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="value_changed" from="UI/Panel/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="UI/Panel/VBoxContainer/AmbienceSlider" to="." method="_on_ambience_slider_value_changed"]
+[connection signal="value_changed" from="UI/Panel/VBoxContainer/SfxSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="button_down" from="UI/Panel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_button_down"]
