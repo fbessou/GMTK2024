@@ -1,5 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cu585kiq766m0"]
+[gd_scene load_steps=8 format=3 uid="uid://cu585kiq766m0"]
 
+[ext_resource type="PackedScene" uid="uid://5w3u43821a5" path="res://scenes/props/SeaweedLeaves.tscn" id="4_44jrw"]
+[ext_resource type="Texture2D" uid="uid://birpdwq3i2i3r" path="res://assets/textures/props/seaweed/varech/frame0000.png" id="5_35qt7"]
+[ext_resource type="Texture2D" uid="uid://cx52ra38h43wf" path="res://assets/textures/props/seaweed/varech/frame0001.png" id="6_s4tiy"]
 [ext_resource type="Texture2D" uid="uid://0nlyb004fspv" path="res://assets/textures/environment/level1/1-collision.svg" id="6_sin0k"]
 [ext_resource type="Texture2D" uid="uid://dgvdxphki1cs8" path="res://assets/textures/environment/level1/3-background.svg" id="8_cuxfu"]
 [ext_resource type="Texture2D" uid="uid://mlwwit4s7j2j" path="res://assets/textures/environment/level1/2-midground.svg" id="10_ypg8p"]
@@ -40,6 +43,39 @@ scale = Vector2(1.3, 1.3)
 texture = ExtResource("12_wggoc")
 
 [node name="Environment" type="Node2D" parent="."]
+
+[node name="BackgroundProps" type="Node2D" parent="Environment"]
+z_index = -800
+z_as_relative = false
+
+[node name="SeaweedLeaves" parent="Environment/BackgroundProps" instance=ExtResource("4_44jrw")]
+position = Vector2(-307, 373)
+
+[node name="Seaweed" type="Sprite2D" parent="Environment/BackgroundProps"]
+modulate = Color(0.780392, 0.780392, 0.176471, 1)
+position = Vector2(-241, 324)
+texture = ExtResource("5_35qt7")
+
+[node name="Varech" type="Sprite2D" parent="Environment/BackgroundProps"]
+modulate = Color(0.63966, 0.639744, 0.141547, 1)
+z_as_relative = false
+position = Vector2(-598, 360)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("6_s4tiy")
+
+[node name="ForegroundProps" type="Node2D" parent="Environment"]
+z_index = -200
+z_as_relative = false
+
+[node name="SeaweedLeaves2" parent="Environment/ForegroundProps" instance=ExtResource("4_44jrw")]
+position = Vector2(-489, 348)
+
+[node name="Varech2" type="Sprite2D" parent="Environment/ForegroundProps"]
+modulate = Color(0.780392, 0.780392, 0.176471, 1)
+z_as_relative = false
+position = Vector2(-560, 385)
+texture = ExtResource("5_35qt7")
 
 [node name="NavigableMap" type="Node2D" parent="Environment"]
 
