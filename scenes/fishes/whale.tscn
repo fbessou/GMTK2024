@@ -39,28 +39,33 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fl5pf"]
-radius = 70.0
-height = 498.0
+radius = 266.0
+height = 2046.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tuujp"]
-radius = 66.0303
+radius = 323.002
 
 [node name="Whale" instance=ExtResource("1_t0csw")]
 z_index = -300
 z_as_relative = false
 kind = 4
+max_speed = 800.0
+accel = 2500.0
+view_scale = 0.25
 eat = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
+scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_j2c83")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(-14, -20)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_fl5pf")
 
 [node name="MouthArea2D" type="Area2D" parent="." index="2"]
-position = Vector2(-218, 60)
+position = Vector2(-870, 231)
 collision_layer = 4
 collision_mask = 4
 
@@ -70,4 +75,5 @@ shape = SubResource("CircleShape2D_tuujp")
 [node name="FoodBubble" parent="." index="3" instance=ExtResource("6_itgqh")]
 z_index = 1500
 z_as_relative = false
-position = Vector2(165, -206)
+position = Vector2(-399, -310)
+scale = Vector2(1.805, 1.805)

@@ -66,6 +66,10 @@ z_index = -350
 z_as_relative = false
 script = ExtResource("2_ewc1b")
 kind = 5
+max_speed = 400.0
+accel = 1300.0
+drag = 0.75
+view_scale = 1.5
 max_inclination = 0.2
 
 [node name="ElectricityArea2D" type="Area2D" parent="." index="0"]
