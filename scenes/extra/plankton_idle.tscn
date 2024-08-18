@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://crrk06e0htlly"]
+
+[ext_resource type="Shader" path="res://resources/shaders/background_plankton.gdshader" id="1_ab02c"]
+[ext_resource type="SpriteFrames" uid="uid://biiur0apaynp2" path="res://resources/sprites_frames/plankton.tres" id="2_3525b"]
+[ext_resource type="Script" path="res://scripts/extra/plankton_idle.gd" id="3_5odkf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vhga8"]
+resource_local_to_scene = true
+shader = ExtResource("1_ab02c")
+shader_parameter/proximity = null
+shader_parameter/plankton_contamination = null
+
+[node name="AnimatedSpritePlanktonBg" type="AnimatedSprite2D"]
+material = SubResource("ShaderMaterial_vhga8")
+position = Vector2(380, 327)
+rotation = 1.5708
+scale = Vector2(0.05, 0.05)
+sprite_frames = ExtResource("2_3525b")
+animation = &"idle"
+script = ExtResource("3_5odkf")
