@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://brypohvhpvu7p"]
+[gd_scene load_steps=43 format=3 uid="uid://brypohvhpvu7p"]
 
 [ext_resource type="Script" path="res://scripts/levels/darkness.gd" id="1_6yl55"]
 [ext_resource type="PackedScene" uid="uid://c2to2hb2q2wvb" path="res://scenes/Levels/blocks/curveA.tscn" id="1_ctl1s"]
@@ -106,6 +106,153 @@ colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.635294, 0, 0, 0, 0)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_yps7u"]
 gradient = SubResource("Gradient_odf3d")
 
+[sub_resource type="Animation" id="Animation_557vh"]
+resource_name = "ending"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Camera2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.566667, 1.13333, 1.63333, 2.46667, 3.16667, 3.93333, 4.63333, 6.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-1053, 8641), Vector2(-257, 8924), Vector2(394, 9375), Vector2(1275, 10676), Vector2(2508, 12430), Vector2(3538, 14817), Vector2(6049, 21078), Vector2(7876, 28689), Vector2(9456, 50592)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/Camera2D:zoom")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.46667, 3.06667, 4.66667, 6.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.3, 0.3), Vector2(0.1, 0.1), Vector2(0.03, 0.03), Vector2(0.011, 0.011)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cthulhu/DarkDepthSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(6.3, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(8700, 48903), Vector2(8700, 73287)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cthulhu/DarkDepthSprite:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(6.3, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(293.205, 100000), Vector2(102.705, 100000)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cthulhu/CthulhuAnimatedSprite:animation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"sleepy", &"awakening"]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cthulhu/CthulhuAnimatedSprite:play")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"awakening", 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ha4rl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1053, 8641)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/Camera2D:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.01, 0.01)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cthulhu/DarkDepthSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8700, 48903)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cthulhu/DarkDepthSprite:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(293.205, 100000)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cthulhu/CthulhuAnimatedSprite:animation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"sleepy"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bpi5b"]
+_data = {
+"RESET": SubResource("Animation_ha4rl"),
+"ending": SubResource("Animation_557vh")
+}
+
 [node name="Level3" type="Node2D"]
 material = SubResource("CanvasItemMaterial_mwqoh")
 position = Vector2(-346, -57)
@@ -126,6 +273,7 @@ polygon = PackedVector2Array(-1, -1, 1, -1, 1, 1, -1, 1)
 [node name="Angler" parent="." instance=ExtResource("13_4s6o7")]
 material = SubResource("ShaderMaterial_ed46t")
 position = Vector2(-222, -1841)
+wall_min_slide_angle = 0.261799
 state = 0
 
 [node name="Camera2D" type="Camera2D" parent="Angler"]
@@ -1154,7 +1302,7 @@ position = Vector2(0, 13)
 polygon = PackedVector2Array(-1037, 8327, -929, 8129, -390, 7510, -660, 6684, -606, 6253, -352, 3958, -684, 3143, -507, 2995, 146, 3445, 1084, 3774, 1468, 4073, 1831, 3774, 2130, 2407, 1340, 2044, 1468, 891, 1297, -91, 1035, -757, 350, -1518, 302, -1794, 1119, -2035, 2715, -3477, 5122, -3497, 5402, 8305)
 
 [node name="PolyBottom" type="Polygon2D" parent="Environment/Poly"]
-position = Vector2(0, 31)
+position = Vector2(14, 17)
 polygon = PackedVector2Array(-2328, 8292, -1453, 8954, -602, 8990, 250, 9489, 653, 10265, 584, 10736, 908, 11668, 1403, 12505, 1060, 13381, 775, 15987, 603, 16235, 1269, 17548, 1117, 18271, -462, 19279, -1109, 20421, -1775, 20706, -2882, 21666, -3214, 22481, -3536, 23042, -4030, 23236, -4452, 23659, -5328, 24173, -5867, 25481, -6234, 26649, -6050, 27424, -6692, 28509, -7343, 29723, -8656, 30559, -10799, 32397, -11087, 34986, -12766, 36465, -12359, 37821, -13501, 39279, -19248, 42153, -23487, 46822, -22887, 54991, -23457, 63088, -25167, 73009, -24861, 86012, 48007, 85670, 47587, 75289, 47131, 68903, 47587, 62746, 46365, 51693, 44734, 49487, 42930, 41982, 36779, 38564, 34231, 37192, 30286, 36343, 29456, 35058, 27889, 33109, 27663, 32385, 27568, 30449, 27873, 30094, 27466, 28011, 26917, 27774, 26532, 26502, 25174, 24692, 23545, 23334, 22459, 22791, 21916, 22248, 21373, 22067, 21147, 21479, 20287, 20890, 19293, 20522, 18878, 20688, 17747, 20055, 17196, 20200, 16056, 19584, 16020, 19055, 15254, 18632, 14620, 18178, 13864, 18209, 12052, 17665, 11176, 17031, 9678, 16711, 8424, 15518, 7443, 15321, 6944, 13796, 6768, 13478, 5785, 12880, 4931, 11641, 3436, 11214, 2411, 10231, 1727, 9462, 1087, 9078, 537, 8549, -855, 8341, -1127, 8261, -391, 7557, 57119, 7811, 58270, 86126, -40341, 86232, -40442, 7731)
 
 [node name="WaterCurrents" type="Node2D" parent="."]
@@ -1261,7 +1409,6 @@ scale = Vector2(150, 150)
 sprite_frames = SubResource("SpriteFrames_bxtvw")
 animation = &"sleepy"
 autoplay = "sleepy"
-frame_progress = 0.184378
 
 [node name="DarkDepthSprite" type="Sprite2D" parent="Cthulhu"]
 position = Vector2(8700, 48903)
@@ -1270,3 +1417,10 @@ scale = Vector2(293.205, 100000)
 texture = SubResource("GradientTexture1D_yps7u")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bpi5b")
+}
+
+[node name="Camera2D" type="Camera2D" parent="AnimationPlayer"]
+position = Vector2(-1053, 8641)
+zoom = Vector2(0.01, 0.01)
