@@ -4,9 +4,8 @@
 [ext_resource type="Script" path="res://scripts/Scripted Interactions/WaterCurrent.gd" id="1_q84ke"]
 [ext_resource type="AudioStream" uid="uid://dtb5rcqpnu37s" path="res://assets/audio/sounds/stream_boost.mp3" id="3_m58f0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xuw6"]
-resource_local_to_scene = true
-size = Vector2(330.5, 136.75)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mdbhd"]
+size = Vector2(0, 0)
 
 [sub_resource type="Gradient" id="Gradient_vtbhb"]
 offsets = PackedFloat32Array(0, 0.495017, 1)
@@ -16,23 +15,27 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
 collision_layer = 0
 collision_mask = 6
 gravity_space_override = 1
-gravity = 2500.0
+gravity_point_center = Vector2(-4.37114e-08, 1)
+gravity_direction = Vector2(-4.37114e-08, 1)
+gravity = 1050.0
 script = ExtResource("1_q84ke")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_3xuw6")
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_mdbhd")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(0, -68)
 amount = 10
 lifetime = 0.5
 local_coords = true
 texture = ExtResource("1_5oqu0")
 emission_shape = 3
-emission_rect_extents = Vector2(200, 50)
+emission_rect_extents = Vector2(0, 0)
 direction = Vector2(0, 1)
 gravity = Vector2(0, 0)
-initial_velocity_min = 83.33
+initial_velocity_min = 200.0
 initial_velocity_max = 547.62
 scale_amount_min = 0.1
 scale_amount_max = 0.5

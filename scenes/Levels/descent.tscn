@@ -1,22 +1,88 @@
-[gd_scene load_steps=19 format=3 uid="uid://bdhladljwpd2g"]
+[gd_scene load_steps=27 format=3 uid="uid://bdhladljwpd2g"]
 
 [ext_resource type="Script" path="res://scenes/Levels/descent.gd" id="1_8ys3j"]
-[ext_resource type="Texture2D" uid="uid://dgvdxphki1cs8" path="res://assets/textures/environment/level1/3-background.svg" id="1_w87d2"]
-[ext_resource type="Texture2D" uid="uid://mlwwit4s7j2j" path="res://assets/textures/environment/level1/2-midground.svg" id="2_k7s60"]
-[ext_resource type="Texture2D" uid="uid://c3i7ffs6568mt" path="res://assets/textures/environment/level1/0-foreground.svg" id="3_nn7cc"]
-[ext_resource type="PackedScene" uid="uid://chevwwev43q6b" path="res://scenes/Levels/blocks/largeC.tscn" id="7_lpvqn"]
-[ext_resource type="PackedScene" uid="uid://dbles67txj7e0" path="res://scenes/Levels/blocks/mediumA.tscn" id="8_fe6y3"]
-[ext_resource type="PackedScene" uid="uid://c2to2hb2q2wvb" path="res://scenes/Levels/blocks/curveA.tscn" id="9_m4mvn"]
-[ext_resource type="PackedScene" uid="uid://bnjnf3jijmc4q" path="res://scenes/Levels/blocks/smallA.tscn" id="10_t5f42"]
-[ext_resource type="PackedScene" uid="uid://ucctann5vnfg" path="res://scenes/Levels/blocks/smallB.tscn" id="11_pvrg0"]
-[ext_resource type="PackedScene" uid="uid://c7xh68riw0kf8" path="res://scenes/Levels/blocks/mediumB.tscn" id="12_on4ns"]
-[ext_resource type="PackedScene" uid="uid://cw5cd8mpbft6b" path="res://scenes/Levels/blocks/largeB.tscn" id="13_bxuhf"]
-[ext_resource type="PackedScene" uid="uid://cpuc7ktc5wwsv" path="res://scenes/Levels/blocks/spireA.tscn" id="14_m2quo"]
-[ext_resource type="PackedScene" uid="uid://bitk4x3pdmgjb" path="res://scenes/Levels/blocks/largeA.tscn" id="16_awr0p"]
+[ext_resource type="PackedScene" uid="uid://cor46uhgncphp" path="res://scenes/props/breakable_wall.tscn" id="3_bjfl5"]
+[ext_resource type="Script" path="res://scripts/levels/descent_section_2.gd" id="3_c75tw"]
+[ext_resource type="SpriteFrames" uid="uid://4w3454s6rdd" path="res://resources/sprites_frames/whale_in_background.tres" id="3_wqpma"]
+[ext_resource type="PackedScene" uid="uid://c2to2hb2q2wvb" path="res://scenes/Levels/blocks/curveA.tscn" id="6_dbfvp"]
+[ext_resource type="Texture2D" uid="uid://cpo3bbvjuxfq7" path="res://assets/textures/props/ships/shipwreck.png" id="7_eqndf"]
+[ext_resource type="PackedScene" uid="uid://bitk4x3pdmgjb" path="res://scenes/Levels/blocks/largeA.tscn" id="7_nskjf"]
+[ext_resource type="PackedScene" uid="uid://cw5cd8mpbft6b" path="res://scenes/Levels/blocks/largeB.tscn" id="8_72lbl"]
+[ext_resource type="PackedScene" uid="uid://chevwwev43q6b" path="res://scenes/Levels/blocks/largeC.tscn" id="9_15bgk"]
+[ext_resource type="PackedScene" uid="uid://dbles67txj7e0" path="res://scenes/Levels/blocks/mediumA.tscn" id="10_fseyh"]
+[ext_resource type="PackedScene" uid="uid://c7xh68riw0kf8" path="res://scenes/Levels/blocks/mediumB.tscn" id="11_2soaf"]
+[ext_resource type="PackedScene" uid="uid://bnjnf3jijmc4q" path="res://scenes/Levels/blocks/smallA.tscn" id="12_htuvj"]
+[ext_resource type="PackedScene" uid="uid://ucctann5vnfg" path="res://scenes/Levels/blocks/smallB.tscn" id="13_x01bs"]
+[ext_resource type="PackedScene" uid="uid://cpuc7ktc5wwsv" path="res://scenes/Levels/blocks/spireA.tscn" id="14_p5xl5"]
+[ext_resource type="PackedScene" uid="uid://biasnyddsqpv1" path="res://scenes/Levels/blocks/spireB.tscn" id="15_b122m"]
 [ext_resource type="PackedScene" uid="uid://n41mpk740rjq" path="res://scenes/Levels/water_current.tscn" id="17_eei4e"]
 [ext_resource type="PackedScene" uid="uid://tvq6ijgntio" path="res://scenes/fishes/whale.tscn" id="19_53crg"]
 [ext_resource type="Shader" path="res://resources/shaders/paper.gdshader" id="20_0yyrc"]
 [ext_resource type="Texture2D" uid="uid://bqec3tilerluy" path="res://assets/textures/Paper001_1K-JPG_Color.jpg" id="21_r0lfq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hm1b0"]
+size = Vector2(10677, 7744)
+
+[sub_resource type="Curve2D" id="Curve2D_mqmbu"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -24759, -2589, -1104.83, 139.691, 1104.83, -139.691, -20785, -2685, -317.48, 330.179, 317.48, -330.179, -17963, -3498, 0, 0, 0, 0, -14857, -4810)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_u6pjf"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -24665, -1528, -901.644, 634.961, 901.644, -634.961, -17077, -2837, 0, 0, 0, 0, -12186, -5203)
+}
+point_count = 3
+
+[sub_resource type="Animation" id="Animation_ab6c4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WhalesFaraway/Path2D/PF1:progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_v4klj"]
+resource_name = "whales_in_background"
+length = 12.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WhalesFaraway/Path2D/PF1:progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 10000.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WhalesFaraway/Path2D2/PF2:progress")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 12000.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4dt31"]
+_data = {
+"RESET": SubResource("Animation_ab6c4"),
+"whales_in_background": SubResource("Animation_v4klj")
+}
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dnevv"]
 resource_local_to_scene = true
@@ -37,30 +103,12 @@ scroll_offset = Vector2(-210, -144)
 repeat_size = Vector2(1920, 1080)
 repeat_times = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax/Background"]
-z_index = -1000
-z_as_relative = false
-texture = ExtResource("1_w87d2")
-
 [node name="Midground" type="Parallax2D" parent="Parallax"]
 scroll_scale = Vector2(0.5, 0.5)
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax/Midground"]
-z_index = -900
-z_as_relative = false
-scale = Vector2(1.2, 1.2)
-texture = ExtResource("2_k7s60")
 
 [node name="Foreground Parallax" type="Parallax2D" parent="Parallax"]
 z_index = 1000
 scroll_scale = Vector2(1.3, 1.3)
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax/Foreground Parallax"]
-z_index = 1000
-z_as_relative = false
-position = Vector2(-1119, -3952)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("3_nn7cc")
 
 [node name="Environment" type="Node2D" parent="."]
 
@@ -72,179 +120,1719 @@ z_as_relative = false
 z_index = -200
 z_as_relative = false
 
+[node name="Section1" type="Node2D" parent="Environment"]
+
+[node name="LevelEntranceCurrent" parent="Environment/Section1" instance=ExtResource("17_eei4e")]
+position = Vector2(-67206, 1269)
+rotation = -1.57078
+gravity_point_center = Vector2(1, 1.6288e-05)
+gravity_direction = Vector2(1, 1.6288e-05)
+gravity = 2500.0
+width = 2865
+length = 420
+intensity = 2500
+bubbles_amount = 25
+bubbles_size = 5.165
+
+[node name="LevelEntranceCurrent2" parent="Environment/Section1" instance=ExtResource("17_eei4e")]
+position = Vector2(-64000, 1233)
+rotation = -1.57078
+gravity_point_center = Vector2(1, 1.6288e-05)
+gravity_direction = Vector2(1, 1.6288e-05)
+gravity = 1500.0
+width = 2865
+length = 6015
+intensity = 1500
+bubbles_amount = 30
+bubbles_size = 5.165
+
+[node name="LevelEntranceCurrent4" parent="Environment/Section1" instance=ExtResource("17_eei4e")]
+position = Vector2(-48399, 4673)
+rotation = 6.92224
+gravity_point_center = Vector2(-0.596434, 0.802662)
+gravity_direction = Vector2(-0.596434, 0.802662)
+gravity = 2500.0
+width = 1050
+length = 6015
+intensity = 2500
+bubbles_size = 5.165
+
+[node name="LevelEntranceCurrent10" parent="Environment/Section1" instance=ExtResource("17_eei4e")]
+position = Vector2(-44487, 679)
+rotation = 7.19741
+gravity_point_center = Vector2(-0.792091, 0.610402)
+gravity_direction = Vector2(-0.792091, 0.610402)
+gravity = 3000.0
+width = 1050
+length = 5555
+intensity = 3000
+bubbles_amount = 50
+bubbles_size = 5.165
+
+[node name="LevelEntranceCurrent11" parent="Environment/Section1" instance=ExtResource("17_eei4e")]
+position = Vector2(-42178, 452.002)
+rotation = 5.34127
+gravity_point_center = Vector2(0.808687, 0.588239)
+gravity_direction = Vector2(0.808687, 0.588239)
+gravity = 2800.0
+width = 275
+length = 2375
+intensity = 2800
+bubbles_amount = 50
+bubbles_size = 5.165
+
+[node name="LevelEntranceCurrent18" parent="Environment/Section1" instance=ExtResource("17_eei4e")]
+position = Vector2(-40452, 1631)
+rotation = 5.30775
+gravity_point_center = Vector2(0.827948, 0.560804)
+gravity_direction = Vector2(0.827948, 0.560804)
+gravity = 2800.0
+width = 275
+length = 2315
+intensity = 2800
+bubbles_size = 5.165
+
+[node name="LevelEntranceCurrent14" parent="Environment/Section1" instance=ExtResource("17_eei4e")]
+position = Vector2(-29143, -2889)
+rotation = 7.08156
+gravity_point_center = Vector2(-0.716224, 0.69787)
+gravity_direction = Vector2(-0.716224, 0.69787)
+gravity = 3000.0
+width = 2080
+length = 270
+intensity = 3000
+bubbles_amount = 50
+bubbles_size = 5.165
+
+[node name="LevelEntranceCurrent15" parent="Environment/Section1" instance=ExtResource("17_eei4e")]
+position = Vector2(-41404, 12627)
+rotation = 8.87752
+gravity_point_center = Vector2(-0.520351, -0.853953)
+gravity_direction = Vector2(-0.520351, -0.853953)
+gravity = 3000.0
+width = 2080
+length = 595
+intensity = 3000
+bubbles_amount = 2
+bubbles_size = 5.165
+
+[node name="LevelEntranceCurrent16" parent="Environment/Section1" instance=ExtResource("17_eei4e")]
+position = Vector2(-38761, 11216)
+rotation = 8.72072
+gravity_point_center = Vector2(-0.647315, -0.762222)
+gravity_direction = Vector2(-0.647315, -0.762222)
+gravity = 3000.0
+width = 8165
+length = 5350
+intensity = 3000
+bubbles_amount = 82
+bubbles_size = 5.165
+
+[node name="LevelEntranceCurrent17" parent="Environment/Section1" instance=ExtResource("17_eei4e")]
+position = Vector2(-39637, 11305)
+rotation = 8.49199
+gravity_point_center = Vector2(-0.803286, -0.595594)
+gravity_direction = Vector2(-0.803286, -0.595594)
+gravity = 3000.0
+width = 2080
+length = 200
+intensity = 3000
+bubbles_amount = 2
+bubbles_size = 5.165
+
+[node name="LevelEntranceCurrent12" parent="Environment/Section1" instance=ExtResource("17_eei4e")]
+position = Vector2(-35335, 6201)
+rotation = 1.30228
+gravity_point_center = Vector2(-0.964165, 0.265304)
+gravity_direction = Vector2(-0.964165, 0.265304)
+gravity = 2800.0
+width = 450
+length = 3560
+intensity = 2800
+bubbles_amount = 50
+bubbles_size = 5.165
+
+[node name="LevelEntranceCurrent13" parent="Environment/Section1" instance=ExtResource("17_eei4e")]
+position = Vector2(-37548, 6195)
+rotation = 2.8842
+gravity_point_center = Vector2(-0.254556, -0.967058)
+gravity_direction = Vector2(-0.254556, -0.967058)
+gravity = 2800.0
+width = 1580
+length = 1490
+intensity = 2800
+bubbles_amount = 50
+bubbles_size = 5.165
+
+[node name="LevelEntranceCurrent6" parent="Environment/Section1" instance=ExtResource("17_eei4e")]
+position = Vector2(-46141, 9908)
+rotation = 4.65011
+gravity_point_center = Vector2(0.998062, -0.062234)
+gravity_direction = Vector2(0.998062, -0.062234)
+gravity = 3000.0
+width = 1050
+length = 4895
+intensity = 3000
+bubbles_amount = 1
+bubbles_size = 5.165
+
+[node name="LevelEntranceCurrent8" parent="Environment/Section1" instance=ExtResource("17_eei4e")]
+position = Vector2(-49602, 8863)
+rotation = 4.75557
+gravity_point_center = Vector2(0.999068, 0.0431653)
+gravity_direction = Vector2(0.999068, 0.0431653)
+gravity = 3000.0
+width = 1050
+length = 2535
+intensity = 3000
+bubbles_amount = 1
+bubbles_size = 5.165
+
+[node name="LevelEntranceCurrent19" parent="Environment/Section1" instance=ExtResource("17_eei4e")]
+position = Vector2(-43438, 10348)
+rotation = 4.24747
+gravity_point_center = Vector2(0.893858, -0.44835)
+gravity_direction = Vector2(0.893858, -0.44835)
+gravity = 3000.0
+width = 1050
+length = 2535
+intensity = 3000
+bubbles_amount = 1
+bubbles_size = 5.165
+
+[node name="LevelEntranceCurrent7" parent="Environment/Section1" instance=ExtResource("17_eei4e")]
+position = Vector2(-52632, 9885)
+rotation = 4.08187
+gravity_point_center = Vector2(0.807721, -0.589565)
+gravity_direction = Vector2(0.807721, -0.589565)
+gravity = 3000.0
+width = 1795
+length = 2535
+intensity = 3000
+bubbles_amount = 50
+bubbles_size = 5.165
+
+[node name="LevelEntranceCurrent9" parent="Environment/Section1" instance=ExtResource("17_eei4e")]
+position = Vector2(-55537, 7909)
+rotation = 5.56951
+gravity_point_center = Vector2(0.654616, 0.755961)
+gravity_direction = Vector2(0.654616, 0.755961)
+gravity = 3000.0
+width = 855
+length = 6469
+intensity = 3000
+bubbles_amount = 50
+bubbles_size = 5.165
+
+[node name="LevelEntranceCurrent3" parent="Environment/Section1" instance=ExtResource("17_eei4e")]
+position = Vector2(-51863, 7664)
+rotation = -1.57078
+gravity_point_center = Vector2(1, 1.6288e-05)
+gravity_direction = Vector2(1, 1.6288e-05)
+gravity = 0.0
+
+[node name="Section2" type="Node2D" parent="Environment"]
+script = ExtResource("3_c75tw")
+
+[node name="StaticCameraZone" type="Area2D" parent="Environment/Section2"]
+position = Vector2(-23722, 457)
+collision_layer = 0
+collision_mask = 4
+
+[node name="Camera2DTarget" type="Camera2D" parent="Environment/Section2/StaticCameraZone"]
+position = Vector2(6452, -1024)
+enabled = false
+zoom = Vector2(0.08, 0.08)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Section2/StaticCameraZone"]
+position = Vector2(6269.5, -1024)
+shape = SubResource("RectangleShape2D_hm1b0")
+
+[node name="WhalesFaraway" type="Node2D" parent="Environment/Section2"]
+modulate = Color(1, 1, 1, 0.372549)
+
+[node name="Path2D" type="Path2D" parent="Environment/Section2/WhalesFaraway"]
+curve = SubResource("Curve2D_mqmbu")
+
+[node name="PF1" type="PathFollow2D" parent="Environment/Section2/WhalesFaraway/Path2D"]
+position = Vector2(-24759, -2589)
+rotation = -0.146698
+rotates = false
+loop = false
+
+[node name="W1" type="AnimatedSprite2D" parent="Environment/Section2/WhalesFaraway/Path2D/PF1"]
+position = Vector2(431.965, 133.384)
+rotation = 0.279587
+scale = Vector2(6.63, 6.63)
+sprite_frames = ExtResource("3_wqpma")
+autoplay = "default"
+frame_progress = 0.251723
+flip_h = true
+
+[node name="Path2D2" type="Path2D" parent="Environment/Section2/WhalesFaraway"]
+curve = SubResource("Curve2D_u6pjf")
+
+[node name="PF2" type="PathFollow2D" parent="Environment/Section2/WhalesFaraway/Path2D2"]
+position = Vector2(-24665, -1528)
+rotation = -0.211565
+rotates = false
+loop = false
+
+[node name="W1" type="AnimatedSprite2D" parent="Environment/Section2/WhalesFaraway/Path2D2/PF2"]
+position = Vector2(431.965, 133.384)
+rotation = 0.279587
+scale = Vector2(6.63, 6.63)
+sprite_frames = ExtResource("3_wqpma")
+autoplay = "default"
+frame_progress = 0.633915
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Environment/Section2"]
+libraries = {
+"": SubResource("AnimationLibrary_4dt31")
+}
+
+[node name="LevelEntranceCurrent20" parent="Environment/Section2" instance=ExtResource("17_eei4e")]
+position = Vector2(134, -2611)
+rotation = -1.50855
+gravity_point_center = Vector2(0.998063, 0.0622055)
+gravity_direction = Vector2(0.998063, 0.0622055)
+gravity = 3000.0
+width = 745
+length = 5770
+intensity = 3000
+bubbles_amount = 30
+bubbles_size = 5.165
+
+[node name="LevelEntranceCurrent23" parent="Environment/Section2" instance=ExtResource("17_eei4e")]
+position = Vector2(819, 6094)
+rotation = -1.52564
+gravity_point_center = Vector2(0.99898, 0.0451445)
+gravity_direction = Vector2(0.99898, 0.0451445)
+gravity = 4000.0
+width = 2190
+length = 5110
+intensity = 4000
+bubbles_amount = 165
+bubbles_size = 5.165
+
+[node name="LevelEntranceCurrent27" parent="Environment/Section2" instance=ExtResource("17_eei4e")]
+position = Vector2(14918, 9975)
+rotation = -0.748152
+gravity_point_center = Vector2(0.99898, 0.0451445)
+gravity_direction = Vector2(0.99898, 0.0451445)
+gravity = 1000.0
+width = 3590
+length = 10000
+intensity = 1000
+bubbles_amount = 90
+bubbles_size = 5.165
+
+[node name="LevelEntranceCurrent28" parent="Environment/Section2" instance=ExtResource("17_eei4e")]
+position = Vector2(21985, 16710)
+rotation = -0.869015
+gravity_point_center = Vector2(0.680285, 0.732948)
+gravity_direction = Vector2(0.680285, 0.732948)
+gravity = 1500.0
+width = 3590
+length = 10000
+intensity = 1500
+bubbles_amount = 90
+bubbles_size = 5.165
+
+[node name="LevelEntranceCurrent29" parent="Environment/Section2" instance=ExtResource("17_eei4e")]
+position = Vector2(29747, 22661)
+rotation = -1.08645
+gravity_point_center = Vector2(0.763694, 0.645579)
+gravity_direction = Vector2(0.763694, 0.645579)
+gravity = 2000.0
+width = 3590
+length = 10000
+intensity = 2000
+bubbles_amount = 90
+bubbles_size = 5.165
+
+[node name="LevelEntranceCurrent24" parent="Environment/Section2" instance=ExtResource("17_eei4e")]
+position = Vector2(-3205, 6122)
+rotation = -1.56106
+gravity_point_center = Vector2(0.893279, -0.449503)
+gravity_direction = Vector2(0.893279, -0.449503)
+gravity = 2340.0
+width = 2190
+length = 5110
+intensity = 2340
+bubbles_amount = 165
+bubbles_size = 5.165
+
+[node name="LevelEntranceCurrent26" parent="Environment/Section2" instance=ExtResource("17_eei4e")]
+position = Vector2(-1153, 5609)
+rotation = -0.10081
+gravity_point_center = Vector2(0.999953, 0.00973872)
+gravity_direction = Vector2(0.999953, 0.00973872)
+gravity = 2340.0
+width = 8545
+length = 1095
+intensity = 2340
+bubbles_amount = 2
+bubbles_size = 5.165
+
+[node name="LevelEntranceCurrent22" parent="Environment/Section2" instance=ExtResource("17_eei4e")]
+position = Vector2(-3317, -2844)
+rotation = -1.51036
+gravity_point_center = Vector2(0.998174, 0.0604041)
+gravity_direction = Vector2(0.998174, 0.0604041)
+gravity = 3000.0
+width = 835
+length = 5770
+intensity = 3000
+bubbles_amount = 51
+bubbles_size = 5.165
+
+[node name="LevelEntranceCurrent21" parent="Environment/Section2" instance=ExtResource("17_eei4e")]
+position = Vector2(-5981, -4693)
+rotation = -0.713023
+gravity_point_center = Vector2(0.654124, 0.756388)
+gravity_direction = Vector2(0.654124, 0.756388)
+gravity = 1150.0
+width = 2080
+length = 3855
+intensity = 1150
+bubbles_amount = 165
+bubbles_size = 5.165
+
+[node name="LevelEntranceCurrent25" parent="Environment/Section2" instance=ExtResource("17_eei4e")]
+position = Vector2(6237, -4333)
+rotation = 0.0642348
+gravity_point_center = Vector2(-0.0641906, 0.997938)
+gravity_direction = Vector2(-0.0641906, 0.997938)
+gravity = 1150.0
+width = 2080
+length = 4730
+intensity = 1150
+bubbles_amount = 165
+bubbles_size = 5.165
+
 [node name="NavigableMap" type="Node2D" parent="Environment"]
 modulate = Color(0, 0.756863, 0.776471, 1)
 
-[node name="PlanktonCave" type="Node2D" parent="Environment/NavigableMap"]
-visible = false
-position = Vector2(1719, -1804)
-rotation = 0.486793
-scale = Vector2(0.5, 0.5)
-
-[node name="LargeC" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("7_lpvqn")]
-position = Vector2(-1200, 286)
-
-[node name="LargeC4" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("7_lpvqn")]
-position = Vector2(15242, 4900)
-rotation = -0.429216
-
-[node name="LargeC2" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("7_lpvqn")]
-position = Vector2(5776, 1122)
-rotation = 0.612992
-
-[node name="LargeC3" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("7_lpvqn")]
-position = Vector2(7184, 1730)
-rotation = 0.315998
-scale = Vector2(1.43524, 1.46282)
-
-[node name="MediumA" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("8_fe6y3")]
-position = Vector2(1474.7, -2151.81)
-rotation = 1.52905
-
-[node name="CurveA" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("9_m4mvn")]
-position = Vector2(-1000, 714)
-rotation = 1.26368
-
-[node name="SmallA" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("10_t5f42")]
-position = Vector2(-182, 378)
-rotation = -3.35297
-
-[node name="SmallB" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("11_pvrg0")]
-position = Vector2(-8, 658)
-rotation = 3.35334
-
-[node name="SmallB2" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("11_pvrg0")]
-position = Vector2(15838, 4440)
-rotation = 3.35334
-
-[node name="SmallB3" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("11_pvrg0")]
-position = Vector2(14442, 5344)
-rotation = 3.35334
-scale = Vector2(2.54853, 2.54853)
-
-[node name="MediumB2" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("12_on4ns")]
-position = Vector2(7806.91, -6887.69)
-rotation = -0.540315
-scale = Vector2(1.5, 1.5)
-
-[node name="SmallA4" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("10_t5f42")]
-position = Vector2(6570.91, -6827.69)
-rotation = 2.96431
-scale = Vector2(2.71088, 2.71088)
-
-[node name="CurveA2" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("9_m4mvn")]
-position = Vector2(12928.9, -4549.69)
-rotation = 3.07221
-scale = Vector2(1.5, 1.5)
-
-[node name="LargeB" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("13_bxuhf")]
-position = Vector2(14010.9, -4443.69)
-rotation = 0.202597
-scale = Vector2(1.5, 1.5)
-
-[node name="SpireA2" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("14_m2quo")]
-position = Vector2(13908.9, -4069.69)
-rotation = 0.0826226
-scale = Vector2(1.5, 1.5)
-
-[node name="SpireA3" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("14_m2quo")]
-position = Vector2(14548.9, -3889.69)
-rotation = 0.0826226
-scale = Vector2(1.5, 1.5)
-
-[node name="SpireA4" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("14_m2quo")]
-position = Vector2(6394.91, -6703.69)
-rotation = 0.0826226
-scale = Vector2(1.5, 1.5)
-
-[node name="MediumB4" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("12_on4ns")]
-position = Vector2(10868.9, -5299.69)
-rotation = -1.80769
-scale = Vector2(1.5, 1.5)
-
-[node name="SmallA5" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("10_t5f42")]
-position = Vector2(12300.9, -4095.69)
-rotation = 3.04232
-scale = Vector2(1.5, 1.5)
-
-[node name="MediumA4" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("8_fe6y3")]
-position = Vector2(11742.9, -4817.69)
-rotation = -0.639205
-scale = Vector2(1.5, 1.5)
-
-[node name="MediumA5" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("8_fe6y3")]
-position = Vector2(8896.9, -6411.69)
-rotation = 1.72216
-scale = Vector2(1.5, 1.5)
-
-[node name="MediumA6" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("8_fe6y3")]
-position = Vector2(9954.91, -5785.69)
-rotation = -0.639205
-scale = Vector2(1.5, 1.5)
-
-[node name="MediumA7" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("8_fe6y3")]
-position = Vector2(6866.9, -7277.69)
-rotation = 1.49716
-scale = Vector2(1.5, 1.5)
-
-[node name="AnchovyCave" type="Node2D" parent="Environment/NavigableMap"]
-visible = false
-scale = Vector2(0.75, 0.75)
-
-[node name="PufferCave" type="Node2D" parent="Environment/NavigableMap"]
-visible = false
-scale = Vector2(0.75, 0.75)
-
-[node name="SpireA" parent="Environment/NavigableMap/PufferCave" instance=ExtResource("14_m2quo")]
-position = Vector2(7812, 2429.33)
-rotation = 3.19153
-
-[node name="EelCave" type="Node2D" parent="Environment/NavigableMap"]
-visible = false
-scale = Vector2(0.75, 0.75)
-
-[node name="LargeA" parent="Environment/NavigableMap/EelCave" instance=ExtResource("16_awr0p")]
-position = Vector2(6644, 1522.67)
-rotation = -2.35098
-
-[node name="MediumA2" parent="Environment/NavigableMap/EelCave" instance=ExtResource("8_fe6y3")]
-position = Vector2(7316, 2284)
-rotation = 5.63614
-
-[node name="MediumA3" parent="Environment/NavigableMap/EelCave" instance=ExtResource("8_fe6y3")]
-position = Vector2(7981.33, 3182.67)
-rotation = 12.744
-
-[node name="WaterCurrent" parent="Environment/NavigableMap" instance=ExtResource("17_eei4e")]
-position = Vector2(14561, 9489)
-rotation = -0.785398
-scale = Vector2(3.61542, 3.8128)
-
-[node name="WaterCurrent2" parent="Environment/NavigableMap" instance=ExtResource("17_eei4e")]
-position = Vector2(11724, 1588)
-rotation = -3.92699
-scale = Vector2(3.63183, 3.63183)
-
-[node name="UpperBound" type="Polygon2D" parent="Environment/NavigableMap"]
-polygon = PackedVector2Array(7576, -1995, 9314, -593, 11448, 222, 12527, 1181, 14097, 2476, 15074, 4718, 14819, 8651, 15766, 9478, 17813, 8157, 20090, 8121, 22679, 9116, 23746, 10459, 25268, 11262, 26623, 12856, 28457, 13947, 31263, 16465, 33065, 17409, 35422, 17507, 38510, 19775, 41197, 21494, 45666, 26617, 51029, 29243, 55690, 32479, 58699, 35172, 62297, 34289, 66558, -4303)
-
-[node name="Polygon2D" type="Polygon2D" parent="Environment/NavigableMap"]
-polygon = PackedVector2Array(3475, 428, 7186, 3301, 9766, 4591, 11236, 5360, 11825, 6537, 12289, 8258, 13206, 9407, 14950, 11201, 16433, 13760, 21962, 17036, 25763, 20317, 28976, 21810, 35199, 24548, 37484, 27151, 41625, 30183, 46286, 32083, 49658, 35364, 51739, 37175, 51760, 38049, 50845, 40040, 39880, 45394, -2883, 45964)
-
 [node name="Bounds" type="StaticBody2D" parent="Environment/NavigableMap"]
 
-[node name="LowerBound" type="CollisionPolygon2D" parent="Environment/NavigableMap/Bounds"]
-build_mode = 1
-polygon = PackedVector2Array(3475, 428, 7186, 3301, 9766, 4591, 11236, 5360, 11825, 6537, 12289, 8258, 13206, 9407, 14950, 11201, 16433, 13760, 21962, 17036, 25763, 20317, 28976, 21810, 35199, 24548, 37484, 27151, 41625, 30183, 46286, 32083, 49658, 35364, 51739, 37175, 51760, 38049, 50845, 40040, 39880, 45394, -2883, 45964)
-one_way_collision_margin = 0.0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Environment/NavigableMap/Bounds"]
+polygon = PackedVector2Array(63490, 36288, 65427, 38064, 81572, 37741, 76836, 35965)
+
+[node name="Polygon2D" type="CollisionPolygon2D" parent="Environment/NavigableMap/Bounds"]
+visible = false
+position = Vector2(-1577, 567)
+polygon = PackedVector2Array(-41138, 4937, -41682, 6619, -45231, 5703, -46401, 5017, -44869, 3425, -43523, 1250, -41842, -393, -41156, -285, -40061, 500, -40015, 1055, -40733, 2078)
+
+[node name="Polygon2D2" type="CollisionPolygon2D" parent="Environment/NavigableMap/Bounds"]
+visible = false
+position = Vector2(-13732, 391)
+polygon = PackedVector2Array(-43950, 2762, -39572, 2308, -36624, 2788, -37593, 3530, -38457, 4906, -39922, 8351, -40782, 8283, -42479, 6065, -43339, 4707)
 
 [node name="UpperBound" type="CollisionPolygon2D" parent="Environment/NavigableMap/Bounds"]
-polygon = PackedVector2Array(7576, -1995, 9314, -593, 11448, 222, 12527, 1181, 14097, 2476, 15074, 4718, 14819, 8651, 15766, 9478, 17813, 8157, 20090, 8121, 22679, 9116, 23746, 10459, 25268, 11262, 26623, 12856, 28457, 13947, 31263, 16465, 33065, 17409, 35422, 17507, 38510, 19775, 41197, 21494, 45666, 26617, 51029, 29243, 55690, 32479, 58699, 35172, 62297, 34289, 66558, -4303)
+polygon = PackedVector2Array(7526, -2065, 9314, -593, 11701, -279, 13403, 255, 14749, 2490, 15425, 4565, 15954, 8356, 16256, 8884, 17813, 8157, 20090, 8121, 22679, 9116, 23746, 10459, 25268, 11262, 26623, 12856, 28457, 13947, 31263, 16465, 33065, 17409, 35422, 17507, 38510, 19775, 41197, 21494, 45666, 26617, 51029, 29243, 55690, 32479, 58112, 32087, 64684, 32066, 84332, 30870, 120640, 34629, 118333, -3985, 66558, -4303, 55799, -4241, 37944, -4669, 24019, -4925, 10265, -4754, -2888, -6278, -40947, -5794, -51818, -5471, -57515, -5129, -60587, -4649, -67068, -4342, -68090, -198, -59243, -297, -53585, -340, -46764, 987, -46281, 1410, -45752, 896, -45209, 489, -42868, -943, -42079, -837, -42673, 61, -41402, 810, -40856, -1210, -39315, -2542, -35148, -3379, -29965, -3185, -29489, -3318, -28423, -2785, -28652, -2271, -27257, -635, -25842, -59, -24754, -368, -23246, -1194, -23479, -2289, -23176, -3433, -19510, -3841, -13106, -4067, -394, -3558, 3136, -3468, 6032, -2789)
+
+[node name="Polygon2D5" type="CollisionPolygon2D" parent="Environment/NavigableMap/Bounds"]
+position = Vector2(5905, -1152)
+polygon = PackedVector2Array(-41168, 3852, -39858, 3126, -38205, 3469, -37761, 4376, -39454, 6513, -42204, 7400, -42829, 6976, -42619, 6614)
+
+[node name="BreakableWall" parent="Environment/NavigableMap" instance=ExtResource("3_bjfl5")]
+position = Vector2(4417, -1143)
+scale = Vector2(1.47442, 1.47442)
+speedThreshold = 2000.0
+
+[node name="BreakableWall2" parent="Environment/NavigableMap" instance=ExtResource("3_bjfl5")]
+position = Vector2(9150, 6377)
+speedThreshold = 3000.0
+
+[node name="Section1" type="Node2D" parent="Environment/NavigableMap"]
+
+[node name="CurveA3" parent="Environment/NavigableMap/Section1" instance=ExtResource("6_dbfvp")]
+position = Vector2(-66312, 2700)
+
+[node name="LargeA3" parent="Environment/NavigableMap/Section1" instance=ExtResource("7_nskjf")]
+position = Vector2(-64455, -274)
+
+[node name="LargeB3" parent="Environment/NavigableMap/Section1" instance=ExtResource("8_72lbl")]
+position = Vector2(-65041, 2756)
+
+[node name="LargeB4" parent="Environment/NavigableMap/Section1" instance=ExtResource("8_72lbl")]
+position = Vector2(-63904, 2592)
+rotation = 2.80546
+
+[node name="LargeC5" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-62303, -369)
+
+[node name="LargeC3" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-67230, 2633)
+rotation = -0.126974
+
+[node name="LargeC4" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-67381, -280)
+
+[node name="MediumA5" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-63455, -296)
+rotation = 1.66683
+
+[node name="MediumA3" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-66149, -271.001)
+rotation = -1.46692
+
+[node name="MediumA4" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-65171, -211)
+rotation = 1.49773
+
+[node name="MediumB3" parent="Environment/NavigableMap/Section1" instance=ExtResource("11_2soaf")]
+position = Vector2(-61269, -390)
+rotation = 1.50967
+
+[node name="SmallA3" parent="Environment/NavigableMap/Section1" instance=ExtResource("12_htuvj")]
+position = Vector2(-65898, 2722)
+
+[node name="SmallA4" parent="Environment/NavigableMap/Section1" instance=ExtResource("12_htuvj")]
+position = Vector2(-65689, 2709)
+
+[node name="SmallB10" parent="Environment/NavigableMap/Section1" instance=ExtResource("13_x01bs")]
+position = Vector2(-45928, 2947)
+
+[node name="SmallB3" parent="Environment/NavigableMap/Section1" instance=ExtResource("13_x01bs")]
+position = Vector2(-61597, -293)
+rotation = 3.07133
+
+[node name="SpireA3" parent="Environment/NavigableMap/Section1" instance=ExtResource("14_p5xl5")]
+position = Vector2(-62808, -64)
+
+[node name="SpireA6" parent="Environment/NavigableMap/Section1" instance=ExtResource("14_p5xl5")]
+position = Vector2(-55442, -267)
+
+[node name="SpireA7" parent="Environment/NavigableMap/Section1" instance=ExtResource("14_p5xl5")]
+position = Vector2(-51257, 4033)
+
+[node name="SpireA8" parent="Environment/NavigableMap/Section1" instance=ExtResource("14_p5xl5")]
+position = Vector2(-50735, 3781)
+
+[node name="SpireA13" parent="Environment/NavigableMap/Section1" instance=ExtResource("14_p5xl5")]
+position = Vector2(-45406, 6942)
+
+[node name="SpireA11" parent="Environment/NavigableMap/Section1" instance=ExtResource("14_p5xl5")]
+position = Vector2(-46733, 1241)
+
+[node name="LargeA4" parent="Environment/NavigableMap/Section1" instance=ExtResource("7_nskjf")]
+position = Vector2(-59734, 2550)
+rotation = -3.06255
+
+[node name="LargeA7" parent="Environment/NavigableMap/Section1" instance=ExtResource("7_nskjf")]
+position = Vector2(-53502, 2238)
+rotation = -0.115417
+
+[node name="LargeC6" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-57896, 3064)
+rotation = -3.06255
+
+[node name="LargeC12" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-50980, 3651)
+rotation = -3.78996
+
+[node name="LargeC7" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-62689, 2439)
+rotation = -3.06255
+
+[node name="MediumA6" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-59020, 2937)
+rotation = -1.39572
+
+[node name="LargeA6" parent="Environment/NavigableMap/Section1" instance=ExtResource("7_nskjf")]
+position = Vector2(-52840, 2610)
+rotation = -3.06255
+
+[node name="LargeA9" parent="Environment/NavigableMap/Section1" instance=ExtResource("7_nskjf")]
+position = Vector2(-47283, 4765.01)
+rotation = -3.90056
+
+[node name="LargeA10" parent="Environment/NavigableMap/Section1" instance=ExtResource("7_nskjf")]
+position = Vector2(-46444, 6443)
+rotation = -2.44952
+
+[node name="LargeA11" parent="Environment/NavigableMap/Section1" instance=ExtResource("7_nskjf")]
+position = Vector2(-45724, 6562)
+rotation = -3.6167
+
+[node name="LargeC11" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-51002, 3124)
+rotation = -3.06255
+
+[node name="MediumA12" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-52126, 2997)
+rotation = -1.39572
+
+[node name="MediumA7" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-61467, 2524)
+rotation = -4.52948
+
+[node name="MediumA8" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-60812, 2622)
+rotation = -1.56483
+
+[node name="MediumA24" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-47802, 5461)
+rotation = -2.36595
+
+[node name="MediumA25" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-47383, 5857)
+rotation = -1.07343
+
+[node name="MediumB4" parent="Environment/NavigableMap/Section1" instance=ExtResource("11_2soaf")]
+position = Vector2(-57423, 3394)
+rotation = 0.207415
+
+[node name="MediumB6" parent="Environment/NavigableMap/Section1" instance=ExtResource("11_2soaf")]
+position = Vector2(-50483, 3442)
+rotation = 0.207415
+
+[node name="SmallB4" parent="Environment/NavigableMap/Section1" instance=ExtResource("13_x01bs")]
+position = Vector2(-58113, 3035)
+rotation = 0.00877643
+
+[node name="SpireA4" parent="Environment/NavigableMap/Section1" instance=ExtResource("14_p5xl5")]
+position = Vector2(-59067, 2864)
+rotation = -3.06255
+
+[node name="SpireB3" parent="Environment/NavigableMap/Section1" instance=ExtResource("15_b122m")]
+position = Vector2(-63752, 2488)
+
+[node name="CurveA14" parent="Environment/NavigableMap/Section1" instance=ExtResource("6_dbfvp")]
+position = Vector2(-50061, 165)
+
+[node name="LargeB16" parent="Environment/NavigableMap/Section1" instance=ExtResource("8_72lbl")]
+position = Vector2(-49402, 420.999)
+rotation = 0.229572
+
+[node name="LargeB17" parent="Environment/NavigableMap/Section1" instance=ExtResource("8_72lbl")]
+position = Vector2(-48341, 701)
+rotation = 3.33787
+
+[node name="LargeC29" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-45284, 460)
+rotation = -0.704065
+scale = Vector2(1.78705, 1.35473)
+
+[node name="LargeC32" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-44087, 957.998)
+rotation = -0.704065
+scale = Vector2(1.78705, 1.35473)
+
+[node name="LargeC31" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-44064, -456.997)
+rotation = -0.544562
+scale = Vector2(1.78705, 1.35473)
+
+[node name="SmallA19" parent="Environment/NavigableMap/Section1" instance=ExtResource("12_htuvj")]
+position = Vector2(-46280, 1320)
+rotation = 1.39854
+
+[node name="SmallA20" parent="Environment/NavigableMap/Section1" instance=ExtResource("12_htuvj")]
+position = Vector2(-50307, 371.998)
+rotation = -0.323935
+
+[node name="LargeC30" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-47253, 879)
+rotation = -2.90426
+
+[node name="SpireB12" parent="Environment/NavigableMap/Section1" instance=ExtResource("15_b122m")]
+position = Vector2(-50620, 218)
+
+[node name="SpireB5" parent="Environment/NavigableMap/Section1" instance=ExtResource("15_b122m")]
+position = Vector2(-50973, 3755)
+scale = Vector2(1.60809, 1.60809)
+
+[node name="SpireB13" parent="Environment/NavigableMap/Section1" instance=ExtResource("15_b122m")]
+position = Vector2(-47590, 5769)
+scale = Vector2(1.60809, 1.60809)
+
+[node name="SpireB14" parent="Environment/NavigableMap/Section1" instance=ExtResource("15_b122m")]
+position = Vector2(-47430, 5769)
+scale = Vector2(1.14443, 1.20956)
+
+[node name="SpireB15" parent="Environment/NavigableMap/Section1" instance=ExtResource("15_b122m")]
+position = Vector2(-47798, 5921)
+scale = Vector2(1.14443, 1.20956)
+
+[node name="SpireB16" parent="Environment/NavigableMap/Section1" instance=ExtResource("15_b122m")]
+position = Vector2(-47990, 5865)
+scale = Vector2(0.831717, 0.82716)
+
+[node name="SpireB9" parent="Environment/NavigableMap/Section1" instance=ExtResource("15_b122m")]
+position = Vector2(-45499, 14726)
+rotation = 2.01582
+scale = Vector2(1.60809, 1.60809)
+
+[node name="SpireB10" parent="Environment/NavigableMap/Section1" instance=ExtResource("15_b122m")]
+position = Vector2(-45355, 14663)
+rotation = 2.24606
+scale = Vector2(1.60809, 1.60809)
+
+[node name="SpireB11" parent="Environment/NavigableMap/Section1" instance=ExtResource("15_b122m")]
+position = Vector2(-45247, 14582)
+rotation = 2.49449
+scale = Vector2(1.60809, 1.60809)
+
+[node name="SpireB6" parent="Environment/NavigableMap/Section1" instance=ExtResource("15_b122m")]
+position = Vector2(-51507, 4068)
+scale = Vector2(0.654129, 0.654129)
+
+[node name="CurveA4" parent="Environment/NavigableMap/Section1" instance=ExtResource("6_dbfvp")]
+position = Vector2(-59304, -324)
+
+[node name="LargeB5" parent="Environment/NavigableMap/Section1" instance=ExtResource("8_72lbl")]
+position = Vector2(-58033, -268)
+
+[node name="LargeB6" parent="Environment/NavigableMap/Section1" instance=ExtResource("8_72lbl")]
+position = Vector2(-56896, -432.002)
+rotation = 2.80546
+
+[node name="LargeC8" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-60222, -391)
+rotation = -0.126974
+
+[node name="LargeA12" parent="Environment/NavigableMap/Section1" instance=ExtResource("7_nskjf")]
+position = Vector2(-31248, 3193)
+rotation = -0.334929
+
+[node name="LargeC36" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-29247, 2747)
+rotation = -0.155967
+
+[node name="MediumA29" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-30327, 3002)
+rotation = 1.37719
+
+[node name="LargeC38" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-26596, -403)
+rotation = 0.448706
+
+[node name="MediumA32" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-27548, -1089)
+rotation = 2.35078
+
+[node name="MediumA30" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-32614, 2122)
+rotation = -1.24709
+
+[node name="MediumA34" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-23302, -1958)
+rotation = -0.10073
+
+[node name="MediumA31" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-31987, 2747)
+rotation = 2.68171
+
+[node name="MediumB22" parent="Environment/NavigableMap/Section1" instance=ExtResource("11_2soaf")]
+position = Vector2(-28266, 2600)
+rotation = 1.50967
+
+[node name="SmallB13" parent="Environment/NavigableMap/Section1" instance=ExtResource("13_x01bs")]
+position = Vector2(-28550, 2482)
+rotation = 6.08335
+
+[node name="SmallB15" parent="Environment/NavigableMap/Section1" instance=ExtResource("13_x01bs")]
+position = Vector2(-13642, 1661)
+rotation = 6.74326
+scale = Vector2(3.6496, 3.6496)
+
+[node name="SpireA14" parent="Environment/NavigableMap/Section1" instance=ExtResource("14_p5xl5")]
+position = Vector2(-31679, 2953)
+rotation = -3.06661
+
+[node name="LargeC37" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-27309, 2491)
+rotation = -0.126974
+
+[node name="SmallA5" parent="Environment/NavigableMap/Section1" instance=ExtResource("12_htuvj")]
+position = Vector2(-58890, -302)
+
+[node name="SmallA6" parent="Environment/NavigableMap/Section1" instance=ExtResource("12_htuvj")]
+position = Vector2(-58681, -315)
+
+[node name="LargeA5" parent="Environment/NavigableMap/Section1" instance=ExtResource("7_nskjf")]
+position = Vector2(-52726, -474)
+rotation = -3.06255
+
+[node name="LargeC9" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-50888, 40.0005)
+rotation = -3.06255
+
+[node name="LargeC10" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-55681, -585)
+rotation = -3.06255
+
+[node name="LargeB7" parent="Environment/NavigableMap/Section1" instance=ExtResource("8_72lbl")]
+position = Vector2(-56764, 3236)
+
+[node name="LargeB8" parent="Environment/NavigableMap/Section1" instance=ExtResource("8_72lbl")]
+position = Vector2(-55627, 3072)
+rotation = 2.80546
+
+[node name="LargeC13" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-54436, 2643)
+rotation = -3.47698
+
+[node name="LargeB22" parent="Environment/NavigableMap/Section1" instance=ExtResource("8_72lbl")]
+position = Vector2(-44649, 14827)
+
+[node name="LargeB23" parent="Environment/NavigableMap/Section1" instance=ExtResource("8_72lbl")]
+position = Vector2(-43512, 14663)
+rotation = 2.80546
+
+[node name="LargeC35" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-42321, 14234)
+rotation = -3.47698
+
+[node name="MediumA9" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-52012, -87.0012)
+rotation = -1.39572
+
+[node name="MediumA10" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-54459, -500)
+rotation = -4.52948
+
+[node name="MediumA11" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-53804, -402)
+rotation = -1.56483
+
+[node name="MediumB5" parent="Environment/NavigableMap/Section1" instance=ExtResource("11_2soaf")]
+position = Vector2(-50415, 370)
+rotation = 0.207415
+
+[node name="MediumB16" parent="Environment/NavigableMap/Section1" instance=ExtResource("11_2soaf")]
+position = Vector2(-46474, 1085)
+rotation = -0.259039
+
+[node name="MediumB19" parent="Environment/NavigableMap/Section1" instance=ExtResource("11_2soaf")]
+position = Vector2(-33563, 5764)
+rotation = -0.259039
+
+[node name="MediumB20" parent="Environment/NavigableMap/Section1" instance=ExtResource("11_2soaf")]
+position = Vector2(-49246, 11227)
+rotation = -0.259039
+
+[node name="MediumB21" parent="Environment/NavigableMap/Section1" instance=ExtResource("11_2soaf")]
+position = Vector2(-51104, 10623)
+rotation = -0.259039
+
+[node name="MediumB17" parent="Environment/NavigableMap/Section1" instance=ExtResource("11_2soaf")]
+position = Vector2(-46057, 3211)
+rotation = 0.753285
+scale = Vector2(1.56373, 1.01589)
+
+[node name="MediumB12" parent="Environment/NavigableMap/Section1" instance=ExtResource("11_2soaf")]
+position = Vector2(-38735, 13523)
+rotation = -1.88734
+scale = Vector2(4.70063, 8.15265)
+
+[node name="MediumB13" parent="Environment/NavigableMap/Section1" instance=ExtResource("11_2soaf")]
+position = Vector2(-36144, 9382)
+rotation = -3.36126
+scale = Vector2(4.63264, 8.03474)
+
+[node name="MediumB7" parent="Environment/NavigableMap/Section1" instance=ExtResource("11_2soaf")]
+position = Vector2(-53301, 2418)
+rotation = 0.207415
+
+[node name="SmallB5" parent="Environment/NavigableMap/Section1" instance=ExtResource("13_x01bs")]
+position = Vector2(-51105, 11.0002)
+rotation = 0.00877643
+
+[node name="SpireA5" parent="Environment/NavigableMap/Section1" instance=ExtResource("14_p5xl5")]
+position = Vector2(-52080, 150)
+rotation = -6.21535
+
+[node name="SpireB4" parent="Environment/NavigableMap/Section1" instance=ExtResource("15_b122m")]
+position = Vector2(-56744, -536)
+
+[node name="SpireA9" parent="Environment/NavigableMap/Section1" instance=ExtResource("14_p5xl5")]
+position = Vector2(-34901, -3175)
+rotation = -0.00467425
+
+[node name="CurveA8" parent="Environment/NavigableMap/Section1" instance=ExtResource("6_dbfvp")]
+position = Vector2(-38595, -2675)
+rotation = -0.089422
+
+[node name="LargeB12" parent="Environment/NavigableMap/Section1" instance=ExtResource("8_72lbl")]
+position = Vector2(-37721, -2986)
+rotation = -0.089422
+
+[node name="LargeB13" parent="Environment/NavigableMap/Section1" instance=ExtResource("8_72lbl")]
+position = Vector2(-36622, -3150)
+rotation = 2.71604
+
+[node name="LargeB20" parent="Environment/NavigableMap/Section1" instance=ExtResource("8_72lbl")]
+position = Vector2(-33675, 1734)
+rotation = 3.40545
+
+[node name="LargeB21" parent="Environment/NavigableMap/Section1" instance=ExtResource("8_72lbl")]
+position = Vector2(-25393, -235.001)
+rotation = 2.92701
+
+[node name="SmallA11" parent="Environment/NavigableMap/Section1" instance=ExtResource("12_htuvj")]
+position = Vector2(-38197, -2893)
+rotation = -0.089422
+
+[node name="SmallA12" parent="Environment/NavigableMap/Section1" instance=ExtResource("12_htuvj")]
+position = Vector2(-37988, -2906)
+rotation = -0.089422
+
+[node name="SmallA13" parent="Environment/NavigableMap/Section1" instance=ExtResource("12_htuvj")]
+position = Vector2(-28454, -2685)
+rotation = -0.089422
+
+[node name="LargeA8" parent="Environment/NavigableMap/Section1" instance=ExtResource("7_nskjf")]
+position = Vector2(-32579, -3370)
+rotation = -3.15197
+
+[node name="LargeA13" parent="Environment/NavigableMap/Section1" instance=ExtResource("7_nskjf")]
+position = Vector2(-26224, 2433)
+rotation = -3.15197
+
+[node name="LargeC39" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-24519, 2409)
+rotation = 0.0603339
+
+[node name="MediumA35" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-25456, 2436)
+rotation = 1.42072
+
+[node name="MediumB23" parent="Environment/NavigableMap/Section1" instance=ExtResource("11_2soaf")]
+position = Vector2(-23730, 2478)
+rotation = 1.5532
+
+[node name="SmallB14" parent="Environment/NavigableMap/Section1" instance=ExtResource("13_x01bs")]
+position = Vector2(-23798, 2456)
+rotation = 6.12688
+
+[node name="LargeA14" parent="Environment/NavigableMap/Section1" instance=ExtResource("7_nskjf")]
+position = Vector2(-28134, -1729)
+rotation = -2.55754
+
+[node name="LargeC19" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-30398, -3084)
+rotation = -3.15197
+
+[node name="LargeC20" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-35394, -3405)
+rotation = -3.15197
+
+[node name="MediumA13" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-31586, -3211)
+rotation = -1.48514
+
+[node name="MediumA14" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-34388, -3370)
+rotation = -4.6189
+
+[node name="MediumA15" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-33390, -3361)
+rotation = -1.65425
+
+[node name="MediumA16" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-28793, -3056)
+rotation = -0.999349
+
+[node name="MediumB10" parent="Environment/NavigableMap/Section1" instance=ExtResource("11_2soaf")]
+position = Vector2(-29519, -3313)
+rotation = 1.14404
+
+[node name="MediumB11" parent="Environment/NavigableMap/Section1" instance=ExtResource("11_2soaf")]
+position = Vector2(-28478, -2183)
+rotation = -0.388397
+
+[node name="SmallB8" parent="Environment/NavigableMap/Section1" instance=ExtResource("13_x01bs")]
+position = Vector2(-31149, -3101)
+rotation = -0.0806456
+
+[node name="SpireA10" parent="Environment/NavigableMap/Section1" instance=ExtResource("14_p5xl5")]
+position = Vector2(-31366, -2751)
+rotation = -6.23142
+
+[node name="SpireB8" parent="Environment/NavigableMap/Section1" instance=ExtResource("15_b122m")]
+position = Vector2(-36038, -3254)
+rotation = -0.089422
+
+[node name="LargeC14" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-53922, 8662)
+rotation = 0.186782
+
+[node name="LargeC16" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-53182, 6923)
+rotation = -1.01421
+
+[node name="LargeC18" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-56196, 7941)
+rotation = -2.26848
+scale = Vector2(2.14595, 1.03613)
+
+[node name="MediumB8" parent="Environment/NavigableMap/Section1" instance=ExtResource("11_2soaf")]
+position = Vector2(-51947, 4321)
+rotation = 0.591107
+
+[node name="MediumB9" parent="Environment/NavigableMap/Section1" instance=ExtResource("11_2soaf")]
+position = Vector2(-57264, 5577)
+rotation = 0.591107
+
+[node name="SmallB6" parent="Environment/NavigableMap/Section1" instance=ExtResource("13_x01bs")]
+position = Vector2(-51634, 4248)
+rotation = 3.07133
+
+[node name="SmallB11" parent="Environment/NavigableMap/Section1" instance=ExtResource("13_x01bs")]
+position = Vector2(-45582, 6681)
+rotation = 3.07133
+
+[node name="SmallB7" parent="Environment/NavigableMap/Section1" instance=ExtResource("13_x01bs")]
+position = Vector2(-57017, 5303)
+rotation = 5.92166
+
+[node name="CurveA5" parent="Environment/NavigableMap/Section1" instance=ExtResource("6_dbfvp")]
+position = Vector2(-52990, 8664)
+rotation = -0.656714
+
+[node name="CurveA9" parent="Environment/NavigableMap/Section1" instance=ExtResource("6_dbfvp")]
+position = Vector2(-54591, 10431)
+rotation = -2.60249
+scale = Vector2(2.48641, 1.83854)
+
+[node name="CurveA10" parent="Environment/NavigableMap/Section1" instance=ExtResource("6_dbfvp")]
+position = Vector2(-51913, 10406)
+rotation = -3.53317
+scale = Vector2(2.48641, 1.83854)
+
+[node name="CurveA12" parent="Environment/NavigableMap/Section1" instance=ExtResource("6_dbfvp")]
+position = Vector2(-50895, 14625)
+rotation = -5.91642
+scale = Vector2(2.48641, 1.83854)
+
+[node name="CurveA11" parent="Environment/NavigableMap/Section1" instance=ExtResource("6_dbfvp")]
+position = Vector2(-53538, 11048)
+rotation = -6.03609
+scale = Vector2(2.48641, 1.83854)
+
+[node name="CurveA7" parent="Environment/NavigableMap/Section1" instance=ExtResource("6_dbfvp")]
+position = Vector2(-55595, 9768)
+rotation = 4.61038
+
+[node name="CurveA6" parent="Environment/NavigableMap/Section1" instance=ExtResource("6_dbfvp")]
+position = Vector2(-55363, 9347)
+rotation = -0.656714
+
+[node name="LargeB9" parent="Environment/NavigableMap/Section1" instance=ExtResource("8_72lbl")]
+position = Vector2(-53317, 7821)
+rotation = 1.15759
+
+[node name="LargeB18" parent="Environment/NavigableMap/Section1" instance=ExtResource("8_72lbl")]
+position = Vector2(-46536, 4027)
+rotation = 2.30106
+
+[node name="LargeB11" parent="Environment/NavigableMap/Section1" instance=ExtResource("8_72lbl")]
+position = Vector2(-57223, 6310)
+rotation = 1.15687
+
+[node name="LargeB10" parent="Environment/NavigableMap/Section1" instance=ExtResource("8_72lbl")]
+position = Vector2(-52693, 6261)
+rotation = 2.08873
+
+[node name="LargeC15" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-52312, 5147)
+rotation = -1.3902
+
+[node name="LargeC22" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-49826, 14542)
+rotation = -0.177432
+
+[node name="LargeC17" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-55733, 6972)
+rotation = -2.19508
+scale = Vector2(2.96866, 1.39337)
+
+[node name="LargeC21" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-50687, 10964)
+rotation = -2.84347
+scale = Vector2(2.0283, 1.49758)
+
+[node name="LargeC33" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-34870, 5669)
+rotation = -3.3101
+scale = Vector2(2.60562, 2.20843)
+
+[node name="LargeC34" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-34757, 6393)
+rotation = -3.35426
+scale = Vector2(2.8403, 1.56159)
+
+[node name="LargeC23" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-47335, 14667)
+rotation = -3.05953
+scale = Vector2(2.96866, 1.39337)
+
+[node name="LargeC24" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-50151, 12605)
+rotation = -3.93615
+scale = Vector2(2.96866, 1.39337)
+
+[node name="SmallA7" parent="Environment/NavigableMap/Section1" instance=ExtResource("12_htuvj")]
+position = Vector2(-53260, 7375)
+rotation = 0.735865
+
+[node name="SmallA9" parent="Environment/NavigableMap/Section1" instance=ExtResource("12_htuvj")]
+position = Vector2(-55322, 9712)
+rotation = 1.14881
+
+[node name="SmallA10" parent="Environment/NavigableMap/Section1" instance=ExtResource("12_htuvj")]
+position = Vector2(-55346, 10048)
+rotation = 1.14881
+
+[node name="SmallA8" parent="Environment/NavigableMap/Section1" instance=ExtResource("12_htuvj")]
+position = Vector2(-52938, 8217)
+
+[node name="SmallA14" parent="Environment/NavigableMap/Section1" instance=ExtResource("12_htuvj")]
+position = Vector2(-51177, 14394)
+rotation = -1.79345
+
+[node name="SmallA22" parent="Environment/NavigableMap/Section1" instance=ExtResource("12_htuvj")]
+position = Vector2(-44108, 14670)
+rotation = -1.79345
+
+[node name="SmallA23" parent="Environment/NavigableMap/Section1" instance=ExtResource("12_htuvj")]
+position = Vector2(-46782, 14632)
+rotation = -3.21536
+
+[node name="SmallA24" parent="Environment/NavigableMap/Section1" instance=ExtResource("12_htuvj")]
+position = Vector2(-48009, 14518)
+rotation = -3.21536
+
+[node name="SmallA15" parent="Environment/NavigableMap/Section1" instance=ExtResource("12_htuvj")]
+position = Vector2(-50742, 14594)
+rotation = -4.05369
+
+[node name="SpireB7" parent="Environment/NavigableMap/Section1" instance=ExtResource("15_b122m")]
+position = Vector2(-52069, 4475)
+
+[node name="CurveA13" parent="Environment/NavigableMap/Section1" instance=ExtResource("6_dbfvp")]
+position = Vector2(-43094.7, 6774.62)
+rotation = -1.30844
+
+[node name="CurveA15" parent="Environment/NavigableMap/Section1" instance=ExtResource("6_dbfvp")]
+position = Vector2(-44943, 6486)
+rotation = -2.77745
+
+[node name="CurveA16" parent="Environment/NavigableMap/Section1" instance=ExtResource("6_dbfvp")]
+position = Vector2(-44358, 6638)
+rotation = -0.553245
+
+[node name="LargeB14" parent="Environment/NavigableMap/Section1" instance=ExtResource("8_72lbl")]
+position = Vector2(-43085.5, 5846.99)
+rotation = -1.30844
+
+[node name="LargeB19" parent="Environment/NavigableMap/Section1" instance=ExtResource("8_72lbl")]
+position = Vector2(-43772, 6788)
+rotation = 0.318395
+
+[node name="LargeB15" parent="Environment/NavigableMap/Section1" instance=ExtResource("8_72lbl")]
+position = Vector2(-42860.8, 4758.78)
+rotation = 1.49702
+
+[node name="SmallA16" parent="Environment/NavigableMap/Section1" instance=ExtResource("12_htuvj")]
+position = Vector2(-43162.2, 6325.88)
+rotation = -1.30844
+
+[node name="SmallA21" parent="Environment/NavigableMap/Section1" instance=ExtResource("12_htuvj")]
+position = Vector2(-45264, 6614)
+rotation = -1.30844
+
+[node name="SmallA17" parent="Environment/NavigableMap/Section1" instance=ExtResource("12_htuvj")]
+position = Vector2(-43102.4, 6125.2)
+rotation = -1.30844
+
+[node name="SmallA18" parent="Environment/NavigableMap/Section1" instance=ExtResource("12_htuvj")]
+position = Vector2(-39609.9, -2748.8)
+rotation = -1.30844
+
+[node name="LargeC25" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-40654.3, -1061.33)
+rotation = 1.91219
+
+[node name="LargeC27" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-42152, -546)
+rotation = 2.11821
+
+[node name="LargeC28" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-42511, -965)
+rotation = 3.30048
+
+[node name="LargeC26" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-42677.1, 3518.11)
+rotation = 1.91219
+
+[node name="MediumA17" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-41182.8, 10.1562)
+rotation = -2.70416
+scale = Vector2(1, 1)
+
+[node name="MediumA18" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-42297.6, 2585.78)
+rotation = 0.445269
+
+[node name="MediumA19" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-41945.2, 1652)
+rotation = -2.87327
+
+[node name="MediumA23" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-45390, 2593)
+rotation = -2.63053
+scale = Vector2(1.29668, 1.86314)
+
+[node name="MediumA21" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-42377, 752.999)
+rotation = -1.01472
+scale = Vector2(1.31246, 1.53268)
+
+[node name="MediumA26" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-36346, 5015)
+rotation = -2.71012
+scale = Vector2(1.85556, 1.81935)
+
+[node name="MediumA27" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-35928, 3284)
+rotation = -3.21228
+scale = Vector2(1.85556, 1.81935)
+
+[node name="MediumA28" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-35110, 2047)
+rotation = -2.05192
+scale = Vector2(1.85556, 1.81935)
+
+[node name="MediumA33" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-24060, -991.999)
+rotation = -2.05192
+scale = Vector2(1.85556, 1.81935)
+
+[node name="MediumA36" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-19226, 3433)
+rotation = -1.54936
+scale = Vector2(1.87793, 3.43384)
+
+[node name="MediumA37" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-22348, 2934)
+rotation = -4.42566
+scale = Vector2(1.87793, 3.43384)
+
+[node name="MediumA22" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-41874, 298.001)
+rotation = -1.01472
+scale = Vector2(1.31246, 1.53268)
+
+[node name="MediumA20" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(-40074.9, -2558.4)
+rotation = -2.21837
+
+[node name="MediumB14" parent="Environment/NavigableMap/Section1" instance=ExtResource("11_2soaf")]
+position = Vector2(-40566.4, -1965.41)
+rotation = -0.0749776
+
+[node name="MediumB18" parent="Environment/NavigableMap/Section1" instance=ExtResource("11_2soaf")]
+position = Vector2(-36086, 2340)
+rotation = -0.0749776
+
+[node name="MediumB15" parent="Environment/NavigableMap/Section1" instance=ExtResource("11_2soaf")]
+position = Vector2(-39146.9, -2553.3)
+rotation = -1.60742
+
+[node name="SmallB9" parent="Environment/NavigableMap/Section1" instance=ExtResource("13_x01bs")]
+position = Vector2(-40929, -362.178)
+rotation = -1.29966
+
+[node name="SmallB12" parent="Environment/NavigableMap/Section1" instance=ExtResource("13_x01bs")]
+position = Vector2(-34390, 1521)
+rotation = -1.29966
+
+[node name="SpireA12" parent="Environment/NavigableMap/Section1" instance=ExtResource("14_p5xl5")]
+position = Vector2(-39684, -2413)
+rotation = 0.0713052
+scale = Vector2(1, 1)
+
+[node name="Section2" type="Node2D" parent="Environment/NavigableMap"]
+
+[node name="CurveA2" parent="Environment/NavigableMap/Section2" instance=ExtResource("6_dbfvp")]
+position = Vector2(2839, 930)
+rotation = -2.52349
+
+[node name="CurveA3" parent="Environment/NavigableMap/Section2" instance=ExtResource("6_dbfvp")]
+position = Vector2(-6816, -4174)
+rotation = -2.09135
+
+[node name="LargeA2" parent="Environment/NavigableMap/Section2" instance=ExtResource("7_nskjf")]
+position = Vector2(7316, 3876)
+
+[node name="LargeA21" parent="Environment/NavigableMap/Section2" instance=ExtResource("7_nskjf")]
+position = Vector2(10128, 4556)
+
+[node name="LargeA20" parent="Environment/NavigableMap/Section2" instance=ExtResource("7_nskjf")]
+position = Vector2(4728, 1807)
+rotation = 1.77845
+
+[node name="LargeA19" parent="Environment/NavigableMap/Section2" instance=ExtResource("7_nskjf")]
+position = Vector2(4481, 1388)
+
+[node name="LargeA12" parent="Environment/NavigableMap/Section2" instance=ExtResource("7_nskjf")]
+position = Vector2(3549, 1265)
+
+[node name="LargeA11" parent="Environment/NavigableMap/Section2" instance=ExtResource("7_nskjf")]
+position = Vector2(-3494, 349)
+rotation = 0.320553
+
+[node name="LargeA17" parent="Environment/NavigableMap/Section2" instance=ExtResource("7_nskjf")]
+position = Vector2(3270, -3796)
+rotation = 0.20994
+scale = Vector2(3.75896, 2.90714)
+
+[node name="LargeA18" parent="Environment/NavigableMap/Section2" instance=ExtResource("7_nskjf")]
+position = Vector2(7441, -3498)
+rotation = 1.17987
+scale = Vector2(3.75896, 2.90714)
+
+[node name="LargeA13" parent="Environment/NavigableMap/Section2" instance=ExtResource("7_nskjf")]
+position = Vector2(-7642, -49.9999)
+rotation = 1.44282
+
+[node name="LargeA8" parent="Environment/NavigableMap/Section2" instance=ExtResource("7_nskjf")]
+position = Vector2(-7168, -3872)
+
+[node name="LargeA3" parent="Environment/NavigableMap/Section2" instance=ExtResource("7_nskjf")]
+position = Vector2(-21792, -3609)
+rotation = -0.211674
+
+[node name="LargeA5" parent="Environment/NavigableMap/Section2" instance=ExtResource("7_nskjf")]
+position = Vector2(-16548, 3287)
+rotation = -0.302434
+scale = Vector2(1.89768, 1.51171)
+
+[node name="LargeA6" parent="Environment/NavigableMap/Section2" instance=ExtResource("7_nskjf")]
+position = Vector2(-14392, 2533)
+rotation = -0.495216
+scale = Vector2(3.26031, 1.69834)
+
+[node name="LargeA14" parent="Environment/NavigableMap/Section2" instance=ExtResource("7_nskjf")]
+position = Vector2(-2138, -3867)
+rotation = 0.0596336
+scale = Vector2(3.4294, 1.78642)
+
+[node name="LargeA16" parent="Environment/NavigableMap/Section2" instance=ExtResource("7_nskjf")]
+position = Vector2(849, -3735)
+rotation = 3.17297
+scale = Vector2(3.26031, 1.69834)
+
+[node name="LargeA7" parent="Environment/NavigableMap/Section2" instance=ExtResource("7_nskjf")]
+position = Vector2(-18882, -4220)
+rotation = -0.184657
+scale = Vector2(3.26031, 1.69834)
+
+[node name="LargeA4" parent="Environment/NavigableMap/Section2" instance=ExtResource("7_nskjf")]
+position = Vector2(-20789, -3761)
+rotation = -3.19699
+
+[node name="LargeB2" parent="Environment/NavigableMap/Section2" instance=ExtResource("8_72lbl")]
+position = Vector2(7243, 3018)
+
+[node name="LargeB9" parent="Environment/NavigableMap/Section2" instance=ExtResource("8_72lbl")]
+position = Vector2(-6694, -6685)
+rotation = 0.446906
+scale = Vector2(1.85221, 1.74775)
+
+[node name="LargeB8" parent="Environment/NavigableMap/Section2" instance=ExtResource("8_72lbl")]
+position = Vector2(-5806, -469)
+rotation = -0.000264148
+
+[node name="LargeB5" parent="Environment/NavigableMap/Section2" instance=ExtResource("8_72lbl")]
+position = Vector2(-7865, -3891)
+rotation = 0.190312
+
+[node name="LargeB4" parent="Environment/NavigableMap/Section2" instance=ExtResource("8_72lbl")]
+position = Vector2(-17591, -4111)
+rotation = 0.24398
+
+[node name="LargeB3" parent="Environment/NavigableMap/Section2" instance=ExtResource("8_72lbl")]
+position = Vector2(-22894, -2973)
+rotation = -0.802926
+scale = Vector2(1.25711, 1.17695)
+
+[node name="LargeC2" parent="Environment/NavigableMap/Section2" instance=ExtResource("9_15bgk")]
+position = Vector2(8074, 2246)
+
+[node name="LargeC8" parent="Environment/NavigableMap/Section2" instance=ExtResource("9_15bgk")]
+position = Vector2(-4574, -212)
+rotation = 0.444734
+
+[node name="LargeC3" parent="Environment/NavigableMap/Section2" instance=ExtResource("9_15bgk")]
+position = Vector2(-8938, -4023)
+
+[node name="LargeC6" parent="Environment/NavigableMap/Section2" instance=ExtResource("9_15bgk")]
+position = Vector2(-4805, -5122)
+rotation = 4.00266
+scale = Vector2(2.73115, 2.17821)
+
+[node name="LargeC11" parent="Environment/NavigableMap/Section2" instance=ExtResource("9_15bgk")]
+position = Vector2(5479, -5288)
+rotation = 4.95176
+scale = Vector2(2.73115, 2.17821)
+
+[node name="LargeC7" parent="Environment/NavigableMap/Section2" instance=ExtResource("9_15bgk")]
+position = Vector2(-7990, -5162)
+rotation = 4.00266
+scale = Vector2(2.73115, 2.17821)
+
+[node name="LargeC12" parent="Environment/NavigableMap/Section2" instance=ExtResource("9_15bgk")]
+position = Vector2(6704, -6596)
+rotation = 3.60257
+scale = Vector2(1.35005, 2.04361)
+
+[node name="CurveA4" parent="Environment/NavigableMap/Section2" instance=ExtResource("6_dbfvp")]
+position = Vector2(-13465, -3847)
+rotation = -0.439101
+
+[node name="LargeA9" parent="Environment/NavigableMap/Section2" instance=ExtResource("7_nskjf")]
+position = Vector2(-14317, -3752)
+rotation = -0.0783723
+
+[node name="LargeB6" parent="Environment/NavigableMap/Section2" instance=ExtResource("8_72lbl")]
+position = Vector2(-15318, -3874)
+rotation = 0.246876
+
+[node name="LargeC4" parent="Environment/NavigableMap/Section2" instance=ExtResource("9_15bgk")]
+position = Vector2(-16391, -4006)
+rotation = 0.0565636
+
+[node name="MediumA2" parent="Environment/NavigableMap/Section2" instance=ExtResource("10_fseyh")]
+position = Vector2(8546, 3212)
+
+[node name="MediumA3" parent="Environment/NavigableMap/Section2" instance=ExtResource("10_fseyh")]
+position = Vector2(9893, 4190)
+rotation = 3.66355
+
+[node name="MediumA7" parent="Environment/NavigableMap/Section2" instance=ExtResource("10_fseyh")]
+position = Vector2(10186, 3253)
+rotation = -0.00242024
+
+[node name="MediumA8" parent="Environment/NavigableMap/Section2" instance=ExtResource("10_fseyh")]
+position = Vector2(10130, 2293)
+rotation = -0.13194
+
+[node name="MediumA5" parent="Environment/NavigableMap/Section2" instance=ExtResource("10_fseyh")]
+position = Vector2(-2517, 690)
+rotation = -1.36562
+
+[node name="MediumA6" parent="Environment/NavigableMap/Section2" instance=ExtResource("10_fseyh")]
+position = Vector2(-1458, 690)
+rotation = 1.50878
+
+[node name="MediumA4" parent="Environment/NavigableMap/Section2" instance=ExtResource("10_fseyh")]
+position = Vector2(1963, 1009)
+rotation = 1.49202
+
+[node name="MediumB2" parent="Environment/NavigableMap/Section2" instance=ExtResource("11_2soaf")]
+position = Vector2(8196, 2978)
+
+[node name="SmallA2" parent="Environment/NavigableMap/Section2" instance=ExtResource("12_htuvj")]
+position = Vector2(9165, 3463)
+
+[node name="SmallA3" parent="Environment/NavigableMap/Section2" instance=ExtResource("12_htuvj")]
+position = Vector2(5013, 1333)
+rotation = 1.16777
+
+[node name="SmallB2" parent="Environment/NavigableMap/Section2" instance=ExtResource("13_x01bs")]
+position = Vector2(9363, 2798)
+
+[node name="LargeB10" parent="Environment/NavigableMap/Section2" instance=ExtResource("8_72lbl")]
+position = Vector2(-339, 682)
+rotation = 0.147423
+
+[node name="LargeB11" parent="Environment/NavigableMap/Section2" instance=ExtResource("8_72lbl")]
+position = Vector2(899, 902)
+rotation = -3.02334
+
+[node name="SmallB3" parent="Environment/NavigableMap/Section2" instance=ExtResource("13_x01bs")]
+position = Vector2(402, 625)
+rotation = 1.18437
+
+[node name="SpireA2" parent="Environment/NavigableMap/Section2" instance=ExtResource("14_p5xl5")]
+position = Vector2(9075, 2786)
+
+[node name="SpireA5" parent="Environment/NavigableMap/Section2" instance=ExtResource("14_p5xl5")]
+position = Vector2(-7463, -5706)
+rotation = -0.691499
+scale = Vector2(5.3856, 3.45565)
+
+[node name="SpireA6" parent="Environment/NavigableMap/Section2" instance=ExtResource("14_p5xl5")]
+position = Vector2(-6900, -5802)
+rotation = -0.691499
+scale = Vector2(3.78729, 2.1823)
+
+[node name="SpireA3" parent="Environment/NavigableMap/Section2" instance=ExtResource("14_p5xl5")]
+position = Vector2(-18891, -3656)
+scale = Vector2(2.55694, 2.55694)
+
+[node name="SpireA4" parent="Environment/NavigableMap/Section2" instance=ExtResource("14_p5xl5")]
+position = Vector2(-18956, -3832)
+scale = Vector2(1.01059, 1.01059)
+
+[node name="SpireB2" parent="Environment/NavigableMap/Section2" instance=ExtResource("15_b122m")]
+position = Vector2(8905, 3463)
+
+[node name="SpireA15" parent="Environment/NavigableMap/Section2" instance=ExtResource("14_p5xl5")]
+position = Vector2(-19925, -3545)
+rotation = -0.0313208
+
+[node name="LargeB24" parent="Environment/NavigableMap/Section2" instance=ExtResource("8_72lbl")]
+position = Vector2(-9734, -115)
+rotation = 3.06844
+
+[node name="LargeA15" parent="Environment/NavigableMap/Section2" instance=ExtResource("7_nskjf")]
+position = Vector2(-12547, 798)
+rotation = 2.70924
+
+[node name="LargeC40" parent="Environment/NavigableMap/Section2" instance=ExtResource("9_15bgk")]
+position = Vector2(-6920, -400)
+rotation = 2.98842
+
+[node name="LargeC41" parent="Environment/NavigableMap/Section2" instance=ExtResource("9_15bgk")]
+position = Vector2(-8448, -219)
+rotation = -0.0635669
+
+[node name="MediumA38" parent="Environment/NavigableMap/Section2" instance=ExtResource("10_fseyh")]
+position = Vector2(-10746, 13)
+rotation = 1.24232
+
+[node name="MediumA39" parent="Environment/NavigableMap/Section2" instance=ExtResource("10_fseyh")]
+position = Vector2(-11712, 339)
+rotation = -2.07622
+
+[node name="SpireB17" parent="Environment/NavigableMap/Section2" instance=ExtResource("15_b122m")]
+position = Vector2(-17033, -3964)
+rotation = 0.0321279
+
+[node name="CurveA5" parent="Environment/NavigableMap/Section2" instance=ExtResource("6_dbfvp")]
+position = Vector2(-13243, -4129)
+rotation = 3.14211
+
+[node name="LargeA10" parent="Environment/NavigableMap/Section2" instance=ExtResource("7_nskjf")]
+position = Vector2(-12391, -4048)
+rotation = 3.14159
+
+[node name="LargeB7" parent="Environment/NavigableMap/Section2" instance=ExtResource("8_72lbl")]
+position = Vector2(-11326, -3867)
+rotation = -3.14667
+scale = Vector2(1, 1)
+
+[node name="LargeC5" parent="Environment/NavigableMap/Section2" instance=ExtResource("9_15bgk")]
+position = Vector2(-10189, -3927)
+rotation = 3.14159
+
+[node name="LargeB13" parent="Environment/NavigableMap/Section2" instance=ExtResource("8_72lbl")]
+position = Vector2(8065, -1671)
+rotation = 0.727709
+
+[node name="LargeC9" parent="Environment/NavigableMap/Section2" instance=ExtResource("9_15bgk")]
+position = Vector2(8875, -848)
+rotation = 0.922497
+
+[node name="LargeB14" parent="Environment/NavigableMap/Section2" instance=ExtResource("8_72lbl")]
+position = Vector2(9836, 1225)
+rotation = -1.87562
+scale = Vector2(1, 1)
+
+[node name="LargeC10" parent="Environment/NavigableMap/Section2" instance=ExtResource("9_15bgk")]
+position = Vector2(9454, 177)
+rotation = 4.35756
+
+[node name="FloatingBlock" type="Node2D" parent="Environment/NavigableMap/Section2"]
+position = Vector2(2672, 8821)
+rotation = -0.53587
+
+[node name="LargeA15" parent="Environment/NavigableMap/Section2/FloatingBlock" instance=ExtResource("7_nskjf")]
+position = Vector2(-2161.88, -205.97)
+rotation = 2.38263
+scale = Vector2(1, 1)
+
+[node name="LargeA16" parent="Environment/NavigableMap/Section2/FloatingBlock" instance=ExtResource("7_nskjf")]
+position = Vector2(-679.727, 662.855)
+rotation = -3.19425
+scale = Vector2(2.11677, 2.45453)
+
+[node name="MediumA39" parent="Environment/NavigableMap/Section2/FloatingBlock" instance=ExtResource("10_fseyh")]
+position = Vector2(-2077.4, 486.34)
+rotation = -0.588661
+scale = Vector2(1, 1)
+
+[node name="LargeC40" parent="Environment/NavigableMap/Section2/FloatingBlock" instance=ExtResource("9_15bgk")]
+position = Vector2(-1186.49, -1182.15)
+rotation = -0.704065
+scale = Vector2(1.78705, 1.35473)
+
+[node name="LargeB24" parent="Environment/NavigableMap/Section2/FloatingBlock" instance=ExtResource("8_72lbl")]
+position = Vector2(-1414.87, -943.974)
+rotation = 2.30106
+
+[node name="CurveA18" parent="Environment/NavigableMap/Section2/FloatingBlock" instance=ExtResource("6_dbfvp")]
+position = Vector2(1307.36, -752.026)
+rotation = -1.74343
+
+[node name="MediumA40" parent="Environment/NavigableMap/Section2/FloatingBlock" instance=ExtResource("10_fseyh")]
+position = Vector2(602.934, 445.637)
+rotation = 0.445269
+
+[node name="MediumA41" parent="Environment/NavigableMap/Section2/FloatingBlock" instance=ExtResource("10_fseyh")]
+position = Vector2(968.382, -243.875)
+rotation = -2.27215
+
+[node name="MediumA43" parent="Environment/NavigableMap/Section2/FloatingBlock" instance=ExtResource("10_fseyh")]
+position = Vector2(523.514, -1387.14)
+rotation = -1.01472
+scale = Vector2(1.31246, 1.53268)
+
+[node name="FloatingBlock2" type="Node2D" parent="Environment/NavigableMap/Section2"]
+position = Vector2(1488, 8579)
+rotation = -0.53587
+scale = Vector2(3.03162, 3.03162)
+
+[node name="LargeA18" parent="Environment/NavigableMap/Section2/FloatingBlock2" instance=ExtResource("7_nskjf")]
+position = Vector2(-1791.12, -1451.09)
+rotation = -1.21676
+scale = Vector2(1, 1)
+
+[node name="LargeA19" parent="Environment/NavigableMap/Section2/FloatingBlock2" instance=ExtResource("7_nskjf")]
+position = Vector2(3955.49, -3054.19)
+rotation = 2.62455
+scale = Vector2(0.575425, 0.667984)
+
+[node name="LargeA16" parent="Environment/NavigableMap/Section2/FloatingBlock2" instance=ExtResource("7_nskjf")]
+position = Vector2(-1423.12, 1166.79)
+rotation = -2.44952
+
+[node name="LargeA17" parent="Environment/NavigableMap/Section2/FloatingBlock2" instance=ExtResource("7_nskjf")]
+position = Vector2(-641.33, 1830.03)
+rotation = 3.65859
+
+[node name="MediumA39" parent="Environment/NavigableMap/Section2/FloatingBlock2" instance=ExtResource("10_fseyh")]
+position = Vector2(-2077.4, 486.34)
+rotation = -0.588661
+scale = Vector2(1, 1)
+
+[node name="SmallB17" parent="Environment/NavigableMap/Section2/FloatingBlock2" instance=ExtResource("13_x01bs")]
+position = Vector2(1437.9, 1813.33)
+rotation = 3.07133
+scale = Vector2(1, 1)
+
+[node name="LargeB24" parent="Environment/NavigableMap/Section2/FloatingBlock2" instance=ExtResource("8_72lbl")]
+position = Vector2(-2099.15, -456.252)
+rotation = 1.97403
+
+[node name="CurveA18" parent="Environment/NavigableMap/Section2/FloatingBlock2" instance=ExtResource("6_dbfvp")]
+position = Vector2(1400.3, -1078.95)
+rotation = -3.27355
+
+[node name="CurveA19" parent="Environment/NavigableMap/Section2/FloatingBlock2" instance=ExtResource("6_dbfvp")]
+position = Vector2(2283.37, 1146.08)
+rotation = 0.579607
+
+[node name="SmallA26" parent="Environment/NavigableMap/Section2/FloatingBlock2" instance=ExtResource("12_htuvj")]
+position = Vector2(-109.083, 2135.36)
+rotation = -1.30844
+scale = Vector2(1, 1)
+
+[node name="LargeC41" parent="Environment/NavigableMap/Section2/FloatingBlock2" instance=ExtResource("9_15bgk")]
+position = Vector2(709.328, 2148.72)
+rotation = 2.98802
+
+[node name="MediumA40" parent="Environment/NavigableMap/Section2/FloatingBlock2" instance=ExtResource("10_fseyh")]
+position = Vector2(1748.07, 1226.42)
+rotation = 0.445269
+
+[node name="MediumA43" parent="Environment/NavigableMap/Section2/FloatingBlock2" instance=ExtResource("10_fseyh")]
+position = Vector2(404.889, -1215.45)
+rotation = -1.01472
+scale = Vector2(1.31246, 1.53268)
+
+[node name="MediumA45" parent="Environment/NavigableMap/Section2/FloatingBlock2" instance=ExtResource("10_fseyh")]
+position = Vector2(-725.96, -1763.45)
+rotation = -1.38827
+scale = Vector2(1.31246, 1.53268)
+
+[node name="MediumA44" parent="Environment/NavigableMap/Section2/FloatingBlock2" instance=ExtResource("10_fseyh")]
+position = Vector2(1859.69, -1234.29)
+rotation = 0.501272
+scale = Vector2(0.732962, 0.690765)
+
+[node name="Section4" type="Node2D" parent="Environment/NavigableMap"]
+
+[node name="Blocks" type="Node2D" parent="Environment/NavigableMap"]
+visible = false
+
+[node name="CurveA" parent="Environment/NavigableMap/Blocks" instance=ExtResource("6_dbfvp")]
+position = Vector2(-68750, 4808)
+
+[node name="LargeA" parent="Environment/NavigableMap/Blocks" instance=ExtResource("7_nskjf")]
+position = Vector2(-70312, 4646)
+
+[node name="LargeB" parent="Environment/NavigableMap/Blocks" instance=ExtResource("8_72lbl")]
+position = Vector2(-70375, 4134)
+
+[node name="LargeC" parent="Environment/NavigableMap/Blocks" instance=ExtResource("9_15bgk")]
+position = Vector2(-70516, 3570)
+
+[node name="MediumA" parent="Environment/NavigableMap/Blocks" instance=ExtResource("10_fseyh")]
+position = Vector2(-69082, 3982)
+
+[node name="MediumB" parent="Environment/NavigableMap/Blocks" instance=ExtResource("11_2soaf")]
+position = Vector2(-69432, 3748)
+
+[node name="SmallA" parent="Environment/NavigableMap/Blocks" instance=ExtResource("12_htuvj")]
+position = Vector2(-68463, 4233)
+
+[node name="SmallB" parent="Environment/NavigableMap/Blocks" instance=ExtResource("13_x01bs")]
+position = Vector2(-68265, 3568)
+
+[node name="SpireA" parent="Environment/NavigableMap/Blocks" instance=ExtResource("14_p5xl5")]
+position = Vector2(-68606, 3631)
+
+[node name="SpireB" parent="Environment/NavigableMap/Blocks" instance=ExtResource("15_b122m")]
+position = Vector2(-68723, 4233)
+
+[node name="Polygon2D" type="Polygon2D" parent="Environment/NavigableMap"]
+polygon = PackedVector2Array(-68010, 2784, -66686, 2569, -66335, 2784, -65962, 2614, -65769, 2840, -65769, 2840, -64163, 2705, -63156, 2376, -61787, 2422, -60520, 2671, -59943, 2490, -59400, 2659, -59445, 2920, -56243, 3248, -53596, 2286, -53279, 2297, -53245, 2637, -52589, 2682, -52329, 3021, -50417, 3202, -52035, 4390, -52035, 4390, -52261, 4764, -52453, 5940, -53438, 7343, -53177, 8271, -52815, 8361, -52940, 8769, -54592, 8542, -56933, 5341, -57420, 5827, -57001, 7083, -55191, 9052, -55270, 9448, -55689, 9436, -55429, 10251, -54343, 10364, -53709, 11190, -52646, 10986, -51899, 10251, -51797, 10636, -49127, 11371, -49127, 11654, -51582, 14131, -50957, 14762, -49261, 14449, -44671, 14891, -41977, 14192, -36015.6, 12263.8, -36375, 9374, -36847, 6811, -33425, 6130, -33625.6, 5325.44, -36251, 5834, -36560, 5524, -35632, 2389, -34179, 1569, -32134, 2268, -31663, 3358, -28999, 2712, -27357, 2524, -23751, 2416, -19904, 3520, -15100, 3089, -13540, 1474, -11417, 259, -10261, -147, -7595, -274, -5474, -439, -4598, -211, -2503, 821, -534, 627, 1904, 1034, 2806, 830, 3200, 1338, 4495, 1389, 4279, 3091, 3111, 3319, 3022, 4577, -851, 4462, -5487, 5745, -5918, 6621, -5001, 9589, -4446, 12715, 2506, 14545, 4374, 14563, 8181, 12031, 7915, 7923, 9949, 7957, 14865, 17348, 8145, 17221, 3566, 17293, -10708, 17153, -31362, 17078, -39511, 17129, -51713, 17260, -67300, 13980)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Environment/NavigableMap"]
+position = Vector2(-2373, -1966)
+polygon = PackedVector2Array(-40891, 2295, -39440, 3109, -39987, 4442, -40545, 6169, -40482, 7109, -40748, 8074, -40660, 8671, -40799, 8938, -41752, 8607, -42222, 8722, -42387, 8379, -42920, 8430, -43644, 8620, -44279, 8214, -45347, 7482, -44787, 6665, -43820, 5722, -43784, 5201, -43353, 5362, -42521, 3517)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Environment/NavigableMap"]
+position = Vector2(-15846, -6089)
+polygon = PackedVector2Array(-52003, 1167, -26605, -204, -8971, -1458, 30603, -1531, 30954, 7651, 31234, 10800, 26422, 10665, 25704, 10503, 26063, 9390, 25650, 6789, 24860, 5353, 24139, 4614, 24215, 3844, 23037, 914, 23611, 54, 21572, -958, 21451, 114, 20755, 2344, 17561, 1901, 17238, 2289, 12098, 1969, 9919, -345, 8563, -1046, 7162, 184, 8680, 2101, 8093, 2209, 6714, 2005, 6103, 2149, 4041, 2209, 3945, 1922, 2927, 2029, 2639, 1766, 2375, 2293, 1057, 2317, -1820, 1910, -1302, 1421, -4642, 2265, -6390.46, 2385.09, -7570, 3594, -7444, 4725, -8791, 5390, -9078, 5677, -9976, 5911, -10425, 5767, -11216, 5444, -12203, 4366, -12634, 3863, -12567, 3217, -13540.5, 2616.69, -13958, 2989, -14785, 2965, -18249, 2690, -20143, 2606, -21174, 3037, -22216, 3109, -22696, 3457, -23415, 3517, -23823, 3289, -24566, 3684, -24818, 4092, -24626, 4536, -25633, 6621, -26508, 5890, -26107, 5202, -27113, 5021, -28234, 5519, -30420, 7396, -30737, 7037, -32702, 6685, -34614, 6170, -35788, 6012, -36461, 5905, -36542, 5490, -37558, 5650, -38790, 5482, -40350, 5442, -41654, 5802, -42678, 5770, -43134, 5730, -43450, 5815, -43717, 5612, -44934, 5754, -47828, 5676, -49740, 5890, -52130, 5815)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Environment/NavigableMap"]
+position = Vector2(41157, 4507)
+polygon = PackedVector2Array(-41538, 2654, -39860, 2630, -39812, 4596, -41610, 4812)
 
 [node name="Whale" parent="." instance=ExtResource("19_53crg")]
 material = SubResource("ShaderMaterial_dnevv")
-position = Vector2(3821, -323)
+position = Vector2(-4631, -1971)
 state = 0
 
 [node name="Camera2D" type="Camera2D" parent="Whale"]
 zoom = Vector2(0.25, 0.25)
+
+[node name="Triggers" type="Node2D" parent="."]
+
+[node name="Shipwreck" type="Sprite2D" parent="."]
+position = Vector2(-19276, 2227)
+scale = Vector2(2.57117, 2.57117)
+texture = ExtResource("7_eqndf")
+
+[connection signal="body_entered" from="Environment/Section2/StaticCameraZone" to="Environment/Section2" method="_on_body_entered"]
+[connection signal="body_exited" from="Environment/Section2/StaticCameraZone" to="Environment/Section2" method="_on_body_exited"]
