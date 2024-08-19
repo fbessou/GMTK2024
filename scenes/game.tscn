@@ -95,6 +95,7 @@ _data = {
 script = ExtResource("1_d5yal")
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_npkql")]
+layer = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
