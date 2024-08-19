@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://kog4n06ycwj0"]
+[gd_scene load_steps=11 format=3 uid="uid://kog4n06ycwj0"]
 
 [ext_resource type="PackedScene" uid="uid://cu585kiq766m0" path="res://scenes/Levels/level_1.tscn" id="1_w2214"]
 [ext_resource type="PackedScene" uid="uid://peng5fbet5c1" path="res://scenes/fishes/plankton.tscn" id="3_fj1y7"]
@@ -6,8 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://tvq6ijgntio" path="res://scenes/fishes/whale.tscn" id="4_1i483"]
 [ext_resource type="PackedScene" uid="uid://diht24l3hw71d" path="res://scenes/fishes/eel.tscn" id="5_3eui8"]
 [ext_resource type="Script" path="res://scripts/Scripted Interactions/CaveEel.gd" id="6_pjrvd"]
-
-[sub_resource type="GDScript" id="GDScript_06pgi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_881gm"]
 radius = 140.289
@@ -50,7 +48,6 @@ _data = {
 }
 
 [node name="Game" type="Node2D"]
-script = SubResource("GDScript_06pgi")
 
 [node name="Level1" parent="." instance=ExtResource("1_w2214")]
 
