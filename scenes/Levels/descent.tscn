@@ -1,0 +1,250 @@
+[gd_scene load_steps=19 format=3 uid="uid://bdhladljwpd2g"]
+
+[ext_resource type="Script" path="res://scenes/Levels/descent.gd" id="1_8ys3j"]
+[ext_resource type="Texture2D" uid="uid://dgvdxphki1cs8" path="res://assets/textures/environment/level1/3-background.svg" id="1_w87d2"]
+[ext_resource type="Texture2D" uid="uid://mlwwit4s7j2j" path="res://assets/textures/environment/level1/2-midground.svg" id="2_k7s60"]
+[ext_resource type="Texture2D" uid="uid://c3i7ffs6568mt" path="res://assets/textures/environment/level1/0-foreground.svg" id="3_nn7cc"]
+[ext_resource type="PackedScene" uid="uid://chevwwev43q6b" path="res://scenes/Levels/blocks/largeC.tscn" id="7_lpvqn"]
+[ext_resource type="PackedScene" uid="uid://dbles67txj7e0" path="res://scenes/Levels/blocks/mediumA.tscn" id="8_fe6y3"]
+[ext_resource type="PackedScene" uid="uid://c2to2hb2q2wvb" path="res://scenes/Levels/blocks/curveA.tscn" id="9_m4mvn"]
+[ext_resource type="PackedScene" uid="uid://bnjnf3jijmc4q" path="res://scenes/Levels/blocks/smallA.tscn" id="10_t5f42"]
+[ext_resource type="PackedScene" uid="uid://ucctann5vnfg" path="res://scenes/Levels/blocks/smallB.tscn" id="11_pvrg0"]
+[ext_resource type="PackedScene" uid="uid://c7xh68riw0kf8" path="res://scenes/Levels/blocks/mediumB.tscn" id="12_on4ns"]
+[ext_resource type="PackedScene" uid="uid://cw5cd8mpbft6b" path="res://scenes/Levels/blocks/largeB.tscn" id="13_bxuhf"]
+[ext_resource type="PackedScene" uid="uid://cpuc7ktc5wwsv" path="res://scenes/Levels/blocks/spireA.tscn" id="14_m2quo"]
+[ext_resource type="PackedScene" uid="uid://bitk4x3pdmgjb" path="res://scenes/Levels/blocks/largeA.tscn" id="16_awr0p"]
+[ext_resource type="PackedScene" uid="uid://n41mpk740rjq" path="res://scenes/Levels/water_current.tscn" id="17_eei4e"]
+[ext_resource type="PackedScene" uid="uid://tvq6ijgntio" path="res://scenes/fishes/whale.tscn" id="19_53crg"]
+[ext_resource type="Shader" path="res://resources/shaders/paper.gdshader" id="20_0yyrc"]
+[ext_resource type="Texture2D" uid="uid://bqec3tilerluy" path="res://assets/textures/Paper001_1K-JPG_Color.jpg" id="21_r0lfq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dnevv"]
+resource_local_to_scene = true
+shader = ExtResource("20_0yyrc")
+shader_parameter/corruption = 1.0
+shader_parameter/filter_color = Color(1, 1, 1, 1)
+shader_parameter/color_multiplier = 1.0
+shader_parameter/paper_texture = ExtResource("21_r0lfq")
+
+[node name="Descent" type="Node2D"]
+script = ExtResource("1_8ys3j")
+
+[node name="Parallax" type="Node2D" parent="."]
+
+[node name="Background" type="Parallax2D" parent="Parallax"]
+scroll_scale = Vector2(0.1, 0.1)
+scroll_offset = Vector2(-210, -144)
+repeat_size = Vector2(1920, 1080)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax/Background"]
+z_index = -1000
+z_as_relative = false
+texture = ExtResource("1_w87d2")
+
+[node name="Midground" type="Parallax2D" parent="Parallax"]
+scroll_scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax/Midground"]
+z_index = -900
+z_as_relative = false
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_k7s60")
+
+[node name="Foreground Parallax" type="Parallax2D" parent="Parallax"]
+z_index = 1000
+scroll_scale = Vector2(1.3, 1.3)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax/Foreground Parallax"]
+z_index = 1000
+z_as_relative = false
+position = Vector2(-1119, -3952)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("3_nn7cc")
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="BackgroundProps" type="Node2D" parent="Environment"]
+z_index = -800
+z_as_relative = false
+
+[node name="ForegroundProps" type="Node2D" parent="Environment"]
+z_index = -200
+z_as_relative = false
+
+[node name="NavigableMap" type="Node2D" parent="Environment"]
+modulate = Color(0, 0.756863, 0.776471, 1)
+
+[node name="PlanktonCave" type="Node2D" parent="Environment/NavigableMap"]
+visible = false
+position = Vector2(1719, -1804)
+rotation = 0.486793
+scale = Vector2(0.5, 0.5)
+
+[node name="LargeC" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("7_lpvqn")]
+position = Vector2(-1200, 286)
+
+[node name="LargeC4" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("7_lpvqn")]
+position = Vector2(15242, 4900)
+rotation = -0.429216
+
+[node name="LargeC2" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("7_lpvqn")]
+position = Vector2(5776, 1122)
+rotation = 0.612992
+
+[node name="LargeC3" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("7_lpvqn")]
+position = Vector2(7184, 1730)
+rotation = 0.315998
+scale = Vector2(1.43524, 1.46282)
+
+[node name="MediumA" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("8_fe6y3")]
+position = Vector2(1474.7, -2151.81)
+rotation = 1.52905
+
+[node name="CurveA" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("9_m4mvn")]
+position = Vector2(-1000, 714)
+rotation = 1.26368
+
+[node name="SmallA" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("10_t5f42")]
+position = Vector2(-182, 378)
+rotation = -3.35297
+
+[node name="SmallB" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("11_pvrg0")]
+position = Vector2(-8, 658)
+rotation = 3.35334
+
+[node name="SmallB2" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("11_pvrg0")]
+position = Vector2(15838, 4440)
+rotation = 3.35334
+
+[node name="SmallB3" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("11_pvrg0")]
+position = Vector2(14442, 5344)
+rotation = 3.35334
+scale = Vector2(2.54853, 2.54853)
+
+[node name="MediumB2" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("12_on4ns")]
+position = Vector2(7806.91, -6887.69)
+rotation = -0.540315
+scale = Vector2(1.5, 1.5)
+
+[node name="SmallA4" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("10_t5f42")]
+position = Vector2(6570.91, -6827.69)
+rotation = 2.96431
+scale = Vector2(2.71088, 2.71088)
+
+[node name="CurveA2" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("9_m4mvn")]
+position = Vector2(12928.9, -4549.69)
+rotation = 3.07221
+scale = Vector2(1.5, 1.5)
+
+[node name="LargeB" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("13_bxuhf")]
+position = Vector2(14010.9, -4443.69)
+rotation = 0.202597
+scale = Vector2(1.5, 1.5)
+
+[node name="SpireA2" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("14_m2quo")]
+position = Vector2(13908.9, -4069.69)
+rotation = 0.0826226
+scale = Vector2(1.5, 1.5)
+
+[node name="SpireA3" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("14_m2quo")]
+position = Vector2(14548.9, -3889.69)
+rotation = 0.0826226
+scale = Vector2(1.5, 1.5)
+
+[node name="SpireA4" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("14_m2quo")]
+position = Vector2(6394.91, -6703.69)
+rotation = 0.0826226
+scale = Vector2(1.5, 1.5)
+
+[node name="MediumB4" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("12_on4ns")]
+position = Vector2(10868.9, -5299.69)
+rotation = -1.80769
+scale = Vector2(1.5, 1.5)
+
+[node name="SmallA5" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("10_t5f42")]
+position = Vector2(12300.9, -4095.69)
+rotation = 3.04232
+scale = Vector2(1.5, 1.5)
+
+[node name="MediumA4" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("8_fe6y3")]
+position = Vector2(11742.9, -4817.69)
+rotation = -0.639205
+scale = Vector2(1.5, 1.5)
+
+[node name="MediumA5" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("8_fe6y3")]
+position = Vector2(8896.9, -6411.69)
+rotation = 1.72216
+scale = Vector2(1.5, 1.5)
+
+[node name="MediumA6" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("8_fe6y3")]
+position = Vector2(9954.91, -5785.69)
+rotation = -0.639205
+scale = Vector2(1.5, 1.5)
+
+[node name="MediumA7" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("8_fe6y3")]
+position = Vector2(6866.9, -7277.69)
+rotation = 1.49716
+scale = Vector2(1.5, 1.5)
+
+[node name="AnchovyCave" type="Node2D" parent="Environment/NavigableMap"]
+visible = false
+scale = Vector2(0.75, 0.75)
+
+[node name="PufferCave" type="Node2D" parent="Environment/NavigableMap"]
+visible = false
+scale = Vector2(0.75, 0.75)
+
+[node name="SpireA" parent="Environment/NavigableMap/PufferCave" instance=ExtResource("14_m2quo")]
+position = Vector2(7812, 2429.33)
+rotation = 3.19153
+
+[node name="EelCave" type="Node2D" parent="Environment/NavigableMap"]
+visible = false
+scale = Vector2(0.75, 0.75)
+
+[node name="LargeA" parent="Environment/NavigableMap/EelCave" instance=ExtResource("16_awr0p")]
+position = Vector2(6644, 1522.67)
+rotation = -2.35098
+
+[node name="MediumA2" parent="Environment/NavigableMap/EelCave" instance=ExtResource("8_fe6y3")]
+position = Vector2(7316, 2284)
+rotation = 5.63614
+
+[node name="MediumA3" parent="Environment/NavigableMap/EelCave" instance=ExtResource("8_fe6y3")]
+position = Vector2(7981.33, 3182.67)
+rotation = 12.744
+
+[node name="WaterCurrent" parent="Environment/NavigableMap" instance=ExtResource("17_eei4e")]
+position = Vector2(14561, 9489)
+rotation = -0.785398
+scale = Vector2(3.61542, 3.8128)
+
+[node name="WaterCurrent2" parent="Environment/NavigableMap" instance=ExtResource("17_eei4e")]
+position = Vector2(11724, 1588)
+rotation = -3.92699
+scale = Vector2(3.63183, 3.63183)
+
+[node name="UpperBound" type="Polygon2D" parent="Environment/NavigableMap"]
+polygon = PackedVector2Array(7576, -1995, 9314, -593, 11448, 222, 12527, 1181, 14097, 2476, 15074, 4718, 14819, 8651, 15766, 9478, 17813, 8157, 20090, 8121, 22679, 9116, 23746, 10459, 25268, 11262, 26623, 12856, 28457, 13947, 31263, 16465, 33065, 17409, 35422, 17507, 38510, 19775, 41197, 21494, 45666, 26617, 51029, 29243, 55690, 32479, 58699, 35172, 62297, 34289, 66558, -4303)
+
+[node name="Polygon2D" type="Polygon2D" parent="Environment/NavigableMap"]
+polygon = PackedVector2Array(3475, 428, 7186, 3301, 9766, 4591, 11236, 5360, 11825, 6537, 12289, 8258, 13206, 9407, 14950, 11201, 16433, 13760, 21962, 17036, 25763, 20317, 28976, 21810, 35199, 24548, 37484, 27151, 41625, 30183, 46286, 32083, 49658, 35364, 51739, 37175, 51760, 38049, 50845, 40040, 39880, 45394, -2883, 45964)
+
+[node name="Bounds" type="StaticBody2D" parent="Environment/NavigableMap"]
+
+[node name="LowerBound" type="CollisionPolygon2D" parent="Environment/NavigableMap/Bounds"]
+build_mode = 1
+polygon = PackedVector2Array(3475, 428, 7186, 3301, 9766, 4591, 11236, 5360, 11825, 6537, 12289, 8258, 13206, 9407, 14950, 11201, 16433, 13760, 21962, 17036, 25763, 20317, 28976, 21810, 35199, 24548, 37484, 27151, 41625, 30183, 46286, 32083, 49658, 35364, 51739, 37175, 51760, 38049, 50845, 40040, 39880, 45394, -2883, 45964)
+one_way_collision_margin = 0.0
+
+[node name="UpperBound" type="CollisionPolygon2D" parent="Environment/NavigableMap/Bounds"]
+polygon = PackedVector2Array(7576, -1995, 9314, -593, 11448, 222, 12527, 1181, 14097, 2476, 15074, 4718, 14819, 8651, 15766, 9478, 17813, 8157, 20090, 8121, 22679, 9116, 23746, 10459, 25268, 11262, 26623, 12856, 28457, 13947, 31263, 16465, 33065, 17409, 35422, 17507, 38510, 19775, 41197, 21494, 45666, 26617, 51029, 29243, 55690, 32479, 58699, 35172, 62297, 34289, 66558, -4303)
+
+[node name="Whale" parent="." instance=ExtResource("19_53crg")]
+material = SubResource("ShaderMaterial_dnevv")
+position = Vector2(3821, -323)
+state = 0
+
+[node name="Camera2D" type="Camera2D" parent="Whale"]
+zoom = Vector2(0.25, 0.25)
