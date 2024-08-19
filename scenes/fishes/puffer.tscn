@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d0kb6abw1g61t"]
+[gd_scene load_steps=21 format=3 uid="uid://d0kb6abw1g61t"]
 
 [ext_resource type="PackedScene" uid="uid://l4sjy0s8l2d" path="res://scenes/fishes/fish.tscn" id="1_b4bhl"]
 [ext_resource type="Script" path="res://scripts/fishes/puffer.gd" id="2_tkqsm"]
@@ -10,7 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://bihjc4reh8dq0" path="res://assets/textures/pufferfish_small/frame0004.png" id="5_psh0c"]
 [ext_resource type="Texture2D" uid="uid://da0677mnmxsvx" path="res://assets/textures/pufferfish/frame0006.png" id="5_qv4y8"]
 [ext_resource type="Texture2D" uid="uid://xdtsql4vjxha" path="res://assets/textures/pufferfish_small/frame0006.png" id="6_yj4w5"]
+[ext_resource type="Material" uid="uid://c3ruw5j78qxr4" path="res://resources/materials/paper.material" id="11_klfib"]
 [ext_resource type="PackedScene" uid="uid://b0phg6atgdkvt" path="res://scenes/ui/food_bubble.tscn" id="11_qpdmk"]
+[ext_resource type="Texture2D" uid="uid://bqec3tilerluy" path="res://assets/textures/Paper001_1K-JPG_Color.jpg" id="13_kkhex"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fn0tc"]
 animations = [{
@@ -80,11 +82,50 @@ radius = 44.1022
 [sub_resource type="CircleShape2D" id="CircleShape2D_kdyib"]
 radius = 34.0
 
+[sub_resource type="Shader" id="Shader_1nyio"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.3.stable's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mix;
+
+uniform sampler2D paper_texture;
+uniform float corruption : hint_range(0.0, 1.0) = 1.0;
+uniform vec4 filter_color: source_color;
+uniform float color_multiplier: hint_range(0.0, 1.0) = 1.0;
+
+//varying vec2 uv_scaled;
+void vertex() {
+	//uv_scaled = UV * length(MODEL_MATRIX[0].xy) * 0.5;
+}
+
+vec3 greyscale(vec3 color, float str) {
+    float g = dot(color, vec3(0.299, 0.587, 0.114));
+    return mix(color, vec3(g), str);
+}
+void fragment() {
+	// Apply paper texture
+	COLOR.rgb *= mix(vec3(0), vec3(1), (texture(paper_texture, UV * 0.5f).r - 0.3) / (1.0 - 0.3));
+	
+	// Apply \"corruption\" filter
+	COLOR.rgb = mix(filter_color.rgb, greyscale(COLOR.rgb, 1.0f - corruption), color_multiplier);
+	
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_garjf"]
+resource_local_to_scene = true
+shader = SubResource("Shader_1nyio")
+shader_parameter/corruption = 1.0
+shader_parameter/filter_color = Color(1, 1, 1, 1)
+shader_parameter/color_multiplier = 1.0
+shader_parameter/paper_texture = ExtResource("13_kkhex")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_fiopn"]
 
 [node name="Puffer" instance=ExtResource("1_b4bhl")]
 z_index = -450
 z_as_relative = false
+material = ExtResource("11_klfib")
 script = ExtResource("2_tkqsm")
 _small_sprite_frames = SubResource("SpriteFrames_fn0tc")
 _large_sprite_frames = SubResource("SpriteFrames_mxwvv")
@@ -94,11 +135,13 @@ view_scale = 2.0
 eat = 6
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
+use_parent_material = true
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_fn0tc")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+visible = false
 shape = SubResource("CircleShape2D_by5v5")
 
 [node name="MouthArea2D" type="Area2D" parent="." index="2"]
@@ -107,11 +150,13 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouthArea2D" index="0"]
+visible = false
 shape = SubResource("CircleShape2D_kdyib")
 
 [node name="FoodBubble" parent="." index="3" instance=ExtResource("11_qpdmk")]
 z_index = 1500
 z_as_relative = false
+material = SubResource("ShaderMaterial_garjf")
 position = Vector2(95, -72)
 scale = Vector2(0.5, 0.5)
 
@@ -120,6 +165,7 @@ collision_layer = 6
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScareArea" index="0"]
+visible = false
 shape = SubResource("CircleShape2D_fiopn")
 
 [connection signal="body_entered" from="ScareArea" to="." method="_on_scare_area_body_entered"]

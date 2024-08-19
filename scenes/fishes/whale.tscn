@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://tvq6ijgntio"]
+[gd_scene load_steps=11 format=3 uid="uid://tvq6ijgntio"]
 
 [ext_resource type="PackedScene" uid="uid://l4sjy0s8l2d" path="res://scenes/fishes/fish.tscn" id="1_t0csw"]
+[ext_resource type="Material" uid="uid://c3ruw5j78qxr4" path="res://resources/materials/paper.material" id="2_0psej"]
 [ext_resource type="Texture2D" uid="uid://cia8k2mfqsqse" path="res://assets/textures/whale/frame0001.png" id="2_jwkwj"]
 [ext_resource type="Texture2D" uid="uid://dtfsppg6ph3ma" path="res://assets/textures/whale/frame0004.png" id="3_evayt"]
 [ext_resource type="Texture2D" uid="uid://bgwpohfk34juk" path="res://assets/textures/whale/frame0000.png" id="4_4wcpg"]
@@ -48,6 +49,7 @@ radius = 323.002
 [node name="Whale" instance=ExtResource("1_t0csw")]
 z_index = -300
 z_as_relative = false
+material = ExtResource("2_0psej")
 kind = 4
 max_speed = 800.0
 accel = 2500.0
@@ -57,6 +59,7 @@ max_inclination = 0.95
 eat = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
+use_parent_material = true
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_j2c83")
 animation = &"idle"

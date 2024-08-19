@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://peng5fbet5c1"]
+[gd_scene load_steps=12 format=3 uid="uid://peng5fbet5c1"]
 
 [ext_resource type="PackedScene" uid="uid://l4sjy0s8l2d" path="res://scenes/fishes/fish.tscn" id="1_1hy31"]
+[ext_resource type="Material" uid="uid://c3ruw5j78qxr4" path="res://resources/materials/paper.material" id="2_j61hr"]
 [ext_resource type="Texture2D" uid="uid://dkxc21dvw24kx" path="res://assets/textures/plankton/frame0000.png" id="2_qhh0l"]
 [ext_resource type="Texture2D" uid="uid://b20ocqcpcjhem" path="res://assets/textures/plankton/frame0001.png" id="3_6d7um"]
 [ext_resource type="Texture2D" uid="uid://dhqa2qbvar8tu" path="res://assets/textures/plankton/frame0002.png" id="4_fm01a"]
 [ext_resource type="PackedScene" uid="uid://b0phg6atgdkvt" path="res://scenes/ui/food_bubble.tscn" id="5_a47rc"]
+[ext_resource type="Texture2D" uid="uid://bqec3tilerluy" path="res://assets/textures/Paper001_1K-JPG_Color.jpg" id="7_ig0gb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hbhm8"]
 animations = [{
@@ -37,9 +39,48 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_pjtys"]
 radius = 3.0
 
+[sub_resource type="Shader" id="Shader_1nyio"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.3.stable's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mix;
+
+uniform sampler2D paper_texture;
+uniform float corruption : hint_range(0.0, 1.0) = 1.0;
+uniform vec4 filter_color: source_color;
+uniform float color_multiplier: hint_range(0.0, 1.0) = 1.0;
+
+//varying vec2 uv_scaled;
+void vertex() {
+	//uv_scaled = UV * length(MODEL_MATRIX[0].xy) * 0.5;
+}
+
+vec3 greyscale(vec3 color, float str) {
+    float g = dot(color, vec3(0.299, 0.587, 0.114));
+    return mix(color, vec3(g), str);
+}
+void fragment() {
+	// Apply paper texture
+	COLOR.rgb *= mix(vec3(0), vec3(1), (texture(paper_texture, UV * 0.5f).r - 0.3) / (1.0 - 0.3));
+	
+	// Apply \"corruption\" filter
+	COLOR.rgb = mix(filter_color.rgb, greyscale(COLOR.rgb, 1.0f - corruption), color_multiplier);
+	
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_df44h"]
+resource_local_to_scene = true
+shader = SubResource("Shader_1nyio")
+shader_parameter/corruption = 1.0
+shader_parameter/filter_color = Color(1, 1, 1, 1)
+shader_parameter/color_multiplier = 1.0
+shader_parameter/paper_texture = ExtResource("7_ig0gb")
+
 [node name="Plankton" instance=ExtResource("1_1hy31")]
 z_index = -500
 z_as_relative = false
+material = ExtResource("2_j61hr")
 kind = 1
 max_speed = 20.0
 accel = 100.0
@@ -47,6 +88,7 @@ view_scale = 2.5
 max_inclination = 0.9
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
+use_parent_material = true
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_hbhm8")
 animation = &"idle"
@@ -64,5 +106,6 @@ collision_mask = 4
 [node name="FoodBubble" parent="." index="3" instance=ExtResource("5_a47rc")]
 z_index = 1500
 z_as_relative = false
+material = SubResource("ShaderMaterial_df44h")
 position = Vector2(24, -26)
 scale = Vector2(0.2, 0.2)

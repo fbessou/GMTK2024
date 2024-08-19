@@ -1,5 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://b0phg6atgdkvt"]
+[gd_scene load_steps=20 format=3 uid="uid://b0phg6atgdkvt"]
 
+[ext_resource type="Material" uid="uid://c3ruw5j78qxr4" path="res://resources/materials/paper.material" id="1_27o24"]
 [ext_resource type="Texture2D" uid="uid://dy85m4sg35vn5" path="res://assets/textures/hud/Crave bubble/frame0000.png" id="1_gt7ln"]
 [ext_resource type="Script" path="res://scripts/ui/FoodBubble.gd" id="1_p4b8f"]
 [ext_resource type="Texture2D" uid="uid://bh5fwwupilf4l" path="res://assets/textures/hud/Crave bubble/frame0001.png" id="2_ngxww"]
@@ -157,15 +158,18 @@ _data = {
 }
 
 [node name="FoodBubble" type="Node2D"]
+material = ExtResource("1_27o24")
 script = ExtResource("1_p4b8f")
 fish_textures_resource = ExtResource("2_wh4wj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+use_parent_material = true
 position = Vector2(-3, 2)
 sprite_frames = SubResource("SpriteFrames_4rcfi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.843137)
+use_parent_material = true
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_ycqqp")

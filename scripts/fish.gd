@@ -53,8 +53,11 @@ func _ready() -> void:
 	match(state):
 		State.PLAYER:
 			switch_to_player()
+			(material as ShaderMaterial).set_shader_parameter("corruption", 1.0)
 		State.NPC:
 			switch_to_npc()
+			(material as ShaderMaterial).set_shader_parameter("corruption", 0.0)
+			print((material as ShaderMaterial).get_shader_parameter("corruption"))
 		State.FROZEN:
 			freeze()
 	_mouth_area.body_entered.connect(_on_body_entered)
@@ -205,7 +208,7 @@ func lerp_to_target_tween() -> void:
 	tween_in.parallel().tween_property(current_cam, "zoom", current_cam.zoom * cameraZoomFactor, cameraAnimationSpeed)\
 		.set_ease(Tween.EASE_IN_OUT)\
 		.set_trans(Tween.TRANS_QUAD)
-		
+	
 	tween_in.play()
 	await tween_in.finished
 	position = target.position
@@ -218,3 +221,9 @@ func lerp_to_target_tween() -> void:
 	tween_out.tween_property(current_cam, "zoom", current_cam.zoom / cameraZoomFactor, cameraAnimationSpeed)\
 		.set_ease(Tween.EASE_IN_OUT)\
 		.set_trans(Tween.TRANS_QUAD)
+		
+	# shader corruption tween
+	var corruption_tween := func(corruption: float) -> void:
+		(material as ShaderMaterial).set_shader_parameter("corruption", corruption)
+		
+	tween_out.parallel().tween_method(corruption_tween, 0. , 1., cameraAnimationSpeed)

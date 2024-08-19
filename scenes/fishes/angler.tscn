@@ -1,12 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://dqidfykm4q6cs"]
+[gd_scene load_steps=17 format=3 uid="uid://dqidfykm4q6cs"]
 
 [ext_resource type="PackedScene" uid="uid://l4sjy0s8l2d" path="res://scenes/fishes/fish.tscn" id="1_i2gp8"]
+[ext_resource type="Material" uid="uid://c3ruw5j78qxr4" path="res://resources/materials/paper.material" id="2_35kur"]
 [ext_resource type="Script" path="res://scripts/fishes/angler.gd" id="2_35ved"]
 [ext_resource type="Texture2D" uid="uid://creb5qamcaooo" path="res://assets/textures/angler_fish/frame0000.png" id="3_0tnge"]
 [ext_resource type="Texture2D" uid="uid://dd6oegkisocnd" path="res://assets/textures/angler_fish/frame0001.png" id="4_0x6cb"]
 [ext_resource type="Texture2D" uid="uid://wnkjxtjtoh4d" path="res://assets/textures/angler_fish/frame0004.png" id="5_clljb"]
 [ext_resource type="Texture2D" uid="uid://dd2trigi5g2lu" path="res://assets/textures/angler_fish/frame0006.png" id="6_hyfbl"]
 [ext_resource type="PackedScene" uid="uid://b0phg6atgdkvt" path="res://scenes/ui/food_bubble.tscn" id="7_51a7h"]
+[ext_resource type="Texture2D" uid="uid://bqec3tilerluy" path="res://assets/textures/Paper001_1K-JPG_Color.jpg" id="9_uukqq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_phnip"]
 animations = [{
@@ -59,9 +61,48 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 
+[sub_resource type="Shader" id="Shader_1nyio"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.3.stable's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mix;
+
+uniform sampler2D paper_texture;
+uniform float corruption : hint_range(0.0, 1.0) = 1.0;
+uniform vec4 filter_color: source_color;
+uniform float color_multiplier: hint_range(0.0, 1.0) = 1.0;
+
+//varying vec2 uv_scaled;
+void vertex() {
+	//uv_scaled = UV * length(MODEL_MATRIX[0].xy) * 0.5;
+}
+
+vec3 greyscale(vec3 color, float str) {
+    float g = dot(color, vec3(0.299, 0.587, 0.114));
+    return mix(color, vec3(g), str);
+}
+void fragment() {
+	// Apply paper texture
+	COLOR.rgb *= mix(vec3(0), vec3(1), (texture(paper_texture, UV * 0.5f).r - 0.3) / (1.0 - 0.3));
+	
+	// Apply \"corruption\" filter
+	COLOR.rgb = mix(filter_color.rgb, greyscale(COLOR.rgb, 1.0f - corruption), color_multiplier);
+	
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3itt1"]
+resource_local_to_scene = true
+shader = SubResource("Shader_1nyio")
+shader_parameter/corruption = 1.0
+shader_parameter/filter_color = Color(1, 1, 1, 1)
+shader_parameter/color_multiplier = 1.0
+shader_parameter/paper_texture = ExtResource("9_uukqq")
+
 [node name="Angler" instance=ExtResource("1_i2gp8")]
 z_index = -400
 z_as_relative = false
+material = ExtResource("2_35kur")
 script = ExtResource("2_35ved")
 kind = 3
 max_speed = 160.0
@@ -70,6 +111,7 @@ view_scale = 1.75
 eat = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
+use_parent_material = true
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_phnip")
 animation = &"idle"
@@ -95,4 +137,5 @@ texture = SubResource("GradientTexture2D_xggxc")
 [node name="FoodBubble" parent="." index="4" instance=ExtResource("7_51a7h")]
 z_index = 1500
 z_as_relative = false
+material = SubResource("ShaderMaterial_3itt1")
 position = Vector2(166, -157)
