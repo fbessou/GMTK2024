@@ -100,6 +100,7 @@ max_inclination = 0.8
 eat = 5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
+use_parent_material = true
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_j2c83")
 animation = &"idle"
