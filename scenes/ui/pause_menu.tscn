@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://scripts/ui/PauseMenu.gd" id="2_ka4fn"]
 [ext_resource type="Theme" uid="uid://e2qgxo4dwns7" path="res://resources/themes/hud.theme" id="2_tx0lx"]
-[ext_resource type="Texture2D" uid="uid://b6nwn444uf4kp" path="res://assets/textures/ui/music_icon.png" id="3_g0dpn"]
-[ext_resource type="Texture2D" uid="uid://us7t5cqnvlai" path="res://assets/textures/ui/ambient_icon.png" id="4_2q0fd"]
-[ext_resource type="Texture2D" uid="uid://bj760qt4hbwhu" path="res://assets/textures/ui/sfx_icon.png" id="5_qfwfm"]
+[ext_resource type="Texture2D" uid="uid://etplf0ckdr2g" path="res://assets/textures/ui/music_icon.png" id="3_g0dpn"]
+[ext_resource type="Texture2D" uid="uid://c3f6uf1rhf88i" path="res://assets/textures/ui/ambient_icon.png" id="4_2q0fd"]
+[ext_resource type="Texture2D" uid="uid://ctqhvdlj8l21e" path="res://assets/textures/ui/sfx_icon.png" id="5_qfwfm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b84iw"]
 bg_color = Color(0.596078, 0.921569, 0.858824, 1)
