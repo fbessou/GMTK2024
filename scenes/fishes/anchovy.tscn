@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bw0b2lrrx1fx0"]
+[gd_scene load_steps=14 format=3 uid="uid://bw0b2lrrx1fx0"]
 
 [ext_resource type="PackedScene" uid="uid://l4sjy0s8l2d" path="res://scenes/fishes/fish.tscn" id="1_88i4t"]
+[ext_resource type="Material" uid="uid://c3ruw5j78qxr4" path="res://resources/materials/paper.material" id="2_27scm"]
 [ext_resource type="Texture2D" uid="uid://dkwxkhtpqtdh2" path="res://assets/textures/anchovy/frame0000.png" id="3_4ya0n"]
 [ext_resource type="Texture2D" uid="uid://lhg0m74m78mx" path="res://assets/textures/anchovy/frame0001.png" id="4_frunx"]
 [ext_resource type="Texture2D" uid="uid://dyn73qrafgwk7" path="res://assets/textures/anchovy/frame0004.png" id="5_dxn4l"]
 [ext_resource type="Texture2D" uid="uid://bdnmd1qgsc3fm" path="res://assets/textures/anchovy/frame0006.png" id="6_cds0u"]
+[ext_resource type="Texture2D" uid="uid://bqec3tilerluy" path="res://assets/textures/Paper001_1K-JPG_Color.jpg" id="8_i4lw8"]
 [ext_resource type="PackedScene" uid="uid://b0phg6atgdkvt" path="res://scenes/ui/food_bubble.tscn" id="11_vjekw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fn0tc"]
@@ -45,9 +47,48 @@ height = 40.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_kdyib"]
 radius = 8.06226
 
+[sub_resource type="Shader" id="Shader_tutpu"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.3.stable's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mix;
+
+uniform sampler2D paper_texture;
+uniform float corruption : hint_range(0.0, 1.0) = 1.0;
+uniform vec4 filter_color: source_color;
+uniform float color_multiplier: hint_range(0.0, 1.0) = 1.0;
+
+//varying vec2 uv_scaled;
+void vertex() {
+	//uv_scaled = UV * length(MODEL_MATRIX[0].xy) * 0.5;
+}
+
+vec3 greyscale(vec3 color, float str) {
+    float g = dot(color, vec3(0.299, 0.587, 0.114));
+    return mix(color, vec3(g), str);
+}
+void fragment() {
+	// Apply paper texture
+	COLOR.rgb *= mix(vec3(0), vec3(1), (texture(paper_texture, UV * 0.5f).r - 0.3) / (1.0 - 0.3));
+	
+	// Apply \"corruption\" filter
+	COLOR.rgb = mix(filter_color.rgb, greyscale(COLOR.rgb, 1.0f - corruption), color_multiplier);
+	
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rt3n1"]
+resource_local_to_scene = true
+shader = SubResource("Shader_tutpu")
+shader_parameter/corruption = 1.0
+shader_parameter/filter_color = Color(1, 1, 1, 1)
+shader_parameter/color_multiplier = 1.0
+shader_parameter/paper_texture = ExtResource("8_i4lw8")
+
 [node name="Anchovy" instance=ExtResource("1_88i4t")]
 z_index = -475
 z_as_relative = false
+material = ExtResource("2_27scm")
 kind = 6
 max_speed = 190.0
 accel = 2000.0
@@ -58,6 +99,7 @@ eatAnimationSpeed = 1.0
 cameraAnimationSpeed = 2.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
+use_parent_material = true
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_fn0tc")
 animation = &"idle"
@@ -79,5 +121,6 @@ shape = SubResource("CircleShape2D_kdyib")
 [node name="FoodBubble" parent="." index="3" instance=ExtResource("11_vjekw")]
 z_index = 1500
 z_as_relative = false
+material = SubResource("ShaderMaterial_rt3n1")
 position = Vector2(20, -41)
 scale = Vector2(0.3, 0.3)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://diht24l3hw71d"]
+[gd_scene load_steps=23 format=3 uid="uid://diht24l3hw71d"]
 
 [ext_resource type="PackedScene" uid="uid://l4sjy0s8l2d" path="res://scenes/fishes/fish.tscn" id="1_3t67g"]
 [ext_resource type="Texture2D" uid="uid://btkts8qjh6lsj" path="res://assets/textures/eel/frame0000.png" id="2_6jwnt"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://ccqv01h8cm52p" path="res://assets/textures/eel/Electricity/frame0008.png" id="7_arddo"]
 [ext_resource type="PackedScene" uid="uid://b0phg6atgdkvt" path="res://scenes/ui/food_bubble.tscn" id="8_4itvq"]
 [ext_resource type="Texture2D" uid="uid://ccvc2m412m0mu" path="res://assets/textures/eel/Electricity/frame0010.png" id="8_yetjj"]
+[ext_resource type="Texture2D" uid="uid://bqec3tilerluy" path="res://assets/textures/Paper001_1K-JPG_Color.jpg" id="15_ctmpv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ssdig"]
 animations = [{
@@ -82,6 +83,44 @@ height = 500.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_cmsqg"]
 radius = 121.037
 
+[sub_resource type="Shader" id="Shader_tutpu"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.3.stable's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mix;
+
+uniform sampler2D paper_texture;
+uniform float corruption : hint_range(0.0, 1.0) = 1.0;
+uniform vec4 filter_color: source_color;
+uniform float color_multiplier: hint_range(0.0, 1.0) = 1.0;
+
+//varying vec2 uv_scaled;
+void vertex() {
+	//uv_scaled = UV * length(MODEL_MATRIX[0].xy) * 0.5;
+}
+
+vec3 greyscale(vec3 color, float str) {
+    float g = dot(color, vec3(0.299, 0.587, 0.114));
+    return mix(color, vec3(g), str);
+}
+void fragment() {
+	// Apply paper texture
+	COLOR.rgb *= mix(vec3(0), vec3(1), (texture(paper_texture, UV * 0.5f).r - 0.3) / (1.0 - 0.3));
+	
+	// Apply \"corruption\" filter
+	COLOR.rgb = mix(filter_color.rgb, greyscale(COLOR.rgb, 1.0f - corruption), color_multiplier);
+	
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i7nl0"]
+resource_local_to_scene = true
+shader = SubResource("Shader_tutpu")
+shader_parameter/corruption = 1.0
+shader_parameter/filter_color = Color(1, 1, 1, 1)
+shader_parameter/color_multiplier = 1.0
+shader_parameter/paper_texture = ExtResource("15_ctmpv")
+
 [node name="Eel" instance=ExtResource("1_3t67g")]
 z_index = -350
 z_as_relative = false
@@ -134,4 +173,5 @@ shape = SubResource("CircleShape2D_cmsqg")
 [node name="FoodBubble" parent="." index="4" instance=ExtResource("8_4itvq")]
 z_index = 1500
 z_as_relative = false
+material = SubResource("ShaderMaterial_i7nl0")
 position = Vector2(-110, -164)

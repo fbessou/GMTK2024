@@ -1,12 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://tvq6ijgntio"]
+[gd_scene load_steps=15 format=3 uid="uid://tvq6ijgntio"]
 
 [ext_resource type="PackedScene" uid="uid://l4sjy0s8l2d" path="res://scenes/fishes/fish.tscn" id="1_t0csw"]
+[ext_resource type="Material" uid="uid://c3ruw5j78qxr4" path="res://resources/materials/paper.material" id="2_0psej"]
 [ext_resource type="Script" path="res://scripts/fishes/whale.gd" id="2_7w5cc"]
 [ext_resource type="Texture2D" uid="uid://cia8k2mfqsqse" path="res://assets/textures/whale/frame0001.png" id="2_jwkwj"]
 [ext_resource type="Texture2D" uid="uid://dtfsppg6ph3ma" path="res://assets/textures/whale/frame0004.png" id="3_evayt"]
 [ext_resource type="Texture2D" uid="uid://bgwpohfk34juk" path="res://assets/textures/whale/frame0000.png" id="4_4wcpg"]
 [ext_resource type="Texture2D" uid="uid://c8vfj1xh1l87p" path="res://assets/textures/whale/frame0006.png" id="5_i637i"]
 [ext_resource type="PackedScene" uid="uid://b0phg6atgdkvt" path="res://scenes/ui/food_bubble.tscn" id="6_itgqh"]
+[ext_resource type="Texture2D" uid="uid://bqec3tilerluy" path="res://assets/textures/Paper001_1K-JPG_Color.jpg" id="9_dcrmd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j2c83"]
 animations = [{
@@ -46,9 +48,48 @@ height = 2046.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_tuujp"]
 radius = 323.002
 
+[sub_resource type="Shader" id="Shader_grd52"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.3.stable's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mix;
+
+uniform sampler2D paper_texture;
+uniform float corruption : hint_range(0.0, 1.0) = 1.0;
+uniform vec4 filter_color: source_color;
+uniform float color_multiplier: hint_range(0.0, 1.0) = 1.0;
+
+//varying vec2 uv_scaled;
+void vertex() {
+	//uv_scaled = UV * length(MODEL_MATRIX[0].xy) * 0.5;
+}
+
+vec3 greyscale(vec3 color, float str) {
+    float g = dot(color, vec3(0.299, 0.587, 0.114));
+    return mix(color, vec3(g), str);
+}
+void fragment() {
+	// Apply paper texture
+	COLOR.rgb *= mix(vec3(0), vec3(1), (texture(paper_texture, UV * 0.5f).r - 0.3) / (1.0 - 0.3));
+	
+	// Apply \"corruption\" filter
+	COLOR.rgb = mix(filter_color.rgb, greyscale(COLOR.rgb, 1.0f - corruption), color_multiplier);
+	
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n20p0"]
+resource_local_to_scene = true
+shader = SubResource("Shader_grd52")
+shader_parameter/corruption = 1.0
+shader_parameter/filter_color = Color(1, 1, 1, 1)
+shader_parameter/color_multiplier = 1.0
+shader_parameter/paper_texture = ExtResource("9_dcrmd")
+
 [node name="Whale" instance=ExtResource("1_t0csw")]
 z_index = -300
 z_as_relative = false
+material = ExtResource("2_0psej")
 script = ExtResource("2_7w5cc")
 kind = 4
 max_speed = 1200.0
@@ -79,5 +120,6 @@ shape = SubResource("CircleShape2D_tuujp")
 [node name="FoodBubble" parent="." index="3" instance=ExtResource("6_itgqh")]
 z_index = 1500
 z_as_relative = false
+material = SubResource("ShaderMaterial_n20p0")
 position = Vector2(-399, -310)
 scale = Vector2(1.805, 1.805)
