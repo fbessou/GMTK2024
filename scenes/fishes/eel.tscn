@@ -113,7 +113,7 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_i7nl0"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dp5pt"]
 resource_local_to_scene = true
 shader = SubResource("Shader_tutpu")
 shader_parameter/corruption = 1.0
@@ -132,7 +132,6 @@ accel = 1300.0
 drag = 0.75
 view_scale = 1.5
 max_inclination = 0.2
-state = 0
 
 [node name="ElectricityArea2D" type="Area2D" parent="." index="0"]
 position = Vector2(-35, 6)
@@ -173,5 +172,5 @@ shape = SubResource("CircleShape2D_cmsqg")
 [node name="FoodBubble" parent="." index="4" instance=ExtResource("8_4itvq")]
 z_index = 1500
 z_as_relative = false
-material = SubResource("ShaderMaterial_i7nl0")
+material = SubResource("ShaderMaterial_dp5pt")
 position = Vector2(-110, -164)

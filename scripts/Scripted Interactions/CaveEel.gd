@@ -6,15 +6,13 @@ var player : Fish
 func _scare(_scareOrigin: Vector2) -> void:
 	if(!scarable):
 		return
-		
+
 	scarable = false
-	
-	player.freeze()
-	
+
 	animation_player.play("Scare")
 	
 	await(animation_player.animation_finished)
-	player.switch_to_player()
+
 	queue_free()
 
 func _on_scare_anim_area_body_entered(body: Node2D) -> void:
