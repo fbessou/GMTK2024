@@ -197,7 +197,7 @@ func lerp_to_target_tween() -> void:
 	
 	# position tween
 	var tween_in := get_tree().create_tween()
-	tween_in.tween_property(self, "position", target.position, eatAnimationSpeed)\
+	tween_in.tween_property(self, "global_position", target.global_position, eatAnimationSpeed)\
 	.set_ease(Tween.EASE_IN)\
 	.set_trans(transType)
 	
@@ -208,7 +208,7 @@ func lerp_to_target_tween() -> void:
 		
 	tween_in.play()
 	await tween_in.finished
-	position = target.position
+	position = target.global_position
 	switch_to_player()
 	GameManager.set_active_fish_camera(self)
 	target.queue_free()
