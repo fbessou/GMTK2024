@@ -68,6 +68,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif event.is_action_released("fish_power"):
 			_power_off()
 
+func _process(_delta: float) -> void:
+	var camera := find_child("Camera2D") as Camera2D
+	if camera != null:
+		camera.zoom = Vector2.ONE / (1.0 / view_scale + velocity.length() / 2000)
+
 func _physics_process(delta: float) -> void:
 	
 	# Apply Water Current if there is one
@@ -87,7 +92,10 @@ func _physics_process(delta: float) -> void:
 	velocity += command_direction * lon_vel - command_direction * command_direction.dot(velocity)
 	var d := FROZEN_DRAG if state == State.FROZEN else drag
 	velocity = velocity * pow(1.0 - d, delta)
-	move_and_slide()
+	
+	var collision := move_and_collide(velocity * delta)
+	if collision:
+		velocity = velocity.slide(collision.get_normal())
 	
 	# Visual
 	_match_visual_angle(command_direction)
