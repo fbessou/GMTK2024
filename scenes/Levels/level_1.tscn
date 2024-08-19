@@ -1,5 +1,6 @@
-[gd_scene load_steps=41 format=3 uid="uid://cu585kiq766m0"]
+[gd_scene load_steps=42 format=3 uid="uid://cu585kiq766m0"]
 
+[ext_resource type="Texture2D" uid="uid://dtn7bhnbmp2sc" path="res://assets/textures/environment/caustics.png" id="2_abq2v"]
 [ext_resource type="PackedScene" uid="uid://5w3u43821a5" path="res://scenes/props/SeaweedLeaves.tscn" id="4_44jrw"]
 [ext_resource type="Texture2D" uid="uid://birpdwq3i2i3r" path="res://assets/textures/props/seaweed/varech/frame0000.png" id="5_35qt7"]
 [ext_resource type="Texture2D" uid="uid://cx52ra38h43wf" path="res://assets/textures/props/seaweed/varech/frame0001.png" id="6_s4tiy"]
@@ -238,6 +239,10 @@ position = Vector2(29, 513)
 texture = ExtResource("8_cuxfu")
 offset = Vector2(-29, -513)
 
+[node name="Caustics" type="Sprite2D" parent="Parallax/Background"]
+position = Vector2(109, -475)
+texture = ExtResource("2_abq2v")
+
 [node name="Midground" type="Parallax2D" parent="Parallax"]
 scroll_scale = Vector2(0.5, 0.5)
 
@@ -435,7 +440,6 @@ z_index = -248
 z_as_relative = false
 
 [node name="Opening" type="Node2D" parent="." node_paths=PackedStringArray("plankton_bgs", "nodes_to_hide")]
-visible = false
 position = Vector2(-714, -83)
 script = ExtResource("17_shtic")
 plankton_bgs = [NodePath("../Environment/PlanktonsBg1"), NodePath("../Environment/PlanktonsBg2"), NodePath("../Environment/PlanktonsBg3")]

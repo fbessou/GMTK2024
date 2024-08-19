@@ -8,8 +8,8 @@ void vertex() {
 void fragment() {
 	COLOR.rgb = mix(vec3(COLOR.r + COLOR.g + COLOR.b) / 3., COLOR.rgb, plankton_contamination);
 	COLOR.rgb  *= proximity;
-	
-	COLOR.a = min(COLOR.a, abs(proximity - 2.) < 0.01 ? 0.3 : 1.); 
+
+	COLOR.a = min(COLOR.a, abs(proximity - 2.) < 0.01 ? 0.3 : 1.);
 }
 
 //void light() {
