@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://cor46uhgncphp"]
+
+[ext_resource type="Script" path="res://scripts/props/BreakableWalls.gd" id="1_mlkim"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y084a"]
+size = Vector2(886, 3258)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5dltp"]
+size = Vector2(1186, 3468)
+
+[node name="BreakableWall" type="Node2D"]
+script = ExtResource("1_mlkim")
+speedThreshold = 1.0
+
+[node name="Visual" type="Node2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="Visual"]
+color = Color(0, 0.198906, 0.198906, 1)
+polygon = PackedVector2Array(-391, 1550, 466, 1663, 451, -1644, -357, -1572)
+
+[node name="Colliders" type="Node2D" parent="."]
+
+[node name="RigidBody2D" type="StaticBody2D" parent="Colliders"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/RigidBody2D"]
+shape = SubResource("RectangleShape2D_y084a")
+
+[node name="Area2D" type="Area2D" parent="Colliders"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Area2D"]
+shape = SubResource("RectangleShape2D_5dltp")
+
+[connection signal="body_entered" from="Colliders/Area2D" to="." method="_on_body_entered"]
