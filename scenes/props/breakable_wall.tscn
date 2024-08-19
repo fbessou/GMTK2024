@@ -1,6 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://cor46uhgncphp"]
+[gd_scene load_steps=7 format=3 uid="uid://cor46uhgncphp"]
 
 [ext_resource type="Script" path="res://scripts/props/BreakableWalls.gd" id="1_mlkim"]
+[ext_resource type="Script" path="res://scripts/props/rock_anim.gd" id="2_amvfj"]
+
+[sub_resource type="Curve" id="Curve_73a75"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.984802, 1), 1.12316, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_xcctw"]
+min_value = -25.0
+max_value = 2.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.325228, 2), 0.0, 0.0, 0, 0, Vector2(0.99999, -25), 0.0, 0.0, 0, 0, Vector2(1, -100), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y084a"]
 size = Vector2(886, 3258)
@@ -15,10 +26,53 @@ speedThreshold = 1.0
 [node name="Visual" type="Node2D" parent="."]
 
 [node name="Polygon2D" type="Polygon2D" parent="Visual"]
-color = Color(0, 0.198906, 0.198906, 1)
-polygon = PackedVector2Array(-391, 1550, 466, 1663, 451, -1644, -357, -1572)
+polygon = PackedVector2Array(-391, 1550, 466, 1663, 568, 1076, 511, 651, -277, 613, -537, 1007)
+script = ExtResource("2_amvfj")
+amount = 0.5
+speed = 1000.0
+curveX = SubResource("Curve_73a75")
+curveY = SubResource("Curve_xcctw")
+
+[node name="Polygon2D4" type="Polygon2D" parent="Visual"]
+position = Vector2(86, -1895)
+scale = Vector2(0.78096, 0.933586)
+polygon = PackedVector2Array(-610.786, 1666.69, 72.9871, 1998.74, 535.238, 1645.27, 845.113, 1591.71, 836.15, 1027.22, 137.011, 938.317, -619, 1464)
+script = ExtResource("2_amvfj")
+amount = 0.5
+speed = 1000.0
+curveX = SubResource("Curve_73a75")
+curveY = SubResource("Curve_xcctw")
+
+[node name="Polygon2D5" type="Polygon2D" parent="Visual"]
+position = Vector2(-60, -2454)
+scale = Vector2(0.78096, 0.933586)
+polygon = PackedVector2Array(-358.533, 1898.06, 71.7066, 1801.65, 983.405, 1537.08, 869.442, 830.132, -171.584, 795.856, -562.128, 1346.42)
+script = ExtResource("2_amvfj")
+amount = 0.5
+speed = 1000.0
+curveX = SubResource("Curve_73a75")
+curveY = SubResource("Curve_xcctw")
+
+[node name="Polygon2D2" type="Polygon2D" parent="Visual"]
+position = Vector2(-71, -864)
+polygon = PackedVector2Array(-391, 1550, 384, 1470, 181, 772, -277, 613, -537, 1007)
+script = ExtResource("2_amvfj")
+amount = 0.5
+speed = 1000.0
+curveX = SubResource("Curve_73a75")
+curveY = SubResource("Curve_xcctw")
+
+[node name="Polygon2D3" type="Polygon2D" parent="Visual"]
+position = Vector2(485, -1074)
+polygon = PackedVector2Array(-383, 1465, 188, 1782, 347, 1211, 233, 792, -472, 696, -726, 988)
+script = ExtResource("2_amvfj")
+amount = 0.5
+speed = 1000.0
+curveX = SubResource("Curve_73a75")
+curveY = SubResource("Curve_xcctw")
 
 [node name="Colliders" type="Node2D" parent="."]
+visible = false
 
 [node name="RigidBody2D" type="StaticBody2D" parent="Colliders"]
 collision_mask = 2
