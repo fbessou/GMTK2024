@@ -113,7 +113,7 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gwy22"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dp5pt"]
 resource_local_to_scene = true
 shader = SubResource("Shader_tutpu")
 shader_parameter/corruption = 1.0
@@ -172,5 +172,5 @@ shape = SubResource("CircleShape2D_cmsqg")
 [node name="FoodBubble" parent="." index="4" instance=ExtResource("8_4itvq")]
 z_index = 1500
 z_as_relative = false
-material = SubResource("ShaderMaterial_gwy22")
+material = SubResource("ShaderMaterial_dp5pt")
 position = Vector2(-110, -164)
