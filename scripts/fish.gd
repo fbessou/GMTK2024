@@ -188,6 +188,13 @@ func switch_to_player() -> void:
 	state = State.PLAYER
 	collision_layer = 0x6
 	
+	# shader corruption tween
+	var tween := get_tree().create_tween()
+	var corruption_tween := func(corruption: float) -> void:
+		(material as ShaderMaterial).set_shader_parameter("corruption", corruption)
+		
+	tween.parallel().tween_method(corruption_tween, 0. , 1., cameraAnimationSpeed)
+	
 func switch_to_npc() -> void:
 	state = State.NPC
 	collision_layer = 0x2
@@ -222,8 +229,3 @@ func lerp_to_target_tween() -> void:
 		.set_ease(Tween.EASE_IN_OUT)\
 		.set_trans(Tween.TRANS_QUAD)
 		
-	# shader corruption tween
-	var corruption_tween := func(corruption: float) -> void:
-		(material as ShaderMaterial).set_shader_parameter("corruption", corruption)
-		
-	tween_out.parallel().tween_method(corruption_tween, 0. , 1., cameraAnimationSpeed)
