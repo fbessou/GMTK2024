@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0ytf0qqpqkbk"]
+[gd_scene load_steps=7 format=3 uid="uid://c0ytf0qqpqkbk"]
 
 [ext_resource type="Script" path="res://scripts/ui/PauseMenu.gd" id="2_ka4fn"]
 [ext_resource type="Theme" uid="uid://e2qgxo4dwns7" path="res://resources/themes/hud.theme" id="2_tx0lx"]
+[ext_resource type="Texture2D" uid="uid://b6nwn444uf4kp" path="res://assets/textures/ui/music_icon.png" id="3_g0dpn"]
+[ext_resource type="Texture2D" uid="uid://us7t5cqnvlai" path="res://assets/textures/ui/ambient_icon.png" id="4_2q0fd"]
+[ext_resource type="Texture2D" uid="uid://bj760qt4hbwhu" path="res://assets/textures/ui/sfx_icon.png" id="5_qfwfm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b84iw"]
 bg_color = Color(0.596078, 0.921569, 0.858824, 1)
@@ -41,7 +44,7 @@ anchor_bottom = 0.5
 offset_left = -307.0
 offset_top = -176.0
 offset_right = 307.0
-offset_bottom = 176.0
+offset_bottom = 228.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_b84iw")
@@ -49,29 +52,59 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_b84iw")
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Panel"]
 layout_mode = 2
 offset_left = 126.0
-offset_top = 136.0
+offset_top = 98.1
 offset_right = 488.0
-offset_bottom = 272.0
+offset_bottom = 376.1
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
 theme = ExtResource("2_tx0lx")
 
-[node name="MusicSlider" type="HSlider" parent="UI/Panel/VBoxContainer"]
+[node name="Music" type="HBoxContainer" parent="UI/Panel/VBoxContainer"]
 layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Panel/VBoxContainer/Music"]
+modulate = Color(0.854902, 0.972549, 0.890196, 1)
+layout_mode = 2
+texture = ExtResource("3_g0dpn")
+
+[node name="MusicSlider" type="HSlider" parent="UI/Panel/VBoxContainer/Music"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
 max_value = 1.0
 step = 0.05
 value = 1.0
 scrollable = false
 
-[node name="AmbienceSlider" type="HSlider" parent="UI/Panel/VBoxContainer"]
+[node name="Ambient" type="HBoxContainer" parent="UI/Panel/VBoxContainer"]
 layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Panel/VBoxContainer/Ambient"]
+modulate = Color(0.854902, 0.972549, 0.890196, 1)
+layout_mode = 2
+texture = ExtResource("4_2q0fd")
+
+[node name="AmbienceSlider" type="HSlider" parent="UI/Panel/VBoxContainer/Ambient"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
 max_value = 1.0
 step = 0.05
 value = 1.0
 scrollable = false
 
-[node name="SfxSlider" type="HSlider" parent="UI/Panel/VBoxContainer"]
+[node name="SFX" type="HBoxContainer" parent="UI/Panel/VBoxContainer"]
 layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Panel/VBoxContainer/SFX"]
+modulate = Color(0.854902, 0.972549, 0.890196, 1)
+layout_mode = 2
+texture = ExtResource("5_qfwfm")
+
+[node name="SfxSlider" type="HSlider" parent="UI/Panel/VBoxContainer/SFX"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
 max_value = 1.0
 step = 0.1
 value = 1.0
@@ -98,7 +131,7 @@ text = "Pause"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="value_changed" from="UI/Panel/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
-[connection signal="value_changed" from="UI/Panel/VBoxContainer/AmbienceSlider" to="." method="_on_ambience_slider_value_changed"]
-[connection signal="value_changed" from="UI/Panel/VBoxContainer/SfxSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="UI/Panel/VBoxContainer/Music/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="UI/Panel/VBoxContainer/Ambient/AmbienceSlider" to="." method="_on_ambience_slider_value_changed"]
+[connection signal="value_changed" from="UI/Panel/VBoxContainer/SFX/SfxSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="button_down" from="UI/Panel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_button_down"]
