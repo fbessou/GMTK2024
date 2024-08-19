@@ -22,6 +22,8 @@ buses/default_bus_layout="res://resources/audio/default_bus_layout.tres"
 [autoload]
 
 GameManager="*res://scripts/singleton/GameManager.gd"
+MusicManager="*res://scripts/singleton/MusicManager.gd"
+AmbientSoundManager="*res://scripts/singleton/AmbientSoundManager.gd"
 
 [debug]
 

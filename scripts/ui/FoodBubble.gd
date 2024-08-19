@@ -5,6 +5,7 @@ extends Node2D
 
 @onready var animation_tree : AnimationTree = $AnimationTree
 @onready var sprite_2d : Sprite2D = $Sprite2D
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,6 +14,7 @@ func _ready() -> void:
 func show_bubble() -> void:
 	show()
 	animation_tree.active = true
+	audio_stream_player.play()
 	
 func hide_bubble() -> void:
 	hide()

@@ -12,7 +12,6 @@ func _scare(_scareOrigin: Vector2) -> void:
 	player.freeze()
 	
 	animation_player.play("Scare")
-	print(animation_player.is_playing())
 	
 	await(animation_player.animation_finished)
 	player.switch_to_player()

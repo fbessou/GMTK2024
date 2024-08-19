@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b0phg6atgdkvt"]
+[gd_scene load_steps=21 format=3 uid="uid://b0phg6atgdkvt"]
 
 [ext_resource type="Material" uid="uid://c3ruw5j78qxr4" path="res://resources/materials/paper.material" id="1_27o24"]
 [ext_resource type="Texture2D" uid="uid://dy85m4sg35vn5" path="res://assets/textures/hud/Crave bubble/frame0000.png" id="1_gt7ln"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bvw17sm20whsh" path="res://assets/textures/hud/Crave bubble/frame0006.png" id="4_t2b8p"]
 [ext_resource type="Texture2D" uid="uid://dr1w7tiww58eo" path="res://assets/textures/hud/Crave bubble/frame0008.png" id="5_0yel5"]
 [ext_resource type="Texture2D" uid="uid://by6dkq5sghnbt" path="res://assets/textures/hud/Crave bubble/frame0010.png" id="6_q660x"]
+[ext_resource type="AudioStream" uid="uid://ncrniv0w70ai" path="res://assets/audio/sounds/fish_bubble.mp3" id="10_ts5j7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4rcfi"]
 animations = [{
@@ -179,5 +180,9 @@ anim_player = NodePath("../AnimationPlayer")
 libraries = {
 "": SubResource("AnimationLibrary_5s46w")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_ts5j7")
+bus = &"SoundFx"
 
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]

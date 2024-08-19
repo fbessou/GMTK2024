@@ -43,6 +43,7 @@ var swimming := false:
 @onready var _animated_sprite := $AnimatedSprite2D as AnimatedSprite2D
 @onready var _mouth_area:= $MouthArea2D as Area2D
 @onready var food_bubble := $FoodBubble as FoodBubble
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 
 func _ready() -> void:
@@ -59,7 +60,6 @@ func _ready() -> void:
 		State.NPC:
 			switch_to_npc()
 			(material as ShaderMaterial).set_shader_parameter("corruption", 0.0)
-			print((material as ShaderMaterial).get_shader_parameter("corruption"))
 		State.FROZEN:
 			freeze()
 	_mouth_area.body_entered.connect(_on_body_entered)
@@ -224,10 +224,10 @@ func lerp_to_target_tween() -> void:
 	switch_to_player()
 	GameManager.set_active_fish_camera(self)
 	target.queue_free()
+	audio_stream_player_2d.play()
 	
 	# camera zoom out tween
 	var tween_out := get_tree().create_tween()
 	tween_out.tween_property(current_cam, "zoom", current_cam.zoom / cameraZoomFactor, cameraAnimationSpeed)\
 		.set_ease(Tween.EASE_IN_OUT)\
 		.set_trans(Tween.TRANS_QUAD)
-		

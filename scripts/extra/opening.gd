@@ -59,7 +59,6 @@ func _create_plankton() -> PlanktonIdle:
 	var sprite := PlanktonIdleScn.instantiate() as PlanktonIdle
 	var x := randi_range(zone_left, zone_right)
 	var y := randi_range(zone_down, zone_up)
-	print(x, ':', y)
 	sprite.global_position = Vector2(x, y)
 	return sprite
 	

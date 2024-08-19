@@ -1,0 +1,9 @@
+[gd_resource type="AudioStreamInteractive" load_steps=2 format=3 uid="uid://bs0u6gfqqvkhb"]
+
+[ext_resource type="AudioStream" uid="uid://bpyq315035pjo" path="res://assets/audio/ambience/underwater_ambience.mp3" id="1_mty5o"]
+
+[resource]
+clip_count = 1
+clip_0/name = &"Underwater Ambience"
+clip_0/stream = ExtResource("1_mty5o")
+clip_0/auto_advance = 0
