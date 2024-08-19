@@ -272,7 +272,7 @@ polygon = PackedVector2Array(-1, -1, 1, -1, 1, 1, -1, 1)
 
 [node name="Angler" parent="." instance=ExtResource("13_4s6o7")]
 material = SubResource("ShaderMaterial_ed46t")
-position = Vector2(-222, -1841)
+position = Vector2(-152, -1796)
 wall_min_slide_angle = 0.261799
 state = 0
 
