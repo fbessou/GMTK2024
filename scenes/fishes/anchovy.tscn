@@ -77,7 +77,7 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rt3n1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q5qjl"]
 resource_local_to_scene = true
 shader = SubResource("Shader_tutpu")
 shader_parameter/corruption = 1.0
@@ -93,6 +93,7 @@ kind = 6
 max_speed = 190.0
 accel = 2000.0
 view_scale = 5.0
+max_inclination = 0.5
 eat = 1
 scarable = true
 eatAnimationSpeed = 1.0
@@ -121,6 +122,6 @@ shape = SubResource("CircleShape2D_kdyib")
 [node name="FoodBubble" parent="." index="3" instance=ExtResource("11_vjekw")]
 z_index = 1500
 z_as_relative = false
-material = SubResource("ShaderMaterial_rt3n1")
+material = SubResource("ShaderMaterial_q5qjl")
 position = Vector2(20, -41)
 scale = Vector2(0.3, 0.3)

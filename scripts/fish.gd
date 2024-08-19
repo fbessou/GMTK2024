@@ -131,23 +131,24 @@ func _scare(_scareOrigin: Vector2) -> void:
 	if(!scarable):
 		return
 		
-	var dir := (position - _scareOrigin).normalized() * 0.1
-	var elapsedTime := 0.
-	while(elapsedTime < 0.25):
-		elapsedTime += get_process_delta_time()
-		# Move
-		velocity = dir
-		var lon_vel := dir.dot(velocity)
-		if lon_vel < max_speed:
-			lon_vel = lon_vel + minf(accel * get_process_delta_time(), max_speed - lon_vel)
-		velocity += dir * lon_vel - dir * dir.dot(velocity)
-		var d := FROZEN_DRAG if state == State.FROZEN else drag
-		velocity = velocity * pow(1.0 - d, get_process_delta_time()) * 5.
-		move_and_slide()
+	var dir := (position - _scareOrigin).normalized()
+	velocity = dir*max_speed
+	#var elapsedTime := 0.
+	#while(elapsedTime < 0.25):
+		#elapsedTime += get_process_delta_time()
+		## Move
+		#velocity = dir
+		#var lon_vel := dir.dot(velocity)
+		#if lon_vel < max_speed:
+			#lon_vel = lon_vel + minf(accel * get_process_delta_time(), max_speed - lon_vel)
+		#velocity += dir * lon_vel - dir * dir.dot(velocity)
+		#var d := FROZEN_DRAG if state == State.FROZEN else drag
+		#velocity = velocity * pow(1.0 - d, get_process_delta_time()) * 50.
+		#move_and_slide()
+		#
+		## Visual
+	_match_visual_angle(dir)
 		
-		# Visual
-		_match_visual_angle(dir)
-
 func _match_visual_angle(direction: Vector2) -> void:
 	if not is_zero_approx(direction.x):
 		facing = Facing.LEFT if direction.x < 0 else Facing.RIGHT

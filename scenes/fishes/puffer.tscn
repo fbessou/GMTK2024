@@ -112,7 +112,7 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_garjf"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tkw8t"]
 resource_local_to_scene = true
 shader = SubResource("Shader_1nyio")
 shader_parameter/corruption = 1.0
@@ -141,7 +141,7 @@ sprite_frames = SubResource("SpriteFrames_fn0tc")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
-visible = false
+scale = Vector2(1, 0.73)
 shape = SubResource("CircleShape2D_by5v5")
 
 [node name="MouthArea2D" type="Area2D" parent="." index="2"]
@@ -156,7 +156,7 @@ shape = SubResource("CircleShape2D_kdyib")
 [node name="FoodBubble" parent="." index="3" instance=ExtResource("11_qpdmk")]
 z_index = 1500
 z_as_relative = false
-material = SubResource("ShaderMaterial_garjf")
+material = SubResource("ShaderMaterial_tkw8t")
 position = Vector2(95, -72)
 scale = Vector2(0.5, 0.5)
 
