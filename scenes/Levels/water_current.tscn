@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://n41mpk740rjq"]
+[gd_scene load_steps=5 format=3 uid="uid://n41mpk740rjq"]
 
 [ext_resource type="Texture2D" uid="uid://djovao4tmyomj" path="res://assets/textures/bubbles/bubble_filled1.png" id="1_5oqu0"]
+[ext_resource type="Script" path="res://scripts/Scripted Interactions/WaterCurrent.gd" id="1_q84ke"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3xuw6"]
 size = Vector2(330.5, 136.75)
@@ -9,21 +10,21 @@ size = Vector2(330.5, 136.75)
 offsets = PackedFloat32Array(0, 0.495017, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="WaterCurrent" type="Node2D"]
-
-[node name="Area2D" type="Area2D" parent="."]
+[node name="WaterCurrent" type="Area2D"]
 collision_layer = 0
 collision_mask = 6
 gravity_space_override = 1
 gravity = 2500.0
+script = ExtResource("1_q84ke")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_3xuw6")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(0, -68)
 amount = 10
 lifetime = 0.5
+local_coords = true
 texture = ExtResource("1_5oqu0")
 emission_shape = 3
 emission_rect_extents = Vector2(200, 50)
@@ -34,6 +35,3 @@ initial_velocity_max = 547.62
 scale_amount_min = 0.1
 scale_amount_max = 0.5
 color_ramp = SubResource("Gradient_vtbhb")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
