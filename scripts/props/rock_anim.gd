@@ -1,8 +1,6 @@
 class_name Rock
 extends Polygon2D
 
-@export var amount:=10.0
-@export var speed:=10.0
 @export var curveX: Curve
 @export var curveY: Curve
 
@@ -23,10 +21,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if(!collapsing):
-		position.x = start_pos.x + speed * randf_range(-amount, amount) * delta
-		position.y = start_pos.y + speed * randf_range(-amount, amount) * delta
-	else:
+	if(collapsing):
 		color.a = 1.0 - elapsedTime / animTime
 		position = start_pos + Vector2(curveX.sample(rand_speed * elapsedTime / animTime), - curveY.sample(rand_speed * elapsedTime / animTime)) * 100.0
 		elapsedTime += delta

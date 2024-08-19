@@ -34,6 +34,8 @@ const FROZEN_DRAG := 1.0
 var orientation := 0.0
 var target : Fish
 
+var mean_vel_array: Vector3
+
 var swimming := false:
 	set(s):
 		if s != swimming:
@@ -101,6 +103,8 @@ func _physics_process(delta: float) -> void:
 			body_collided.emit(collider, speed)
 		# update velocity
 		velocity = velocity.slide(collision.get_normal())
+	
+	calculate_mean_velocity()
 	
 	# Visual
 	_match_visual_angle(command_direction)
@@ -232,3 +236,11 @@ func lerp_to_target_tween() -> void:
 	tween_out.tween_property(current_cam, "zoom", current_cam.zoom / cameraZoomFactor, cameraAnimationSpeed)\
 		.set_ease(Tween.EASE_IN_OUT)\
 		.set_trans(Tween.TRANS_QUAD)
+
+func calculate_mean_velocity() -> void:
+	mean_vel_array.x = mean_vel_array.y
+	mean_vel_array.y = mean_vel_array.z
+	mean_vel_array.z = velocity.length()
+	
+func get_max_velocity() -> float:
+	return max(mean_vel_array.x, mean_vel_array.y, mean_vel_array.z)

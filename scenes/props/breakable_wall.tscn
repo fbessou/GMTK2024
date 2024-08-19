@@ -28,8 +28,6 @@ speedThreshold = 1.0
 [node name="Polygon2D" type="Polygon2D" parent="Visual"]
 polygon = PackedVector2Array(-391, 1550, 466, 1663, 568, 1076, 511, 651, -277, 613, -537, 1007)
 script = ExtResource("2_amvfj")
-amount = 0.5
-speed = 1000.0
 curveX = SubResource("Curve_73a75")
 curveY = SubResource("Curve_xcctw")
 
@@ -38,8 +36,6 @@ position = Vector2(86, -1895)
 scale = Vector2(0.78096, 0.933586)
 polygon = PackedVector2Array(-610.786, 1666.69, 72.9871, 1998.74, 535.238, 1645.27, 845.113, 1591.71, 836.15, 1027.22, 137.011, 938.317, -619, 1464)
 script = ExtResource("2_amvfj")
-amount = 0.5
-speed = 1000.0
 curveX = SubResource("Curve_73a75")
 curveY = SubResource("Curve_xcctw")
 
@@ -48,8 +44,6 @@ position = Vector2(-60, -2454)
 scale = Vector2(0.78096, 0.933586)
 polygon = PackedVector2Array(-358.533, 1898.06, 71.7066, 1801.65, 983.405, 1537.08, 869.442, 830.132, -171.584, 795.856, -562.128, 1346.42)
 script = ExtResource("2_amvfj")
-amount = 0.5
-speed = 1000.0
 curveX = SubResource("Curve_73a75")
 curveY = SubResource("Curve_xcctw")
 
@@ -57,8 +51,6 @@ curveY = SubResource("Curve_xcctw")
 position = Vector2(-71, -864)
 polygon = PackedVector2Array(-391, 1550, 384, 1470, 181, 772, -277, 613, -537, 1007)
 script = ExtResource("2_amvfj")
-amount = 0.5
-speed = 1000.0
 curveX = SubResource("Curve_73a75")
 curveY = SubResource("Curve_xcctw")
 
@@ -66,18 +58,15 @@ curveY = SubResource("Curve_xcctw")
 position = Vector2(485, -1074)
 polygon = PackedVector2Array(-383, 1465, 188, 1782, 347, 1211, 233, 792, -472, 696, -726, 988)
 script = ExtResource("2_amvfj")
-amount = 0.5
-speed = 1000.0
 curveX = SubResource("Curve_73a75")
 curveY = SubResource("Curve_xcctw")
 
 [node name="Colliders" type="Node2D" parent="."]
-visible = false
 
-[node name="RigidBody2D" type="StaticBody2D" parent="Colliders"]
+[node name="Static" type="StaticBody2D" parent="Colliders"]
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Static"]
 shape = SubResource("RectangleShape2D_y084a")
 
 [node name="Area2D" type="Area2D" parent="Colliders"]
