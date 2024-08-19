@@ -131,7 +131,7 @@ shape = SubResource("CircleShape2D_8a8gh")
 [node name="PointLight2D" type="PointLight2D" parent="." index="3"]
 light_mask = 3
 visibility_layer = 3
-position = Vector2(-29, -25)
+position = Vector2(-58, -36)
 energy = 0.8
 blend_mode = 2
 shadow_enabled = true
@@ -142,7 +142,7 @@ texture_scale = 15.0
 [node name="PointLight2D2" type="PointLight2D" parent="PointLight2D" index="0"]
 light_mask = 3
 visibility_layer = 3
-energy = 0.15
+energy = 0.18
 texture = SubResource("GradientTexture2D_xggxc")
 texture_scale = 20.0
 
