@@ -1,6 +1,8 @@
 class_name Fish
 extends CharacterBody2D
 
+signal body_collided(body: Node2D, speed: float)
+
 enum State {
 	PLAYER, # Player has control
 	NPC, # Moving alone???
@@ -71,11 +73,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif event.is_action_released("fish_power"):
 			_power_off()
 
-func _process(_delta: float) -> void:
-	var camera := find_child("Camera2D") as Camera2D
-	if camera != null:
-		camera.zoom = Vector2.ONE / (1.0 / view_scale + velocity.length() / 2000)
-
 func _physics_process(delta: float) -> void:
 	
 	# Apply Water Current if there is one
@@ -98,6 +95,11 @@ func _physics_process(delta: float) -> void:
 	
 	var collision := move_and_collide(velocity * delta)
 	if collision:
+		var collider := collision.get_collider() as Node2D
+		var speed := velocity.length()
+		if collider != null:
+			body_collided.emit(collider, speed)
+		# update velocity
 		velocity = velocity.slide(collision.get_normal())
 	
 	# Visual
@@ -137,7 +139,7 @@ func _scare(_scareOrigin: Vector2) -> void:
 		velocity = dir
 		var lon_vel := dir.dot(velocity)
 		if lon_vel < max_speed:
-			lon_vel = lon_vel + maxf(accel * get_process_delta_time(), max_speed - lon_vel)
+			lon_vel = lon_vel + minf(accel * get_process_delta_time(), max_speed - lon_vel)
 		velocity += dir * lon_vel - dir * dir.dot(velocity)
 		var d := FROZEN_DRAG if state == State.FROZEN else drag
 		velocity = velocity * pow(1.0 - d, get_process_delta_time()) * 5.
