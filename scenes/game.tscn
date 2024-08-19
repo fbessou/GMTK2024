@@ -1,7 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://kog4n06ycwj0"]
+[gd_scene load_steps=3 format=3 uid="uid://kog4n06ycwj0"]
 
 [ext_resource type="PackedScene" uid="uid://cu585kiq766m0" path="res://scenes/Levels/level_1.tscn" id="1_w2214"]
+[ext_resource type="PackedScene" uid="uid://c0ytf0qqpqkbk" path="res://scenes/ui/pause_menu.tscn" id="2_npkql"]
 
 [node name="Game" type="Node2D"]
 
 [node name="Level1" parent="." instance=ExtResource("1_w2214")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_npkql")]
