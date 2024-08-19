@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://dtb5rcqpnu37s" path="res://assets/audio/sounds/stream_boost.mp3" id="3_m58f0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3xuw6"]
+resource_local_to_scene = true
 size = Vector2(330.5, 136.75)
 
 [sub_resource type="Gradient" id="Gradient_vtbhb"]
