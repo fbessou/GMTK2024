@@ -20,6 +20,7 @@ const FROZEN_DRAG := 1.0
 @export var eat := Kind.None
 @export var state := State.NPC
 @export var scarable: bool = false
+@export var ignoreCurrent: bool = false
 
 @export_group("Eat Animation")
 @export var eatAnimationSpeed := 0.5
@@ -68,6 +69,11 @@ func _unhandled_input(event: InputEvent) -> void:
 			_power_off()
 
 func _physics_process(delta: float) -> void:
+	
+	# Apply Water Current if there is one
+	if(!ignoreCurrent):
+		velocity += get_gravity() * delta
+	
 	var command_direction := Vector2.ZERO
 	if state == State.PLAYER:
 		command_direction = Input.get_vector(
