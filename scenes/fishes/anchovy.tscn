@@ -44,8 +44,9 @@ animations = [{
 radius = 4.0
 height = 40.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_kdyib"]
-radius = 8.06226
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dlsog"]
+radius = 5.0
+height = 60.0
 
 [sub_resource type="Shader" id="Shader_tutpu"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.3.stable's CanvasItemMaterial.
@@ -116,8 +117,9 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouthArea2D" index="0"]
-position = Vector2(2, 4)
-shape = SubResource("CircleShape2D_kdyib")
+position = Vector2(-24, 1)
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_dlsog")
 
 [node name="FoodBubble" parent="." index="3" instance=ExtResource("11_vjekw")]
 z_index = 1500
