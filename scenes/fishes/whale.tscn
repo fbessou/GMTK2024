@@ -90,6 +90,7 @@ shader_parameter/paper_texture = ExtResource("9_dcrmd")
 z_index = -300
 z_as_relative = false
 material = ExtResource("2_0psej")
+wall_min_slide_angle = 0.0
 script = ExtResource("2_7w5cc")
 kind = 4
 max_speed = 1200.0
@@ -100,6 +101,7 @@ max_inclination = 0.8
 eat = 5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
+use_parent_material = true
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_j2c83")
 animation = &"idle"
