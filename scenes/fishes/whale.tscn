@@ -51,7 +51,9 @@ z_as_relative = false
 kind = 4
 max_speed = 800.0
 accel = 2500.0
+drag = 0.2
 view_scale = 0.25
+max_inclination = 0.95
 eat = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
