@@ -637,7 +637,6 @@ position = Vector2(-714, -83)
 script = ExtResource("17_shtic")
 plankton_bgs = [NodePath("../Environment/PlanktonsBg1"), NodePath("../Environment/PlanktonsBg2"), NodePath("../Environment/PlanktonsBg3")]
 nodes_to_hide = [NodePath("../Parallax/Foreground Parallax")]
-skip_opening = true
 
 [node name="BlackBackground" type="Polygon2D" parent="Opening"]
 z_index = -850
