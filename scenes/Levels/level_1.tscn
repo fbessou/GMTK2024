@@ -435,7 +435,6 @@ z_index = -248
 z_as_relative = false
 
 [node name="Opening" type="Node2D" parent="." node_paths=PackedStringArray("plankton_bgs", "nodes_to_hide")]
-visible = false
 position = Vector2(-714, -83)
 script = ExtResource("17_shtic")
 plankton_bgs = [NodePath("../Environment/PlanktonsBg1"), NodePath("../Environment/PlanktonsBg2"), NodePath("../Environment/PlanktonsBg3")]
