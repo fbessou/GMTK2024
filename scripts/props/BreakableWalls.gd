@@ -12,12 +12,13 @@ func _on_body_entered(body: Node) -> void:
 	var fish := body as Fish
 	if(fish == null):
 		return
-	
-	if(fish.get_max_velocity() >= speedThreshold):
+	var max_velocity := fish.get_max_velocity() 
+	if(max_velocity >= speedThreshold):
 		isBroken = false
 		collision_shape_2d.hide()
 		collision_shape_2d.queue_free()
 		collapse()
+	fish.velocity = Vector2.ZERO
 
 func collapse() -> void:
 	for child in visual.get_children():

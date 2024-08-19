@@ -50,7 +50,7 @@ radius = 80.0
 
 [sub_resource type="Gradient" id="Gradient_jpi24"]
 interpolation_mode = 2
-offsets = PackedFloat32Array(0.584416, 1)
+offsets = PackedFloat32Array(0.179191, 0.404624)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_xggxc"]
@@ -91,7 +91,7 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3itt1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s6ajx"]
 resource_local_to_scene = true
 shader = SubResource("Shader_1nyio")
 shader_parameter/corruption = 1.0
@@ -105,9 +105,9 @@ z_as_relative = false
 material = ExtResource("2_35kur")
 script = ExtResource("2_35ved")
 kind = 3
-max_speed = 160.0
-accel = 1300.0
-view_scale = 1.75
+max_speed = 300.0
+accel = 1500.0
+max_inclination = 0.7
 eat = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
@@ -129,13 +129,25 @@ collision_mask = 4
 shape = SubResource("CircleShape2D_8a8gh")
 
 [node name="PointLight2D" type="PointLight2D" parent="." index="3"]
-position = Vector2(-88, -52)
-scale = Vector2(7.99, 7.99)
+light_mask = 3
+visibility_layer = 3
+position = Vector2(-58, -36)
+energy = 0.8
 blend_mode = 2
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
 texture = SubResource("GradientTexture2D_xggxc")
+texture_scale = 15.0
+
+[node name="PointLight2D2" type="PointLight2D" parent="PointLight2D" index="0"]
+light_mask = 3
+visibility_layer = 3
+energy = 0.18
+texture = SubResource("GradientTexture2D_xggxc")
+texture_scale = 20.0
 
 [node name="FoodBubble" parent="." index="4" instance=ExtResource("7_51a7h")]
 z_index = 1500
 z_as_relative = false
-material = SubResource("ShaderMaterial_3itt1")
+material = SubResource("ShaderMaterial_s6ajx")
 position = Vector2(166, -157)
