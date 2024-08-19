@@ -7,7 +7,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vhga8"]
 resource_local_to_scene = true
 shader = ExtResource("1_ab02c")
-shader_parameter/proximity = null
+shader_parameter/proximity = 1.0
 shader_parameter/plankton_contamination = null
 
 [node name="AnimatedSpritePlanktonBg" type="AnimatedSprite2D"]
