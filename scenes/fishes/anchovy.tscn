@@ -49,13 +49,13 @@ radius = 8.06226
 z_index = -475
 z_as_relative = false
 kind = 6
-max_speed = 250.0
+max_speed = 190.0
 accel = 2000.0
+view_scale = 5.0
 eat = 1
-state = 0
 scarable = true
-eatAnimationSpeed = 0.5
-transType = 0
+eatAnimationSpeed = 1.0
+cameraAnimationSpeed = 2.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
 scale = Vector2(0.25, 0.25)

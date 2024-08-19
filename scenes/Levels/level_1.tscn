@@ -1,8 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://cu585kiq766m0"]
+[gd_scene load_steps=41 format=3 uid="uid://cu585kiq766m0"]
 
 [ext_resource type="PackedScene" uid="uid://5w3u43821a5" path="res://scenes/props/SeaweedLeaves.tscn" id="4_44jrw"]
 [ext_resource type="Texture2D" uid="uid://birpdwq3i2i3r" path="res://assets/textures/props/seaweed/varech/frame0000.png" id="5_35qt7"]
 [ext_resource type="Texture2D" uid="uid://cx52ra38h43wf" path="res://assets/textures/props/seaweed/varech/frame0001.png" id="6_s4tiy"]
+[ext_resource type="Texture2D" uid="uid://c4vawkp3yxbfq" path="res://assets/textures/props/coral/branch/coral_branch.png" id="7_eaosu"]
 [ext_resource type="Texture2D" uid="uid://dgvdxphki1cs8" path="res://assets/textures/environment/level1/3-background.svg" id="8_cuxfu"]
 [ext_resource type="PackedScene" uid="uid://chevwwev43q6b" path="res://scenes/Levels/blocks/largeC.tscn" id="8_khk7t"]
 [ext_resource type="PackedScene" uid="uid://dbles67txj7e0" path="res://scenes/Levels/blocks/mediumA.tscn" id="9_mua36"]
@@ -16,10 +17,15 @@
 [ext_resource type="PackedScene" uid="uid://cw5cd8mpbft6b" path="res://scenes/Levels/blocks/largeB.tscn" id="15_536sj"]
 [ext_resource type="PackedScene" uid="uid://cpuc7ktc5wwsv" path="res://scenes/Levels/blocks/spireA.tscn" id="16_50ag4"]
 [ext_resource type="PackedScene" uid="uid://biasnyddsqpv1" path="res://scenes/Levels/blocks/spireB.tscn" id="17_1t5df"]
+[ext_resource type="PackedScene" uid="uid://n41mpk740rjq" path="res://scenes/Levels/water_current.tscn" id="17_ir5op"]
 [ext_resource type="Script" path="res://scripts/extra/opening.gd" id="17_shtic"]
 [ext_resource type="Shader" path="res://resources/shaders/rune.gdshader" id="18_uattf"]
 [ext_resource type="Texture2D" uid="uid://cabga2hoti2hn" path="res://assets/textures/runes/rune.svg" id="19_ahhh6"]
 [ext_resource type="PackedScene" uid="uid://peng5fbet5c1" path="res://scenes/fishes/plankton.tscn" id="20_2o6hp"]
+[ext_resource type="PackedScene" uid="uid://bw0b2lrrx1fx0" path="res://scenes/fishes/anchovy.tscn" id="22_hx153"]
+[ext_resource type="PackedScene" uid="uid://d0kb6abw1g61t" path="res://scenes/fishes/puffer.tscn" id="24_b3gqn"]
+[ext_resource type="PackedScene" uid="uid://diht24l3hw71d" path="res://scenes/fishes/eel.tscn" id="25_jj37f"]
+[ext_resource type="Script" path="res://scripts/Scripted Interactions/CaveEel.gd" id="26_661jo"]
 
 [sub_resource type="Gradient" id="Gradient_hyjtd"]
 interpolation_mode = 1
@@ -34,7 +40,7 @@ height = 4
 [sub_resource type="Curve2D" id="Curve2D_5docd"]
 resource_name = "PlanktonCurve"
 _data = {
-"points": PackedVector2Array(-90.3112, -95.9227, 90.3112, 95.9227, 361, 339, -25.4846, -4.95534, 25.4846, 4.95534, 480, 461, 0, 0, 0, 0, 552, 471, 17.2257, 16.7538, -17.2257, -16.7538, 566, 457, -6.55509, -11.2373, 6.55509, 11.2373, 515, 470, 0, 0, 0, 0, 542, 484)
+"points": PackedVector2Array(-90.3112, -95.9227, 90.3112, 95.9227, 361, 339, -25.4846, -4.95534, 25.4846, 4.95534, 480, 461, 0, 0, 0, 0, 552, 471, 17.2257, 16.7538, -17.2257, -16.7538, 566, 457, -6.55509, -11.2373, 6.55509, 11.2373, 515, 470, 0, 0, 0, 0, 543, 497)
 }
 point_count = 6
 
@@ -134,12 +140,9 @@ tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(15.2, 20.2667),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(20.2667),
+"transitions": PackedFloat32Array(1),
 "values": [{
-"args": [],
-"method": &"elect_plankton"
-}, {
 "args": [],
 "method": &"contaminate"
 }]
@@ -154,7 +157,7 @@ _data = {
 [sub_resource type="Curve2D" id="Curve2D_glsyj"]
 resource_name = "RuneCurve"
 _data = {
-"points": PackedVector2Array(23.811, -57.1464, -23.811, 57.1464, -5, -214, 33.3641, -184.166, -33.3641, 184.166, 16, -51, 6.52279, -65.7774, -6.52279, 65.7774, 10, 148, 7.11896, -53.021, -7.11896, 53.021, 27, 256, -6.56449, -16.5261, 6.56449, 16.5261, 45, 367)
+"points": PackedVector2Array(23.811, -57.1464, -23.811, 57.1464, -5, -214, 33.3641, -184.166, -33.3641, 184.166, 16, -51, 6.52279, -65.7774, -6.52279, 65.7774, 10, 148, 7.11896, -53.021, -7.11896, 53.021, 27, 256, -6.56449, -16.5261, 6.56449, 16.5261, 48, 372)
 }
 point_count = 5
 
@@ -176,7 +179,49 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.518868)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_mho6n"]
+radius = 140.289
+
+[sub_resource type="Animation" id="Animation_eiqqv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(972, -12)]
+}
+
+[sub_resource type="Animation" id="Animation_t6teo"]
+resource_name = "Scare"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0682408, 0.166667, 0.268241, 0.334907, 0.4, 0.466667, 0.566667, 0.766667, 1.13333, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(972, -12), Vector2(958, -7.99999), Vector2(950, -23), Vector2(1000, -2), Vector2(972, -12), Vector2(958, -7.99999), Vector2(950, -23), Vector2(1000, -2), Vector2(958, -7.99999), Vector2(952, -13), Vector2(1230, -11)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ifdxn"]
+_data = {
+"RESET": SubResource("Animation_eiqqv"),
+"Scare": SubResource("Animation_t6teo")
+}
+
 [node name="Level1" type="Node2D"]
+metadata/_edit_vertical_guides_ = [-59.0, -200.0]
+metadata/_edit_horizontal_guides_ = [192.0, 420.0]
 
 [node name="Parallax" type="Node2D" parent="."]
 
@@ -189,7 +234,9 @@ repeat_times = 2
 [node name="Sprite2D" type="Sprite2D" parent="Parallax/Background"]
 z_index = -1000
 z_as_relative = false
+position = Vector2(29, 513)
 texture = ExtResource("8_cuxfu")
+offset = Vector2(-29, -513)
 
 [node name="Midground" type="Parallax2D" parent="Parallax"]
 scroll_scale = Vector2(0.5, 0.5)
@@ -201,34 +248,17 @@ scale = Vector2(1.2, 1.2)
 texture = ExtResource("10_ypg8p")
 
 [node name="Foreground Parallax" type="Parallax2D" parent="Parallax"]
-visible = false
 z_index = 1000
 scroll_scale = Vector2(1.3, 1.3)
+scroll_offset = Vector2(16, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax/Foreground Parallax"]
 z_index = 1000
 z_as_relative = false
-position = Vector2(195, -327)
+position = Vector2(-147, 581)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("12_wggoc")
-
-[node name="PlanktonsBg1" type="Node2D" parent="."]
-modulate = Color(1, 1, 1, 0.184314)
-z_index = -250
-z_as_relative = false
-position = Vector2(-714, -83)
-
-[node name="PlanktonsBg2" type="Node2D" parent="."]
-modulate = Color(1, 1, 1, 0.909804)
-z_index = -249
-z_as_relative = false
-position = Vector2(-714, -83)
-
-[node name="PlanktonsBg3" type="Node2D" parent="."]
-modulate = Color(1, 1, 1, 0.184314)
-z_index = -248
-z_as_relative = false
-position = Vector2(-714, -83)
+offset = Vector2(288.462, -571.539)
 
 [node name="Environment" type="Node2D" parent="."]
 
@@ -237,12 +267,12 @@ z_index = -800
 z_as_relative = false
 
 [node name="SeaweedLeaves" parent="Environment/BackgroundProps" instance=ExtResource("4_44jrw")]
-position = Vector2(-307, 373)
+position = Vector2(196, -14)
 script = null
 
 [node name="Seaweed" type="Sprite2D" parent="Environment/BackgroundProps"]
 modulate = Color(0.780392, 0.780392, 0.176471, 1)
-position = Vector2(-241, 324)
+position = Vector2(-212, 441)
 texture = ExtResource("5_35qt7")
 
 [node name="Varech" type="Sprite2D" parent="Environment/BackgroundProps"]
@@ -253,12 +283,36 @@ rotation = 3.14159
 scale = Vector2(1, -1)
 texture = ExtResource("6_s4tiy")
 
+[node name="CoralBranch3" type="Sprite2D" parent="Environment/BackgroundProps"]
+modulate = Color(0.99284, 0.860061, 0.893198, 1)
+position = Vector2(25, 4)
+rotation = -0.10025
+scale = Vector2(0.48159, 0.48159)
+texture = ExtResource("7_eaosu")
+
+[node name="CoralBranch2" type="Sprite2D" parent="Environment/BackgroundProps"]
+modulate = Color(0.875835, 0.45119, 0.398194, 1)
+position = Vector2(-434, -5.00002)
+rotation = 0.324012
+scale = Vector2(0.48159, 0.48159)
+texture = ExtResource("7_eaosu")
+
+[node name="OutOfViewProps" type="Node2D" parent="Environment"]
+z_index = 20
+z_as_relative = false
+scale = Vector2(1, 1.00474)
+
+[node name="CoralBranch" type="Sprite2D" parent="Environment/OutOfViewProps"]
+modulate = Color(0.801456, 0.503532, 0.445273, 1)
+position = Vector2(-298, 461)
+texture = ExtResource("7_eaosu")
+
 [node name="ForegroundProps" type="Node2D" parent="Environment"]
 z_index = -200
 z_as_relative = false
 
 [node name="SeaweedLeaves2" parent="Environment/ForegroundProps" instance=ExtResource("4_44jrw")]
-position = Vector2(-489, 348)
+position = Vector2(-460, 335)
 script = null
 
 [node name="Varech2" type="Sprite2D" parent="Environment/ForegroundProps"]
@@ -277,7 +331,8 @@ polygon = PackedVector2Array(-332, -808, 535, -592, 916, -501, 922, -1302, -1528
 scale = Vector2(0.5, 0.5)
 
 [node name="LargeC" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("8_khk7t")]
-position = Vector2(-1200, 286)
+position = Vector2(-1138, 226)
+rotation = 3.40445
 
 [node name="MediumA" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("9_mua36")]
 position = Vector2(-342, 982)
@@ -288,18 +343,22 @@ position = Vector2(-1000, 714)
 rotation = 1.26368
 
 [node name="SmallA" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("11_km3yp")]
-position = Vector2(-182, 378)
-rotation = -3.35297
+position = Vector2(-172, 390)
+rotation = -4.88836
 
 [node name="SmallB" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("12_ah3xm")]
-position = Vector2(-8, 658)
+position = Vector2(-34, 646)
 rotation = 3.35334
+
+[node name="SmallB2" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("12_ah3xm")]
+position = Vector2(-150, 228)
+rotation = 2.10731
 
 [node name="AnchovyCave" type="Node2D" parent="Environment/NavigableMap"]
 scale = Vector2(0.75, 0.75)
 
 [node name="MediumB" parent="Environment/NavigableMap/AnchovyCave" instance=ExtResource("13_vbqx5")]
-position = Vector2(-840, -50.6667)
+position = Vector2(-840, -86.6667)
 rotation = -0.540315
 
 [node name="SmallA3" parent="Environment/NavigableMap/AnchovyCave" instance=ExtResource("11_km3yp")]
@@ -314,11 +373,16 @@ position = Vector2(-829.333, -932)
 rotation = 2.35421
 
 [node name="LargeB" parent="Environment/NavigableMap/PufferCave" instance=ExtResource("15_536sj")]
-position = Vector2(140, -1001.33)
-rotation = 0.202597
+position = Vector2(126.667, -958.667)
+rotation = 0.334069
 
 [node name="SpireA" parent="Environment/NavigableMap/PufferCave" instance=ExtResource("16_50ag4")]
 position = Vector2(-688, -964)
+
+[node name="SpireA2" parent="Environment/NavigableMap/PufferCave" instance=ExtResource("16_50ag4")]
+position = Vector2(-154.667, -490.667)
+rotation = 2.18398
+scale = Vector2(0.839862, 0.495123)
 
 [node name="SpireB" parent="Environment/NavigableMap/PufferCave" instance=ExtResource("17_1t5df")]
 position = Vector2(-242.667, -1189.33)
@@ -327,7 +391,7 @@ position = Vector2(-242.667, -1189.33)
 scale = Vector2(0.75, 0.75)
 
 [node name="MediumB2" parent="Environment/NavigableMap/EelCave" instance=ExtResource("13_vbqx5")]
-position = Vector2(3.99999, -472)
+position = Vector2(89.3333, -436)
 rotation = -1.80769
 
 [node name="LargeA" parent="Environment/NavigableMap/EelCave" instance=ExtResource("14_ucd0q")]
@@ -339,7 +403,7 @@ position = Vector2(564, -21.3333)
 rotation = 0.68043
 
 [node name="SmallA4" parent="Environment/NavigableMap/EelCave" instance=ExtResource("11_km3yp")]
-position = Vector2(-118.667, -229.333)
+position = Vector2(-102.667, -312)
 rotation = 3.04232
 
 [node name="MediumA2" parent="Environment/NavigableMap/EelCave" instance=ExtResource("9_mua36")]
@@ -350,10 +414,33 @@ rotation = 4.73143
 position = Vector2(1178.67, -209.333)
 rotation = 10.9745
 
-[node name="Opening" type="Node2D" parent="." node_paths=PackedStringArray("plankton_bgs")]
+[node name="WaterCurrent" parent="Environment/NavigableMap" instance=ExtResource("17_ir5op")]
+position = Vector2(-370, -314)
+rotation = -0.0689089
+gravity = 2400.0
+
+[node name="PlanktonsBg1" type="Node2D" parent="Environment"]
+modulate = Color(1, 1, 1, 0.184314)
+z_index = -250
+z_as_relative = false
+
+[node name="PlanktonsBg2" type="Node2D" parent="Environment"]
+modulate = Color(1, 1, 1, 0.909804)
+z_index = -249
+z_as_relative = false
+
+[node name="PlanktonsBg3" type="Node2D" parent="Environment"]
+modulate = Color(1, 1, 1, 0.184314)
+z_index = -248
+z_as_relative = false
+
+[node name="Opening" type="Node2D" parent="." node_paths=PackedStringArray("plankton_bgs", "nodes_to_hide")]
+visible = false
 position = Vector2(-714, -83)
 script = ExtResource("17_shtic")
-plankton_bgs = [NodePath("../PlanktonsBg1"), NodePath("../PlanktonsBg2"), NodePath("../PlanktonsBg3")]
+plankton_bgs = [NodePath("../Environment/PlanktonsBg1"), NodePath("../Environment/PlanktonsBg2"), NodePath("../Environment/PlanktonsBg3")]
+nodes_to_hide = [NodePath("../Parallax/Foreground Parallax")]
+skip_opening = true
 
 [node name="BlackBackground" type="Polygon2D" parent="Opening"]
 z_index = -850
@@ -378,6 +465,7 @@ loop = false
 
 [node name="PlayerPlankton" parent="Opening/PlanktonPath/PlanktonPathFollow" instance=ExtResource("20_2o6hp")]
 unique_name_in_owner = true
+rotation = 1.5708
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Opening"]
 libraries = {
@@ -400,7 +488,7 @@ loop = false
 [node name="Rune" type="Sprite2D" parent="Opening/RunePath/RunePathFollow"]
 z_index = -799
 material = SubResource("ShaderMaterial_1dnan")
-scale = Vector2(0.28125, 0.28125)
+scale = Vector2(0.155, 0.155)
 texture = ExtResource("19_ahhh6")
 
 [node name="RuneLight" type="PointLight2D" parent="Opening/RunePath/RunePathFollow/Rune"]
@@ -412,3 +500,95 @@ texture = SubResource("GradientTexture2D_hb72l")
 z_index = 50
 z_as_relative = false
 position = Vector2(0, -3.05176e-05)
+
+[node name="Anchovies" type="Node2D" parent="."]
+
+[node name="Anchovy" parent="Anchovies" instance=ExtResource("22_hx153")]
+position = Vector2(-143, 86)
+
+[node name="Anchovy2" parent="Anchovies" instance=ExtResource("22_hx153")]
+position = Vector2(-257, 23)
+facing = 1
+
+[node name="Anchovy3" parent="Anchovies" instance=ExtResource("22_hx153")]
+position = Vector2(-384, -9.00001)
+
+[node name="Anchovy4" parent="Anchovies" instance=ExtResource("22_hx153")]
+position = Vector2(-397, 57)
+facing = 1
+
+[node name="Anchovy5" parent="Anchovies" instance=ExtResource("22_hx153")]
+position = Vector2(-291, -42)
+
+[node name="Anchovy6" parent="Anchovies" instance=ExtResource("22_hx153")]
+position = Vector2(-444, -65)
+
+[node name="Anchovy7" parent="Anchovies" instance=ExtResource("22_hx153")]
+position = Vector2(-452, -27)
+facing = 1
+
+[node name="Anchovy8" parent="Anchovies" instance=ExtResource("22_hx153")]
+position = Vector2(-176, -61)
+
+[node name="Anchovy9" parent="Anchovies" instance=ExtResource("22_hx153")]
+position = Vector2(-316, -104)
+
+[node name="Anchovy10" parent="Anchovies" instance=ExtResource("22_hx153")]
+position = Vector2(-437, -149)
+
+[node name="WaitingAnchovy" parent="Anchovies" instance=ExtResource("22_hx153")]
+position = Vector2(-191, 131)
+
+[node name="PufferFishes" type="Node2D" parent="."]
+
+[node name="Puffer" parent="PufferFishes" instance=ExtResource("24_b3gqn")]
+position = Vector2(-202, -490)
+
+[node name="Puffer2" parent="PufferFishes" instance=ExtResource("24_b3gqn")]
+position = Vector2(-509, -470)
+facing = 1
+
+[node name="Puffer3" parent="PufferFishes" instance=ExtResource("24_b3gqn")]
+position = Vector2(-282, -610)
+facing = 1
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-254, -306)
+
+[node name="Cave Eel" parent="Node2D" instance=ExtResource("25_jj37f")]
+position = Vector2(972, -12)
+rotation = 0.0380364
+collision_mask = 6
+script = ExtResource("26_661jo")
+accel = null
+
+[node name="ElectricityArea2D" parent="Node2D/Cave Eel" index="0"]
+visible = false
+
+[node name="ElectricitySprite" parent="Node2D/Cave Eel/ElectricityArea2D" index="0"]
+visible = false
+
+[node name="MouthArea2D" parent="Node2D/Cave Eel" index="3"]
+position = Vector2(130.563, -13.9751)
+
+[node name="FoodBubble" parent="Node2D/Cave Eel" index="4"]
+visible = false
+
+[node name="Scare Anim Area" type="Area2D" parent="Node2D/Cave Eel"]
+collision_layer = 6
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Cave Eel/Scare Anim Area"]
+position = Vector2(-277, 2)
+shape = SubResource("CircleShape2D_mho6n")
+debug_color = Color(0.382633, 0.73574, 0.174925, 0.42)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/Cave Eel"]
+libraries = {
+"": SubResource("AnimationLibrary_ifdxn")
+}
+
+[connection signal="body_entered" from="Node2D/Cave Eel/Scare Anim Area" to="Node2D/Cave Eel" method="_on_scare_anim_area_body_entered"]
+[connection signal="body_exited" from="Node2D/Cave Eel/Scare Anim Area" to="Node2D/Cave Eel" method="_on_scare_anim_area_body_exited"]
+
+[editable path="Node2D/Cave Eel"]
