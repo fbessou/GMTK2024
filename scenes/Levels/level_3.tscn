@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://dxq4nyclwtt1u"]
+[gd_scene load_steps=69 format=3 uid="uid://dxq4nyclwtt1u"]
 
 [ext_resource type="Script" path="res://scripts/levels/darkness.gd" id="1_6yl55"]
 [ext_resource type="PackedScene" uid="uid://c2to2hb2q2wvb" path="res://scenes/Levels/blocks/curveA.tscn" id="1_ctl1s"]
@@ -49,7 +49,6 @@
 [ext_resource type="Texture2D" uid="uid://dtb1vacn0nukr" path="res://assets/textures/cthulhu/eyes/frame0026.png" id="45_7kco2"]
 [ext_resource type="Texture2D" uid="uid://2iwj4na0g621" path="res://assets/textures/cthulhu/eyes/frame0028.png" id="46_xcnjy"]
 [ext_resource type="AudioStream" uid="uid://kwe04jv53ijf" path="res://assets/audio/ambience/underwater_ambience_deep.mp3" id="47_0u8sj"]
-[ext_resource type="Texture2D" uid="uid://bgwpohfk34juk" path="res://assets/textures/whale/frame0000.png" id="50_3knx1"]
 [ext_resource type="AudioStream" uid="uid://culumfr8ulesj" path="res://assets/audio/musics/ending.mp3" id="50_t0lqw"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mwqoh"]
@@ -524,17 +523,22 @@ material = SubResource("CanvasItemMaterial_mwqoh")
 position = Vector2(-346, -57)
 script = ExtResource("1_6yl55")
 
-[node name="DeadWhaleSprite" type="Sprite2D" parent="."]
-z_index = -300
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-1043, -1826)
 scale = Vector2(4, 4)
-texture = ExtResource("50_3knx1")
-flip_h = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="DeadWhaleSprite"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(111.5, 31.25, 125.25, 34, 132.25, 35.25, 142.25, 35.75, 150.25, 36.5, 158, 37, 165.5, 37.5, 176.75, 38.25, 183.25, 39, 188.25, 39, 194.75, 40.5, 199.5, 42.5, 204.25, 45.5, 209.75, 46.25, 216.75, 45.5, 224.75, 43, 232.25, 40.5, 236.25, 36.75, 239.75, 33, 242.75, 26.25, 245.25, 14.5, 246.75, 6, 248.25, -7.5, 248.5, -23, 248, -39, 246, -47.75, 243.5, -57.5, 240.5, -65, 237, -70.25, 231.75, -73.75, 225.25, -76.5, 187.5, -76.75, 132.25, -77, 54.5, -76, 30.25, -49.75, 43.5, -2.5)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeadWhaleSprite/StaticBody2D"]
-polygon = PackedVector2Array(205.5, -76.25, 225.75, -75, 236.5, -72.25, 242.75, -58.75, 248.75, -26, 247.5, 7.75, 241.5, 32.75, 231, 39.5, 208.25, 45.5, 188.5, 38.5, 161.5, 36, 155, 36.75, 159.5, 46, 180.5, 51, 193.25, 55, 199.25, 58.75, 198, 61.5, 176.5, 58.25, 163.75, 54.25, 144.75, 47, 135.75, 1.5, 141.25, -83.5)
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(125.5, 50.25, 145.75, 51.75, 152, 52.75, 158.75, 53.5, 168.5, 55.75, 176.25, 58.75, 183, 60.75, 187.5, 62.5, 192, 63.25, 195.25, 63.25, 197.75, 62.5, 198.75, 61.5, 199, 59.25, 198.25, 57.5, 195.5, 56, 191, 55, 186.75, 53.5, 179.75, 50.75, 172.5, 48, 164.75, 45.25, 160.75, 42.75, 157.5, 39.75, 156.75, 35.25, 129.25, 32.5)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+color = Color(0.835294, 0.482353, 0.156863, 1)
+polygon = PackedVector2Array(111.5, 31.25, 125.25, 34, 132.25, 35.25, 142.25, 35.75, 150.25, 36.5, 158, 37, 165.5, 37.5, 176.75, 38.25, 183, 38.75, 188.25, 39, 191.5, 39.5, 194.75, 40.5, 199.5, 42.5, 201.75, 44.25, 204.75, 45.75, 209.75, 46.25, 213.5, 46, 218, 45.25, 222.25, 44, 227.5, 42.5, 232.25, 40.5, 235.25, 38.25, 238, 35.5, 240.5, 31.25, 242.75, 26.25, 245.25, 14.5, 246.75, 6, 248.25, -7.5, 248.5, -23, 248, -39, 246, -47.75, 243.5, -57.5, 240.5, -65, 237, -70.25, 231.75, -73.75, 225.25, -76.5, 187.5, -76.75, 132.25, -77, 54.5, -76, 30.25, -49.75, 43.5, -2.5)
+
+[node name="Polygon2D2" type="Polygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(125.5, 50.25, 145.75, 51.75, 152, 52.75, 158.75, 53.5, 163.25, 54.25, 168.5, 55.75, 176.25, 58.75, 182.25, 60.75, 187.5, 62.5, 189.5, 63, 192, 63.25, 195.25, 63.25, 196.5, 63, 197.25, 62.75, 198, 62.25, 198.75, 61.5, 199, 60.5, 199, 59.25, 198.75, 58.25, 198.25, 57.5, 196.75, 56.5, 195, 56, 191, 55, 186.75, 53.5, 179.75, 50.75, 172.5, 48, 164.75, 45.25, 162.5, 44.25, 160.5, 42.75, 158.75, 41.25, 157.5, 39.75, 157, 37.5, 156.75, 35.25, 129.25, 32.5)
 
 [node name="Plankton" parent="." instance=ExtResource("3_atury")]
 material = SubResource("ShaderMaterial_byrhl")
