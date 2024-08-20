@@ -34,7 +34,9 @@ func _on_body_exited(body: Node2D) -> void:
 	else:
 		return
 	# ($AnimationPlayer as AnimationPlayer).stop(true)
-	GameManager.set_active_fish_camera(body as Fish)
+	var camera := get_viewport().get_camera_2d()
+	camera.reparent(body, false)
+	camera.position = Vector2.ZERO
 	# 	captured_camera.reparent(body)
 	
 	return	
