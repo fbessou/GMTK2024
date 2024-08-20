@@ -142,3 +142,4 @@ position = Vector2(-399, -310)
 scale = Vector2(1.805, 1.805)
 
 [node name="SingSFX" type="AudioStreamPlayer2D" parent="." index="6"]
+bus = &"SoundFx"

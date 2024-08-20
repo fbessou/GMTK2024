@@ -79,5 +79,6 @@ shape = SubResource("RectangleShape2D_5dltp")
 [node name="BreakSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_dxvfa")
 volume_db = 24.0
+bus = &"SoundFx"
 
 [connection signal="body_entered" from="Colliders/Area2D" to="." method="_on_body_entered"]

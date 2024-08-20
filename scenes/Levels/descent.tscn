@@ -1,14 +1,14 @@
-[gd_scene load_steps=39 format=3 uid="uid://bdhladljwpd2g"]
+[gd_scene load_steps=40 format=3 uid="uid://d4kcaenbudhc0"]
 
 [ext_resource type="Script" path="res://scenes/Levels/descent.gd" id="1_8ys3j"]
 [ext_resource type="PackedScene" uid="uid://5w3u43821a5" path="res://scenes/props/SeaweedLeaves.tscn" id="2_vy6rh"]
 [ext_resource type="PackedScene" uid="uid://cor46uhgncphp" path="res://scenes/props/breakable_wall.tscn" id="3_bjfl5"]
 [ext_resource type="Script" path="res://scripts/levels/descent_section_2.gd" id="3_c75tw"]
 [ext_resource type="Texture2D" uid="uid://c4vawkp3yxbfq" path="res://assets/textures/props/coral/branch/coral_branch.png" id="3_u4ngv"]
-[ext_resource type="SpriteFrames" uid="uid://4w3454s6rdd" path="res://resources/sprites_frames/whale_in_background.tres" id="3_wqpma"]
+[ext_resource type="SpriteFrames" path="res://resources/sprites_frames/whale_in_background.tres" id="3_wqpma"]
 [ext_resource type="Texture2D" uid="uid://birpdwq3i2i3r" path="res://assets/textures/props/seaweed/varech/frame0000.png" id="4_41lef"]
-[ext_resource type="SpriteFrames" uid="uid://cco55udwpcl8k" path="res://resources/sprites_frames/moving_seaweed_leaves.tres" id="5_w1lby"]
-[ext_resource type="SpriteFrames" uid="uid://but02ghwh5lnt" path="res://resources/sprites_frames/moving_varech.tres" id="6_3lwsr"]
+[ext_resource type="SpriteFrames" path="res://resources/sprites_frames/moving_seaweed_leaves.tres" id="5_w1lby"]
+[ext_resource type="SpriteFrames" path="res://resources/sprites_frames/moving_varech.tres" id="6_3lwsr"]
 [ext_resource type="PackedScene" uid="uid://c2to2hb2q2wvb" path="res://scenes/Levels/blocks/curveA.tscn" id="6_dbfvp"]
 [ext_resource type="Texture2D" uid="uid://cpo3bbvjuxfq7" path="res://assets/textures/props/ships/shipwreck.png" id="7_eqndf"]
 [ext_resource type="PackedScene" uid="uid://bitk4x3pdmgjb" path="res://scenes/Levels/blocks/largeA.tscn" id="7_nskjf"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://dbles67txj7e0" path="res://scenes/Levels/blocks/mediumA.tscn" id="10_fseyh"]
 [ext_resource type="PackedScene" uid="uid://c7xh68riw0kf8" path="res://scenes/Levels/blocks/mediumB.tscn" id="11_2soaf"]
 [ext_resource type="PackedScene" uid="uid://bnjnf3jijmc4q" path="res://scenes/Levels/blocks/smallA.tscn" id="12_htuvj"]
+[ext_resource type="AudioStream" uid="uid://ciyk5fwhbuq66" path="res://assets/audio/sounds/whale sounds/Baleine14.mp3" id="13_hnquu"]
 [ext_resource type="PackedScene" uid="uid://ucctann5vnfg" path="res://scenes/Levels/blocks/smallB.tscn" id="13_x01bs"]
 [ext_resource type="PackedScene" uid="uid://cpuc7ktc5wwsv" path="res://scenes/Levels/blocks/spireA.tscn" id="14_p5xl5"]
 [ext_resource type="PackedScene" uid="uid://biasnyddsqpv1" path="res://scenes/Levels/blocks/spireB.tscn" id="15_b122m"]
@@ -559,9 +560,12 @@ enabled = false
 zoom = Vector2(0.08, 0.08)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Section2/StaticCameraZone"]
-visible = false
 position = Vector2(6269.5, -1024)
 shape = SubResource("RectangleShape2D_hm1b0")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Environment/Section2/StaticCameraZone"]
+stream = ExtResource("13_hnquu")
+bus = &"SoundFx"
 
 [node name="WhalesFaraway" type="Node2D" parent="Environment/Section2"]
 modulate = Color(1, 1, 1, 0.372549)

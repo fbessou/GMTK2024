@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $StaticCameraZone/AudioStreamPlayer2D
+
 var captured_camera : Camera2D = null
 #var saved_zoom : Vector2 = null
 var whales_released := false
@@ -17,6 +19,7 @@ func _on_body_entered(body: Node2D) -> void:
 		($AnimationPlayer as AnimationPlayer).play("whales_in_background")
 		whales_released = true
 
+	audio_stream_player_2d.play()
 	var tween := get_tree().create_tween()
 	body_camera.reparent(self)
 	captured_camera = body_camera

@@ -54,4 +54,10 @@ func small_to_medium() -> void:
 	MUSIC_INTERACTIVE_STREAM.add_transition(1, 2, AudioStreamInteractive.TRANSITION_FROM_TIME_IMMEDIATE, 
 	AudioStreamInteractive.TRANSITION_TO_TIME_START, AudioStreamInteractive.FADE_CROSS, 4)
 	(_player.get_stream_playback() as AudioStreamPlaybackInteractive).switch_to_clip(2)
+
+func whale() -> void:
+	MUSIC_INTERACTIVE_STREAM.add_transition(1, 2, AudioStreamInteractive.TRANSITION_FROM_TIME_IMMEDIATE, 
+	AudioStreamInteractive.TRANSITION_TO_TIME_START, AudioStreamInteractive.FADE_CROSS, 4)
+	(_player.get_stream_playback() as AudioStreamPlaybackInteractive).switch_to_clip(3)
+	
 	

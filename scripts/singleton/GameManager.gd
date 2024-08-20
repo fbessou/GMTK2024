@@ -32,6 +32,8 @@ func set_active_fish_camera(fish: Fish) -> void:
 			MusicManager.stop_intro()
 		Fish.Kind.Puffer:
 			MusicManager.small_to_medium()
+		Fish.Kind.Whale:
+			MusicManager.whale()
 			
 	
 func _pause() -> void:

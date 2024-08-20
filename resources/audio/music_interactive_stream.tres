@@ -1,11 +1,12 @@
-[gd_resource type="AudioStreamInteractive" load_steps=4 format=3 uid="uid://dk0hicaaiejpx"]
+[gd_resource type="AudioStreamInteractive" load_steps=5 format=3 uid="uid://dk0hicaaiejpx"]
 
 [ext_resource type="AudioStream" uid="uid://c7uj81ygpw1ke" path="res://assets/audio/musics/introduction.mp3" id="1_73toh"]
 [ext_resource type="AudioStream" uid="uid://duuof11blbdox" path="res://assets/audio/musics/loop_1.mp3" id="1_m7rva"]
 [ext_resource type="AudioStream" uid="uid://11ucbsrxp2a8" path="res://assets/audio/musics/loop_2.mp3" id="2_6nlah"]
+[ext_resource type="AudioStream" uid="uid://d8434eryfdni" path="res://assets/audio/musics/loop_3.mp3" id="4_2qc66"]
 
 [resource]
-clip_count = 3
+clip_count = 4
 clip_0/name = &"Introduction"
 clip_0/stream = ExtResource("1_73toh")
 clip_0/auto_advance = 1
@@ -16,3 +17,6 @@ clip_1/auto_advance = 0
 clip_2/name = &"Loop 2"
 clip_2/stream = ExtResource("2_6nlah")
 clip_2/auto_advance = 0
+clip_3/name = &"Loop 3"
+clip_3/stream = ExtResource("4_2qc66")
+clip_3/auto_advance = 0
