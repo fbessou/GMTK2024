@@ -45,8 +45,9 @@ animations = [{
 radius = 62.0
 height = 164.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8a8gh"]
-radius = 80.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7moum"]
+radius = 72.0
+height = 306.0
 
 [sub_resource type="Gradient" id="Gradient_exdkn"]
 offsets = PackedFloat32Array(0.147399, 1)
@@ -133,12 +134,13 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_sc07f")
 
 [node name="MouthArea2D" type="Area2D" parent="." index="2"]
-position = Vector2(-82, -2)
+position = Vector2(-199, 0)
 collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouthArea2D" index="0"]
-shape = SubResource("CircleShape2D_8a8gh")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_7moum")
 
 [node name="LightHalo" type="Sprite2D" parent="." index="3"]
 visible = false

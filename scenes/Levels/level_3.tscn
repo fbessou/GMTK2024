@@ -1,8 +1,9 @@
-[gd_scene load_steps=64 format=3 uid="uid://dxq4nyclwtt1u"]
+[gd_scene load_steps=69 format=3 uid="uid://dxq4nyclwtt1u"]
 
 [ext_resource type="Script" path="res://scripts/levels/darkness.gd" id="1_6yl55"]
 [ext_resource type="PackedScene" uid="uid://c2to2hb2q2wvb" path="res://scenes/Levels/blocks/curveA.tscn" id="1_ctl1s"]
 [ext_resource type="PackedScene" uid="uid://bitk4x3pdmgjb" path="res://scenes/Levels/blocks/largeA.tscn" id="2_uem3j"]
+[ext_resource type="PackedScene" uid="uid://peng5fbet5c1" path="res://scenes/fishes/plankton.tscn" id="3_atury"]
 [ext_resource type="PackedScene" uid="uid://cw5cd8mpbft6b" path="res://scenes/Levels/blocks/largeB.tscn" id="3_fsnoo"]
 [ext_resource type="PackedScene" uid="uid://chevwwev43q6b" path="res://scenes/Levels/blocks/largeC.tscn" id="4_aqppt"]
 [ext_resource type="PackedScene" uid="uid://dbles67txj7e0" path="res://scenes/Levels/blocks/mediumA.tscn" id="5_41ack"]
@@ -48,9 +49,31 @@
 [ext_resource type="Texture2D" uid="uid://dtb1vacn0nukr" path="res://assets/textures/cthulhu/eyes/frame0026.png" id="45_7kco2"]
 [ext_resource type="Texture2D" uid="uid://2iwj4na0g621" path="res://assets/textures/cthulhu/eyes/frame0028.png" id="46_xcnjy"]
 [ext_resource type="AudioStream" uid="uid://kwe04jv53ijf" path="res://assets/audio/ambience/underwater_ambience_deep.mp3" id="47_0u8sj"]
+[ext_resource type="Texture2D" uid="uid://bgwpohfk34juk" path="res://assets/textures/whale/frame0000.png" id="50_3knx1"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mwqoh"]
 light_mode = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_byrhl"]
+resource_local_to_scene = true
+shader = ExtResource("13_0wmfx")
+shader_parameter/texture_scale = null
+shader_parameter/corruption = 1.0
+shader_parameter/filter_color = Color(1, 1, 1, 1)
+shader_parameter/color_multiplier = 1.0
+shader_parameter/paper_texture = ExtResource("14_nxrp5")
+
+[sub_resource type="Gradient" id="Gradient_k5fna"]
+interpolation_mode = 2
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xd8s2"]
+gradient = SubResource("Gradient_k5fna")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ed46t"]
 resource_local_to_scene = true
@@ -476,16 +499,41 @@ material = SubResource("CanvasItemMaterial_mwqoh")
 position = Vector2(-346, -57)
 script = ExtResource("1_6yl55")
 
+[node name="DeadWhaleSprite" type="Sprite2D" parent="."]
+z_index = -300
+position = Vector2(-1043, -1826)
+scale = Vector2(4, 4)
+texture = ExtResource("50_3knx1")
+flip_h = true
+
+[node name="Plankton" parent="." instance=ExtResource("3_atury")]
+material = SubResource("ShaderMaterial_byrhl")
+position = Vector2(-283, -1640)
+collision_layer = 22
+view_scale = 2.0
+state = 0
+
+[node name="Camera2D" type="Camera2D" parent="Plankton"]
+unique_name_in_owner = true
+z_index = 1500
+z_as_relative = false
+zoom = Vector2(2, 2)
+
+[node name="PointLight2D2" type="PointLight2D" parent="Plankton"]
+energy = 0.5
+texture = SubResource("GradientTexture2D_xd8s2")
+texture_scale = 2.0
+
+[node name="PointLight2D3" type="PointLight2D" parent="Plankton"]
+energy = 0.5
+texture = SubResource("GradientTexture2D_xd8s2")
+texture_scale = 2.0
+
 [node name="Angler" parent="." instance=ExtResource("13_4s6o7")]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_ed46t")
-position = Vector2(-92, -1621)
+position = Vector2(105, -1464)
 wall_min_slide_angle = 0.261799
-state = 0
-
-[node name="Camera2D" type="Camera2D" parent="Angler"]
-z_index = 1500
-z_as_relative = false
 
 [node name="background" type="Node2D" parent="."]
 modulate = Color(0.175616, 0.192126, 0.40684, 1)
@@ -495,7 +543,7 @@ use_parent_material = true
 
 [node name="Polygon2D" type="Polygon2D" parent="background"]
 use_parent_material = true
-position = Vector2(9728, 29696)
+position = Vector2(9759, 29667)
 scale = Vector2(50000, 50000)
 polygon = PackedVector2Array(-1, -1, 1, -1, 1, 1, -1, 1)
 
@@ -1004,20 +1052,28 @@ position = Vector2(382, 117)
 rotation = 1.05336
 
 [node name="LargeA6" parent="Environment/Cave" instance=ExtResource("2_uem3j")]
-position = Vector2(630, -1825)
+position = Vector2(714, -2008)
 rotation = -0.321633
 
 [node name="LargeB4" parent="Environment/Cave" instance=ExtResource("3_fsnoo")]
 position = Vector2(-1321, -1712)
 rotation = 0.176883
 
+[node name="CurveA8" parent="Environment/Cave" instance=ExtResource("1_ctl1s")]
+position = Vector2(-472, -2290)
+rotation = -0.0574962
+
+[node name="LargeB6" parent="Environment/Cave" instance=ExtResource("3_fsnoo")]
+position = Vector2(-1123, -2235)
+rotation = 0.142243
+
 [node name="LargeC" parent="Environment/Cave" instance=ExtResource("4_aqppt")]
 position = Vector2(1330, 406)
 rotation = -1.72522
 
 [node name="LargeC6" parent="Environment/Cave" instance=ExtResource("4_aqppt")]
-position = Vector2(-270, -865)
-rotation = 0.933473
+position = Vector2(-254, -918)
+rotation = 1.0919
 
 [node name="LargeC2" parent="Environment/Cave" instance=ExtResource("4_aqppt")]
 position = Vector2(148, 3418)
@@ -1331,8 +1387,16 @@ position = Vector2(-3525, 4866)
 rotation = -0.515251
 
 [node name="SmallA" parent="Environment/Cave" instance=ExtResource("7_k40tl")]
-position = Vector2(-5, -794)
+position = Vector2(-351, -1426)
+rotation = -0.19838
+
+[node name="SmallA8" parent="Environment/Cave" instance=ExtResource("7_k40tl")]
+position = Vector2(-1496, -2180)
 rotation = -0.885439
+
+[node name="SmallA9" parent="Environment/Cave" instance=ExtResource("7_k40tl")]
+position = Vector2(205, -1783)
+rotation = -1.86961
 
 [node name="SmallA2" parent="Environment/Cave" instance=ExtResource("7_k40tl")]
 position = Vector2(-1577, 6802)
@@ -1359,6 +1423,14 @@ scale = Vector2(0.698372, 0.698372)
 [node name="SmallB" parent="Environment/Cave" instance=ExtResource("8_e3vyx")]
 position = Vector2(1012, -313)
 rotation = -0.429343
+
+[node name="SmallB9" parent="Environment/Cave" instance=ExtResource("8_e3vyx")]
+position = Vector2(-264, -2368)
+rotation = -0.429343
+
+[node name="SmallB10" parent="Environment/Cave" instance=ExtResource("8_e3vyx")]
+position = Vector2(83.9999, -2148)
+rotation = -1.32316
 
 [node name="SmallB8" parent="Environment/Cave" instance=ExtResource("8_e3vyx")]
 position = Vector2(706, 695)
@@ -1555,12 +1627,12 @@ rotation = -3.09005
 [node name="PolyLeft" type="Polygon2D" parent="Environment/Poly"]
 use_parent_material = true
 position = Vector2(0, 13)
-polygon = PackedVector2Array(-4865, -3591, -1617, -1715, -613, -1797, -493, -1262, 130, -342, 610, 617, 813, 1588, -529, 1636, -1357, 1450, -3058, 1770, -3500, 2782, -3215, 3253, -3664, 4329, -3315, 5206, -2731, 5719, -3016, 6545, -2282, 7322, -2410, 7778, -2251, 8431, -1613, 9015, -5024, 9051)
+polygon = PackedVector2Array(-5012, -3749, 16, -3775, -28, -2625, -479, -2238, -1647, -2314, -1847, -1816, -1617, -1715, -613, -1797, -493, -1262, 130, -342, 610, 617, 813, 1588, -529, 1636, -1357, 1450, -3058, 1770, -3500, 2782, -3215, 3253, -3664, 4329, -3315, 5206, -2731, 5719, -3016, 6545, -2282, 7322, -2410, 7778, -2251, 8431, -1613, 9015, -5024, 9051)
 
 [node name="PolyRight" type="Polygon2D" parent="Environment/Poly"]
 use_parent_material = true
 position = Vector2(0, 13)
-polygon = PackedVector2Array(-1037, 8327, -929, 8129, -390, 7510, -660, 6684, -606, 6253, -352, 3958, -684, 3143, -507, 2995, 146, 3445, 1084, 3774, 1468, 4073, 1831, 3774, 2130, 2407, 1340, 2044, 1468, 891, 1297, -91, 1035, -757, 350, -1518, 302, -1794, 1119, -2035, 2715, -3477, 5122, -3497, 5402, 8305)
+polygon = PackedVector2Array(-1037, 8327, -929, 8129, -390, 7510, -660, 6684, -606, 6253, -352, 3958, -684, 3143, -507, 2995, 146, 3445, 1084, 3774, 1468, 4073, 1831, 3774, 2130, 2407, 1340, 2044, 1468, 891, 1297, -91, 1035, -757, 350, -1518, 302, -1794, 232, -2122, -167, -2288, -163, -3756, 5404, -3756, 5402, 8305)
 
 [node name="PolyBottom" type="Polygon2D" parent="Environment/Poly"]
 position = Vector2(14, 17)
@@ -1768,6 +1840,7 @@ rotation = 0.962107
 
 [node name="AnimatedCamera" type="Camera2D" parent="AnimationPlayer/Path2D/PathFollow2D"]
 unique_name_in_owner = true
+enabled = false
 zoom = Vector2(0.01, 0.01)
 
 [node name="Path2D2" type="Path2D" parent="AnimationPlayer"]
