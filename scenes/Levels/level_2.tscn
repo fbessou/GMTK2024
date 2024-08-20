@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://clwiyh64xkgi5"]
+[gd_scene load_steps=41 format=3 uid="uid://clwiyh64xkgi5"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_base.gd" id="1_g6w8l"]
 [ext_resource type="PackedScene" uid="uid://c7xh68riw0kf8" path="res://scenes/Levels/blocks/mediumB.tscn" id="4_tuahn"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://d0kb6abw1g61t" path="res://scenes/fishes/puffer.tscn" id="14_ycrgr"]
 [ext_resource type="PackedScene" uid="uid://b636jpaq28beq" path="res://scenes/props/Electricity/ElectricDoor.tscn" id="15_rcq5r"]
 [ext_resource type="PackedScene" uid="uid://diht24l3hw71d" path="res://scenes/fishes/eel.tscn" id="16_if5bj"]
+[ext_resource type="PackedScene" uid="uid://bw0b2lrrx1fx0" path="res://scenes/fishes/anchovy.tscn" id="19_s582y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cb8pt"]
 resource_local_to_scene = true
@@ -35,10 +36,10 @@ size = Vector2(6364.55, 129.431)
 resource_local_to_scene = true
 size = Vector2(6412.97, 3724.79)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lisd7"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wblbc"]
 size = Vector2(1500, 6500)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvovh"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p4mmh"]
 size = Vector2(6000, 6500)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_spqom"]
@@ -284,6 +285,15 @@ point_count = 3
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y71o0"]
 size = Vector2(20, 21.8794)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d7r0j"]
+resource_local_to_scene = true
+shader = ExtResource("12_tufkm")
+shader_parameter/texture_scale = null
+shader_parameter/corruption = 1.0
+shader_parameter/filter_color = Color(1, 1, 1, 1)
+shader_parameter/color_multiplier = 1.0
+shader_parameter/paper_texture = ExtResource("13_y4ls7")
+
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_g6w8l")
 
@@ -327,12 +337,12 @@ scroll_offset = Vector2(16, 1)
 [node name="Polygon2D" type="Polygon2D" parent="Parallax/Foreground Parallax"]
 z_index = 1000
 position = Vector2(5229, -2153)
-polygon = PackedVector2Array(-2892, -3212, 10946, -3467, 20538, -3487, 12618, 258, 10763, 2170, 10108.1, 767.112, 6426, 631, 5559, 3167, 4807, 1419, 4524, 1396, 4387.6, 275.811, 2799, -1, 2278, 331, 2232, 1570, 1302, 694, -1581, 577)
+polygon = PackedVector2Array(-2892, -3212, 10946, -3467, 20538, -3487, 12618, 258, 10763, 2170, 10108.1, 767.112, 7808, 1168, 7452, 1058, 7164, 888, 6764.66, 643.519, 6418, 787, 6265, 1117, 6087, 1829, 5926, 2253, 5579, 2482, 5257, 2312, 4807, 1419, 4524, 1396, 4375, 1032, 4350, 626, 4387.6, 275.811, 2799, -1, 2278, 331, 2232, 1570, 1302, 694, -1581, 577)
 
 [node name="Polygon2D2" type="Polygon2D" parent="Parallax/Foreground Parallax"]
 z_index = 1000
 position = Vector2(5293, 7831)
-polygon = PackedVector2Array(-5087, -5125, -162, -4425, 2044, -2084, 8664, -685, 9337, -1734, 9767, -927, 10736, -2057, 11408, -308, 15364, 472, 15526, 2114, -5356, 2087)
+polygon = PackedVector2Array(-5087, -5125, -162, -4425, 2044, -2084, 7597, -1136, 8549, -2088, 9909, -2296, 10736, -2057, 11408, -308, 15364, 472, 15526, 2114, -5356, 2087)
 
 [node name="Polygon2D3" type="Polygon2D" parent="Parallax/Foreground Parallax"]
 position = Vector2(-239, 18)
@@ -340,6 +350,9 @@ polygon = PackedVector2Array(-3560, 1196, -3625, 1248, -3689, 1270, -3713, 1332,
 
 [node name="Polygon2D4" type="Polygon2D" parent="Parallax/Foreground Parallax"]
 polygon = PackedVector2Array(-3313, 1399, -3278, 1368, -3257, 1320, -3259, 1269, -3269, 1193, -3277, 1119, -3289, 1083, -3305, 1061, -3340, 987, -3247, 963, -3126, 978, -3203, 1077, -3220, 1094, -3228, 1113, -3230, 1136, -3223, 1266, -3211, 1320, -3182, 1342, -3145, 1365, -3039, 1461)
+
+[node name="Polygon2D5" type="Polygon2D" parent="Parallax/Foreground Parallax"]
+polygon = PackedVector2Array(14257, 2535, 14472, 2218, 14811, 1822, 14947, 1482, 14981, 1120, 15003, 770, 15060, 498, 15252, 125, 15716, -215, 15988, -848, 16361, -882, 17006, -882, 17775, -633, 18024, -79, 18250, 340, 18409, 770, 18612, 1019, 18612, 1697, 18759, 2388, 18658, 2750, 19246, 3858, 19122, 4322, 19246, 6732, 13555, 6585)
 
 [node name="Level Boundaries" type="Node2D" parent="."]
 
@@ -380,7 +393,7 @@ position = Vector2(3687, 3640)
 scale = Vector2(7.60853, 5.99959)
 
 [node name="LevelBounds" type="Polygon2D" parent="NavigableMap"]
-polygon = PackedVector2Array(-1024.25, 1007.57, 1811, 1027, 1818, -114, 1659, -222, 1411, -232, 1364, -256, 1233, -251, 922, -83, 557, -77, 336, 175, 37, 274, 236.839, 15.501, -291.121, 49.5032, -489.319, 48.5032, -504.434, -481.7, -604.059, -476.866, -749.422, -468.699, -920.283, -438.03, -967.072, -434.363, -994.279, -435.03, -1012.02, -434.363)
+polygon = PackedVector2Array(-1024.25, 1007.57, 1811, 1027, 1818, -114, 1659, -222, 1411, -232, 1364, -256, 1233, -251, 922, -83, 832.355, -63.5043, 626.271, -160.844, 345.139, -125.175, 342.773, 80.8389, 203.719, 79.0054, -291.121, 49.5032, -489.319, 48.5032, -504.434, -481.7, -604.059, -476.866, -749.422, -468.699, -920.283, -438.03, -967.072, -434.363, -994.279, -435.03, -1012.02, -434.363)
 
 [node name="EelCave" type="Node2D" parent="NavigableMap"]
 scale = Vector2(0.75, 0.75)
@@ -478,6 +491,10 @@ bubbles_amount = 20
 position = Vector2(-6.41755e-05, -0.500115)
 polygon = PackedVector2Array(-726.29, -554.204, -799.76, -558.538, -863.11, -535.203, -936.975, -527.203, -982.844, -504.034, -1111.12, -630.21, -1346.12, -561.205, -1516.46, -633.21, -1594.66, -740.717, -1459.55, -967.566, -858.116, -1031.4, -489.845, -1061.57, -501.937, -735.884, -591.573, -729.883, -624.036, -710.382, -650.06, -674.546, -654.791, -626.709, -676.215, -580.706)
 
+[node name="Polygon2D2" type="Polygon2D" parent="NavigableMap"]
+position = Vector2(-39.6923, -13.5009)
+polygon = PackedVector2Array(2262.59, -1251.42, 1966.35, -572.206, 1254.78, -545.704, 947.489, -590.207, 772.028, -702.215, 460.273, -1037.74, 800.549, -1179.58)
+
 [node name="Colliders" type="Node2D" parent="."]
 position = Vector2(-1366, -78)
 
@@ -548,7 +565,7 @@ bubbles_amount = 50
 bubbles_size = 1.0
 
 [node name="CollisionShape2D" parent="Gameplay Elements/WaterCurrent" index="0"]
-shape = SubResource("RectangleShape2D_lisd7")
+shape = SubResource("RectangleShape2D_wblbc")
 
 [node name="CPUParticles2D" parent="Gameplay Elements/WaterCurrent" index="1"]
 amount = 50
@@ -575,7 +592,7 @@ bubbles_amount = 50
 bubbles_size = 1.0
 
 [node name="CollisionShape2D" parent="Gameplay Elements/WaterCurrent2" index="0"]
-shape = SubResource("RectangleShape2D_fvovh")
+shape = SubResource("RectangleShape2D_p4mmh")
 
 [node name="CPUParticles2D" parent="Gameplay Elements/WaterCurrent2" index="1"]
 amount = 50
@@ -690,6 +707,34 @@ position = Vector2(13293, 1386.48)
 scale = Vector2(62.0293, 82.4956)
 shape = SubResource("RectangleShape2D_y71o0")
 debug_color = Color(0.975576, 0.156561, 5.77569e-07, 0.42)
+
+[node name="Anchovy" parent="." instance=ExtResource("19_s582y")]
+material = SubResource("ShaderMaterial_d7r0j")
+position = Vector2(-304, -413)
+
+[node name="Anchovy2" parent="." instance=ExtResource("19_s582y")]
+material = SubResource("ShaderMaterial_d7r0j")
+position = Vector2(-398, -391)
+
+[node name="Anchovy3" parent="." instance=ExtResource("19_s582y")]
+material = SubResource("ShaderMaterial_d7r0j")
+position = Vector2(-314, -360)
+
+[node name="Anchovy4" parent="." instance=ExtResource("19_s582y")]
+material = SubResource("ShaderMaterial_d7r0j")
+position = Vector2(-404, -329)
+
+[node name="Anchovy5" parent="." instance=ExtResource("19_s582y")]
+material = SubResource("ShaderMaterial_d7r0j")
+position = Vector2(-464, -375)
+
+[node name="Anchovy6" parent="." instance=ExtResource("19_s582y")]
+material = SubResource("ShaderMaterial_d7r0j")
+position = Vector2(-457, -462)
+
+[node name="Anchovy7" parent="." instance=ExtResource("19_s582y")]
+material = SubResource("ShaderMaterial_d7r0j")
+position = Vector2(-367, -471)
 
 [connection signal="body_entered" from="FanAnim/Area2D" to="FanAnim" method="_on_area_2d_body_entered"]
 
