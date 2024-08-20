@@ -1,14 +1,14 @@
-[gd_scene load_steps=40 format=3 uid="uid://d4kcaenbudhc0"]
+[gd_scene load_steps=42 format=3 uid="uid://d4kcaenbudhc0"]
 
 [ext_resource type="Script" path="res://scenes/Levels/descent.gd" id="1_8ys3j"]
 [ext_resource type="PackedScene" uid="uid://5w3u43821a5" path="res://scenes/props/SeaweedLeaves.tscn" id="2_vy6rh"]
 [ext_resource type="PackedScene" uid="uid://cor46uhgncphp" path="res://scenes/props/breakable_wall.tscn" id="3_bjfl5"]
 [ext_resource type="Script" path="res://scripts/levels/descent_section_2.gd" id="3_c75tw"]
 [ext_resource type="Texture2D" uid="uid://c4vawkp3yxbfq" path="res://assets/textures/props/coral/branch/coral_branch.png" id="3_u4ngv"]
-[ext_resource type="SpriteFrames" path="res://resources/sprites_frames/whale_in_background.tres" id="3_wqpma"]
+[ext_resource type="SpriteFrames" uid="uid://4w3454s6rdd" path="res://resources/sprites_frames/whale_in_background.tres" id="3_wqpma"]
 [ext_resource type="Texture2D" uid="uid://birpdwq3i2i3r" path="res://assets/textures/props/seaweed/varech/frame0000.png" id="4_41lef"]
-[ext_resource type="SpriteFrames" path="res://resources/sprites_frames/moving_seaweed_leaves.tres" id="5_w1lby"]
-[ext_resource type="SpriteFrames" path="res://resources/sprites_frames/moving_varech.tres" id="6_3lwsr"]
+[ext_resource type="SpriteFrames" uid="uid://cco55udwpcl8k" path="res://resources/sprites_frames/moving_seaweed_leaves.tres" id="5_w1lby"]
+[ext_resource type="SpriteFrames" uid="uid://but02ghwh5lnt" path="res://resources/sprites_frames/moving_varech.tres" id="6_3lwsr"]
 [ext_resource type="PackedScene" uid="uid://c2to2hb2q2wvb" path="res://scenes/Levels/blocks/curveA.tscn" id="6_dbfvp"]
 [ext_resource type="Texture2D" uid="uid://cpo3bbvjuxfq7" path="res://assets/textures/props/ships/shipwreck.png" id="7_eqndf"]
 [ext_resource type="PackedScene" uid="uid://bitk4x3pdmgjb" path="res://scenes/Levels/blocks/largeA.tscn" id="7_nskjf"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://bqec3tilerluy" path="res://assets/textures/Paper001_1K-JPG_Color.jpg" id="21_r0lfq"]
 [ext_resource type="Texture2D" uid="uid://de3xdsnisgfc1" path="res://assets/textures/props/shells/starfish.png" id="27_awxck"]
 [ext_resource type="Texture2D" uid="uid://bnwp2hnkxq3m1" path="res://assets/textures/props/shells/shell_spiral.png" id="28_7ja8y"]
+[ext_resource type="AudioStream" uid="uid://cm6u01dxvww1f" path="res://assets/audio/sounds/break_wall.mp3" id="31_xm6g1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hm1b0"]
 size = Vector2(10677, 7744)
@@ -176,6 +177,9 @@ shader_parameter/filter_color = Color(1, 1, 1, 1)
 shader_parameter/color_multiplier = 1.0
 shader_parameter/paper_texture = ExtResource("21_r0lfq")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nkuwj"]
+size = Vector2(37.1679, 47.1177)
+
 [node name="Descent" type="Node2D"]
 script = ExtResource("1_8ys3j")
 
@@ -190,6 +194,7 @@ repeat_size = Vector2(50000, 0)
 repeat_times = 3
 
 [node name="Polygon2D" type="Polygon2D" parent="Parallax/Background"]
+visible = false
 position = Vector2(1636, -3437)
 polygon = PackedVector2Array(-81421, 15536, -81656, 970, -79858, 850, -78156, 275, -76694, -324, -74872, -564, -74272, -1523, -73834, -1576, -73505, -1116, -72839, -750, -71233, -770, -70487, -729, -69842, 57, -69492, 218, -68189, 920, -67309, 1160, -66317, 1288, -65296, 1055, -64841, 1247, -64505, 1415, -64037, 1822, -63726, 2098, -63546, 456, -63366, 312, -63168, 1107, -60424, -544, -54786, -1255, -50417, 66, -48614, 1691, -47887, 1752, -48008, 1369, -47504, 1066, -46697, 1248, -46899, 1671, -43391, 1893, -39970, 1026, -38059, -534, -36167, -115, -31657, 913, -30676, 16905)
 
@@ -205,6 +210,10 @@ scroll_offset = Vector2(-10827, 19)
 [node name="Polygon2D" type="Polygon2D" parent="Parallax/Foreground Parallax"]
 position = Vector2(-23, 1143)
 polygon = PackedVector2Array(-74138, -5046, -95069, -5120, -94781, 10624, -76563, 10221, -59855, 13059, -55584, 16952, -52032, 19081, -44912, 19691, -37725, 20471, -7992, 16674, -41115, 16809, -49422, 17115, -55945, 13825, -57033, 11526, -57061, 11110, -57514, 10567, -58208, 9661, -58237, 9122, -58333, 8283, -58453, 7851, -58693, 7756, -58922, 8352, -58951, 9221, -59221, 10276, -59536, 10135, -59909, 9772, -60369, 9526, -60689, 9932, -61168, 10023, -62814, 9590, -66548, 7560, -73236, 4735, -73668, 4151, -74227, 3567, -74862, 2881, -75201, 2331, -75495, 1267, -75360, 159, -74998, -995, -74206, -1923, -69261, -2413, -66312, -1880, -65303, -1253, -65259, -1027, -65124, -680, -65132, -451, -65022, 320, -64964, 687, -64903, 1303, -64850, 1480, -64730, 1525, -64594, 1434, -64480, 1261, -64465, 1019, -64458, 490, -64465, -166, -64478, -510, -64376, -865, -64275, -1157, -63911, -1281, -63705, -1434, -63076, -1766, -61523, -2021, -60324, -2079, -58631, -2079, -56314, -2092, -54257, -2225, -53237, -2313, -52383, -2274, -51125, -2409, -49391, -2603, -48578, -2909, -45103, -5129, -59708, -4931, -64663, -4803)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Parallax/Foreground Parallax"]
+position = Vector2(36154, 6727)
+polygon = PackedVector2Array(-1197.47, -5816.04, -1910.47, -5189.04, -1739.47, -3592.04, -1813, -2923, -1684, -2674, -1639, -2470, -1382, -2304, -1003, -2264, -927, -1935, -857, -1710, -695, -1324, -651, -964, -570.473, -713.044, -708, -451, -679, -76, -893, 88, -990, 349, -1098, 742, -1566, 1182, -1845, 1493, -2128, 1633, -2357, 1861, -2981, 2453, -3349, 3189, -3573, 4149, -4005, 4789, -4316.09, 5821.54, -4546, 6770, -5326, 7711, -6699, 8277, -6968, 9326, -6134, 9972, -2743, 11236, -429, 10833, 1320, 8849, 21288, 7255, 20979, -2712, 20595, -7672, -370.473, -6643.04)
 
 [node name="Environment" type="Node2D" parent="."]
 
@@ -689,39 +698,15 @@ bubbles_amount = 165
 bubbles_size = 5.165
 
 [node name="LevelEntranceCurrent27" parent="Environment/Section2" instance=ExtResource("17_eei4e")]
-position = Vector2(14918, 9975)
-rotation = -0.748152
-gravity_point_center = Vector2(0.680285, 0.732947)
-gravity_direction = Vector2(0.680285, 0.732947)
-gravity = 1000.0
-width = 3590
-length = 10000
-intensity = 1000
-bubbles_amount = 90
-bubbles_size = 5.165
-
-[node name="LevelEntranceCurrent28" parent="Environment/Section2" instance=ExtResource("17_eei4e")]
-position = Vector2(21985, 16710)
-rotation = -0.869015
-gravity_point_center = Vector2(0.763693, 0.645579)
-gravity_direction = Vector2(0.763693, 0.645579)
-gravity = 1500.0
-width = 3590
-length = 10000
-intensity = 1500
-bubbles_amount = 90
-bubbles_size = 5.165
-
-[node name="LevelEntranceCurrent29" parent="Environment/Section2" instance=ExtResource("17_eei4e")]
-position = Vector2(29747, 22661)
-rotation = -1.08645
-gravity_point_center = Vector2(0.884979, 0.46563)
-gravity_direction = Vector2(0.884979, 0.46563)
-gravity = 2000.0
-width = 3590
-length = 10000
-intensity = 2000
-bubbles_amount = 90
+position = Vector2(12087, 6276)
+rotation = -1.57079
+gravity_point_center = Vector2(1, 2.22127e-06)
+gravity_direction = Vector2(1, 2.22127e-06)
+gravity = 4000.0
+width = 3135
+length = 5110
+intensity = 4000
+bubbles_amount = 165
 bubbles_size = 5.165
 
 [node name="LevelEntranceCurrent24" parent="Environment/Section2" instance=ExtResource("17_eei4e")]
@@ -801,9 +786,6 @@ polygon = PackedVector2Array(-41138, 4937, -41682, 6619, -45231, 5703, -46401, 5
 visible = false
 position = Vector2(-13732, 391)
 polygon = PackedVector2Array(-43950, 2762, -39572, 2308, -36624, 2788, -37593, 3530, -38457, 4906, -39922, 8351, -40782, 8283, -42479, 6065, -43339, 4707)
-
-[node name="UpperBound" type="CollisionPolygon2D" parent="Environment/NavigableMap/Bounds"]
-polygon = PackedVector2Array(7526, -2065, 9314, -593, 11701, -279, 13403, 255, 14749, 2490, 15425, 4565, 15954, 8356, 16256, 8884, 17813, 8157, 20090, 8121, 22679, 9116, 23746, 10459, 25268, 11262, 26623, 12856, 28457, 13947, 31263, 16465, 33065, 17409, 35422, 17507, 38510, 19775, 41197, 21494, 45666, 26617, 51029, 29243, 55690, 32479, 58112, 32087, 64684, 32066, 84332, 30870, 120640, 34629, 118333, -3985, 66558, -4303, 55799, -4241, 37944, -4669, 24019, -4925, 10265, -4754, -2888, -6278, -40947, -5794, -51818, -5471, -57515, -5129, -60587, -4649, -67068, -4342, -68090, -198, -59243, -297, -53585, -340, -46764, 987, -46281, 1410, -45752, 896, -45209, 489, -42868, -943, -42079, -837, -42673, 61, -41402, 810, -40856, -1210, -39315, -2542, -35148, -3379, -29965, -3185, -29489, -3318, -28423, -2785, -28652, -2271, -27257, -635, -25842, -59, -24754, -368, -23246, -1194, -23479, -2289, -23176, -3433, -19510, -3841, -13106, -4067, -394, -3558, 3136, -3468, 6032, -2789)
 
 [node name="Polygon2D5" type="CollisionPolygon2D" parent="Environment/NavigableMap/Bounds"]
 position = Vector2(5905, -1152)
@@ -1344,6 +1326,102 @@ rotation = -6.23142
 position = Vector2(-36038, -3254)
 rotation = -0.089422
 
+[node name="SpireA15" parent="Environment/NavigableMap/Section1" instance=ExtResource("14_p5xl5")]
+position = Vector2(18696, 4465)
+rotation = -0.00467425
+
+[node name="LargeB24" parent="Environment/NavigableMap/Section1" instance=ExtResource("8_72lbl")]
+position = Vector2(15876, 4654)
+rotation = -0.089422
+
+[node name="LargeB25" parent="Environment/NavigableMap/Section1" instance=ExtResource("8_72lbl")]
+position = Vector2(16975, 4490)
+rotation = 2.71604
+
+[node name="SmallA20" parent="Environment/NavigableMap/Section1" instance=ExtResource("12_htuvj")]
+position = Vector2(15400, 4747)
+rotation = -0.089422
+
+[node name="SmallA26" parent="Environment/NavigableMap/Section1" instance=ExtResource("12_htuvj")]
+position = Vector2(15609, 4734)
+rotation = -0.089422
+
+[node name="LargeA15" parent="Environment/NavigableMap/Section1" instance=ExtResource("7_nskjf")]
+position = Vector2(21018, 4270)
+rotation = -3.15197
+
+[node name="LargeC41" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(18203, 4235)
+rotation = -3.15197
+
+[node name="MediumA38" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(22011, 4429)
+rotation = -1.48514
+
+[node name="MediumA39" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(19209, 4270)
+rotation = -4.6189
+
+[node name="MediumA40" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(20207, 4279)
+rotation = -1.65425
+
+[node name="SmallB16" parent="Environment/NavigableMap/Section1" instance=ExtResource("13_x01bs")]
+position = Vector2(22448, 4539)
+rotation = -0.0806456
+
+[node name="SpireA16" parent="Environment/NavigableMap/Section1" instance=ExtResource("14_p5xl5")]
+position = Vector2(22231, 4889)
+rotation = -6.23142
+
+[node name="SpireB20" parent="Environment/NavigableMap/Section1" instance=ExtResource("15_b122m")]
+position = Vector2(17559, 4386)
+rotation = -0.089422
+
+[node name="SpireA17" parent="Environment/NavigableMap/Section1" instance=ExtResource("14_p5xl5")]
+position = Vector2(13362, 7792)
+rotation = -0.00467425
+
+[node name="LargeB26" parent="Environment/NavigableMap/Section1" instance=ExtResource("8_72lbl")]
+position = Vector2(10542, 7981)
+rotation = -0.089422
+
+[node name="LargeB27" parent="Environment/NavigableMap/Section1" instance=ExtResource("8_72lbl")]
+position = Vector2(11641, 7817)
+rotation = 2.71604
+
+[node name="LargeA16" parent="Environment/NavigableMap/Section1" instance=ExtResource("7_nskjf")]
+position = Vector2(15684, 7597)
+rotation = -3.15197
+
+[node name="LargeC42" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(12869, 7562)
+rotation = -3.15197
+
+[node name="MediumA41" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(16677, 7756)
+rotation = -1.48514
+
+[node name="MediumA42" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(13875, 7597)
+rotation = -4.6189
+
+[node name="MediumA43" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(14873, 7606)
+rotation = -1.65425
+
+[node name="SmallB17" parent="Environment/NavigableMap/Section1" instance=ExtResource("13_x01bs")]
+position = Vector2(17114, 7866)
+rotation = -0.0806456
+
+[node name="SpireA18" parent="Environment/NavigableMap/Section1" instance=ExtResource("14_p5xl5")]
+position = Vector2(16897, 8216)
+rotation = -6.23142
+
+[node name="SpireB21" parent="Environment/NavigableMap/Section1" instance=ExtResource("15_b122m")]
+position = Vector2(12225, 7713)
+rotation = -0.089422
+
 [node name="LargeC14" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
 position = Vector2(-53922, 8662)
 rotation = 0.186782
@@ -1651,6 +1729,52 @@ rotation = -1.29966
 position = Vector2(-39684, -2413)
 rotation = 0.0713052
 
+[node name="SpireA19" parent="Environment/NavigableMap/Section1" instance=ExtResource("14_p5xl5")]
+position = Vector2(20215, 7928.92)
+rotation = 3.13692
+
+[node name="LargeB28" parent="Environment/NavigableMap/Section1" instance=ExtResource("8_72lbl")]
+position = Vector2(23035, 7739.93)
+rotation = 3.05218
+
+[node name="LargeB29" parent="Environment/NavigableMap/Section1" instance=ExtResource("8_72lbl")]
+position = Vector2(21936, 7903.92)
+rotation = -0.425548
+
+[node name="LargeA17" parent="Environment/NavigableMap/Section1" instance=ExtResource("7_nskjf")]
+position = Vector2(17893, 8123.91)
+rotation = -0.0103728
+
+[node name="LargeC43" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(20708, 8158.92)
+rotation = -0.0103728
+
+[node name="MediumA44" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(16900, 7964.9)
+rotation = 1.65646
+
+[node name="MediumA45" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(19702, 8123.91)
+rotation = -1.4773
+
+[node name="MediumA46" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
+position = Vector2(18704, 8114.91)
+rotation = 1.48735
+scale = Vector2(1, 1)
+
+[node name="SmallB18" parent="Environment/NavigableMap/Section1" instance=ExtResource("13_x01bs")]
+position = Vector2(16463, 7854.9)
+rotation = 3.06095
+scale = Vector2(1, 1)
+
+[node name="SpireA20" parent="Environment/NavigableMap/Section1" instance=ExtResource("14_p5xl5")]
+position = Vector2(16680, 7504.9)
+rotation = -3.08982
+
+[node name="SpireB22" parent="Environment/NavigableMap/Section1" instance=ExtResource("15_b122m")]
+position = Vector2(21352, 8007.92)
+rotation = 3.05218
+
 [node name="Section2" type="Node2D" parent="Environment/NavigableMap"]
 
 [node name="CurveA2" parent="Environment/NavigableMap/Section2" instance=ExtResource("6_dbfvp")]
@@ -1899,6 +2023,34 @@ rotation = -3.14667
 position = Vector2(-10189, -3927)
 rotation = 3.14159
 
+[node name="CurveA6" parent="Environment/NavigableMap/Section2" instance=ExtResource("6_dbfvp")]
+position = Vector2(11975, 4615)
+rotation = 0.0913004
+
+[node name="LargeA22" parent="Environment/NavigableMap/Section2" instance=ExtResource("7_nskjf")]
+position = Vector2(11454, 4676)
+rotation = 0.169894
+
+[node name="LargeB12" parent="Environment/NavigableMap/Section2" instance=ExtResource("8_72lbl")]
+position = Vector2(10775, 4571)
+rotation = 0.111512
+
+[node name="CurveA7" parent="Environment/NavigableMap/Section2" instance=ExtResource("6_dbfvp")]
+position = Vector2(12601, 4616)
+rotation = 3.48188
+
+[node name="LargeA23" parent="Environment/NavigableMap/Section2" instance=ExtResource("7_nskjf")]
+position = Vector2(13380, 4626)
+rotation = 3.17217
+
+[node name="LargeB15" parent="Environment/NavigableMap/Section2" instance=ExtResource("8_72lbl")]
+position = Vector2(14445, 4807)
+rotation = -3.11609
+
+[node name="LargeC13" parent="Environment/NavigableMap/Section2" instance=ExtResource("9_15bgk")]
+position = Vector2(15582, 4747)
+rotation = 3.17217
+
 [node name="LargeB13" parent="Environment/NavigableMap/Section2" instance=ExtResource("8_72lbl")]
 position = Vector2(8065, -1671)
 rotation = 0.727709
@@ -2012,6 +2164,21 @@ rotation = 2.98802
 position = Vector2(1748.07, 1226.42)
 rotation = 0.445269
 
+[node name="MediumA41" parent="Environment/NavigableMap/Section2/FloatingBlock2" instance=ExtResource("10_fseyh")]
+position = Vector2(6962.18, 3814.78)
+rotation = 2.01395
+scale = Vector2(0.920597, 1.40119)
+
+[node name="MediumA42" parent="Environment/NavigableMap/Section2/FloatingBlock2" instance=ExtResource("10_fseyh")]
+position = Vector2(7823.19, 3703.44)
+rotation = 0.526851
+scale = Vector2(0.920597, 1.40119)
+
+[node name="MediumA46" parent="Environment/NavigableMap/Section2/FloatingBlock2" instance=ExtResource("10_fseyh")]
+position = Vector2(7273.04, 2795.15)
+rotation = -0.889558
+scale = Vector2(0.920597, 1.40119)
+
 [node name="MediumA43" parent="Environment/NavigableMap/Section2/FloatingBlock2" instance=ExtResource("10_fseyh")]
 position = Vector2(404.889, -1215.45)
 rotation = -1.01472
@@ -2064,7 +2231,7 @@ position = Vector2(-68723, 4233)
 
 [node name="Polygon2D" type="Polygon2D" parent="Environment/NavigableMap"]
 position = Vector2(54, -20)
-polygon = PackedVector2Array(-68010, 2784, -66686, 2569, -66335, 2784, -65962, 2614, -65769, 2840, -65769, 2840, -64163, 2705, -63156, 2376, -61787, 2422, -60520, 2671, -59943, 2490, -59400, 2659, -59445, 2920, -56243, 3248, -53596, 2286, -53279, 2297, -53245, 2637, -52589, 2682, -52329, 3021, -50417, 3202, -52035, 4390, -52035, 4390, -52261, 4764, -52453, 5940, -53438, 7343, -53177, 8271, -52815, 8361, -52940, 8769, -54592, 8542, -56933, 5341, -57420, 5827, -57001, 7083, -55191, 9052, -55270, 9448, -55689, 9436, -55429, 10251, -54343, 10364, -53709, 11190, -52646, 10986, -51899, 10251, -51797, 10636, -49127, 11371, -49127, 11654, -51582, 14131, -50957, 14762, -49261, 14449, -44671, 14891, -41977, 14192, -36015.6, 12263.8, -36375, 9374, -36847, 6811, -33425, 6130, -33625.6, 5325.44, -36251, 5834, -36560, 5524, -35632, 2389, -34179, 1569, -32134, 2268, -31663, 3358, -28999, 2712, -27357, 2524, -23751, 2416, -19904, 3520, -15100, 3089, -13540, 1474, -13038, 1094, -11417, 259, -10261, -147, -7595, -274, -5474, -439, -4598, -211, -2503, 821, -534, 627, 1904, 1034, 2806, 830, 3200, 1338, 4495, 1389, 4279, 3091, 3111, 3319, 3022, 4577, -851, 4462, -5487, 5745, -5918, 6621, -5001, 9589, -4446, 12715, -2047, 13442, 2506, 14545, 4374, 14563, 8181, 12031, 7915, 7923, 9949, 7957, 14865, 17348, 8145, 17221, 3566, 17293, -10708, 17153, -31362, 17078, -39511, 17129, -51713, 17260, -67300, 13980)
+polygon = PackedVector2Array(-68010, 2784, -66686, 2569, -66335, 2784, -65962, 2614, -65769, 2840, -65769, 2840, -64163, 2705, -63156, 2376, -61787, 2422, -60520, 2671, -59943, 2490, -59400, 2659, -59445, 2920, -56243, 3248, -53596, 2286, -53279, 2297, -53245, 2637, -52589, 2682, -52329, 3021, -50417, 3202, -52035, 4390, -52035, 4390, -52261, 4764, -52453, 5940, -53438, 7343, -53177, 8271, -52815, 8361, -52940, 8769, -54592, 8542, -56933, 5341, -57420, 5827, -57001, 7083, -55191, 9052, -55270, 9448, -55689, 9436, -55429, 10251, -54343, 10364, -53709, 11190, -52646, 10986, -51899, 10251, -51797, 10636, -49127, 11371, -49127, 11654, -51582, 14131, -50957, 14762, -49261, 14449, -44671, 14891, -41977, 14192, -36015.6, 12263.8, -36375, 9374, -36847, 6811, -33425, 6130, -33625.6, 5325.44, -36251, 5834, -36560, 5524, -35632, 2389, -34179, 1569, -32134, 2268, -31663, 3358, -28999, 2712, -27357, 2524, -23751, 2416, -19904, 3520, -15100, 3089, -13540, 1474, -13038, 1094, -11417, 259, -10261, -147, -7595, -274, -5474, -439, -4598, -211, -2503, 821, -534, 627, 1904, 1034, 2806, 830, 3200, 1338, 4495, 1389, 4279, 3091, 3111, 3319, 3022, 4577, -851, 4462, -5487, 5745, -5918, 6621, -5001, 9589, -4446, 12715, -2047, 13442, 2506, 14545, 4374, 14563, 8181, 12031, 7915, 7923, 9949, 7957, 11421, 8007, 12134, 7665, 16011, 7593, 17536, 8206, 21428, 8206, 22226, 7807, 23623, 7736, 25441, 16460, 14865, 17348, 8145, 17221, 3566, 17293, -10708, 17153, -31362, 17078, -39511, 17129, -51713, 17260, -67300, 13980)
 
 [node name="Polygon2D2" type="Polygon2D" parent="Environment/NavigableMap"]
 position = Vector2(-2373, -1966)
@@ -2072,7 +2239,7 @@ polygon = PackedVector2Array(-40891, 2295, -39440, 3109, -39987, 4442, -40545, 6
 
 [node name="Polygon2D3" type="Polygon2D" parent="Environment/NavigableMap"]
 position = Vector2(-15846, -6089)
-polygon = PackedVector2Array(-52003, 1167, -26605, -204, -8971, -1458, 30603, -1531, 30954, 7651, 31234, 10800, 26422, 10665, 25704, 10503, 26063, 9390, 25663, 6783, 25537, 6693, 24860, 5353, 24139, 4614, 24215, 3844, 23037, 914, 23611, 54, 21572, -958, 21451, 114, 20755, 2344, 17561, 1901, 17238, 2289, 12098, 1969, 9919, -345, 8563, -1046, 7162, 184, 8680, 2101, 8093, 2209, 6714, 2005, 6103, 2149, 4041, 2209, 3923, 1989, 2927, 2029, 2639, 1766, 2375, 2293, 1057, 2317, -1275, 2049, -1820, 1910, -1302, 1421, -4642, 2265, -6390.46, 2385.09, -6464, 2565, -7570, 3594, -7444, 4725, -8791, 5390, -9078, 5677, -9976, 5911, -10425, 5767, -11216, 5444, -12203, 4366, -12634, 3863, -12567, 3217, -13540.5, 2616.69, -13958, 2989, -14785, 2965, -18249, 2690, -20143, 2606, -21174, 3037, -22216, 3109, -22696, 3457, -23415, 3517, -23823, 3289, -24566, 3684, -24818, 4092, -24626, 4536, -25633, 6621, -26508, 5890, -26107, 5202, -27113, 5021, -28234, 5519, -30420, 7396, -30737, 7037, -32702, 6685, -34614, 6170, -35788, 6012, -36461, 5905, -36542, 5490, -37558, 5650, -38790, 5482, -40350, 5442, -41654, 5802, -42678, 5770, -43134, 5730, -43450, 5815, -43717, 5612, -44934, 5754, -47828, 5676, -49740, 5890, -52130, 5815)
+polygon = PackedVector2Array(-52003, 1167, -26605, -204, -8971, -1458, 30603, -1531, 38908, 10017, 38354, 10605, 37290, 10311, 33692, 10277, 32431, 10756, 31234, 10800, 26422, 10665, 25704, 10503, 26063, 9390, 25663, 6783, 25537, 6693, 24860, 5353, 24139, 4614, 24215, 3844, 23037, 914, 23611, 54, 21572, -958, 21451, 114, 20755, 2344, 17561, 1901, 17238, 2289, 12098, 1969, 9919, -345, 8563, -1046, 7162, 184, 8680, 2101, 8093, 2209, 6714, 2005, 6103, 2149, 4041, 2209, 3923, 1989, 2927, 2029, 2639, 1766, 2375, 2293, 1057, 2317, -1275, 2049, -1820, 1910, -1302, 1421, -4642, 2265, -6390.46, 2385.09, -6464, 2565, -7570, 3594, -7444, 4725, -8791, 5390, -9078, 5677, -9976, 5911, -10425, 5767, -11216, 5444, -12203, 4366, -12634, 3863, -12567, 3217, -13540.5, 2616.69, -13958, 2989, -14785, 2965, -18249, 2690, -20143, 2606, -21174, 3037, -22216, 3109, -22696, 3457, -23415, 3517, -23823, 3289, -24566, 3684, -24818, 4092, -24626, 4536, -25633, 6621, -26508, 5890, -26107, 5202, -27113, 5021, -28234, 5519, -30420, 7396, -30737, 7037, -32702, 6685, -34614, 6170, -35788, 6012, -36461, 5905, -36542, 5490, -37558, 5650, -38790, 5482, -40350, 5442, -41654, 5802, -42678, 5770, -43134, 5730, -43450, 5815, -43717, 5612, -44934, 5754, -47828, 5676, -49740, 5890, -52130, 5815)
 
 [node name="Polygon2D4" type="Polygon2D" parent="Environment/NavigableMap"]
 position = Vector2(42368, 5046)
@@ -2109,9 +2276,13 @@ polygon = PackedVector2Array(3004, 4243, 3132, 4977, 3228, 5489, 3452, 5713, 364
 [node name="Polygon2D8" type="Polygon2D" parent="Environment/Caves"]
 polygon = PackedVector2Array(-66627, -580, -66355, 234, -66322, 691, -66389, 1115, -66627, 1488, -66915, 1844, -67135, 2115, -67440, 2403, -67712, 2895, -55608, 3726, -50658, 3217, -50450, 3199, -50432, 3001, -50503, 2786, -50441, 2472, -50117, 2139, -49426, 1412, -49309, 604, -49300, 110, -54095, -1902)
 
+[node name="Polygon2D9" type="Polygon2D" parent="Environment/Caves"]
+position = Vector2(-25, 127)
+polygon = PackedVector2Array(15898, 7369, 16076, 7014, 16127, 6328, 16254, 6201, 16457, 6125, 16521, 6163, 16698, 6252, 16838, 6137, 16876, 5883, 16927, 5502, 16991, 5083, 16889, 4351, 17486, 4080, 22362, 4004, 24407, 5921, 24674, 7953, 22997, 8728, 16508, 8931)
+
 [node name="Whale" parent="." instance=ExtResource("19_53crg")]
 material = SubResource("ShaderMaterial_dnevv")
-position = Vector2(-69619, 1484)
+position = Vector2(-1056, 6543)
 state = 0
 
 [node name="Camera2D" type="Camera2D" parent="Whale"]
@@ -2129,6 +2300,23 @@ modulate = Color(0.890307, 0.354702, 0.178521, 1)
 position = Vector2(-9119, -308)
 rotation = -0.106451
 texture = ExtResource("28_7ja8y")
+
+[node name="ExitArea" type="Area2D" parent="."]
+position = Vector2(19445.5, 6224.5)
+scale = Vector2(62.0293, 82.4956)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea"]
+position = Vector2(34.6167, -1.55766)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_nkuwj")
+debug_color = Color(0.975576, 0.156561, 5.77569e-07, 0.42)
+
+[node name="BreakSFX" type="AudioStreamPlayer2D" parent="ExitArea"]
+stream = ExtResource("31_xm6g1")
+volume_db = 24.0
+bus = &"SoundFx"
 
 [connection signal="body_entered" from="Environment/Section2/StaticCameraZone" to="Environment/Section2" method="_on_body_entered"]
 [connection signal="body_exited" from="Environment/Section2/StaticCameraZone" to="Environment/Section2" method="_on_body_exited"]
