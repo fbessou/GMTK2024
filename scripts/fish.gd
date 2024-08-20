@@ -47,6 +47,7 @@ var swimming := false:
 @onready var food_bubble := $FoodBubble as FoodBubble
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var corruption_audio: AudioStreamPlayer2D = $CorruptionAudio
+@onready var scare_sfx: AudioStreamPlayer2D = $ScareSFX
 
 
 func _ready() -> void:
@@ -139,6 +140,7 @@ func _scare(_scareOrigin: Vector2) -> void:
 		
 	var dir := (position - _scareOrigin).normalized()
 	velocity = dir*max_speed
+	scare_sfx.play()
 	#var elapsedTime := 0.
 	#while(elapsedTime < 0.25):
 		#elapsedTime += get_process_delta_time()

@@ -2,13 +2,15 @@ extends Fish
 
 var player : Fish
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
+@onready var flee_sfx: AudioStreamPlayer2D = $FleeSFX
 
 func _scare(_scareOrigin: Vector2) -> void:
 	if(!scarable):
 		return
 
 	scarable = false
-
+	
+	flee_sfx.play()
 	animation_player.play("Scare")
 	
 	await(animation_player.animation_finished)

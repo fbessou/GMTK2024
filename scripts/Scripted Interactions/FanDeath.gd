@@ -26,10 +26,11 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	eel.state = Fish.State.FROZEN
 	path_2d.curve.set_point_position(0, front.global_position)
 	
-
 	front.reparent(path_follow_2d)
 	front.position = Vector2.ZERO
 	animation_player.play("Death")
+	await tween.finished
+	eel.slice()
 	
 	await animation_player.animation_finished
 	plankton.position = front.global_position

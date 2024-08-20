@@ -7,6 +7,7 @@ extends Fish
 @onready var _default_max_speed := max_speed
 @onready var _default_drag := drag
 @onready var elec_sound: AudioStreamPlayer2D = $AudioStreamPlayer2D2
+@onready var cut_sfx:AudioStreamPlayer2D = $CutSFX
 
 signal powering_on
 signal powering_off
@@ -36,3 +37,5 @@ func _flip_horizontal(flip: bool) -> void:
 	super(flip)
 	electricity_area.position.x = absf(electricity_area.position.x) * (1 if flip else -1)
 	
+func slice() -> void:
+	cut_sfx.play()
