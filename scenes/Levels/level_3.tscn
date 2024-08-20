@@ -1893,7 +1893,7 @@ bus = &"Music"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("47_0u8sj")
-volume_db = -8.039
+volume_db = -3.0
 autoplay = true
 bus = &"Ambience"
 
