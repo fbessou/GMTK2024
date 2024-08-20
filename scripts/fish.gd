@@ -46,9 +46,11 @@ var swimming := false:
 @onready var _mouth_area:= $MouthArea2D as Area2D
 @onready var food_bubble := $FoodBubble as FoodBubble
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var corruption_audio: AudioStreamPlayer2D = $CorruptionAudio
 
 
 func _ready() -> void:
+	#max_speed *= 10.0
 	_update_animation()
 	assert(_animated_sprite != null)
 	assert(_mouth_area != null)
@@ -196,6 +198,7 @@ func switch_to_player() -> void:
 	collision_layer = 0x6
 	
 	# shader corruption tween
+	corruption_audio.play()
 	var tween := get_tree().create_tween()
 	var corruption_tween := func(corruption: float) -> void:
 		(material as ShaderMaterial).set_shader_parameter("corruption", corruption)
@@ -218,6 +221,11 @@ func lerp_to_target_tween() -> void:
 	.set_ease(Tween.EASE_IN)\
 	.set_trans(transType)
 	
+	var eat_sound := func() -> void: 
+		audio_stream_player_2d.play()
+	var timer:SceneTreeTimer = get_tree().create_timer(eatAnimationSpeed * 0.8) # dirty fix 
+	timer.timeout.connect(eat_sound)  
+	
 	# camera zoom in tween
 	tween_in.parallel().tween_property(current_cam, "zoom", current_cam.zoom * cameraZoomFactor, cameraAnimationSpeed)\
 		.set_ease(Tween.EASE_IN_OUT)\
@@ -229,13 +237,14 @@ func lerp_to_target_tween() -> void:
 	switch_to_player()
 	GameManager.set_active_fish_camera(self)
 	target.queue_free()
-	audio_stream_player_2d.play()
 	
 	# camera zoom out tween
 	var tween_out := get_tree().create_tween()
 	tween_out.tween_property(current_cam, "zoom", current_cam.zoom / cameraZoomFactor, cameraAnimationSpeed)\
 		.set_ease(Tween.EASE_IN_OUT)\
 		.set_trans(Tween.TRANS_QUAD)
+		
+	corruption_audio.play()
 
 func calculate_mean_velocity() -> void:
 	mean_vel_array.x = mean_vel_array.y

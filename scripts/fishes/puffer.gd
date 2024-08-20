@@ -7,6 +7,7 @@ extends Fish
 @export_group("Scare")
 @export var scareRadius := 250.
 
+@onready var puffer_sfx: AudioStreamPlayer2D = $PufferSFX
 @onready var _default_max_speed := max_speed
 @onready var _default_drag := drag
 @onready var scare_collision_shape : Node2D = $ScareArea/CollisionShape2D
@@ -17,6 +18,7 @@ var _is_large := false :
 			_update_size()
 
 func _power_on() -> void:
+	puffer_sfx.play()
 	_is_large = true
 	grow_scare_area()
 	max_speed = 15.0

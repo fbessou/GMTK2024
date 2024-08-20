@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://tvq6ijgntio"]
+[gd_scene load_steps=30 format=3 uid="uid://tvq6ijgntio"]
 
 [ext_resource type="PackedScene" uid="uid://l4sjy0s8l2d" path="res://scenes/fishes/fish.tscn" id="1_t0csw"]
 [ext_resource type="Material" uid="uid://c3ruw5j78qxr4" path="res://resources/materials/paper.material" id="2_0psej"]
@@ -6,9 +6,24 @@
 [ext_resource type="Texture2D" uid="uid://cia8k2mfqsqse" path="res://assets/textures/whale/frame0001.png" id="2_jwkwj"]
 [ext_resource type="Texture2D" uid="uid://dtfsppg6ph3ma" path="res://assets/textures/whale/frame0004.png" id="3_evayt"]
 [ext_resource type="Texture2D" uid="uid://bgwpohfk34juk" path="res://assets/textures/whale/frame0000.png" id="4_4wcpg"]
+[ext_resource type="AudioStream" uid="uid://v1s5s806jilk" path="res://assets/audio/sounds/whale sounds/Baleine1.mp3" id="4_p0n6o"]
 [ext_resource type="Texture2D" uid="uid://c8vfj1xh1l87p" path="res://assets/textures/whale/frame0006.png" id="5_i637i"]
+[ext_resource type="AudioStream" uid="uid://dnetb7by3jt1g" path="res://assets/audio/sounds/whale sounds/Baleine2.mp3" id="5_ogc32"]
+[ext_resource type="AudioStream" uid="uid://dwbq0614jopc5" path="res://assets/audio/sounds/whale sounds/Baleine3.mp3" id="6_fn7pj"]
 [ext_resource type="PackedScene" uid="uid://b0phg6atgdkvt" path="res://scenes/ui/food_bubble.tscn" id="6_itgqh"]
+[ext_resource type="AudioStream" uid="uid://bpyvstkmm1ivw" path="res://assets/audio/sounds/whale sounds/Baleine4.mp3" id="7_na7in"]
+[ext_resource type="AudioStream" uid="uid://druovgfh80s5w" path="res://assets/audio/sounds/whale sounds/Baleine5.mp3" id="8_1y5fm"]
 [ext_resource type="Texture2D" uid="uid://bqec3tilerluy" path="res://assets/textures/Paper001_1K-JPG_Color.jpg" id="9_dcrmd"]
+[ext_resource type="AudioStream" uid="uid://knfut3wmafqx" path="res://assets/audio/sounds/whale sounds/Baleine6.mp3" id="9_l60hf"]
+[ext_resource type="AudioStream" uid="uid://cb75q4jcxmhj1" path="res://assets/audio/sounds/whale sounds/Baleine7.mp3" id="10_mgd4a"]
+[ext_resource type="AudioStream" uid="uid://beq7guj1oolhb" path="res://assets/audio/sounds/whale sounds/Baleine8.mp3" id="11_lyaqg"]
+[ext_resource type="AudioStream" uid="uid://d4itlejhtvb73" path="res://assets/audio/sounds/whale sounds/Baleine9.mp3" id="12_jhwc0"]
+[ext_resource type="AudioStream" uid="uid://bbpgculxpbx4g" path="res://assets/audio/sounds/whale sounds/Baleine10.mp3" id="13_j4c37"]
+[ext_resource type="AudioStream" uid="uid://chu7xk5amf5hm" path="res://assets/audio/sounds/whale sounds/Baleine11.mp3" id="14_ifft8"]
+[ext_resource type="AudioStream" uid="uid://djh06btffc6t3" path="res://assets/audio/sounds/whale sounds/Baleine12.mp3" id="15_1ekwa"]
+[ext_resource type="AudioStream" uid="uid://do0g2jkkepxjt" path="res://assets/audio/sounds/whale sounds/Baleine13.mp3" id="16_0vkxb"]
+[ext_resource type="AudioStream" uid="uid://ciyk5fwhbuq66" path="res://assets/audio/sounds/whale sounds/Baleine14.mp3" id="17_08jfx"]
+[ext_resource type="AudioStream" uid="uid://cl2cnacy0l62d" path="res://assets/audio/sounds/whale sounds/Baleine15.mp3" id="18_oc3nb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j2c83"]
 animations = [{
@@ -91,6 +106,7 @@ z_index = -300
 z_as_relative = false
 material = ExtResource("2_0psej")
 script = ExtResource("2_7w5cc")
+sounds = Array[AudioStream]([ExtResource("4_p0n6o"), ExtResource("5_ogc32"), ExtResource("6_fn7pj"), ExtResource("7_na7in"), ExtResource("8_1y5fm"), ExtResource("9_l60hf"), ExtResource("10_mgd4a"), ExtResource("11_lyaqg"), ExtResource("12_jhwc0"), ExtResource("13_j4c37"), ExtResource("14_ifft8"), ExtResource("15_1ekwa"), ExtResource("16_0vkxb"), ExtResource("17_08jfx"), ExtResource("18_oc3nb")])
 kind = 4
 max_speed = 1200.0
 accel = 3000.0
@@ -124,3 +140,5 @@ z_as_relative = false
 material = SubResource("ShaderMaterial_n20p0")
 position = Vector2(-399, -310)
 scale = Vector2(1.805, 1.805)
+
+[node name="SingSFX" type="AudioStreamPlayer2D" parent="." index="6"]

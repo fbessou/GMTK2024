@@ -4,27 +4,35 @@ extends Node2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var plankton: Fish = $"../Plankton"
 @onready var front: Node2D = $"../Eel/DeathSprite/Front"
+@onready var path_2d: Path2D = $"../Path2D"
+@onready var path_follow_2d: PathFollow2D = $"../Path2D/PathFollow2D"
+@onready var collision_shape_2d: CollisionShape2D = $"../Eel/CollisionShape2D"
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	var eel := body as Eel
 	if(eel == null):
 		return
-	
+		
 	electric_fan.isRotating = true
-	var tween := get_tree().create_tween()
 	
+	var tween := get_tree().create_tween()
 	tween.tween_property(electric_fan, "rotation_speed", electric_fan.rotation_speed * 5.0, 0.5)\
 	.set_trans(Tween.TRANS_QUAD)
-	await tween.finished
-	eel.state = Fish.State.FROZEN
 	
 	var camera := get_viewport().get_camera_2d()
 	camera.reparent(front)
+	eel.state = Fish.State.FROZEN
+	path_2d.curve.set_point_position(0, front.global_position)
+	
+
+	front.reparent(path_follow_2d)
+	front.position = Vector2.ZERO
 	animation_player.play("Death")
+	
 	await animation_player.animation_finished
 	plankton.position = front.global_position
 	plankton.show()
-	plankton.z_index = 0
+	plankton.z_index = 10
 	plankton.state = Fish.State.PLAYER
 	plankton.switch_to_player()
 	GameManager.set_active_fish_camera(plankton)

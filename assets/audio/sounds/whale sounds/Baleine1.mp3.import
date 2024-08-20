@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://v1s5s806jilk"
+path="res://.godot/imported/Baleine1.mp3-fb5bd36e139f500995593cde18fff1c1.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sounds/whale sounds/Baleine1.mp3"
+dest_files=["res://.godot/imported/Baleine1.mp3-fb5bd36e139f500995593cde18fff1c1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

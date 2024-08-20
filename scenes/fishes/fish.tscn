@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://l4sjy0s8l2d"]
+[gd_scene load_steps=4 format=3 uid="uid://l4sjy0s8l2d"]
 
 [ext_resource type="Script" path="res://scripts/fish.gd" id="1_epr8x"]
 [ext_resource type="AudioStream" uid="uid://c7fnvwjjve3bi" path="res://assets/audio/sounds/eat.mp3" id="2_dm2m3"]
+[ext_resource type="AudioStream" uid="uid://kf6p2yyua7ig" path="res://assets/audio/sounds/transformation.mp3" id="3_qaffk"]
 
 [node name="Fish" type="CharacterBody2D"]
 collision_layer = 6
@@ -15,4 +16,8 @@ transType = 10
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_dm2m3")
+bus = &"SoundFx"
+
+[node name="CorruptionAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_qaffk")
 bus = &"SoundFx"

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cor46uhgncphp"]
+[gd_scene load_steps=8 format=3 uid="uid://cor46uhgncphp"]
 
 [ext_resource type="Script" path="res://scripts/props/BreakableWalls.gd" id="1_mlkim"]
 [ext_resource type="Script" path="res://scripts/props/rock_anim.gd" id="2_amvfj"]
+[ext_resource type="AudioStream" uid="uid://cm6u01dxvww1f" path="res://assets/audio/sounds/break_wall.mp3" id="3_dxvfa"]
 
 [sub_resource type="Curve" id="Curve_73a75"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.984802, 1), 1.12316, 0.0, 0, 0]
@@ -74,5 +75,9 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Area2D"]
 shape = SubResource("RectangleShape2D_5dltp")
+
+[node name="BreakSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_dxvfa")
+volume_db = 24.0
 
 [connection signal="body_entered" from="Colliders/Area2D" to="." method="_on_body_entered"]
