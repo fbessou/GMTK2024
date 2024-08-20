@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://cor46uhgncphp" path="res://scenes/props/breakable_wall.tscn" id="3_bjfl5"]
 [ext_resource type="Script" path="res://scripts/levels/descent_section_2.gd" id="3_c75tw"]
 [ext_resource type="Texture2D" uid="uid://c4vawkp3yxbfq" path="res://assets/textures/props/coral/branch/coral_branch.png" id="3_u4ngv"]
-[ext_resource type="SpriteFrames" uid="uid://4w3454s6rdd" path="res://resources/sprites_frames/whale_in_background.tres" id="3_wqpma"]
+[ext_resource type="SpriteFrames" path="res://resources/sprites_frames/whale_in_background.tres" id="3_wqpma"]
 [ext_resource type="Texture2D" uid="uid://birpdwq3i2i3r" path="res://assets/textures/props/seaweed/varech/frame0000.png" id="4_41lef"]
-[ext_resource type="SpriteFrames" uid="uid://cco55udwpcl8k" path="res://resources/sprites_frames/moving_seaweed_leaves.tres" id="5_w1lby"]
-[ext_resource type="SpriteFrames" uid="uid://but02ghwh5lnt" path="res://resources/sprites_frames/moving_varech.tres" id="6_3lwsr"]
+[ext_resource type="SpriteFrames" path="res://resources/sprites_frames/moving_seaweed_leaves.tres" id="5_w1lby"]
+[ext_resource type="SpriteFrames" path="res://resources/sprites_frames/moving_varech.tres" id="6_3lwsr"]
 [ext_resource type="PackedScene" uid="uid://c2to2hb2q2wvb" path="res://scenes/Levels/blocks/curveA.tscn" id="6_dbfvp"]
 [ext_resource type="Texture2D" uid="uid://cpo3bbvjuxfq7" path="res://assets/textures/props/ships/shipwreck.png" id="7_eqndf"]
 [ext_resource type="PackedScene" uid="uid://bitk4x3pdmgjb" path="res://scenes/Levels/blocks/largeA.tscn" id="7_nskjf"]
@@ -700,8 +700,8 @@ bubbles_size = 5.165
 [node name="LevelEntranceCurrent27" parent="Environment/Section2" instance=ExtResource("17_eei4e")]
 position = Vector2(12087, 6276)
 rotation = -1.57079
-gravity_point_center = Vector2(1, 2.22127e-06)
-gravity_direction = Vector2(1, 2.22127e-06)
+gravity_point_center = Vector2(1, 6.27438e-06)
+gravity_direction = Vector2(1, 6.27438e-06)
 gravity = 4000.0
 width = 3135
 length = 5110
@@ -1760,12 +1760,10 @@ rotation = -1.4773
 [node name="MediumA46" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
 position = Vector2(18704, 8114.91)
 rotation = 1.48735
-scale = Vector2(1, 1)
 
 [node name="SmallB18" parent="Environment/NavigableMap/Section1" instance=ExtResource("13_x01bs")]
 position = Vector2(16463, 7854.9)
 rotation = 3.06095
-scale = Vector2(1, 1)
 
 [node name="SpireA20" parent="Environment/NavigableMap/Section1" instance=ExtResource("14_p5xl5")]
 position = Vector2(16680, 7504.9)
@@ -2282,7 +2280,7 @@ polygon = PackedVector2Array(15898, 7369, 16076, 7014, 16127, 6328, 16254, 6201,
 
 [node name="Whale" parent="." instance=ExtResource("19_53crg")]
 material = SubResource("ShaderMaterial_dnevv")
-position = Vector2(-1056, 6543)
+position = Vector2(-65384, 1328)
 state = 0
 
 [node name="Camera2D" type="Camera2D" parent="Whale"]
@@ -2309,7 +2307,6 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea"]
 position = Vector2(34.6167, -1.55766)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_nkuwj")
 debug_color = Color(0.975576, 0.156561, 5.77569e-07, 0.42)
 
