@@ -1,6 +1,9 @@
 extends Node2D
 
 @onready var electric_fan: ElectricFan = $"../Gameplay Elements/ElectricFan"
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var plankton: Fish = $"../Plankton"
+@onready var front: Node2D = $"../Eel/DeathSprite/Front"
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	var eel := body as Eel
@@ -13,3 +16,11 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	.set_trans(Tween.TRANS_QUAD)
 	await tween.finished
 	eel.state = Fish.State.FROZEN
+	animation_player.play("Death")
+	await animation_player.animation_finished
+	plankton.position = front.global_position
+	plankton.show()
+	plankton.z_index = 0
+	plankton.state = Fish.State.PLAYER
+	plankton.switch_to_player()
+	GameManager.set_active_fish_camera(plankton)

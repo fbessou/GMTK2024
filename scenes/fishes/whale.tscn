@@ -46,7 +46,7 @@ radius = 266.0
 height = 2046.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tuujp"]
-radius = 323.002
+radius = 630.151
 
 [sub_resource type="Shader" id="Shader_grd52"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.3.stable's CanvasItemMaterial.
