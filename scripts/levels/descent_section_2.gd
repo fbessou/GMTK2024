@@ -2,7 +2,7 @@ extends Node2D
 
 var captured_camera : Camera2D = null
 #var saved_zoom : Vector2 = null
-
+var whales_released := false
 func _on_body_entered(body: Node2D) -> void:
 
 	if body is Whale:
@@ -13,10 +13,10 @@ func _on_body_entered(body: Node2D) -> void:
 #	saved_zoom = body_camera.zoom()
 	var target := find_child("Camera2DTarget") as Camera2D
 	
-	var release_whales := func() -> void:
+	if not whales_released:
 		($AnimationPlayer as AnimationPlayer).play("whales_in_background")
-		
-	get_tree().create_timer(1).timeout.connect(release_whales)
+		whales_released = true
+
 	var tween := get_tree().create_tween()
 	body_camera.reparent(self)
 	captured_camera = body_camera
@@ -30,7 +30,7 @@ func _on_body_exited(body: Node2D) -> void:
 		(body as Whale).camera_captured = false
 	else:
 		return
-	($AnimationPlayer as AnimationPlayer).stop(true)
+	# ($AnimationPlayer as AnimationPlayer).stop(true)
 	GameManager.set_active_fish_camera(body as Fish)
 	# 	captured_camera.reparent(body)
 	

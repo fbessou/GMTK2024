@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bdhladljwpd2g"]
+[gd_scene load_steps=39 format=3 uid="uid://bdhladljwpd2g"]
 
 [ext_resource type="Script" path="res://scenes/Levels/descent.gd" id="1_8ys3j"]
 [ext_resource type="PackedScene" uid="uid://5w3u43821a5" path="res://scenes/props/SeaweedLeaves.tscn" id="2_vy6rh"]
@@ -6,11 +6,17 @@
 [ext_resource type="Script" path="res://scripts/levels/descent_section_2.gd" id="3_c75tw"]
 [ext_resource type="Texture2D" uid="uid://c4vawkp3yxbfq" path="res://assets/textures/props/coral/branch/coral_branch.png" id="3_u4ngv"]
 [ext_resource type="SpriteFrames" uid="uid://4w3454s6rdd" path="res://resources/sprites_frames/whale_in_background.tres" id="3_wqpma"]
+[ext_resource type="Texture2D" uid="uid://birpdwq3i2i3r" path="res://assets/textures/props/seaweed/varech/frame0000.png" id="4_41lef"]
+[ext_resource type="SpriteFrames" uid="uid://cco55udwpcl8k" path="res://resources/sprites_frames/moving_seaweed_leaves.tres" id="5_w1lby"]
+[ext_resource type="SpriteFrames" uid="uid://but02ghwh5lnt" path="res://resources/sprites_frames/moving_varech.tres" id="6_3lwsr"]
 [ext_resource type="PackedScene" uid="uid://c2to2hb2q2wvb" path="res://scenes/Levels/blocks/curveA.tscn" id="6_dbfvp"]
 [ext_resource type="Texture2D" uid="uid://cpo3bbvjuxfq7" path="res://assets/textures/props/ships/shipwreck.png" id="7_eqndf"]
 [ext_resource type="PackedScene" uid="uid://bitk4x3pdmgjb" path="res://scenes/Levels/blocks/largeA.tscn" id="7_nskjf"]
+[ext_resource type="Texture2D" uid="uid://cx52ra38h43wf" path="res://assets/textures/props/seaweed/varech/frame0001.png" id="7_oio3r"]
 [ext_resource type="PackedScene" uid="uid://cw5cd8mpbft6b" path="res://scenes/Levels/blocks/largeB.tscn" id="8_72lbl"]
+[ext_resource type="Texture2D" uid="uid://b25gaiscfusdu" path="res://assets/textures/props/shells/pebble.png" id="8_nsm15"]
 [ext_resource type="PackedScene" uid="uid://chevwwev43q6b" path="res://scenes/Levels/blocks/largeC.tscn" id="9_15bgk"]
+[ext_resource type="Texture2D" uid="uid://buw77r8f3h7fb" path="res://assets/textures/props/shells/rocks.png" id="9_qkgob"]
 [ext_resource type="PackedScene" uid="uid://dbles67txj7e0" path="res://scenes/Levels/blocks/mediumA.tscn" id="10_fseyh"]
 [ext_resource type="PackedScene" uid="uid://c7xh68riw0kf8" path="res://scenes/Levels/blocks/mediumB.tscn" id="11_2soaf"]
 [ext_resource type="PackedScene" uid="uid://bnjnf3jijmc4q" path="res://scenes/Levels/blocks/smallA.tscn" id="12_htuvj"]
@@ -21,6 +27,8 @@
 [ext_resource type="PackedScene" uid="uid://tvq6ijgntio" path="res://scenes/fishes/whale.tscn" id="19_53crg"]
 [ext_resource type="Shader" path="res://resources/shaders/paper.gdshader" id="20_0yyrc"]
 [ext_resource type="Texture2D" uid="uid://bqec3tilerluy" path="res://assets/textures/Paper001_1K-JPG_Color.jpg" id="21_r0lfq"]
+[ext_resource type="Texture2D" uid="uid://de3xdsnisgfc1" path="res://assets/textures/props/shells/starfish.png" id="27_awxck"]
+[ext_resource type="Texture2D" uid="uid://bnwp2hnkxq3m1" path="res://assets/textures/props/shells/shell_spiral.png" id="28_7ja8y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hm1b0"]
 size = Vector2(10677, 7744)
@@ -110,7 +118,7 @@ tracks/0/path = NodePath("WhalesFaraway/Path2D/PF1:progress")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 12),
+"times": PackedFloat32Array(0, 13.2667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 10000.0]
@@ -122,10 +130,10 @@ tracks/1/path = NodePath("WhalesFaraway/Path2D2/PF2:progress")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 12),
+"times": PackedFloat32Array(0, 14),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 12000.0]
+"values": [0.0, 15000.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -134,10 +142,10 @@ tracks/2/path = NodePath("WhalesFaraway/Path2D3/PF3:progress")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 14),
+"times": PackedFloat32Array(0, 13.9667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 15000.0]
+"values": [0.0, 18000.0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -209,6 +217,15 @@ position = Vector2(-62500, 2248)
 [node name="SeaweedLeaves2" parent="Environment/BackgroundProps" instance=ExtResource("2_vy6rh")]
 position = Vector2(-64569, 2555)
 
+[node name="SeaweedLeaves3" parent="Environment/BackgroundProps" instance=ExtResource("2_vy6rh")]
+position = Vector2(-50400, 2968)
+
+[node name="SeaweedLeaves4" parent="Environment/BackgroundProps" instance=ExtResource("2_vy6rh")]
+position = Vector2(-50574, 3046)
+
+[node name="SeaweedLeaves5" parent="Environment/BackgroundProps" instance=ExtResource("2_vy6rh")]
+position = Vector2(-50757, 3073)
+
 [node name="CoralBranch" type="Sprite2D" parent="Environment/BackgroundProps"]
 modulate = Color(0.849413, 0.466285, 0.682723, 1)
 position = Vector2(-66056, 2392)
@@ -221,9 +238,101 @@ position = Vector2(-66264, 2528)
 rotation = 0.0340142
 texture = ExtResource("3_u4ngv")
 
+[node name="CoralBranch3" type="Sprite2D" parent="Environment/BackgroundProps"]
+modulate = Color(1, 0.6, 0.713726, 1)
+position = Vector2(-17759, 3161)
+texture = ExtResource("3_u4ngv")
+
+[node name="CoralBranch4" type="Sprite2D" parent="Environment/BackgroundProps"]
+modulate = Color(1, 0.6, 0.713726, 1)
+position = Vector2(-9934, -315)
+texture = ExtResource("3_u4ngv")
+
+[node name="CoralBranch5" type="Sprite2D" parent="Environment/BackgroundProps"]
+modulate = Color(0.979869, 0.722039, 0.702946, 1)
+position = Vector2(-9769, -326)
+texture = ExtResource("3_u4ngv")
+
+[node name="CoralBranch6" type="Sprite2D" parent="Environment/BackgroundProps"]
+modulate = Color(1, 0.6, 0.713726, 1)
+position = Vector2(-10165, -250)
+texture = ExtResource("3_u4ngv")
+
+[node name="Varech" type="Sprite2D" parent="Environment/BackgroundProps"]
+modulate = Color(0.237965, 0.57504, 0.31417, 1)
+position = Vector2(-18549, 3161)
+texture = ExtResource("4_41lef")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Environment/BackgroundProps"]
+modulate = Color(0.0896, 0.32, 0.20096, 1)
+position = Vector2(-45549, 2349)
+rotation = -1.31734
+sprite_frames = ExtResource("5_w1lby")
+frame_progress = 0.588338
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Environment/BackgroundProps"]
+modulate = Color(0.0896, 0.32, 0.20096, 1)
+position = Vector2(-46426, 1585)
+rotation = -3.17959
+scale = Vector2(-1, 1)
+sprite_frames = ExtResource("6_3lwsr")
+autoplay = "default"
+frame_progress = 0.311525
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Environment/BackgroundProps"]
+modulate = Color(0.0896, 0.32, 0.20096, 1)
+position = Vector2(-46196, 1481)
+rotation = -3.45617
+scale = Vector2(-1, 1)
+sprite_frames = ExtResource("6_3lwsr")
+autoplay = "default"
+frame_progress = 0.163154
+
 [node name="ForegroundProps" type="Node2D" parent="Environment"]
 z_index = -200
 z_as_relative = false
+position = Vector2(-18709, 3222)
+
+[node name="Shipwreck" type="Sprite2D" parent="Environment/ForegroundProps"]
+position = Vector2(-561, -978)
+scale = Vector2(2.57117, 2.57117)
+texture = ExtResource("7_eqndf")
+
+[node name="Frame0001" type="Sprite2D" parent="Environment/ForegroundProps"]
+modulate = Color(0.264831, 0.634285, 0.347366, 1)
+position = Vector2(-265, -73)
+texture = ExtResource("7_oio3r")
+
+[node name="Frame0002" type="Sprite2D" parent="Environment/ForegroundProps"]
+modulate = Color(0.264831, 0.634285, 0.347366, 1)
+position = Vector2(-489, 21)
+scale = Vector2(-1, 1)
+texture = ExtResource("7_oio3r")
+
+[node name="Pebble" type="Sprite2D" parent="Environment/ForegroundProps"]
+modulate = Color(0.67, 0.901, 1, 1)
+position = Vector2(177, 22)
+texture = ExtResource("8_nsm15")
+
+[node name="Pebble2" type="Sprite2D" parent="Environment/ForegroundProps"]
+modulate = Color(0.67, 0.901, 1, 1)
+position = Vector2(-1522, -76)
+rotation = 0.235022
+texture = ExtResource("8_nsm15")
+
+[node name="Rocks" type="Sprite2D" parent="Environment/ForegroundProps"]
+modulate = Color(0.670588, 0.901961, 1, 1)
+z_index = 10
+z_as_relative = false
+position = Vector2(559, 39)
+texture = ExtResource("9_qkgob")
+
+[node name="Rocks2" type="Sprite2D" parent="Environment/ForegroundProps"]
+modulate = Color(0.682381, 0.826612, 0.937203, 1)
+z_index = 1
+z_as_relative = false
+position = Vector2(-29645, 11189)
+texture = ExtResource("9_qkgob")
 
 [node name="Section1" type="Node2D" parent="Environment"]
 
@@ -450,6 +559,7 @@ enabled = false
 zoom = Vector2(0.08, 0.08)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Section2/StaticCameraZone"]
+visible = false
 position = Vector2(6269.5, -1024)
 shape = SubResource("RectangleShape2D_hm1b0")
 
@@ -933,6 +1043,21 @@ position = Vector2(-45247, 14582)
 rotation = 2.49449
 scale = Vector2(1.60809, 1.60809)
 
+[node name="SpireB17" parent="Environment/NavigableMap/Section1" instance=ExtResource("15_b122m")]
+position = Vector2(-45099, 14514)
+rotation = 2.49449
+scale = Vector2(1.60809, 1.60809)
+
+[node name="SpireB18" parent="Environment/NavigableMap/Section1" instance=ExtResource("15_b122m")]
+position = Vector2(-44939, 14434)
+rotation = 2.49449
+scale = Vector2(1.60809, 1.60809)
+
+[node name="SpireB19" parent="Environment/NavigableMap/Section1" instance=ExtResource("15_b122m")]
+position = Vector2(-44791, 14336)
+rotation = 2.49449
+scale = Vector2(1.60809, 1.60809)
+
 [node name="SpireB6" parent="Environment/NavigableMap/Section1" instance=ExtResource("15_b122m")]
 position = Vector2(-51507, 4068)
 scale = Vector2(0.654129, 0.654129)
@@ -1067,6 +1192,11 @@ rotation = -0.259039
 [node name="MediumB20" parent="Environment/NavigableMap/Section1" instance=ExtResource("11_2soaf")]
 position = Vector2(-49246, 11227)
 rotation = -0.259039
+
+[node name="MediumB24" parent="Environment/NavigableMap/Section1" instance=ExtResource("11_2soaf")]
+position = Vector2(-44520, 14365)
+rotation = -1.16297
+scale = Vector2(0.551066, 0.306512)
 
 [node name="MediumB21" parent="Environment/NavigableMap/Section1" instance=ExtResource("11_2soaf")]
 position = Vector2(-51104, 10623)
@@ -1329,6 +1459,11 @@ position = Vector2(-50151, 12605)
 rotation = -3.93615
 scale = Vector2(2.96866, 1.39337)
 
+[node name="LargeC40" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
+position = Vector2(-45145, 14553)
+rotation = -3.70771
+scale = Vector2(0.817197, 0.40812)
+
 [node name="SmallA7" parent="Environment/NavigableMap/Section1" instance=ExtResource("12_htuvj")]
 position = Vector2(-53260, 7375)
 rotation = 0.735865
@@ -1352,12 +1487,16 @@ rotation = -1.79345
 position = Vector2(-44108, 14670)
 rotation = -1.79345
 
+[node name="SmallA24" parent="Environment/NavigableMap/Section1" instance=ExtResource("12_htuvj")]
+position = Vector2(-44583, 14202)
+rotation = -0.533643
+
+[node name="SmallA25" parent="Environment/NavigableMap/Section1" instance=ExtResource("12_htuvj")]
+position = Vector2(-44538, 14109)
+rotation = 0.0105437
+
 [node name="SmallA23" parent="Environment/NavigableMap/Section1" instance=ExtResource("12_htuvj")]
 position = Vector2(-46782, 14632)
-rotation = -3.21536
-
-[node name="SmallA24" parent="Environment/NavigableMap/Section1" instance=ExtResource("12_htuvj")]
-position = Vector2(-48009, 14518)
 rotation = -3.21536
 
 [node name="SmallA15" parent="Environment/NavigableMap/Section1" instance=ExtResource("12_htuvj")]
@@ -1518,9 +1657,6 @@ rotation = -2.52349
 position = Vector2(-6816, -4174)
 rotation = -2.09135
 
-[node name="LargeA2" parent="Environment/NavigableMap/Section2" instance=ExtResource("7_nskjf")]
-position = Vector2(7316, 3876)
-
 [node name="LargeA21" parent="Environment/NavigableMap/Section2" instance=ExtResource("7_nskjf")]
 position = Vector2(10128, 4556)
 
@@ -1588,9 +1724,6 @@ scale = Vector2(3.26031, 1.69834)
 position = Vector2(-20789, -3761)
 rotation = -3.19699
 
-[node name="LargeB2" parent="Environment/NavigableMap/Section2" instance=ExtResource("8_72lbl")]
-position = Vector2(7243, 3018)
-
 [node name="LargeB9" parent="Environment/NavigableMap/Section2" instance=ExtResource("8_72lbl")]
 position = Vector2(-6694, -6685)
 rotation = 0.446906
@@ -1612,9 +1745,6 @@ rotation = 0.24398
 position = Vector2(-22894, -2973)
 rotation = -0.802926
 scale = Vector2(1.25711, 1.17695)
-
-[node name="LargeC2" parent="Environment/NavigableMap/Section2" instance=ExtResource("9_15bgk")]
-position = Vector2(8074, 2246)
 
 [node name="LargeC8" parent="Environment/NavigableMap/Section2" instance=ExtResource("9_15bgk")]
 position = Vector2(-4574, -212)
@@ -1659,9 +1789,6 @@ rotation = 0.246876
 position = Vector2(-16391, -4006)
 rotation = 0.0565636
 
-[node name="MediumA2" parent="Environment/NavigableMap/Section2" instance=ExtResource("10_fseyh")]
-position = Vector2(8546, 3212)
-
 [node name="MediumA3" parent="Environment/NavigableMap/Section2" instance=ExtResource("10_fseyh")]
 position = Vector2(9893, 4190)
 rotation = 3.66355
@@ -1686,18 +1813,9 @@ rotation = 1.50878
 position = Vector2(1963, 1009)
 rotation = 1.49202
 
-[node name="MediumB2" parent="Environment/NavigableMap/Section2" instance=ExtResource("11_2soaf")]
-position = Vector2(8196, 2978)
-
-[node name="SmallA2" parent="Environment/NavigableMap/Section2" instance=ExtResource("12_htuvj")]
-position = Vector2(9165, 3463)
-
 [node name="SmallA3" parent="Environment/NavigableMap/Section2" instance=ExtResource("12_htuvj")]
 position = Vector2(5013, 1333)
 rotation = 1.16777
-
-[node name="SmallB2" parent="Environment/NavigableMap/Section2" instance=ExtResource("13_x01bs")]
-position = Vector2(9363, 2798)
 
 [node name="LargeB10" parent="Environment/NavigableMap/Section2" instance=ExtResource("8_72lbl")]
 position = Vector2(-339, 682)
@@ -1710,9 +1828,6 @@ rotation = -3.02334
 [node name="SmallB3" parent="Environment/NavigableMap/Section2" instance=ExtResource("13_x01bs")]
 position = Vector2(402, 625)
 rotation = 1.18437
-
-[node name="SpireA2" parent="Environment/NavigableMap/Section2" instance=ExtResource("14_p5xl5")]
-position = Vector2(9075, 2786)
 
 [node name="SpireA5" parent="Environment/NavigableMap/Section2" instance=ExtResource("14_p5xl5")]
 position = Vector2(-7463, -5706)
@@ -1731,9 +1846,6 @@ scale = Vector2(2.55694, 2.55694)
 [node name="SpireA4" parent="Environment/NavigableMap/Section2" instance=ExtResource("14_p5xl5")]
 position = Vector2(-18956, -3832)
 scale = Vector2(1.01059, 1.01059)
-
-[node name="SpireB2" parent="Environment/NavigableMap/Section2" instance=ExtResource("15_b122m")]
-position = Vector2(8905, 3463)
 
 [node name="SpireA15" parent="Environment/NavigableMap/Section2" instance=ExtResource("14_p5xl5")]
 position = Vector2(-19925, -3545)
@@ -2003,10 +2115,16 @@ zoom = Vector2(0.25, 0.25)
 
 [node name="Triggers" type="Node2D" parent="."]
 
-[node name="Shipwreck" type="Sprite2D" parent="."]
-position = Vector2(-19276, 2227)
-scale = Vector2(2.57117, 2.57117)
-texture = ExtResource("7_eqndf")
+[node name="Starfish" type="Sprite2D" parent="."]
+modulate = Color(0.764498, 0.636526, 0.788509, 1)
+position = Vector2(-28375, 2523)
+texture = ExtResource("27_awxck")
+
+[node name="ShellSpiral" type="Sprite2D" parent="."]
+modulate = Color(0.890307, 0.354702, 0.178521, 1)
+position = Vector2(-9119, -308)
+rotation = -0.106451
+texture = ExtResource("28_7ja8y")
 
 [connection signal="body_entered" from="Environment/Section2/StaticCameraZone" to="Environment/Section2" method="_on_body_entered"]
 [connection signal="body_exited" from="Environment/Section2/StaticCameraZone" to="Environment/Section2" method="_on_body_exited"]
