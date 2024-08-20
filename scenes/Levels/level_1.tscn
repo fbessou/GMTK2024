@@ -49,7 +49,7 @@ colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_qa6cu"]
 gradient = SubResource("Gradient_4re83")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hguw3"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ydaq"]
 size = Vector2(250, 0)
 
 [sub_resource type="Gradient" id="Gradient_hyjtd"]
@@ -172,7 +172,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_qcv60"]
 resource_name = "opening"
-length = 30.0
+length = 24.0
 step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -838,7 +838,7 @@ gravity = 2400.0
 width = 250
 
 [node name="CollisionShape2D" parent="Environment/NavigableMap/WaterCurrent" index="0"]
-shape = SubResource("RectangleShape2D_hguw3")
+shape = SubResource("RectangleShape2D_1ydaq")
 
 [node name="CPUParticles2D" parent="Environment/NavigableMap/WaterCurrent" index="1"]
 emission_rect_extents = Vector2(125, 0)

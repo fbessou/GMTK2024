@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://clwiyh64xkgi5"]
+[gd_scene load_steps=47 format=3 uid="uid://clwiyh64xkgi5"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_base.gd" id="1_g6w8l"]
 [ext_resource type="PackedScene" uid="uid://c7xh68riw0kf8" path="res://scenes/Levels/blocks/mediumB.tscn" id="4_tuahn"]
@@ -36,10 +36,10 @@ size = Vector2(6364.55, 129.431)
 resource_local_to_scene = true
 size = Vector2(6412.97, 3724.79)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wblbc"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1qar"]
 size = Vector2(1500, 6500)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p4mmh"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ydlux"]
 size = Vector2(6000, 6500)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_spqom"]
@@ -286,6 +286,60 @@ point_count = 3
 size = Vector2(20, 21.8794)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d7r0j"]
+resource_local_to_scene = true
+shader = ExtResource("12_tufkm")
+shader_parameter/texture_scale = null
+shader_parameter/corruption = 1.0
+shader_parameter/filter_color = Color(1, 1, 1, 1)
+shader_parameter/color_multiplier = 1.0
+shader_parameter/paper_texture = ExtResource("13_y4ls7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ngyjt"]
+resource_local_to_scene = true
+shader = ExtResource("12_tufkm")
+shader_parameter/texture_scale = null
+shader_parameter/corruption = 1.0
+shader_parameter/filter_color = Color(1, 1, 1, 1)
+shader_parameter/color_multiplier = 1.0
+shader_parameter/paper_texture = ExtResource("13_y4ls7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7hktx"]
+resource_local_to_scene = true
+shader = ExtResource("12_tufkm")
+shader_parameter/texture_scale = null
+shader_parameter/corruption = 1.0
+shader_parameter/filter_color = Color(1, 1, 1, 1)
+shader_parameter/color_multiplier = 1.0
+shader_parameter/paper_texture = ExtResource("13_y4ls7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_of1af"]
+resource_local_to_scene = true
+shader = ExtResource("12_tufkm")
+shader_parameter/texture_scale = null
+shader_parameter/corruption = 1.0
+shader_parameter/filter_color = Color(1, 1, 1, 1)
+shader_parameter/color_multiplier = 1.0
+shader_parameter/paper_texture = ExtResource("13_y4ls7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m7aa1"]
+resource_local_to_scene = true
+shader = ExtResource("12_tufkm")
+shader_parameter/texture_scale = null
+shader_parameter/corruption = 1.0
+shader_parameter/filter_color = Color(1, 1, 1, 1)
+shader_parameter/color_multiplier = 1.0
+shader_parameter/paper_texture = ExtResource("13_y4ls7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8jupv"]
+resource_local_to_scene = true
+shader = ExtResource("12_tufkm")
+shader_parameter/texture_scale = null
+shader_parameter/corruption = 1.0
+shader_parameter/filter_color = Color(1, 1, 1, 1)
+shader_parameter/color_multiplier = 1.0
+shader_parameter/paper_texture = ExtResource("13_y4ls7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sqewi"]
 resource_local_to_scene = true
 shader = ExtResource("12_tufkm")
 shader_parameter/texture_scale = null
@@ -565,7 +619,7 @@ bubbles_amount = 50
 bubbles_size = 1.0
 
 [node name="CollisionShape2D" parent="Gameplay Elements/WaterCurrent" index="0"]
-shape = SubResource("RectangleShape2D_wblbc")
+shape = SubResource("RectangleShape2D_v1qar")
 
 [node name="CPUParticles2D" parent="Gameplay Elements/WaterCurrent" index="1"]
 amount = 50
@@ -592,7 +646,7 @@ bubbles_amount = 50
 bubbles_size = 1.0
 
 [node name="CollisionShape2D" parent="Gameplay Elements/WaterCurrent2" index="0"]
-shape = SubResource("RectangleShape2D_p4mmh")
+shape = SubResource("RectangleShape2D_ydlux")
 
 [node name="CPUParticles2D" parent="Gameplay Elements/WaterCurrent2" index="1"]
 amount = 50
@@ -713,27 +767,27 @@ material = SubResource("ShaderMaterial_d7r0j")
 position = Vector2(-304, -413)
 
 [node name="Anchovy2" parent="." instance=ExtResource("19_s582y")]
-material = SubResource("ShaderMaterial_d7r0j")
+material = SubResource("ShaderMaterial_ngyjt")
 position = Vector2(-398, -391)
 
 [node name="Anchovy3" parent="." instance=ExtResource("19_s582y")]
-material = SubResource("ShaderMaterial_d7r0j")
+material = SubResource("ShaderMaterial_7hktx")
 position = Vector2(-314, -360)
 
 [node name="Anchovy4" parent="." instance=ExtResource("19_s582y")]
-material = SubResource("ShaderMaterial_d7r0j")
+material = SubResource("ShaderMaterial_of1af")
 position = Vector2(-404, -329)
 
 [node name="Anchovy5" parent="." instance=ExtResource("19_s582y")]
-material = SubResource("ShaderMaterial_d7r0j")
+material = SubResource("ShaderMaterial_m7aa1")
 position = Vector2(-464, -375)
 
 [node name="Anchovy6" parent="." instance=ExtResource("19_s582y")]
-material = SubResource("ShaderMaterial_d7r0j")
+material = SubResource("ShaderMaterial_8jupv")
 position = Vector2(-457, -462)
 
 [node name="Anchovy7" parent="." instance=ExtResource("19_s582y")]
-material = SubResource("ShaderMaterial_d7r0j")
+material = SubResource("ShaderMaterial_sqewi")
 position = Vector2(-367, -471)
 
 [connection signal="body_entered" from="FanAnim/Area2D" to="FanAnim" method="_on_area_2d_body_entered"]
