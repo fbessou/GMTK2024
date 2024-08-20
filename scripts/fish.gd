@@ -42,6 +42,7 @@ var swimming := false:
 			swimming = s
 			_update_animation()
 
+@onready var _power_off_timer := $PowerOffTimer as Timer
 @onready var _animated_sprite := $AnimatedSprite2D as AnimatedSprite2D
 @onready var _mouth_area:= $MouthArea2D as Area2D
 @onready var food_bubble := $FoodBubble as FoodBubble
@@ -70,13 +71,17 @@ func _ready() -> void:
 	_mouth_area.body_entered.connect(_on_body_entered)
 	_mouth_area.body_exited.connect(_on_body_exited)
 	food_bubble.load_texture_by_fish_type(eat)
+	_power_off_timer.timeout.connect(_power_off)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if state == State.PLAYER:
 		if event.is_action_pressed("fish_power"):
-			_power_on()
+			if _power_off_timer.is_stopped():
+				_power_on()
+			else:
+				_power_off_timer.stop()
 		elif event.is_action_released("fish_power"):
-			_power_off()
+			_power_off_timer.start()
 
 func _physics_process(delta: float) -> void:
 	

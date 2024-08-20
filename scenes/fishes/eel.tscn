@@ -136,7 +136,6 @@ accel = 1300.0
 drag = 0.75
 view_scale = 1.5
 max_inclination = 0.2
-state = 0
 
 [node name="ElectricityArea2D" type="Area2D" parent="." index="0"]
 position = Vector2(-35, 6)
