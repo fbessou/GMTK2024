@@ -49,7 +49,7 @@ colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_qa6cu"]
 gradient = SubResource("Gradient_4re83")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ydaq"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ty82c"]
 size = Vector2(250, 0)
 
 [sub_resource type="Gradient" id="Gradient_hyjtd"]
@@ -838,7 +838,7 @@ gravity = 2400.0
 width = 250
 
 [node name="CollisionShape2D" parent="Environment/NavigableMap/WaterCurrent" index="0"]
-shape = SubResource("RectangleShape2D_1ydaq")
+shape = SubResource("RectangleShape2D_ty82c")
 
 [node name="CPUParticles2D" parent="Environment/NavigableMap/WaterCurrent" index="1"]
 emission_rect_extents = Vector2(125, 0)
