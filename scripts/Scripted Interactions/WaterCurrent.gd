@@ -3,6 +3,7 @@ extends Area2D
 
 @onready var collision_shape := %CollisionShape2D as CollisionShape2D
 @onready var particles := %CPUParticles2D as CPUParticles2D
+@onready var audio := $WaterCurrentAudio as AudioStreamPlayer2D
 
 @export_range(0, 10000, 1, "suffix:px") var width: int:
 	set(new_width):
@@ -33,7 +34,12 @@ extends Area2D
 		bubbles_size = size
 		if particles != null:
 			update_dimensions()
-			
+
+@export var audio_max_distance := 2000:
+	set(distance):
+		audio_max_distance = distance
+		_update_audio()
+
 func update_dimensions() -> void:
 	if collision_shape == null:
 		return
@@ -52,4 +58,11 @@ func update_dimensions() -> void:
 
 func _ready() -> void:
 	update_dimensions()
+	_update_audio()
 	gravity_direction = Vector2.from_angle(rotation + PI/2.)
+
+func _update_audio() -> void:
+	if audio == null:
+		return
+	
+	audio.max_distance = audio_max_distance
