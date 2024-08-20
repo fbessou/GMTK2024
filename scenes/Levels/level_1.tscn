@@ -921,6 +921,7 @@ gravity = 2400.0
 width = 240
 length = 130
 bubbles_amount = 20
+audio_max_distance = 700
 
 [node name="PlanktonsBg1" type="Node2D" parent="Environment"]
 modulate = Color(1, 1, 1, 0.184314)
@@ -1092,10 +1093,10 @@ visible = false
 [node name="ElectricitySprite" parent="CaveEelPosition/Cave Eel/ElectricityArea2D" index="0"]
 visible = false
 
-[node name="MouthArea2D" parent="CaveEelPosition/Cave Eel" index="3"]
+[node name="MouthArea2D" parent="CaveEelPosition/Cave Eel" index="4"]
 position = Vector2(130.563, -13.9751)
 
-[node name="FoodBubble" parent="CaveEelPosition/Cave Eel" index="4"]
+[node name="FoodBubble" parent="CaveEelPosition/Cave Eel" index="5"]
 visible = false
 material = SubResource("ShaderMaterial_01v07")
 
