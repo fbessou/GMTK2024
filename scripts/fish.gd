@@ -45,7 +45,7 @@ var swimming := false:
 @onready var _power_off_timer := $PowerOffTimer as Timer
 @onready var _animated_sprite := $AnimatedSprite2D as AnimatedSprite2D
 @onready var _mouth_area:= $MouthArea2D as Area2D
-@onready var food_bubble := $FoodBubble as FoodBubble
+# @onready var food_bubble := $FoodBubble as FoodBubble
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var corruption_audio: AudioStreamPlayer2D = $CorruptionAudio
 @onready var scare_sfx: AudioStreamPlayer2D = $ScareSFX
@@ -56,7 +56,7 @@ func _ready() -> void:
 	_update_animation()
 	assert(_animated_sprite != null)
 	assert(_mouth_area != null)
-	assert(food_bubble != null)
+	# assert(food_bubble != null)
 	assert(_mouth_area.collision_layer == 0x4)
 	assert(_mouth_area.collision_mask == 0x4)
 	match(state):
@@ -70,7 +70,7 @@ func _ready() -> void:
 			freeze()
 	_mouth_area.body_entered.connect(_on_body_entered)
 	_mouth_area.body_exited.connect(_on_body_exited)
-	food_bubble.load_texture_by_fish_type(eat)
+	# food_bubble.load_texture_by_fish_type(eat)
 	_power_off_timer.timeout.connect(_power_off)
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -187,14 +187,15 @@ func _on_body_entered(body: Fish) -> void:
 	if(body == self || eat == 0):
 		return
 	if(body.kind == eat && body.state == Fish.State.PLAYER):
-		food_bubble.hide_bubble()
+		# food_bubble.hide_bubble()
 		body.freeze()
 		collision_layer = 0x0
 		target = body
 		# NPC fish eats target
 		lerp_to_target_tween()
 	else:
-		food_bubble.show_bubble()
+		pass
+		# food_bubble.show_bubble()
 
 func freeze() -> void:
 	state = State.FROZEN
@@ -217,8 +218,9 @@ func switch_to_npc() -> void:
 	collision_layer = 0x2
 
 func _on_body_exited(_body: Fish) -> void:
-	food_bubble.hide_bubble()
-	
+	# food_bubble.hide_bubble()
+	pass
+
 func lerp_to_target_tween() -> void:
 	var current_cam := get_viewport().get_camera_2d()
 	
