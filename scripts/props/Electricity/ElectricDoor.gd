@@ -11,11 +11,9 @@ var isPowered: bool = false
 
 func _ready() -> void:
 	startPos = position
-	print(startPos)
 
 func _physics_process(delta: float) -> void:
 	if(isPowered && position.y > startPos.y - max_height):
-		print(position)
 		position.y -= delta * rise_speed
 	if(!isPowered && position.y < startPos.y):
 		position.y += delta * fall_speed

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://clwiyh64xkgi5"]
+[gd_scene load_steps=74 format=3 uid="uid://clwiyh64xkgi5"]
 
 [ext_resource type="PackedScene" uid="uid://n41mpk740rjq" path="res://scenes/Levels/water_current.tscn" id="7_2cjxs"]
 [ext_resource type="PackedScene" uid="uid://peng5fbet5c1" path="res://scenes/fishes/plankton.tscn" id="7_4yu1g"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c6qm3hxg04wsm" path="res://scenes/props/Electricity/ElectricFan.tscn" id="13_45m4p"]
 [ext_resource type="Texture2D" uid="uid://bqec3tilerluy" path="res://assets/textures/Paper001_1K-JPG_Color.jpg" id="13_y4ls7"]
 [ext_resource type="PackedScene" uid="uid://y5tse4gg3ruo" path="res://scenes/props/Electricity/power_box.tscn" id="14_og1kl"]
+[ext_resource type="PackedScene" uid="uid://d0kb6abw1g61t" path="res://scenes/fishes/puffer.tscn" id="14_ycrgr"]
 [ext_resource type="PackedScene" uid="uid://b636jpaq28beq" path="res://scenes/props/Electricity/ElectricDoor.tscn" id="15_rcq5r"]
 [ext_resource type="PackedScene" uid="uid://diht24l3hw71d" path="res://scenes/fishes/eel.tscn" id="16_if5bj"]
 
@@ -23,9 +24,8 @@ shader_parameter/filter_color = Color(1, 1, 1, 1)
 shader_parameter/color_multiplier = 1.0
 shader_parameter/paper_texture = ExtResource("13_y4ls7")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jss7i"]
-resource_local_to_scene = true
-size = Vector2(6412.97, 704.078)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dsj45"]
+size = Vector2(6364.55, 129.431)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ngh78"]
 resource_local_to_scene = true
@@ -35,10 +35,10 @@ size = Vector2(6412.97, 3724.79)
 resource_local_to_scene = true
 size = Vector2(6412.97, 704.078)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4810h"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_evxk8"]
 size = Vector2(1500, 6500)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sjgjn"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_suli1"]
 size = Vector2(6000, 6500)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_spqom"]
@@ -52,6 +52,9 @@ shader_parameter/corruption = 1.0
 shader_parameter/filter_color = Color(1, 1, 1, 1)
 shader_parameter/color_multiplier = 1.0
 shader_parameter/paper_texture = ExtResource("13_y4ls7")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ew8dl"]
+size = Vector2(207, 781)
 
 [sub_resource type="Shader" id="Shader_tutpu"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.3.stable's CanvasItemMaterial.
@@ -92,7 +95,7 @@ shader_parameter/color_multiplier = 1.0
 shader_parameter/paper_texture = ExtResource("13_y4ls7")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_akdv5"]
-size = Vector2(344, 1049)
+size = Vector2(344, 1494.11)
 
 [sub_resource type="Animation" id="Animation_p8xwx"]
 resource_name = "Death"
@@ -112,7 +115,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Eel/Camera2D:position")
+tracks/1/path = NodePath("../Puffer/Camera2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -124,7 +127,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Eel/Camera2D:zoom")
+tracks/2/path = NodePath("../Puffer/Camera2D:zoom")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -164,10 +167,10 @@ tracks/5/path = NodePath("../Eel/DeathSprite/Front:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 7.93333),
+"times": PackedFloat32Array(0, 7.9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(-722.072, 1992.2)]
+"values": [Vector2(0, 0), Vector2(-385.025, 1222.46)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -181,13 +184,25 @@ tracks/6/keys = {
 "update": 0,
 "values": [Vector2(152, 0), Vector2(1333.13, 364.036)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Eel/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="Animation" id="Animation_h3adt"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Eel/Camera2D:position")
+tracks/0/path = NodePath("../Puffer/Camera2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -199,7 +214,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Eel/Camera2D:zoom")
+tracks/1/path = NodePath("../Puffer/Camera2D:zoom")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -256,6 +271,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(152, 0)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Eel/CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_848ht"]
 _data = {
@@ -264,6 +291,240 @@ _data = {
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qfgqb"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_whean"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yk3na"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qskl7"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y13uw"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y6dk4"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jq5cq"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tjwc0"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3qi0o"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_flhen"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i5bf3"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_npuyp"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dhu5r"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p6vqj"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_inqqq"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_38bho"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3gxcd"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n0ecp"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cb1cm"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sna0k"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tg1od"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t6rhn"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xt7tq"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2dkyh"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i0eih"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fs5d3"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h56mu"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_346pq"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qxi80"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_isoqx"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oameh"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_miaxu"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pwqw2"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xd1ox"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1k322"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oggjd"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ug50v"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m7vg3"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lpukc"]
+resource_local_to_scene = true
+shader = ExtResource("12_rj7b5")
+shader_parameter/proximity = 1.0
+shader_parameter/plankton_contamination = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ka7lt"]
 resource_local_to_scene = true
 shader = ExtResource("12_rj7b5")
 shader_parameter/proximity = 1.0
@@ -316,6 +577,15 @@ shader_parameter/filter_color = Color(1, 1, 1, 1)
 shader_parameter/color_multiplier = 1.0
 shader_parameter/paper_texture = ExtResource("13_y4ls7")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1hlv8"]
+resource_local_to_scene = true
+shader = ExtResource("12_tufkm")
+shader_parameter/texture_scale = 0.5
+shader_parameter/corruption = 1.0
+shader_parameter/filter_color = Color(1, 1, 1, 1)
+shader_parameter/color_multiplier = 1.0
+shader_parameter/paper_texture = ExtResource("13_y4ls7")
+
 [node name="Level2" type="Node2D"]
 
 [node name="Plankton" parent="." instance=ExtResource("7_4yu1g")]
@@ -334,7 +604,7 @@ position = Vector2(-135, -378)
 z_index = -1000
 position = Vector2(16, 32)
 color = Color(0.305882, 0.403922, 0.4, 1)
-polygon = PackedVector2Array(-1, -12, 6369, -445, 6426, 631, 1302, 694, -8, 708)
+polygon = PackedVector2Array(-1, -54, 6327, -470, 6391, 634, 1302, 694, -8, 708, -7.03955, 603.446)
 
 [node name="Midground" type="Parallax2D" parent="Parallax"]
 scroll_scale = Vector2(0.9, 0.9)
@@ -370,7 +640,7 @@ polygon = PackedVector2Array(-5087, -5125, -162, -4425, 2044, -2084, 8664, -685,
 [node name="LevelBound" type="Polygon2D" parent="Level Boundaries"]
 position = Vector2(-1100, 706)
 color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(951, -1064, 7332, -1497, 7275, -2605, 7032, -3064, 6688, -3376, 6007, -3500, 881, -3454)
+polygon = PackedVector2Array(951, -1064, 1453.13, -1098.07, 1452, -1122, 1620, -1138, 1618.78, -1109.31, 1737.04, -1117.34, 1732, -1154, 1924, -1170, 1932, -1138, 2082.31, -1147.99, 2076, -1170, 2252, -1186, 2252, -1162, 7332, -1497, 7275, -2605, 7032, -3064, 6688, -3376, 6007, -3500, 881, -3454)
 
 [node name="LevelBound2" type="Polygon2D" parent="Level Boundaries"]
 position = Vector2(7381, 3035)
@@ -387,6 +657,21 @@ scale = Vector2(1.3933, 1)
 color = Color(0.00784314, 0.756863, 0.772549, 1)
 polygon = PackedVector2Array(3692.82, 485, 5369.99, 91, 5622.63, 403, 5695.12, 71, 5970.01, -171, 6107.81, 181, 6382.7, -151, 7612.15, -242, 7742.78, -423, 7660, -955, 3660.52, -1257)
 
+[node name="Fake Light" type="Polygon2D" parent="Level Boundaries"]
+position = Vector2(-40, -192)
+color = Color(0.286406, 0.741334, 0.667739, 0.337255)
+polygon = PackedVector2Array(392, -224, 376, 520, 648, 520, 560, -240)
+
+[node name="Fake Light2" type="Polygon2D" parent="Level Boundaries"]
+position = Vector2(256, -224)
+color = Color(0.286406, 0.741334, 0.667739, 0.337255)
+polygon = PackedVector2Array(376, -224, 360, 544, 656, 544, 572, -242)
+
+[node name="Fake Light3" type="Polygon2D" parent="Level Boundaries"]
+position = Vector2(600, -240)
+color = Color(0.286406, 0.741334, 0.667739, 0.337255)
+polygon = PackedVector2Array(376, -232, 376, 560, 656, 560, 552, -240)
+
 [node name="Colliders" type="Node2D" parent="."]
 position = Vector2(-1366, -78)
 
@@ -395,8 +680,10 @@ position = Vector2(4320, -571)
 rotation = -0.0693006
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Roof"]
-position = Vector2(79.2112, -280.039)
-shape = SubResource("RectangleShape2D_jss7i")
+position = Vector2(87.5117, 10.084)
+rotation = 3.14159
+shape = SubResource("RectangleShape2D_dsj45")
+one_way_collision = true
 
 [node name="Roof2" type="StaticBody2D" parent="Colliders"]
 position = Vector2(12764, -161)
@@ -442,9 +729,14 @@ associated_powerable = NodePath("../ElectricFan")
 position = Vector2(6435, -320)
 rotation = -1.44
 
+[node name="helix" parent="Gameplay Elements/ElectricFan/Holder" index="1"]
+collision_mask = 0
+
 [node name="WaterCurrent" parent="Gameplay Elements" instance=ExtResource("7_2cjxs")]
 position = Vector2(8510, 1855)
 rotation = -1.5265
+gravity_point_center = Vector2(0.999019, 0.0442779)
+gravity_direction = Vector2(0.999019, 0.0442779)
 gravity = 0.0
 width = 1500
 length = 6500
@@ -452,7 +744,7 @@ bubbles_amount = 50
 bubbles_size = 1.0
 
 [node name="CollisionShape2D" parent="Gameplay Elements/WaterCurrent" index="0"]
-shape = SubResource("RectangleShape2D_4810h")
+shape = SubResource("RectangleShape2D_evxk8")
 
 [node name="CPUParticles2D" parent="Gameplay Elements/WaterCurrent" index="1"]
 amount = 50
@@ -469,8 +761,8 @@ volume_db = -80.0
 [node name="WaterCurrent2" parent="Gameplay Elements" instance=ExtResource("7_2cjxs")]
 position = Vector2(8585, -3228)
 rotation = -0.743349
-gravity_point_center = Vector2(0.999019, 0.0442779)
-gravity_direction = Vector2(0.999019, 0.0442779)
+gravity_point_center = Vector2(0.676757, 0.736206)
+gravity_direction = Vector2(0.676757, 0.736206)
 gravity = 5000.0
 width = 6000
 length = 6500
@@ -479,7 +771,7 @@ bubbles_amount = 50
 bubbles_size = 1.0
 
 [node name="CollisionShape2D" parent="Gameplay Elements/WaterCurrent2" index="0"]
-shape = SubResource("RectangleShape2D_sjgjn")
+shape = SubResource("RectangleShape2D_suli1")
 
 [node name="CPUParticles2D" parent="Gameplay Elements/WaterCurrent2" index="1"]
 amount = 50
@@ -509,24 +801,34 @@ shape = SubResource("RectangleShape2D_spqom")
 
 [node name="Eel" parent="." instance=ExtResource("16_if5bj")]
 material = SubResource("ShaderMaterial_x47c0")
-position = Vector2(4546, -72)
-state = 0
+position = Vector2(369.001, -839)
+scale = Vector2(1.5585, 1.5585)
+view_scale = 1.0
+eat = 2
+facing = 1
+
+[node name="CollisionShape2D" parent="Eel" index="3"]
+position = Vector2(55.1814, -0.641605)
+
+[node name="MouthArea2D" parent="Eel" index="4"]
+position = Vector2(352.263, 286.815)
+
+[node name="CollisionShape2D2" parent="Eel/MouthArea2D" index="0"]
+position = Vector2(107.5, 247.5)
+shape = SubResource("RectangleShape2D_ew8dl")
 
 [node name="FoodBubble" parent="Eel" index="5"]
 material = SubResource("ShaderMaterial_dp5pt")
-
-[node name="Camera2D" type="Camera2D" parent="Eel"]
-zoom = Vector2(0.5, 0.5)
 
 [node name="FanAnim" type="Node2D" parent="."]
 script = ExtResource("7_wwdv2")
 
 [node name="Area2D" type="Area2D" parent="FanAnim"]
 position = Vector2(6391, 0)
-collision_mask = 6
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FanAnim/Area2D"]
-position = Vector2(122, -278)
+position = Vector2(384, -290)
 rotation = -0.0509207
 shape = SubResource("RectangleShape2D_akdv5")
 
@@ -550,159 +852,159 @@ material = SubResource("ShaderMaterial_qfgqb")
 position = Vector2(-141, -37)
 
 [node name="AnimatedSpritePlanktonBg2" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_whean")
 position = Vector2(-100, 11)
 
 [node name="AnimatedSpritePlanktonBg3" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_yk3na")
 position = Vector2(-62, 41)
 
 [node name="AnimatedSpritePlanktonBg4" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_qskl7")
 position = Vector2(108, -62)
 
 [node name="AnimatedSpritePlanktonBg5" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_y13uw")
 position = Vector2(56, 79)
 
 [node name="AnimatedSpritePlanktonBg6" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_y6dk4")
 position = Vector2(-133, 71)
 
 [node name="AnimatedSpritePlanktonBg7" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_jq5cq")
 position = Vector2(-19, -79)
 
 [node name="AnimatedSpritePlanktonBg8" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_tjwc0")
 position = Vector2(70, 14)
 
 [node name="AnimatedSpritePlanktonBg9" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_3qi0o")
 position = Vector2(21, -49)
 
 [node name="AnimatedSpritePlanktonBg10" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_flhen")
 position = Vector2(-46, -33)
 
 [node name="AnimatedSpritePlanktonBg11" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_i5bf3")
 position = Vector2(-206.6, 160.4)
 
 [node name="AnimatedSpritePlanktonBg12" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_npuyp")
 position = Vector2(-165.6, 208.4)
 
 [node name="AnimatedSpritePlanktonBg13" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_dhu5r")
 position = Vector2(-127.6, 238.4)
 
 [node name="AnimatedSpritePlanktonBg14" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_p6vqj")
 position = Vector2(42.3999, 135.4)
 
 [node name="AnimatedSpritePlanktonBg15" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_inqqq")
 position = Vector2(-9.60009, 276.4)
 
 [node name="AnimatedSpritePlanktonBg16" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_38bho")
 position = Vector2(-198.6, 268.4)
 
 [node name="AnimatedSpritePlanktonBg17" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_3gxcd")
 position = Vector2(-84.6001, 118.4)
 
 [node name="AnimatedSpritePlanktonBg18" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_n0ecp")
 position = Vector2(4.3999, 211.4)
 
 [node name="AnimatedSpritePlanktonBg19" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_cb1cm")
 position = Vector2(-44.6001, 148.4)
 
 [node name="AnimatedSpritePlanktonBg20" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_sna0k")
 position = Vector2(-111.6, 164.4)
 
 [node name="AnimatedSpritePlanktonBg21" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_tg1od")
 position = Vector2(-134.6, 352.4)
 
 [node name="AnimatedSpritePlanktonBg22" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_t6rhn")
 position = Vector2(-93.6001, 400.4)
 
 [node name="AnimatedSpritePlanktonBg23" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_xt7tq")
 position = Vector2(-55.6001, 430.4)
 
 [node name="AnimatedSpritePlanktonBg24" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_2dkyh")
 position = Vector2(114.4, 327.4)
 
 [node name="AnimatedSpritePlanktonBg25" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_i0eih")
 position = Vector2(62.3999, 468.4)
 
 [node name="AnimatedSpritePlanktonBg26" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_fs5d3")
 position = Vector2(-126.6, 460.4)
 
 [node name="AnimatedSpritePlanktonBg27" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_h56mu")
 position = Vector2(-12.6001, 310.4)
 
 [node name="AnimatedSpritePlanktonBg28" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_346pq")
 position = Vector2(76.3999, 403.4)
 
 [node name="AnimatedSpritePlanktonBg29" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_qxi80")
 position = Vector2(27.3999, 340.4)
 
 [node name="AnimatedSpritePlanktonBg30" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_isoqx")
 position = Vector2(-39.6001, 356.4)
 
 [node name="AnimatedSpritePlanktonBg31" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_oameh")
 position = Vector2(-38.6001, -321.6)
 
 [node name="AnimatedSpritePlanktonBg32" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_miaxu")
 position = Vector2(2.3999, -273.6)
 
 [node name="AnimatedSpritePlanktonBg33" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_pwqw2")
 position = Vector2(40.3999, -243.6)
 
 [node name="AnimatedSpritePlanktonBg34" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_xd1ox")
 position = Vector2(210.4, -346.6)
 
 [node name="AnimatedSpritePlanktonBg35" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_1k322")
 position = Vector2(158.4, -205.6)
 
 [node name="AnimatedSpritePlanktonBg36" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_oggjd")
 position = Vector2(-30.6001, -213.6)
 
 [node name="AnimatedSpritePlanktonBg37" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_ug50v")
 position = Vector2(83.3999, -363.6)
 
 [node name="AnimatedSpritePlanktonBg38" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_m7vg3")
 position = Vector2(172.4, -270.6)
 
 [node name="AnimatedSpritePlanktonBg39" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_lpukc")
 position = Vector2(123.4, -333.6)
 
 [node name="AnimatedSpritePlanktonBg40" parent="Planktons" instance=ExtResource("11_jpfhv")]
-material = SubResource("ShaderMaterial_qfgqb")
+material = SubResource("ShaderMaterial_ka7lt")
 position = Vector2(56.3999, -317.6)
 
 [node name="Whale" parent="." instance=ExtResource("13_8dm4n")]
@@ -717,8 +1019,18 @@ position = Vector2(-158, -287)
 [node name="FoodBubble" parent="Whale" index="3"]
 material = SubResource("ShaderMaterial_n20p0")
 
+[node name="Puffer" parent="." instance=ExtResource("14_ycrgr")]
+material = SubResource("ShaderMaterial_1hlv8")
+position = Vector2(192, 32)
+state = 0
+
+[node name="Camera2D" type="Camera2D" parent="Puffer"]
+rotation = 1.57079
+zoom = Vector2(0.5, 0.5)
+
 [connection signal="body_entered" from="FanAnim/Area2D" to="FanAnim" method="_on_area_2d_body_entered"]
 
+[editable path="Gameplay Elements/ElectricFan"]
 [editable path="Gameplay Elements/WaterCurrent"]
 [editable path="Gameplay Elements/WaterCurrent2"]
 [editable path="Eel"]

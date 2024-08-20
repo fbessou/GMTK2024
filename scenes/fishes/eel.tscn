@@ -45,7 +45,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x2rn5"]
-radius = 355.879
+radius = 324.395
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r42i2"]
 animations = [{
@@ -80,10 +80,10 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4dyx7"]
 radius = 35.0
-height = 500.0
+height = 379.854
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cmsqg"]
-radius = 121.037
+radius = 368.782
 
 [sub_resource type="Shader" id="Shader_tutpu"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.3.stable's CanvasItemMaterial.

@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6qm3hxg04wsm"]
+[gd_scene load_steps=4 format=3 uid="uid://c6qm3hxg04wsm"]
 
 [ext_resource type="Script" path="res://scripts/props/Electricity/ElectricFan.gd" id="1_5u37k"]
 [ext_resource type="Texture2D" uid="uid://1ey81c16ap12" path="res://assets/textures/props/Electricity/Fan.png" id="2_waket"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qh0ow"]
+radius = 227.994
+height = 804.589
 
 [node name="ElectricFan" type="Node2D"]
 script = ExtResource("1_5u37k")
@@ -11,3 +15,16 @@ script = ExtResource("1_5u37k")
 [node name="Sprite2D" type="Sprite2D" parent="Holder"]
 position = Vector2(-85, -45)
 texture = ExtResource("2_waket")
+
+[node name="helix" type="StaticBody2D" parent="Holder"]
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Holder/helix"]
+position = Vector2(-206, 23)
+rotation = -1.7314
+shape = SubResource("CapsuleShape2D_qh0ow")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Holder/helix"]
+position = Vector2(93, -243)
+rotation = -2.92097
+shape = SubResource("CapsuleShape2D_qh0ow")
