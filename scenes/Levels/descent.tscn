@@ -539,11 +539,13 @@ position = Vector2(5905, -1152)
 polygon = PackedVector2Array(-41168, 3852, -39858, 3126, -38205, 3469, -37761, 4376, -39454, 6513, -42204, 7400, -42829, 6976, -42619, 6614)
 
 [node name="BreakableWall" parent="Environment/NavigableMap" instance=ExtResource("3_bjfl5")]
+modulate = Color(0.505882, 0.505882, 0.505882, 1)
 position = Vector2(4417, -1143)
 scale = Vector2(1.47442, 1.47442)
 speedThreshold = 2000.0
 
 [node name="BreakableWall2" parent="Environment/NavigableMap" instance=ExtResource("3_bjfl5")]
+modulate = Color(0.505882, 0.505882, 0.505882, 1)
 position = Vector2(9150, 6377)
 speedThreshold = 3000.0
 
