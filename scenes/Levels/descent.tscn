@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://cor46uhgncphp" path="res://scenes/props/breakable_wall.tscn" id="3_bjfl5"]
 [ext_resource type="Script" path="res://scripts/levels/descent_section_2.gd" id="3_c75tw"]
 [ext_resource type="Texture2D" uid="uid://c4vawkp3yxbfq" path="res://assets/textures/props/coral/branch/coral_branch.png" id="3_u4ngv"]
-[ext_resource type="SpriteFrames" path="res://resources/sprites_frames/whale_in_background.tres" id="3_wqpma"]
+[ext_resource type="SpriteFrames" uid="uid://4w3454s6rdd" path="res://resources/sprites_frames/whale_in_background.tres" id="3_wqpma"]
 [ext_resource type="Texture2D" uid="uid://birpdwq3i2i3r" path="res://assets/textures/props/seaweed/varech/frame0000.png" id="4_41lef"]
-[ext_resource type="SpriteFrames" path="res://resources/sprites_frames/moving_seaweed_leaves.tres" id="5_w1lby"]
-[ext_resource type="SpriteFrames" path="res://resources/sprites_frames/moving_varech.tres" id="6_3lwsr"]
+[ext_resource type="SpriteFrames" uid="uid://cco55udwpcl8k" path="res://resources/sprites_frames/moving_seaweed_leaves.tres" id="5_w1lby"]
+[ext_resource type="SpriteFrames" uid="uid://but02ghwh5lnt" path="res://resources/sprites_frames/moving_varech.tres" id="6_3lwsr"]
 [ext_resource type="PackedScene" uid="uid://c2to2hb2q2wvb" path="res://scenes/Levels/blocks/curveA.tscn" id="6_dbfvp"]
 [ext_resource type="Texture2D" uid="uid://cpo3bbvjuxfq7" path="res://assets/textures/props/ships/shipwreck.png" id="7_eqndf"]
 [ext_resource type="PackedScene" uid="uid://bitk4x3pdmgjb" path="res://scenes/Levels/blocks/largeA.tscn" id="7_nskjf"]
@@ -194,7 +194,6 @@ repeat_size = Vector2(50000, 0)
 repeat_times = 3
 
 [node name="Polygon2D" type="Polygon2D" parent="Parallax/Background"]
-visible = false
 position = Vector2(1636, -3437)
 polygon = PackedVector2Array(-81421, 15536, -81656, 970, -79858, 850, -78156, 275, -76694, -324, -74872, -564, -74272, -1523, -73834, -1576, -73505, -1116, -72839, -750, -71233, -770, -70487, -729, -69842, 57, -69492, 218, -68189, 920, -67309, 1160, -66317, 1288, -65296, 1055, -64841, 1247, -64505, 1415, -64037, 1822, -63726, 2098, -63546, 456, -63366, 312, -63168, 1107, -60424, -544, -54786, -1255, -50417, 66, -48614, 1691, -47887, 1752, -48008, 1369, -47504, 1066, -46697, 1248, -46899, 1671, -43391, 1893, -39970, 1026, -38059, -534, -36167, -115, -31657, 913, -30676, 16905)
 
