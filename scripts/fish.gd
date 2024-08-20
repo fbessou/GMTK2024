@@ -75,8 +75,10 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if state == State.PLAYER:
 		if event.is_action_pressed("fish_power"):
-			_power_off_timer.stop()
-			_power_on()
+			if _power_off_timer.is_stopped():
+				_power_on()
+			else:
+				_power_off_timer.stop()
 		elif event.is_action_released("fish_power"):
 			_power_off_timer.start()
 
