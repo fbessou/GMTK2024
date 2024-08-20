@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://but02ghwh5lnt"]
+
+[ext_resource type="Texture2D" uid="uid://blp10gutwxb3b" path="res://assets/textures/props/seaweed/movingvarech/frame0000.png" id="1_14x8l"]
+[ext_resource type="Texture2D" uid="uid://c64dhyr8nr84d" path="res://assets/textures/props/seaweed/movingvarech/frame0001.png" id="2_itlxe"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_14x8l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_itlxe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
