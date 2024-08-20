@@ -1889,6 +1889,7 @@ rotation = 0.962107
 
 [node name="EndingMusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("50_t0lqw")
+bus = &"Music"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("47_0u8sj")
