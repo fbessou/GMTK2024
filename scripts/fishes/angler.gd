@@ -15,9 +15,6 @@ func _ready() -> void:
 	_switch_to_light_mode()
 	halo = false
 
-func _power_on() -> void:
-	halo = not halo
-
 func _flip_horizontal(flip: bool) -> void:
 	super(flip)
 	var light := $PointLight2D as Node2D
