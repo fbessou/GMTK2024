@@ -69,6 +69,8 @@ func _create_plankton() -> PlanktonIdle:
 
 func start_game() -> void:
 	# Ensure rune is at its final position
+	($"../Control Hints/Movement Hints" as Node2D).show()
+	($"../Control Hints/Movement Hints2" as Node2D).show()
 	rune.global_position = rune_path.global_transform * rune_path.curve.get_point_position(rune_path.curve.point_count-1)
 	var rune_mat := rune.material as ShaderMaterial
 	rune_mat.set_shader_parameter("power", 0)

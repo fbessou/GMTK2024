@@ -35,7 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://diht24l3hw71d" path="res://scenes/fishes/eel.tscn" id="25_jj37f"]
 [ext_resource type="Script" path="res://scripts/Scripted Interactions/CaveEel.gd" id="26_661jo"]
 [ext_resource type="AudioStream" uid="uid://c7fnvwjjve3bi" path="res://assets/audio/sounds/eat.mp3" id="32_xel2m"]
-[ext_resource type="PackedScene" path="res://scenes/ui/control_hint.tscn" id="36_suhe7"]
+[ext_resource type="PackedScene" uid="uid://c7yybqrth1w86" path="res://scenes/ui/control_hint.tscn" id="36_suhe7"]
 [ext_resource type="AudioStream" uid="uid://t4xg3k0l0eka" path="res://assets/audio/sounds/eel_fleeing.mp3" id="36_ucpjy"]
 [ext_resource type="Texture2D" uid="uid://d3c2o4vnku87p" path="res://assets/textures/ui/button_hint_bg.png" id="37_c48jj"]
 [ext_resource type="Script" path="res://scripts/ui/controls_intro.gd" id="37_koofq"]
@@ -49,7 +49,7 @@ colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_qa6cu"]
 gradient = SubResource("Gradient_4re83")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0cxjv"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hguw3"]
 size = Vector2(250, 0)
 
 [sub_resource type="Gradient" id="Gradient_hyjtd"]
@@ -145,36 +145,25 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
-tracks/3/type = "method"
+tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath(".")
+tracks/3/path = NodePath("%PlayerPlankton:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("%PlayerPlankton:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [3.99506]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("%PlayerPlankton:material:shader_parameter/corruption")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%PlayerPlankton:material:shader_parameter/corruption")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -849,7 +838,7 @@ gravity = 2400.0
 width = 250
 
 [node name="CollisionShape2D" parent="Environment/NavigableMap/WaterCurrent" index="0"]
-shape = SubResource("RectangleShape2D_0cxjv")
+shape = SubResource("RectangleShape2D_hguw3")
 
 [node name="CPUParticles2D" parent="Environment/NavigableMap/WaterCurrent" index="1"]
 emission_rect_extents = Vector2(125, 0)
@@ -1105,6 +1094,7 @@ scale = Vector2(6.77237, 6.77237)
 polygon = PackedVector2Array(-254, 345, -233, 293, -229, 295, -250, 347)
 
 [node name="Movement Hints" type="Node2D" parent="Control Hints"]
+visible = false
 modulate = Color(0.854902, 0.972549, 0.890196, 1)
 position = Vector2(-313, 331)
 scale = Vector2(0.448863, 0.452401)
@@ -1140,7 +1130,14 @@ offset_right = 66.504
 offset_bottom = 123.732
 text = "W"
 
+[node name="Polygon2D" type="Polygon2D" parent="Control Hints/Movement Hints"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(697.317, -731.652)
+scale = Vector2(2.22785, 2.21043)
+polygon = PackedVector2Array(-254, 345, -233, 293, -229, 295, -250, 347)
+
 [node name="Movement Hints2" type="Node2D" parent="Control Hints"]
+visible = false
 modulate = Color(0.854902, 0.972549, 0.890196, 1)
 position = Vector2(-214, 331)
 scale = Vector2(0.448863, 0.452401)
@@ -1231,10 +1228,6 @@ text = "USE"
 label_settings = SubResource("LabelSettings_0028d")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Polygon2D" type="Polygon2D" parent="Control Hints"]
-modulate = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(-254, 345, -233, 293, -229, 295, -250, 347)
 
 [connection signal="body_entered" from="Environment/NavigableMap/WaterCurrent" to="Control Hints" method="_on_water_current_body_entered"]
 [connection signal="body_entered" from="CaveEelPosition/Cave Eel/Scare Anim Area" to="CaveEelPosition/Cave Eel" method="_on_scare_anim_area_body_entered"]

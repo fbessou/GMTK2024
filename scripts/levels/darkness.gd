@@ -26,7 +26,7 @@ func _on_body_entered_tunnel(body: Node2D) -> void:
 	
 	# Play ending animation with Cthulhu
 	fish.freeze()
-	($Camera2D as Camera2D).enabled = false
+	(%Camera2D as Camera2D).enabled = false
 	(%AnimatedCamera as Camera2D).enabled = true
 	animation.play("ending")
 	await animation.animation_finished
