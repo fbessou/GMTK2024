@@ -1,0 +1,124 @@
+[gd_scene load_steps=11 format=3 uid="uid://clwiyh64xkgi5"]
+
+[ext_resource type="Script" path="res://scripts/Scripted Interactions/FanDeath.gd" id="7_wwdv2"]
+[ext_resource type="Shader" path="res://resources/shaders/paper.gdshader" id="12_tufkm"]
+[ext_resource type="PackedScene" uid="uid://c6qm3hxg04wsm" path="res://scenes/props/Electricity/ElectricFan.tscn" id="13_45m4p"]
+[ext_resource type="Texture2D" uid="uid://bqec3tilerluy" path="res://assets/textures/Paper001_1K-JPG_Color.jpg" id="13_y4ls7"]
+[ext_resource type="PackedScene" uid="uid://y5tse4gg3ruo" path="res://scenes/props/Electricity/power_box.tscn" id="14_og1kl"]
+[ext_resource type="PackedScene" uid="uid://b636jpaq28beq" path="res://scenes/props/Electricity/ElectricDoor.tscn" id="15_rcq5r"]
+[ext_resource type="PackedScene" uid="uid://diht24l3hw71d" path="res://scenes/fishes/eel.tscn" id="16_if5bj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jss7i"]
+size = Vector2(6412.97, 704.078)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x47c0"]
+resource_local_to_scene = true
+shader = ExtResource("12_tufkm")
+shader_parameter/texture_scale = 0.5
+shader_parameter/corruption = 1.0
+shader_parameter/filter_color = Color(1, 1, 1, 1)
+shader_parameter/color_multiplier = 1.0
+shader_parameter/paper_texture = ExtResource("13_y4ls7")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_akdv5"]
+size = Vector2(344, 1049)
+
+[node name="Level2" type="Node2D"]
+
+[node name="Parallax" type="Node2D" parent="."]
+position = Vector2(-135, -378)
+
+[node name="Background" type="Parallax2D" parent="Parallax"]
+
+[node name="Polygon2D" type="Polygon2D" parent="Parallax/Background"]
+z_index = -1000
+position = Vector2(-2, 14)
+color = Color(0.305882, 0.403922, 0.4, 1)
+polygon = PackedVector2Array(-1, -12, 6369, -445, 6426, 631, 1302, 694, -8, 708)
+
+[node name="Midground" type="Parallax2D" parent="Parallax"]
+scroll_scale = Vector2(0.5, 0.5)
+scroll_offset = Vector2(-96, -158)
+repeat_size = Vector2(1920, 0)
+repeat_times = 2
+
+[node name="Foreground Parallax" type="Parallax2D" parent="Parallax"]
+visible = false
+z_index = 1000
+scroll_scale = Vector2(1.3, 1.3)
+scroll_offset = Vector2(16, 1)
+
+[node name="Level Boundaries" type="Node2D" parent="."]
+
+[node name="LevelBound" type="Polygon2D" parent="Level Boundaries"]
+position = Vector2(-1100, 706)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(951, -1064, 7332, -1497, 7275, -2605, 863, -2761)
+
+[node name="LevelBound2" type="Polygon2D" parent="Level Boundaries"]
+position = Vector2(-1075, 1706)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(928, 554, 7442, 494, 7351, -1469, 926, -1381)
+
+[node name="Colliders" type="Node2D" parent="."]
+position = Vector2(-1366, -78)
+
+[node name="Roof" type="StaticBody2D" parent="Colliders"]
+position = Vector2(4320, -571)
+rotation = -0.0693006
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Roof"]
+position = Vector2(79.2112, -280.039)
+shape = SubResource("RectangleShape2D_jss7i")
+
+[node name="Floor" type="StaticBody2D" parent="Colliders"]
+position = Vector2(4341, 1003)
+rotation = -0.0127193
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Floor"]
+position = Vector2(103.458, -280.039)
+shape = SubResource("RectangleShape2D_jss7i")
+
+[node name="Gameplay Elements" type="Node2D" parent="."]
+
+[node name="Door PowerBox" parent="Gameplay Elements" node_paths=PackedStringArray("associated_powerable") instance=ExtResource("14_og1kl")]
+z_index = -500
+position = Vector2(882, -60)
+associated_powerable = NodePath("../ElectricDoor")
+
+[node name="ElectricDoor" parent="Gameplay Elements" instance=ExtResource("15_rcq5r")]
+position = Vector2(1732, -76)
+rise_speed = 300.0
+fall_speed = 200.0
+max_height = 900.0
+
+[node name="Fan PowerBox" parent="Gameplay Elements" node_paths=PackedStringArray("associated_powerable") instance=ExtResource("14_og1kl")]
+z_index = -500
+position = Vector2(5383, -198)
+associated_powerable = NodePath("../ElectricFan")
+
+[node name="ElectricFan" parent="Gameplay Elements" instance=ExtResource("13_45m4p")]
+position = Vector2(6435, -320)
+rotation = -1.44
+
+[node name="Eel" parent="." instance=ExtResource("16_if5bj")]
+material = SubResource("ShaderMaterial_x47c0")
+position = Vector2(4756, -194)
+state = 0
+
+[node name="Camera2D" type="Camera2D" parent="Eel"]
+zoom = Vector2(0.5, 0.5)
+
+[node name="FanAnim" type="Node2D" parent="."]
+script = ExtResource("7_wwdv2")
+
+[node name="Area2D" type="Area2D" parent="FanAnim"]
+position = Vector2(6391, 0)
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FanAnim/Area2D"]
+position = Vector2(122, -278)
+rotation = -0.0509207
+shape = SubResource("RectangleShape2D_akdv5")
+
+[connection signal="body_entered" from="FanAnim/Area2D" to="FanAnim" method="_on_area_2d_body_entered"]

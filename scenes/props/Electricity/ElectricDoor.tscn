@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b636jpaq28beq"]
+
+[ext_resource type="Script" path="res://scripts/props/Electricity/ElectricDoor.gd" id="1_i8tyt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qdrrd"]
+radius = 78.0
+height = 1000.0
+
+[node name="ElectricDoor" type="Node2D"]
+script = ExtResource("1_i8tyt")
+
+[node name="Door" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+shape = SubResource("CapsuleShape2D_qdrrd")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-89, -499, 70, -501, 80, 507, -69, 507)

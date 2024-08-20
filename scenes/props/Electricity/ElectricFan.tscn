@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6qm3hxg04wsm"]
+
+[ext_resource type="Script" path="res://scripts/props/Electricity/ElectricFan.gd" id="1_5u37k"]
+[ext_resource type="Texture2D" uid="uid://1ey81c16ap12" path="res://assets/textures/props/Electricity/Fan.png" id="2_waket"]
+
+[node name="ElectricFan" type="Node2D"]
+script = ExtResource("1_5u37k")
+
+[node name="Holder" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Holder"]
+position = Vector2(-85, -45)
+texture = ExtResource("2_waket")
