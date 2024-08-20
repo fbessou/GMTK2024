@@ -607,7 +607,7 @@ shape = SubResource("RectangleShape2D_spqom")
 material = SubResource("ShaderMaterial_x47c0")
 position = Vector2(163, -996)
 scale = Vector2(1.5585, 1.5585)
-view_scale = 1.0
+view_scale = 0.4
 eat = 2
 facing = 1
 
