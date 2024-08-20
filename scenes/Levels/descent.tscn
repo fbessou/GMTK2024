@@ -2282,6 +2282,7 @@ polygon = PackedVector2Array(15898, 7369, 16076, 7014, 16127, 6328, 16254, 6201,
 material = SubResource("ShaderMaterial_dnevv")
 position = Vector2(-65384, 1328)
 state = 0
+facing = 1
 
 [node name="Camera2D" type="Camera2D" parent="Whale"]
 zoom = Vector2(0.25, 0.25)
