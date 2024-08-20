@@ -1,8 +1,10 @@
-[gd_scene load_steps=29 format=3 uid="uid://bdhladljwpd2g"]
+[gd_scene load_steps=31 format=3 uid="uid://bdhladljwpd2g"]
 
 [ext_resource type="Script" path="res://scenes/Levels/descent.gd" id="1_8ys3j"]
+[ext_resource type="PackedScene" uid="uid://5w3u43821a5" path="res://scenes/props/SeaweedLeaves.tscn" id="2_vy6rh"]
 [ext_resource type="PackedScene" uid="uid://cor46uhgncphp" path="res://scenes/props/breakable_wall.tscn" id="3_bjfl5"]
 [ext_resource type="Script" path="res://scripts/levels/descent_section_2.gd" id="3_c75tw"]
+[ext_resource type="Texture2D" uid="uid://c4vawkp3yxbfq" path="res://assets/textures/props/coral/branch/coral_branch.png" id="3_u4ngv"]
 [ext_resource type="SpriteFrames" uid="uid://4w3454s6rdd" path="res://resources/sprites_frames/whale_in_background.tres" id="3_wqpma"]
 [ext_resource type="PackedScene" uid="uid://c2to2hb2q2wvb" path="res://scenes/Levels/blocks/curveA.tscn" id="6_dbfvp"]
 [ext_resource type="Texture2D" uid="uid://cpo3bbvjuxfq7" path="res://assets/textures/props/ships/shipwreck.png" id="7_eqndf"]
@@ -171,23 +173,53 @@ script = ExtResource("1_8ys3j")
 [node name="Parallax" type="Node2D" parent="."]
 
 [node name="Background" type="Parallax2D" parent="Parallax"]
-scroll_scale = Vector2(0.1, 0.1)
-scroll_offset = Vector2(-210, -144)
-repeat_size = Vector2(1920, 1080)
-repeat_times = 2
+modulate = Color(0.403922, 0.792157, 0.72549, 1)
+z_index = -1000
+scroll_scale = Vector2(0.5, 0.5)
+scroll_offset = Vector2(-50000, 0)
+repeat_size = Vector2(50000, 0)
+repeat_times = 3
+
+[node name="Polygon2D" type="Polygon2D" parent="Parallax/Background"]
+position = Vector2(1636, -3437)
+polygon = PackedVector2Array(-81421, 15536, -81656, 970, -79858, 850, -78156, 275, -76694, -324, -74872, -564, -74272, -1523, -73834, -1576, -73505, -1116, -72839, -750, -71233, -770, -70487, -729, -69842, 57, -69492, 218, -68189, 920, -67309, 1160, -66317, 1288, -65296, 1055, -64841, 1247, -64505, 1415, -64037, 1822, -63726, 2098, -63546, 456, -63366, 312, -63168, 1107, -60424, -544, -54786, -1255, -50417, 66, -48614, 1691, -47887, 1752, -48008, 1369, -47504, 1066, -46697, 1248, -46899, 1671, -43391, 1893, -39970, 1026, -38059, -534, -36167, -115, -31657, 913, -30676, 16905)
 
 [node name="Midground" type="Parallax2D" parent="Parallax"]
 scroll_scale = Vector2(0.5, 0.5)
 
 [node name="Foreground Parallax" type="Parallax2D" parent="Parallax"]
+modulate = Color(0, 0.396078, 0.509804, 1)
 z_index = 1000
 scroll_scale = Vector2(1.3, 1.3)
+scroll_offset = Vector2(-10827, 19)
+
+[node name="Polygon2D" type="Polygon2D" parent="Parallax/Foreground Parallax"]
+position = Vector2(-23, 1143)
+polygon = PackedVector2Array(-74138, -5046, -95069, -5120, -94781, 10624, -76563, 10221, -59855, 13059, -55584, 16952, -52032, 19081, -44912, 19691, -37725, 20471, -7992, 16674, -41115, 16809, -49422, 17115, -55945, 13825, -57033, 11526, -57061, 11110, -57514, 10567, -58208, 9661, -58237, 9122, -58333, 8283, -58453, 7851, -58693, 7756, -58922, 8352, -58951, 9221, -59221, 10276, -59536, 10135, -59909, 9772, -60369, 9526, -60689, 9932, -61168, 10023, -62814, 9590, -66548, 7560, -73236, 4735, -73668, 4151, -74227, 3567, -74862, 2881, -75201, 2331, -75495, 1267, -75360, 159, -74998, -995, -74206, -1923, -69261, -2413, -66312, -1880, -65303, -1253, -65259, -1027, -65124, -680, -65132, -451, -65022, 320, -64964, 687, -64903, 1303, -64850, 1480, -64730, 1525, -64594, 1434, -64480, 1261, -64465, 1019, -64458, 490, -64465, -166, -64478, -510, -64376, -865, -64275, -1157, -63911, -1281, -63705, -1434, -63076, -1766, -61523, -2021, -60324, -2079, -58631, -2079, -56314, -2092, -54257, -2225, -53237, -2313, -52383, -2274, -51125, -2409, -49391, -2603, -48578, -2909, -45103, -5129, -59708, -4931, -64663, -4803)
 
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="BackgroundProps" type="Node2D" parent="Environment"]
 z_index = -800
 z_as_relative = false
+
+[node name="SeaweedLeaves" parent="Environment/BackgroundProps" instance=ExtResource("2_vy6rh")]
+position = Vector2(-62500, 2248)
+
+[node name="SeaweedLeaves2" parent="Environment/BackgroundProps" instance=ExtResource("2_vy6rh")]
+position = Vector2(-64569, 2555)
+
+[node name="CoralBranch" type="Sprite2D" parent="Environment/BackgroundProps"]
+modulate = Color(0.849413, 0.466285, 0.682723, 1)
+position = Vector2(-66056, 2392)
+rotation = -0.321213
+texture = ExtResource("3_u4ngv")
+
+[node name="CoralBranch2" type="Sprite2D" parent="Environment/BackgroundProps"]
+modulate = Color(0.644675, 0.376984, 0.4575, 1)
+position = Vector2(-66264, 2528)
+rotation = 0.0340142
+texture = ExtResource("3_u4ngv")
 
 [node name="ForegroundProps" type="Node2D" parent="Environment"]
 z_index = -200
@@ -639,7 +671,7 @@ bubbles_amount = 165
 bubbles_size = 5.165
 
 [node name="NavigableMap" type="Node2D" parent="Environment"]
-modulate = Color(0, 0.756863, 0.776471, 1)
+modulate = Color(0, 0.521569, 0.67451, 1)
 
 [node name="Bounds" type="StaticBody2D" parent="Environment/NavigableMap"]
 
@@ -859,10 +891,6 @@ scale = Vector2(1.78705, 1.35473)
 position = Vector2(-46280, 1320)
 rotation = 1.39854
 
-[node name="SmallA20" parent="Environment/NavigableMap/Section1" instance=ExtResource("12_htuvj")]
-position = Vector2(-50307, 371.998)
-rotation = -0.323935
-
 [node name="LargeC30" parent="Environment/NavigableMap/Section1" instance=ExtResource("9_15bgk")]
 position = Vector2(-47253, 879)
 rotation = -2.90426
@@ -1027,10 +1055,6 @@ rotation = -4.52948
 [node name="MediumA11" parent="Environment/NavigableMap/Section1" instance=ExtResource("10_fseyh")]
 position = Vector2(-53804, -402)
 rotation = -1.56483
-
-[node name="MediumB5" parent="Environment/NavigableMap/Section1" instance=ExtResource("11_2soaf")]
-position = Vector2(-50415, 370)
-rotation = 0.207415
 
 [node name="MediumB16" parent="Environment/NavigableMap/Section1" instance=ExtResource("11_2soaf")]
 position = Vector2(-46474, 1085)
@@ -1938,9 +1962,40 @@ polygon = PackedVector2Array(-52003, 1167, -26605, -204, -8971, -1458, 30603, -1
 position = Vector2(42368, 5046)
 polygon = PackedVector2Array(-40797, 2353, -39155, 2329, -38843, 2473, -39047, 3048, -38939, 4415, -40869, 5433, -41540, 4990, -41372, 3695)
 
+[node name="Caves" type="Node2D" parent="Environment"]
+modulate = Color(0, 0.403922, 0.415686, 1)
+z_index = -850
+
+[node name="Polygon2D" type="Polygon2D" parent="Environment/Caves"]
+polygon = PackedVector2Array(-46344, 653, -46187, 1004, -45924, 1306, -45804, 1306, -45642, 1437, -45584, 1536, -45510, 1731, -45665, 2269, -45759, 2558, -45840, 2679, -45962, 2980, -45626, 3552, -41839, 1138, -41653, 1071, -41669, 963, -41633, 879, -41497, 795, -41273, 731, -41803, -1525, -44896, -1213)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Environment/Caves"]
+position = Vector2(-53908, 9413.52)
+polygon = PackedVector2Array(-224.027, -4095.52, -3536.03, -4399.52, -5248.03, -223.521, 922.973, 2211.48, 1394.97, 2123.48, 1794.97, 1691.48, 1312.97, 1371.48, 1230.97, 1327.48, 1071.97, 1244.48, 982.973, 1054.48, 880.973, 1003.48, 753.973, 977.479, 633.973, 888.479, 588.973, 679.479, 652.973, 457.479, 760.973, 285.479, 728.973, 88.4785, 696.973, -177.521, 817.973, -330.521, 906.973, -666.521, -391.027, -2261.52)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Environment/Caves"]
+polygon = PackedVector2Array(-41588, 14296, -41063, 13381, -40498, 13098, -40014, 12856, -39799, 12439, -39082, 11973, -38762, 11503, -37908, 11086, -37395, 10648, -36882, 10285, -36733, 9559, -36722, 9025, -36690, 8171, -34896, 8118, -33337, 9826, -34286, 14221)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Environment/Caves"]
+polygon = PackedVector2Array(-36939, 6695, -36597, 6396, -36480, 6257, -36480, 5947, -35209, 5103, -31066, 4260, -31162, 7175, -36031, 7762)
+
+[node name="Polygon2D5" type="Polygon2D" parent="Environment/Caves"]
+polygon = PackedVector2Array(-6767, -3959, -6666, -4231, -6598, -4376, -6397, -4496, -6274, -4630, -6179, -4772, -6111, -4975, -5956, -5044, -5798, -5119, -5508, -5177, -5278, -5183, -5139, -5348, -5011, -5578, -6414, -7146, -7770, -7406, -9161, -6104)
+
+[node name="Polygon2D6" type="Polygon2D" parent="Environment/Caves"]
+position = Vector2(5319, 3913)
+rotation = 0.975191
+polygon = PackedVector2Array(-6767, -3959, -6666, -4231, -6598, -4376, -6397, -4496, -6274, -4630, -6179, -4772, -6111, -4975, -5956, -5044, -5813.19, -5065.49, -5589.94, -4952.85, -5094.67, -5013.43, -4641.88, -5325.06, -3843.61, -5547.54, -6414, -7146, -7092.38, -7908.7, -8694.1, -6452.54)
+
+[node name="Polygon2D7" type="Polygon2D" parent="Environment/Caves"]
+polygon = PackedVector2Array(3004, 4243, 3132, 4977, 3228, 5489, 3452, 5713, 3644, 6049, 3543, 6225, 3428, 6580, 3479, 6847, 3606, 7126, 3517, 7418, 2841, 8355, 3451, 8803, 3654, 9049, 3875, 9142, 4307, 9269, 4637, 9312, 4926, 9498, 5104, 9719, 5434, 9820, 5655, 10032, 6002, 9973, 6443, 9803, 6672, 9888, 6883, 10100, 7061, 10363, 7265, 10498, 7468, 10541, 7740, 10532, 8476, 12962, 3848, 15753, -6137, 13310, -6730, 5228, -2689, 4438)
+
+[node name="Polygon2D8" type="Polygon2D" parent="Environment/Caves"]
+polygon = PackedVector2Array(-66627, -580, -66355, 234, -66322, 691, -66389, 1115, -66627, 1488, -66915, 1844, -67135, 2115, -67440, 2403, -67712, 2895, -55608, 3726, -50658, 3217, -50450, 3199, -50432, 3001, -50503, 2786, -50441, 2472, -50117, 2139, -49426, 1412, -49309, 604, -49300, 110, -54095, -1902)
+
 [node name="Whale" parent="." instance=ExtResource("19_53crg")]
 material = SubResource("ShaderMaterial_dnevv")
-position = Vector2(-27426, 731)
+position = Vector2(-69619, 1484)
 state = 0
 
 [node name="Camera2D" type="Camera2D" parent="Whale"]
