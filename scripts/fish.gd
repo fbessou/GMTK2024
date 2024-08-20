@@ -238,7 +238,7 @@ func lerp_to_target_tween() -> void:
 	
 	tween_in.play()
 	await tween_in.finished
-	position = target.global_position
+	global_position = target.global_position
 	switch_to_player()
 	GameManager.set_active_fish_camera(self)
 	target.queue_free()
