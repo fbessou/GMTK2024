@@ -1313,10 +1313,10 @@ rotation = 3.1378
 scale = Vector2(1.84, 1.84)
 gravity_point_center = Vector2(-0.00379274, -0.999993)
 gravity_direction = Vector2(-0.00379274, -0.999993)
-gravity = 380.0
+gravity = 800.0
 width = 220
 length = 160
-intensity = 380
+intensity = 800
 
 [node name="WaterCurrent6" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
 position = Vector2(-1121, 2437)
@@ -1324,10 +1324,10 @@ rotation = 3.1378
 scale = Vector2(1.25597, 1.25597)
 gravity_point_center = Vector2(-0.00379274, -0.999993)
 gravity_direction = Vector2(-0.00379274, -0.999993)
-gravity = 2290.0
+gravity = 800.0
 width = 250
 length = 185
-intensity = 2290
+intensity = 800
 
 [node name="WaterCurrent7" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
 position = Vector2(1465, 3746)
@@ -1335,10 +1335,10 @@ rotation = -3.10373
 scale = Vector2(1.28061, 1.28061)
 gravity_point_center = Vector2(0.0378537, -0.999283)
 gravity_direction = Vector2(0.0378537, -0.999283)
-gravity = 2500.0
+gravity = 800.0
 width = 255
 length = 215
-intensity = 2500
+intensity = 800
 bubbles_amount = 50
 
 [node name="WaterCurrent3" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
@@ -1346,20 +1346,20 @@ position = Vector2(-1152, 5434)
 rotation = 0.146283
 gravity_point_center = Vector2(-0.145762, 0.98932)
 gravity_direction = Vector2(-0.145762, 0.98932)
-gravity = 1500.0
+gravity = 1800.0
 width = 400
 length = 300
-intensity = 1500
+intensity = 1800
 
 [node name="WaterCurrent5" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
 position = Vector2(-1626, 1988)
 rotation = 1.53755
 gravity_point_center = Vector2(-0.999447, 0.0332403)
 gravity_direction = Vector2(-0.999447, 0.0332403)
-gravity = 1500.0
+gravity = 1800.0
 width = 400
 length = 300
-intensity = 1500
+intensity = 1800
 
 [node name="WaterCurrent12" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
 position = Vector2(-3158, 3963)
@@ -1367,10 +1367,10 @@ rotation = 0.242118
 scale = Vector2(1.185, 1.185)
 gravity_point_center = Vector2(-0.239759, 0.970832)
 gravity_direction = Vector2(-0.239759, 0.970832)
-gravity = 1500.0
+gravity = 1800.0
 width = 400
 length = 300
-intensity = 1500
+intensity = 1800
 
 [node name="WaterCurrent13" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
 position = Vector2(-986, 3454)
@@ -1378,20 +1378,20 @@ rotation = -0.367832
 scale = Vector2(1.185, 1.185)
 gravity_point_center = Vector2(0.359593, 0.933109)
 gravity_direction = Vector2(0.359593, 0.933109)
-gravity = 1500.0
+gravity = 1800.0
 width = 400
 length = 300
-intensity = 1500
+intensity = 1800
 
 [node name="WaterCurrent4" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
 position = Vector2(-2288, 5604)
 rotation = -0.476425
 gravity_point_center = Vector2(0.458605, 0.88864)
 gravity_direction = Vector2(0.458605, 0.88864)
-gravity = 1500.0
+gravity = 1800.0
 width = 400
 length = 300
-intensity = 1500
+intensity = 1800
 
 [node name="WaterCurrent8" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
 position = Vector2(-1341, 8558)
@@ -1434,13 +1434,13 @@ length = 300
 intensity = 1500
 
 [node name="WaterCurrent19" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
-position = Vector2(-172, 8875)
+position = Vector2(-137, 8883)
 rotation = -1.19994
 gravity_point_center = Vector2(0.932017, 0.362414)
 gravity_direction = Vector2(0.932017, 0.362414)
 gravity = 1500.0
 width = 360
-length = 400
+length = 350
 intensity = 1500
 
 [node name="WaterCurrent18" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
@@ -1450,7 +1450,7 @@ gravity_point_center = Vector2(0.932755, 0.360512)
 gravity_direction = Vector2(0.932755, 0.360512)
 gravity = 1500.0
 width = 480
-length = 640
+length = 270
 intensity = 1500
 
 [node name="WaterCurrent16" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
@@ -1460,7 +1460,7 @@ gravity_point_center = Vector2(0.727525, 0.686081)
 gravity_direction = Vector2(0.727525, 0.686081)
 gravity = 1500.0
 width = 510
-length = 680
+length = 510
 intensity = 1500
 
 [node name="WaterCurrent11" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
