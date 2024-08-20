@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7yybqrth1w86"]
+
+[ext_resource type="Texture2D" uid="uid://d3c2o4vnku87p" path="res://assets/textures/ui/button_hint_bg.png" id="1_1po83"]
+[ext_resource type="Script" path="res://scripts/ui/ControlHint.gd" id="1_5exus"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mqddh"]
+font_size = 150
+font_color = Color(0, 0, 0, 1)
+
+[node name="ControlHint" type="Node2D"]
+script = ExtResource("1_5exus")
+default_color = Color(0.854902, 0.972549, 0.890196, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1po83")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -40.0
+offset_top = -89.0
+offset_right = 44.0
+offset_bottom = 116.0
+text = "E"
+label_settings = SubResource("LabelSettings_mqddh")

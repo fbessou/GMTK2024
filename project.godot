@@ -72,6 +72,10 @@ window/size/viewport_width=1024
 window/size/viewport_height=768
 window/stretch/mode="viewport"
 
+[gui]
+
+theme/custom="res://resources/themes/hud.theme"
+
 [importer_defaults]
 
 texture={
