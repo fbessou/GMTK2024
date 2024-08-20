@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bdhladljwpd2g"]
+[gd_scene load_steps=29 format=3 uid="uid://bdhladljwpd2g"]
 
 [ext_resource type="Script" path="res://scenes/Levels/descent.gd" id="1_8ys3j"]
 [ext_resource type="PackedScene" uid="uid://cor46uhgncphp" path="res://scenes/props/breakable_wall.tscn" id="3_bjfl5"]
@@ -35,6 +35,18 @@ _data = {
 }
 point_count = 3
 
+[sub_resource type="Curve2D" id="Curve2D_cmdmw"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -26401, 3374, -1234.26, 846.628, 1234.26, -846.628, -15469, -1213, 0, 0, 0, 0, -8484, -5880)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_in56h"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -23022, 3245, -1234.26, 846.628, 1234.26, -846.628, -14727, 665, 0, 0, 0, 0, -8024, 458)
+}
+point_count = 3
+
 [sub_resource type="Animation" id="Animation_ab6c4"]
 length = 0.001
 tracks/0/type = "value"
@@ -49,10 +61,46 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WhalesFaraway/Path2D2/PF2:progress")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WhalesFaraway/Path2D3/PF3:progress")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WhalesFaraway/Path2D4/PF4:progress")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_v4klj"]
 resource_name = "whales_in_background"
-length = 12.0
+length = 14.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -76,6 +124,30 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 12000.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WhalesFaraway/Path2D3/PF3:progress")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 14),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 15000.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WhalesFaraway/Path2D4/PF4:progress")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 14),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 15000.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4dt31"]
@@ -353,6 +425,9 @@ shape = SubResource("RectangleShape2D_hm1b0")
 modulate = Color(1, 1, 1, 0.372549)
 
 [node name="Path2D" type="Path2D" parent="Environment/Section2/WhalesFaraway"]
+self_modulate = Color(0.883746, 0.0618276, 0.211513, 1)
+z_index = 2000
+z_as_relative = false
 curve = SubResource("Curve2D_mqmbu")
 
 [node name="PF1" type="PathFollow2D" parent="Environment/Section2/WhalesFaraway/Path2D"]
@@ -362,6 +437,8 @@ rotates = false
 loop = false
 
 [node name="W1" type="AnimatedSprite2D" parent="Environment/Section2/WhalesFaraway/Path2D/PF1"]
+z_index = -1000
+z_as_relative = false
 position = Vector2(431.965, 133.384)
 rotation = 0.279587
 scale = Vector2(6.63, 6.63)
@@ -371,6 +448,8 @@ frame_progress = 0.251723
 flip_h = true
 
 [node name="Path2D2" type="Path2D" parent="Environment/Section2/WhalesFaraway"]
+self_modulate = Color(0.667806, 0, 0.216624, 1)
+z_index = 2000
 curve = SubResource("Curve2D_u6pjf")
 
 [node name="PF2" type="PathFollow2D" parent="Environment/Section2/WhalesFaraway/Path2D2"]
@@ -379,7 +458,53 @@ rotation = -0.211565
 rotates = false
 loop = false
 
-[node name="W1" type="AnimatedSprite2D" parent="Environment/Section2/WhalesFaraway/Path2D2/PF2"]
+[node name="W2" type="AnimatedSprite2D" parent="Environment/Section2/WhalesFaraway/Path2D2/PF2"]
+z_index = -1000
+z_as_relative = false
+position = Vector2(431.965, 133.384)
+rotation = 0.279587
+scale = Vector2(6.63, 6.63)
+sprite_frames = ExtResource("3_wqpma")
+autoplay = "default"
+frame_progress = 0.633915
+flip_h = true
+
+[node name="Path2D3" type="Path2D" parent="Environment/Section2/WhalesFaraway"]
+self_modulate = Color(0.667806, 0, 0.216624, 1)
+z_index = 2000
+curve = SubResource("Curve2D_cmdmw")
+
+[node name="PF3" type="PathFollow2D" parent="Environment/Section2/WhalesFaraway/Path2D3"]
+position = Vector2(-26401, 3374)
+rotation = -0.211565
+rotates = false
+loop = false
+
+[node name="W3" type="AnimatedSprite2D" parent="Environment/Section2/WhalesFaraway/Path2D3/PF3"]
+z_index = -1000
+z_as_relative = false
+position = Vector2(431.965, 133.384)
+rotation = 0.279587
+scale = Vector2(6.63, 6.63)
+sprite_frames = ExtResource("3_wqpma")
+autoplay = "default"
+frame_progress = 0.633915
+flip_h = true
+
+[node name="Path2D4" type="Path2D" parent="Environment/Section2/WhalesFaraway"]
+self_modulate = Color(0.667806, 0, 0.216624, 1)
+z_index = 2000
+curve = SubResource("Curve2D_in56h")
+
+[node name="PF4" type="PathFollow2D" parent="Environment/Section2/WhalesFaraway/Path2D4"]
+position = Vector2(-23022, 3245)
+rotation = -0.211565
+rotates = false
+loop = false
+
+[node name="W4" type="AnimatedSprite2D" parent="Environment/Section2/WhalesFaraway/Path2D4/PF4"]
+z_index = -1000
+z_as_relative = false
 position = Vector2(431.965, 133.384)
 rotation = 0.279587
 scale = Vector2(6.63, 6.63)
@@ -1798,7 +1923,8 @@ position = Vector2(-68606, 3631)
 position = Vector2(-68723, 4233)
 
 [node name="Polygon2D" type="Polygon2D" parent="Environment/NavigableMap"]
-polygon = PackedVector2Array(-68010, 2784, -66686, 2569, -66335, 2784, -65962, 2614, -65769, 2840, -65769, 2840, -64163, 2705, -63156, 2376, -61787, 2422, -60520, 2671, -59943, 2490, -59400, 2659, -59445, 2920, -56243, 3248, -53596, 2286, -53279, 2297, -53245, 2637, -52589, 2682, -52329, 3021, -50417, 3202, -52035, 4390, -52035, 4390, -52261, 4764, -52453, 5940, -53438, 7343, -53177, 8271, -52815, 8361, -52940, 8769, -54592, 8542, -56933, 5341, -57420, 5827, -57001, 7083, -55191, 9052, -55270, 9448, -55689, 9436, -55429, 10251, -54343, 10364, -53709, 11190, -52646, 10986, -51899, 10251, -51797, 10636, -49127, 11371, -49127, 11654, -51582, 14131, -50957, 14762, -49261, 14449, -44671, 14891, -41977, 14192, -36015.6, 12263.8, -36375, 9374, -36847, 6811, -33425, 6130, -33625.6, 5325.44, -36251, 5834, -36560, 5524, -35632, 2389, -34179, 1569, -32134, 2268, -31663, 3358, -28999, 2712, -27357, 2524, -23751, 2416, -19904, 3520, -15100, 3089, -13540, 1474, -11417, 259, -10261, -147, -7595, -274, -5474, -439, -4598, -211, -2503, 821, -534, 627, 1904, 1034, 2806, 830, 3200, 1338, 4495, 1389, 4279, 3091, 3111, 3319, 3022, 4577, -851, 4462, -5487, 5745, -5918, 6621, -5001, 9589, -4446, 12715, 2506, 14545, 4374, 14563, 8181, 12031, 7915, 7923, 9949, 7957, 14865, 17348, 8145, 17221, 3566, 17293, -10708, 17153, -31362, 17078, -39511, 17129, -51713, 17260, -67300, 13980)
+position = Vector2(54, -20)
+polygon = PackedVector2Array(-68010, 2784, -66686, 2569, -66335, 2784, -65962, 2614, -65769, 2840, -65769, 2840, -64163, 2705, -63156, 2376, -61787, 2422, -60520, 2671, -59943, 2490, -59400, 2659, -59445, 2920, -56243, 3248, -53596, 2286, -53279, 2297, -53245, 2637, -52589, 2682, -52329, 3021, -50417, 3202, -52035, 4390, -52035, 4390, -52261, 4764, -52453, 5940, -53438, 7343, -53177, 8271, -52815, 8361, -52940, 8769, -54592, 8542, -56933, 5341, -57420, 5827, -57001, 7083, -55191, 9052, -55270, 9448, -55689, 9436, -55429, 10251, -54343, 10364, -53709, 11190, -52646, 10986, -51899, 10251, -51797, 10636, -49127, 11371, -49127, 11654, -51582, 14131, -50957, 14762, -49261, 14449, -44671, 14891, -41977, 14192, -36015.6, 12263.8, -36375, 9374, -36847, 6811, -33425, 6130, -33625.6, 5325.44, -36251, 5834, -36560, 5524, -35632, 2389, -34179, 1569, -32134, 2268, -31663, 3358, -28999, 2712, -27357, 2524, -23751, 2416, -19904, 3520, -15100, 3089, -13540, 1474, -13038, 1094, -11417, 259, -10261, -147, -7595, -274, -5474, -439, -4598, -211, -2503, 821, -534, 627, 1904, 1034, 2806, 830, 3200, 1338, 4495, 1389, 4279, 3091, 3111, 3319, 3022, 4577, -851, 4462, -5487, 5745, -5918, 6621, -5001, 9589, -4446, 12715, -2047, 13442, 2506, 14545, 4374, 14563, 8181, 12031, 7915, 7923, 9949, 7957, 14865, 17348, 8145, 17221, 3566, 17293, -10708, 17153, -31362, 17078, -39511, 17129, -51713, 17260, -67300, 13980)
 
 [node name="Polygon2D2" type="Polygon2D" parent="Environment/NavigableMap"]
 position = Vector2(-2373, -1966)
@@ -1806,7 +1932,7 @@ polygon = PackedVector2Array(-40891, 2295, -39440, 3109, -39987, 4442, -40545, 6
 
 [node name="Polygon2D3" type="Polygon2D" parent="Environment/NavigableMap"]
 position = Vector2(-15846, -6089)
-polygon = PackedVector2Array(-52003, 1167, -26605, -204, -8971, -1458, 30603, -1531, 30954, 7651, 31234, 10800, 26422, 10665, 25704, 10503, 26063, 9390, 25650, 6789, 24860, 5353, 24139, 4614, 24215, 3844, 23037, 914, 23611, 54, 21572, -958, 21451, 114, 20755, 2344, 17561, 1901, 17238, 2289, 12098, 1969, 9919, -345, 8563, -1046, 7162, 184, 8680, 2101, 8093, 2209, 6714, 2005, 6103, 2149, 4041, 2209, 3945, 1922, 2927, 2029, 2639, 1766, 2375, 2293, 1057, 2317, -1820, 1910, -1302, 1421, -4642, 2265, -6390.46, 2385.09, -7570, 3594, -7444, 4725, -8791, 5390, -9078, 5677, -9976, 5911, -10425, 5767, -11216, 5444, -12203, 4366, -12634, 3863, -12567, 3217, -13540.5, 2616.69, -13958, 2989, -14785, 2965, -18249, 2690, -20143, 2606, -21174, 3037, -22216, 3109, -22696, 3457, -23415, 3517, -23823, 3289, -24566, 3684, -24818, 4092, -24626, 4536, -25633, 6621, -26508, 5890, -26107, 5202, -27113, 5021, -28234, 5519, -30420, 7396, -30737, 7037, -32702, 6685, -34614, 6170, -35788, 6012, -36461, 5905, -36542, 5490, -37558, 5650, -38790, 5482, -40350, 5442, -41654, 5802, -42678, 5770, -43134, 5730, -43450, 5815, -43717, 5612, -44934, 5754, -47828, 5676, -49740, 5890, -52130, 5815)
+polygon = PackedVector2Array(-52003, 1167, -26605, -204, -8971, -1458, 30603, -1531, 30954, 7651, 31234, 10800, 26422, 10665, 25704, 10503, 26063, 9390, 25663, 6783, 25537, 6693, 24860, 5353, 24139, 4614, 24215, 3844, 23037, 914, 23611, 54, 21572, -958, 21451, 114, 20755, 2344, 17561, 1901, 17238, 2289, 12098, 1969, 9919, -345, 8563, -1046, 7162, 184, 8680, 2101, 8093, 2209, 6714, 2005, 6103, 2149, 4041, 2209, 3923, 1989, 2927, 2029, 2639, 1766, 2375, 2293, 1057, 2317, -1275, 2049, -1820, 1910, -1302, 1421, -4642, 2265, -6390.46, 2385.09, -6464, 2565, -7570, 3594, -7444, 4725, -8791, 5390, -9078, 5677, -9976, 5911, -10425, 5767, -11216, 5444, -12203, 4366, -12634, 3863, -12567, 3217, -13540.5, 2616.69, -13958, 2989, -14785, 2965, -18249, 2690, -20143, 2606, -21174, 3037, -22216, 3109, -22696, 3457, -23415, 3517, -23823, 3289, -24566, 3684, -24818, 4092, -24626, 4536, -25633, 6621, -26508, 5890, -26107, 5202, -27113, 5021, -28234, 5519, -30420, 7396, -30737, 7037, -32702, 6685, -34614, 6170, -35788, 6012, -36461, 5905, -36542, 5490, -37558, 5650, -38790, 5482, -40350, 5442, -41654, 5802, -42678, 5770, -43134, 5730, -43450, 5815, -43717, 5612, -44934, 5754, -47828, 5676, -49740, 5890, -52130, 5815)
 
 [node name="Polygon2D4" type="Polygon2D" parent="Environment/NavigableMap"]
 position = Vector2(42368, 5046)
@@ -1814,7 +1940,7 @@ polygon = PackedVector2Array(-40797, 2353, -39155, 2329, -38843, 2473, -39047, 3
 
 [node name="Whale" parent="." instance=ExtResource("19_53crg")]
 material = SubResource("ShaderMaterial_dnevv")
-position = Vector2(-4631, -1971)
+position = Vector2(-27426, 731)
 state = 0
 
 [node name="Camera2D" type="Camera2D" parent="Whale"]

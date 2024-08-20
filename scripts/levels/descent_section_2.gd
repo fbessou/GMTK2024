@@ -16,7 +16,7 @@ func _on_body_entered(body: Node2D) -> void:
 	var release_whales := func() -> void:
 		($AnimationPlayer as AnimationPlayer).play("whales_in_background")
 		
-	get_tree().create_timer(4).timeout.connect(release_whales)
+	get_tree().create_timer(1).timeout.connect(release_whales)
 	var tween := get_tree().create_tween()
 	body_camera.reparent(self)
 	captured_camera = body_camera
