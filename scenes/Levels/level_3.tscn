@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://dxq4nyclwtt1u"]
+[gd_scene load_steps=70 format=3 uid="uid://dxq4nyclwtt1u"]
 
 [ext_resource type="Script" path="res://scripts/levels/darkness.gd" id="1_6yl55"]
 [ext_resource type="PackedScene" uid="uid://c2to2hb2q2wvb" path="res://scenes/Levels/blocks/curveA.tscn" id="1_ctl1s"]
@@ -50,6 +50,7 @@
 [ext_resource type="Texture2D" uid="uid://2iwj4na0g621" path="res://assets/textures/cthulhu/eyes/frame0028.png" id="46_xcnjy"]
 [ext_resource type="AudioStream" uid="uid://kwe04jv53ijf" path="res://assets/audio/ambience/underwater_ambience_deep.mp3" id="47_0u8sj"]
 [ext_resource type="Texture2D" uid="uid://bgwpohfk34juk" path="res://assets/textures/whale/frame0000.png" id="50_3knx1"]
+[ext_resource type="AudioStream" uid="uid://culumfr8ulesj" path="res://assets/audio/musics/ending.mp3" id="50_t0lqw"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mwqoh"]
 light_mode = 2
@@ -326,6 +327,18 @@ tracks/9/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("EndingMusicPlayer:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_557vh"]
 resource_name = "ending"
@@ -478,6 +491,18 @@ tracks/11/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("EndingMusicPlayer:playing")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bpi5b"]
 _data = {
@@ -505,6 +530,11 @@ position = Vector2(-1043, -1826)
 scale = Vector2(4, 4)
 texture = ExtResource("50_3knx1")
 flip_h = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="DeadWhaleSprite"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeadWhaleSprite/StaticBody2D"]
+polygon = PackedVector2Array(205.5, -76.25, 225.75, -75, 236.5, -72.25, 242.75, -58.75, 248.75, -26, 247.5, 7.75, 241.5, 32.75, 231, 39.5, 208.25, 45.5, 188.5, 38.5, 161.5, 36, 155, 36.75, 159.5, 46, 180.5, 51, 193.25, 55, 199.25, 58.75, 198, 61.5, 176.5, 58.25, 163.75, 54.25, 144.75, 47, 135.75, 1.5, 141.25, -83.5)
 
 [node name="Plankton" parent="." instance=ExtResource("3_atury")]
 material = SubResource("ShaderMaterial_byrhl")
@@ -1852,6 +1882,9 @@ curve = SubResource("Curve2D_y5vcv")
 unique_name_in_owner = true
 position = Vector2(643, 9617)
 rotation = 0.962107
+
+[node name="EndingMusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("50_t0lqw")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("47_0u8sj")

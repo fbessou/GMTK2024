@@ -35,7 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://diht24l3hw71d" path="res://scenes/fishes/eel.tscn" id="25_jj37f"]
 [ext_resource type="Script" path="res://scripts/Scripted Interactions/CaveEel.gd" id="26_661jo"]
 [ext_resource type="AudioStream" uid="uid://c7fnvwjjve3bi" path="res://assets/audio/sounds/eat.mp3" id="32_xel2m"]
-[ext_resource type="PackedScene" uid="uid://c7yybqrth1w86" path="res://scenes/ui/control_hint.tscn" id="36_suhe7"]
+[ext_resource type="PackedScene" path="res://scenes/ui/control_hint.tscn" id="36_suhe7"]
 [ext_resource type="AudioStream" uid="uid://t4xg3k0l0eka" path="res://assets/audio/sounds/eel_fleeing.mp3" id="36_ucpjy"]
 [ext_resource type="Texture2D" uid="uid://d3c2o4vnku87p" path="res://assets/textures/ui/button_hint_bg.png" id="37_c48jj"]
 [ext_resource type="Script" path="res://scripts/ui/controls_intro.gd" id="37_koofq"]
@@ -49,7 +49,7 @@ colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_qa6cu"]
 gradient = SubResource("Gradient_4re83")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kym6d"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0cxjv"]
 size = Vector2(250, 0)
 
 [sub_resource type="Gradient" id="Gradient_hyjtd"]
@@ -184,6 +184,7 @@ tracks/5/keys = {
 [sub_resource type="Animation" id="Animation_qcv60"]
 resource_name = "opening"
 length = 30.0
+step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -598,16 +599,6 @@ scale = Vector2(1.3455, 1.60782)
 texture = ExtResource("12_wggoc")
 offset = Vector2(288.462, -571.539)
 
-[node name="Sprite2D2" type="Sprite2D" parent="Parallax/Foreground Parallax"]
-modulate = Color(0.758192, 0.758192, 0.758192, 1)
-z_index = 1000
-z_as_relative = false
-use_parent_material = true
-position = Vector2(4389, 562)
-scale = Vector2(1.3455, 1.60782)
-texture = ExtResource("12_wggoc")
-offset = Vector2(288.462, -571.539)
-
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="BackgroundProps" type="Node2D" parent="Environment"]
@@ -858,7 +849,7 @@ gravity = 2400.0
 width = 250
 
 [node name="CollisionShape2D" parent="Environment/NavigableMap/WaterCurrent" index="0"]
-shape = SubResource("RectangleShape2D_kym6d")
+shape = SubResource("RectangleShape2D_0cxjv")
 
 [node name="CPUParticles2D" parent="Environment/NavigableMap/WaterCurrent" index="1"]
 emission_rect_extents = Vector2(125, 0)
@@ -884,7 +875,6 @@ position = Vector2(-714, -83)
 script = ExtResource("17_shtic")
 plankton_bgs = [NodePath("../Environment/PlanktonsBg1"), NodePath("../Environment/PlanktonsBg2"), NodePath("../Environment/PlanktonsBg3")]
 nodes_to_hide = [NodePath("../Parallax/Foreground Parallax")]
-skip_opening = true
 
 [node name="BlackBackground" type="Polygon2D" parent="Opening"]
 z_index = -850
