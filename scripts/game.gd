@@ -2,6 +2,7 @@ extends Node
 
 const levels : Array[PackedScene] = [
 	preload("res://scenes/Levels/level_1.tscn"),
+	preload("res://scenes/Levels/level_2.tscn"),
 	preload("res://scenes/Levels/descent.tscn")
 ]
 var current_level_index := -1
@@ -13,6 +14,7 @@ func _ready() -> void:
 	load_next_level()
 
 func switch_to_next_level() -> void:
+	current_level.level_finished.disconnect(switch_to_next_level)
 	switch_level_animation.play("fade_out")
 	await switch_level_animation.animation_finished
 	load_next_level()

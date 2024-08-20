@@ -32,9 +32,12 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	animation_player.play("Death")
 	
 	await animation_player.animation_finished
+	
 	plankton.position = front.global_position
 	plankton.show()
 	plankton.z_index = 10
 	plankton.state = Fish.State.PLAYER
 	plankton.switch_to_player()
 	GameManager.set_active_fish_camera(plankton)
+	await plankton.tree_exited
+	front.queue_free()
