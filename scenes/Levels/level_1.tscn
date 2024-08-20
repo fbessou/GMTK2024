@@ -49,7 +49,7 @@ colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_qa6cu"]
 gradient = SubResource("Gradient_4re83")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_aw6en"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kym6d"]
 size = Vector2(250, 0)
 
 [sub_resource type="Gradient" id="Gradient_hyjtd"]
@@ -598,6 +598,16 @@ scale = Vector2(1.3455, 1.60782)
 texture = ExtResource("12_wggoc")
 offset = Vector2(288.462, -571.539)
 
+[node name="Sprite2D2" type="Sprite2D" parent="Parallax/Foreground Parallax"]
+modulate = Color(0.758192, 0.758192, 0.758192, 1)
+z_index = 1000
+z_as_relative = false
+use_parent_material = true
+position = Vector2(4389, 562)
+scale = Vector2(1.3455, 1.60782)
+texture = ExtResource("12_wggoc")
+offset = Vector2(288.462, -571.539)
+
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="BackgroundProps" type="Node2D" parent="Environment"]
@@ -848,7 +858,7 @@ gravity = 2400.0
 width = 250
 
 [node name="CollisionShape2D" parent="Environment/NavigableMap/WaterCurrent" index="0"]
-shape = SubResource("RectangleShape2D_aw6en")
+shape = SubResource("RectangleShape2D_kym6d")
 
 [node name="CPUParticles2D" parent="Environment/NavigableMap/WaterCurrent" index="1"]
 emission_rect_extents = Vector2(125, 0)

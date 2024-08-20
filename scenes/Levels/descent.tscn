@@ -30,7 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://bqec3tilerluy" path="res://assets/textures/Paper001_1K-JPG_Color.jpg" id="21_r0lfq"]
 [ext_resource type="Texture2D" uid="uid://de3xdsnisgfc1" path="res://assets/textures/props/shells/starfish.png" id="27_awxck"]
 [ext_resource type="Texture2D" uid="uid://bnwp2hnkxq3m1" path="res://assets/textures/props/shells/shell_spiral.png" id="28_7ja8y"]
-[ext_resource type="AudioStream" uid="uid://cm6u01dxvww1f" path="res://assets/audio/sounds/break_wall.mp3" id="31_xm6g1"]
+[ext_resource type="AudioStream" uid="uid://cqt2p62gmf6k3" path="res://assets/audio/sounds/falling_rocks_long.mp3" id="31_vi3c5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hm1b0"]
 size = Vector2(10677, 7744)
@@ -2312,7 +2312,7 @@ shape = SubResource("RectangleShape2D_nkuwj")
 debug_color = Color(0.975576, 0.156561, 5.77569e-07, 0.42)
 
 [node name="BreakSFX" type="AudioStreamPlayer2D" parent="ExitArea"]
-stream = ExtResource("31_xm6g1")
+stream = ExtResource("31_vi3c5")
 volume_db = 24.0
 bus = &"SoundFx"
 
