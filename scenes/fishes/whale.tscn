@@ -95,7 +95,7 @@ kind = 4
 max_speed = 1200.0
 accel = 3000.0
 drag = 0.2
-view_scale = 0.25
+view_scale = 0.1
 max_inclination = 0.8
 eat = 5
 
