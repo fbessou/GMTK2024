@@ -13,7 +13,7 @@ func _scare(_scareOrigin: Vector2) -> void:
 	flee_sfx.play()
 	animation_player.play("Scare")
 	
-	await(animation_player.animation_finished)
+	await(flee_sfx.finished)
 
 	queue_free()
 

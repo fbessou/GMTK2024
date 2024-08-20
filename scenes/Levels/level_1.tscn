@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://cu585kiq766m0"]
+[gd_scene load_steps=83 format=3 uid="uid://cu585kiq766m0"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_base.gd" id="1_147cf"]
 [ext_resource type="PackedScene" uid="uid://5w3u43821a5" path="res://scenes/props/SeaweedLeaves.tscn" id="4_44jrw"]
@@ -36,7 +36,9 @@
 [ext_resource type="Script" path="res://scripts/Scripted Interactions/CaveEel.gd" id="26_661jo"]
 [ext_resource type="AudioStream" uid="uid://c7fnvwjjve3bi" path="res://assets/audio/sounds/eat.mp3" id="32_xel2m"]
 [ext_resource type="PackedScene" uid="uid://c7yybqrth1w86" path="res://scenes/ui/control_hint.tscn" id="36_suhe7"]
+[ext_resource type="AudioStream" uid="uid://t4xg3k0l0eka" path="res://assets/audio/sounds/eel_fleeing.mp3" id="36_ucpjy"]
 [ext_resource type="Texture2D" uid="uid://d3c2o4vnku87p" path="res://assets/textures/ui/button_hint_bg.png" id="37_c48jj"]
+[ext_resource type="Script" path="res://scripts/ui/controls_intro.gd" id="37_koofq"]
 [ext_resource type="Texture2D" uid="uid://26y4s5lhql5h" path="res://assets/textures/ui/arrow.png" id="38_fh25r"]
 
 [sub_resource type="Gradient" id="Gradient_4re83"]
@@ -47,8 +49,8 @@ colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_qa6cu"]
 gradient = SubResource("Gradient_4re83")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_spv6g"]
-size = Vector2(0, 0)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aw6en"]
+size = Vector2(250, 0)
 
 [sub_resource type="Gradient" id="Gradient_hyjtd"]
 interpolation_mode = 1
@@ -508,7 +510,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_t6teo"]
 resource_name = "Scare"
-length = 2.0
+length = 4.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -516,10 +518,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0682408, 0.166667, 0.268241, 0.334907, 0.4, 0.466667, 0.566667, 0.766667, 1.13333, 2),
+"times": PackedFloat32Array(0, 0.0682408, 0.166667, 0.268241, 0.334907, 0.4, 0.466667, 0.566667, 0.766667, 1.13333, 3.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(972, -12), Vector2(958, -7.99999), Vector2(950, -23), Vector2(1000, -2), Vector2(972, -12), Vector2(958, -7.99999), Vector2(950, -23), Vector2(1000, -2), Vector2(958, -7.99999), Vector2(952, -13), Vector2(1230, -11)]
+"values": [Vector2(972, -12), Vector2(958, -7.99999), Vector2(950, -23), Vector2(1000, -2), Vector2(972, -12), Vector2(958, -7.99999), Vector2(950, -23), Vector2(1000, -2), Vector2(958, -7.99999), Vector2(952, -13), Vector2(2438, 35)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ifdxn"]
@@ -843,9 +845,13 @@ rotation = -0.0689089
 gravity_point_center = Vector2(0.0688544, 0.997627)
 gravity_direction = Vector2(0.0688544, 0.997627)
 gravity = 2400.0
+width = 250
 
 [node name="CollisionShape2D" parent="Environment/NavigableMap/WaterCurrent" index="0"]
-shape = SubResource("RectangleShape2D_spv6g")
+shape = SubResource("RectangleShape2D_aw6en")
+
+[node name="CPUParticles2D" parent="Environment/NavigableMap/WaterCurrent" index="1"]
+emission_rect_extents = Vector2(125, 0)
 
 [node name="PlanktonsBg1" type="Node2D" parent="Environment"]
 modulate = Color(1, 1, 1, 0.184314)
@@ -1052,6 +1058,11 @@ libraries = {
 position = Vector2(-12.9145, 2.49291)
 shape = SubResource("SegmentShape2D_nhwhj")
 
+[node name="FleeSFX" type="AudioStreamPlayer2D" parent="CaveEelPosition/Cave Eel"]
+stream = ExtResource("36_ucpjy")
+volume_db = 6.0
+bus = &"SoundFx"
+
 [node name="ExitArea" type="Area2D" parent="."]
 position = Vector2(1576, -320)
 collision_layer = 4
@@ -1064,6 +1075,7 @@ shape = SubResource("RectangleShape2D_3hqdy")
 
 [node name="Control Hints" type="Node2D" parent="."]
 z_index = 3000
+script = ExtResource("37_koofq")
 
 [node name="Ability Hint" parent="Control Hints" instance=ExtResource("36_suhe7")]
 modulate = Color(1, 1, 1, 0)
@@ -1224,7 +1236,7 @@ vertical_alignment = 1
 modulate = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-254, 345, -233, 293, -229, 295, -250, 347)
 
-[connection signal="body_entered" from="Environment/NavigableMap/WaterCurrent" to="." method="_on_water_current_body_entered"]
+[connection signal="body_entered" from="Environment/NavigableMap/WaterCurrent" to="Control Hints" method="_on_water_current_body_entered"]
 [connection signal="body_entered" from="CaveEelPosition/Cave Eel/Scare Anim Area" to="CaveEelPosition/Cave Eel" method="_on_scare_anim_area_body_entered"]
 [connection signal="body_exited" from="CaveEelPosition/Cave Eel/Scare Anim Area" to="CaveEelPosition/Cave Eel" method="_on_scare_anim_area_body_exited"]
 

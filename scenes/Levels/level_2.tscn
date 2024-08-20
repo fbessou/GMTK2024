@@ -35,10 +35,10 @@ size = Vector2(6364.55, 129.431)
 resource_local_to_scene = true
 size = Vector2(6412.97, 3724.79)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nke67"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lisd7"]
 size = Vector2(1500, 6500)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xeja1"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvovh"]
 size = Vector2(6000, 6500)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_spqom"]
@@ -548,7 +548,7 @@ bubbles_amount = 50
 bubbles_size = 1.0
 
 [node name="CollisionShape2D" parent="Gameplay Elements/WaterCurrent" index="0"]
-shape = SubResource("RectangleShape2D_nke67")
+shape = SubResource("RectangleShape2D_lisd7")
 
 [node name="CPUParticles2D" parent="Gameplay Elements/WaterCurrent" index="1"]
 amount = 50
@@ -575,7 +575,7 @@ bubbles_amount = 50
 bubbles_size = 1.0
 
 [node name="CollisionShape2D" parent="Gameplay Elements/WaterCurrent2" index="0"]
-shape = SubResource("RectangleShape2D_xeja1")
+shape = SubResource("RectangleShape2D_fvovh")
 
 [node name="CPUParticles2D" parent="Gameplay Elements/WaterCurrent2" index="1"]
 amount = 50
@@ -670,7 +670,6 @@ position = Vector2(-4022, 965)
 state = 0
 
 [node name="Camera2D" type="Camera2D" parent="Puffer"]
-scale = Vector2(1, 1)
 zoom = Vector2(0.5, 0.5)
 
 [node name="Path2D" type="Path2D" parent="."]
