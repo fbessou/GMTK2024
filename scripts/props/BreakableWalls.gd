@@ -13,8 +13,8 @@ func _on_body_entered(body: Node) -> void:
 	if(fish == null):
 		return
 	var max_velocity := fish.get_max_velocity() 
-	if(max_velocity >= speedThreshold):
-		isBroken = false
+	if(max_velocity >= speedThreshold and !isBroken):
+		isBroken = true
 		collision_shape_2d.hide()
 		collision_shape_2d.queue_free()
 		collapse()
