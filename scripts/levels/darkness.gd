@@ -13,6 +13,7 @@ func _ready() -> void:
 	RenderingServer.set_default_clear_color(Color("#393e7c"))
 	var area := $WaterCurrents/WaterCurrent15 as Area2D
 	area.body_entered.connect(_on_body_entered_tunnel)
+	AmbientSoundManager.stop_ambient()
 
 func _on_body_entered_tunnel(body: Node2D) -> void:
 	var fish := body as Angler
@@ -38,3 +39,4 @@ func interpolate_zoom(x: float) -> void:
 	camera.zoom = Vector2.ONE * float(half_screen_height) / (camera_center - camera_top)
 	var fish := %Angler as Node2D
 	fish.global_position = camera.global_position - Vector2(0, (camera_center - camera_top) * (1.0 - pow(.15, x)))
+	

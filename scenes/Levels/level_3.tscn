@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://dxq4nyclwtt1u"]
+[gd_scene load_steps=64 format=3 uid="uid://dxq4nyclwtt1u"]
 
 [ext_resource type="Script" path="res://scripts/levels/darkness.gd" id="1_6yl55"]
 [ext_resource type="PackedScene" uid="uid://c2to2hb2q2wvb" path="res://scenes/Levels/blocks/curveA.tscn" id="1_ctl1s"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cg2las1fcrbux" path="res://assets/textures/props/seaweed/leaves/frame0001.png" id="10_p0jen"]
 [ext_resource type="PackedScene" uid="uid://biasnyddsqpv1" path="res://scenes/Levels/blocks/spireB.tscn" id="10_xih3a"]
 [ext_resource type="PackedScene" uid="uid://n41mpk740rjq" path="res://scenes/Levels/water_current.tscn" id="12_fdivb"]
+[ext_resource type="AudioStream" uid="uid://dflos3hgtfemn" path="res://assets/audio/sounds/rune_noise.mp3" id="12_qipqn"]
 [ext_resource type="Shader" path="res://resources/shaders/paper.gdshader" id="13_0wmfx"]
 [ext_resource type="PackedScene" uid="uid://dqidfykm4q6cs" path="res://scenes/fishes/angler.tscn" id="13_4s6o7"]
 [ext_resource type="Texture2D" uid="uid://bqec3tilerluy" path="res://assets/textures/Paper001_1K-JPG_Color.jpg" id="14_nxrp5"]
@@ -46,6 +47,7 @@
 [ext_resource type="Texture2D" uid="uid://du60r422o71ax" path="res://assets/textures/cthulhu/eyes/frame0024.png" id="44_4vmc1"]
 [ext_resource type="Texture2D" uid="uid://dtb1vacn0nukr" path="res://assets/textures/cthulhu/eyes/frame0026.png" id="45_7kco2"]
 [ext_resource type="Texture2D" uid="uid://2iwj4na0g621" path="res://assets/textures/cthulhu/eyes/frame0028.png" id="46_xcnjy"]
+[ext_resource type="AudioStream" uid="uid://kwe04jv53ijf" path="res://assets/audio/ambience/underwater_ambience_deep.mp3" id="47_0u8sj"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mwqoh"]
 light_mode = 2
@@ -289,6 +291,18 @@ tracks/8/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CanvasLayer:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_557vh"]
 resource_name = "ending"
@@ -429,6 +443,18 @@ tracks/10/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CanvasLayer:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bpi5b"]
 _data = {
@@ -442,6 +468,9 @@ _data = {
 }
 point_count = 7
 
+[sub_resource type="LabelSettings" id="LabelSettings_67mbl"]
+font_size = 76
+
 [node name="Level3" type="Node2D"]
 material = SubResource("CanvasItemMaterial_mwqoh")
 position = Vector2(-346, -57)
@@ -450,7 +479,7 @@ script = ExtResource("1_6yl55")
 [node name="Angler" parent="." instance=ExtResource("13_4s6o7")]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_ed46t")
-position = Vector2(-1576, 8288)
+position = Vector2(-92, -1621)
 wall_min_slide_angle = 0.261799
 state = 0
 
@@ -667,18 +696,46 @@ position = Vector2(-1111, 2459)
 rotation = -0.0110276
 texture = ExtResource("15_allbn")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="BackgroundProps/RunesR"]
+stream = ExtResource("12_qipqn")
+volume_db = -6.0
+autoplay = true
+max_distance = 750.0
+bus = &"SoundFx"
+
 [node name="RunesR2" type="Sprite2D" parent="BackgroundProps"]
-position = Vector2(-1715, 6808)
+position = Vector2(-1695, 6633)
 rotation = -0.0110276
 texture = ExtResource("15_allbn")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="BackgroundProps/RunesR2"]
+stream = ExtResource("12_qipqn")
+volume_db = -6.0
+autoplay = true
+max_distance = 750.0
+bus = &"SoundFx"
 
 [node name="RunesForkB" type="Sprite2D" parent="BackgroundProps"]
 position = Vector2(1449, 3795)
 texture = ExtResource("16_5t2ng")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="BackgroundProps/RunesForkB"]
+stream = ExtResource("12_qipqn")
+volume_db = -6.0
+autoplay = true
+max_distance = 750.0
+bus = &"SoundFx"
+
 [node name="RunesForkB2" type="Sprite2D" parent="BackgroundProps"]
 position = Vector2(-874, 6313)
 texture = ExtResource("16_5t2ng")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="BackgroundProps/RunesForkB2"]
+stream = ExtResource("12_qipqn")
+volume_db = -6.0
+autoplay = true
+max_distance = 750.0
+bus = &"SoundFx"
 
 [node name="RunesAlpha" type="Sprite2D" parent="BackgroundProps"]
 position = Vector2(-1561, 4496)
@@ -691,6 +748,13 @@ position = Vector2(-1276, 8734)
 rotation = -0.49689
 texture = ExtResource("17_d26sk")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="BackgroundProps/RunesAlpha3"]
+stream = ExtResource("12_qipqn")
+volume_db = -6.0
+autoplay = true
+max_distance = 500.0
+bus = &"SoundFx"
+
 [node name="ForegroundProps" type="Node2D" parent="."]
 z_index = -200
 z_as_relative = false
@@ -699,6 +763,12 @@ z_as_relative = false
 position = Vector2(-1652, 4485)
 scale = Vector2(2.05779, 2.05779)
 texture = ExtResource("17_d26sk")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ForegroundProps/RunesAlpha2"]
+stream = ExtResource("12_qipqn")
+autoplay = true
+max_distance = 950.0
+bus = &"SoundFx"
 
 [node name="Leaves" type="Node2D" parent="ForegroundProps"]
 use_parent_material = true
@@ -1498,59 +1568,27 @@ polygon = PackedVector2Array(-2328, 8292, -1453, 8954, -602, 8990, 250, 9489, 65
 
 [node name="WaterCurrents" type="Node2D" parent="."]
 
-[node name="WaterCurrent2" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
-position = Vector2(-1617, 4561)
-rotation = 3.1378
-scale = Vector2(1.84, 1.84)
-gravity_point_center = Vector2(-0.00379274, -0.999993)
-gravity_direction = Vector2(-0.00379274, -0.999993)
-gravity = 800.0
-width = 220
-length = 160
-intensity = 800
-
-[node name="WaterCurrent6" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
-position = Vector2(-1121, 2437)
-rotation = 3.1378
-scale = Vector2(1.25597, 1.25597)
-gravity_point_center = Vector2(-0.00379274, -0.999993)
-gravity_direction = Vector2(-0.00379274, -0.999993)
-gravity = 800.0
-width = 250
-length = 185
-intensity = 800
-
-[node name="WaterCurrent7" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
-position = Vector2(1465, 3746)
-rotation = -3.10373
-scale = Vector2(1.28061, 1.28061)
-gravity_point_center = Vector2(0.0378537, -0.999283)
-gravity_direction = Vector2(0.0378537, -0.999283)
-gravity = 800.0
-width = 255
-length = 215
-intensity = 800
-bubbles_amount = 50
-
 [node name="WaterCurrent3" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
-position = Vector2(-1152, 5434)
+position = Vector2(-1146, 5464)
 rotation = 0.146283
 gravity_point_center = Vector2(-0.145762, 0.98932)
 gravity_direction = Vector2(-0.145762, 0.98932)
 gravity = 1800.0
 width = 400
-length = 300
+length = 155
 intensity = 1800
+audio_max_distance = 750
 
 [node name="WaterCurrent5" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
-position = Vector2(-1626, 1988)
+position = Vector2(-1966, 1988)
 rotation = 1.53755
 gravity_point_center = Vector2(-0.999447, 0.0332403)
 gravity_direction = Vector2(-0.999447, 0.0332403)
 gravity = 1800.0
 width = 400
-length = 300
+length = 185
 intensity = 1800
+audio_max_distance = 750
 
 [node name="WaterCurrent12" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
 position = Vector2(-3158, 3963)
@@ -1560,29 +1598,32 @@ gravity_point_center = Vector2(-0.239759, 0.970832)
 gravity_direction = Vector2(-0.239759, 0.970832)
 gravity = 1800.0
 width = 400
-length = 300
+length = 190
 intensity = 1800
+audio_max_distance = 750
 
 [node name="WaterCurrent13" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
-position = Vector2(-986, 3454)
+position = Vector2(-937, 3544)
 rotation = -0.367832
 scale = Vector2(1.185, 1.185)
 gravity_point_center = Vector2(0.359593, 0.933109)
 gravity_direction = Vector2(0.359593, 0.933109)
 gravity = 1800.0
 width = 400
-length = 300
+length = 185
 intensity = 1800
+audio_max_distance = 750
 
 [node name="WaterCurrent4" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
-position = Vector2(-2288, 5604)
+position = Vector2(-2273, 5643)
 rotation = -0.476425
 gravity_point_center = Vector2(0.458605, 0.88864)
 gravity_direction = Vector2(0.458605, 0.88864)
 gravity = 1800.0
 width = 400
-length = 300
+length = 140
 intensity = 1800
+audio_max_distance = 750
 
 [node name="WaterCurrent8" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
 position = Vector2(-1341, 8558)
@@ -1593,6 +1634,7 @@ gravity = 2500.0
 width = 300
 length = 300
 intensity = 2500
+audio_max_distance = 750
 
 [node name="WaterCurrent9" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
 position = Vector2(-732, 8722)
@@ -1603,6 +1645,7 @@ gravity = 2500.0
 width = 250
 length = 300
 intensity = 2500
+audio_max_distance = 750
 
 [node name="WaterCurrent10" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
 position = Vector2(-1044, 8678)
@@ -1613,6 +1656,7 @@ gravity = 2500.0
 width = 250
 length = 300
 intensity = 2500
+audio_max_distance = 750
 
 [node name="WaterCurrent17" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
 position = Vector2(-442, 8762)
@@ -1623,6 +1667,7 @@ gravity = 2500.0
 width = 260
 length = 300
 intensity = 2500
+audio_max_distance = 750
 
 [node name="WaterCurrent19" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
 position = Vector2(-137, 8883)
@@ -1633,6 +1678,7 @@ gravity = 2500.0
 width = 360
 length = 350
 intensity = 2500
+audio_max_distance = 750
 
 [node name="WaterCurrent18" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
 position = Vector2(158.001, 9006)
@@ -1643,6 +1689,7 @@ gravity = 2500.0
 width = 480
 length = 270
 intensity = 2500
+audio_max_distance = 750
 
 [node name="WaterCurrent16" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
 position = Vector2(531, 9198)
@@ -1653,29 +1700,7 @@ gravity = 2500.0
 width = 510
 length = 510
 intensity = 2500
-
-[node name="WaterCurrent11" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
-position = Vector2(1477, 10604)
-rotation = -0.626342
-gravity_point_center = Vector2(0.586185, 0.810177)
-gravity_direction = Vector2(0.586185, 0.810177)
-gravity = 2500.0
-width = 1500
-length = 1500
-intensity = 2500
-bubbles_amount = 20
-bubbles_size = 1.0
-
-[node name="WaterCurrent14" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
-position = Vector2(2189, 11569)
-rotation = -0.626342
-gravity_point_center = Vector2(0.586185, 0.810177)
-gravity_direction = Vector2(0.586185, 0.810177)
-gravity = 2500.0
-width = 1900
-length = 1000
-intensity = 2500
-bubbles_size = 1.0
+audio_max_distance = 750
 
 [node name="WaterCurrent15" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
 position = Vector2(980, 9635)
@@ -1686,7 +1711,8 @@ gravity = 2500.0
 width = 750
 length = 600
 intensity = 2500
-bubbles_amount = 50
+bubbles_amount = 20
+audio_max_distance = 750
 
 [node name="ExitArea" type="Area2D" parent="."]
 visible = false
@@ -1753,3 +1779,31 @@ curve = SubResource("Curve2D_y5vcv")
 unique_name_in_owner = true
 position = Vector2(643, 9617)
 rotation = 0.962107
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("47_0u8sj")
+volume_db = -8.039
+autoplay = true
+bus = &"Ambience"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "THE END"
+label_settings = SubResource("LabelSettings_67mbl")
+horizontal_alignment = 1
+vertical_alignment = 1
