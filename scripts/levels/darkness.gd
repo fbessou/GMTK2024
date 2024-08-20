@@ -14,6 +14,7 @@ func _ready() -> void:
 	var area := $WaterCurrents/WaterCurrent15 as Area2D
 	area.body_entered.connect(_on_body_entered_tunnel)
 	AmbientSoundManager.stop_ambient()
+	MusicManager.stop_music()
 
 func _on_body_entered_tunnel(body: Node2D) -> void:
 	var fish := body as Angler

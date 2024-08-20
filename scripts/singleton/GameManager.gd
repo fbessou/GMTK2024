@@ -24,6 +24,7 @@ func set_active_fish_camera(fish: Fish) -> void:
 	var camera := get_viewport().get_camera_2d()
 	camera.reparent(fish, false)
 	camera.position = Vector2.ZERO
+	print(fish, fish.view_scale)
 	camera.zoom = Vector2.ONE * fish.view_scale
 	
 	# match audio

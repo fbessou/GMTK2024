@@ -238,20 +238,24 @@ func lerp_to_target_tween() -> void:
 		.set_ease(Tween.EASE_IN_OUT)\
 		.set_trans(Tween.TRANS_QUAD)
 	
+	corruption_audio.play()
 	tween_in.play()
 	await tween_in.finished
 	global_position = target.global_position
 	switch_to_player()
+	
+	var zoom_base := current_cam.zoom
 	GameManager.set_active_fish_camera(self)
+	
 	target.queue_free()
 	
 	# camera zoom out tween
 	var tween_out := get_tree().create_tween()
-	tween_out.tween_property(current_cam, "zoom", current_cam.zoom / cameraZoomFactor, cameraAnimationSpeed)\
+	tween_out.tween_property(current_cam, "zoom", view_scale * Vector2.ONE, cameraAnimationSpeed)\
 		.set_ease(Tween.EASE_IN_OUT)\
-		.set_trans(Tween.TRANS_QUAD)
+		.set_trans(Tween.TRANS_QUAD)\
+		.from(zoom_base)
 		
-	corruption_audio.play()
 
 func calculate_mean_velocity() -> void:
 	mean_vel_array.x = mean_vel_array.y
