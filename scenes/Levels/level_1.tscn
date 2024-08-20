@@ -1,18 +1,24 @@
-[gd_scene load_steps=66 format=3 uid="uid://cu585kiq766m0"]
+[gd_scene load_steps=75 format=3 uid="uid://cu585kiq766m0"]
 
 [ext_resource type="Script" path="res://scripts/levels/level_base.gd" id="1_147cf"]
 [ext_resource type="PackedScene" uid="uid://5w3u43821a5" path="res://scenes/props/SeaweedLeaves.tscn" id="4_44jrw"]
+[ext_resource type="Material" uid="uid://c3ruw5j78qxr4" path="res://resources/materials/paper.material" id="5_7xe4u"]
 [ext_resource type="Texture2D" uid="uid://birpdwq3i2i3r" path="res://assets/textures/props/seaweed/varech/frame0000.png" id="5_35qt7"]
 [ext_resource type="Texture2D" uid="uid://cx52ra38h43wf" path="res://assets/textures/props/seaweed/varech/frame0001.png" id="6_s4tiy"]
 [ext_resource type="Texture2D" uid="uid://c4vawkp3yxbfq" path="res://assets/textures/props/coral/branch/coral_branch.png" id="7_eaosu"]
 [ext_resource type="Texture2D" uid="uid://dgvdxphki1cs8" path="res://assets/textures/environment/level1/3-background.svg" id="8_cuxfu"]
 [ext_resource type="PackedScene" uid="uid://chevwwev43q6b" path="res://scenes/Levels/blocks/largeC.tscn" id="8_khk7t"]
 [ext_resource type="PackedScene" uid="uid://dbles67txj7e0" path="res://scenes/Levels/blocks/mediumA.tscn" id="9_mua36"]
+[ext_resource type="Texture2D" uid="uid://b25gaiscfusdu" path="res://assets/textures/props/shells/pebble.png" id="10_bg2wx"]
 [ext_resource type="PackedScene" uid="uid://c2to2hb2q2wvb" path="res://scenes/Levels/blocks/curveA.tscn" id="10_ycddo"]
 [ext_resource type="Texture2D" uid="uid://mlwwit4s7j2j" path="res://assets/textures/environment/level1/2-midground.svg" id="10_ypg8p"]
 [ext_resource type="PackedScene" uid="uid://bnjnf3jijmc4q" path="res://scenes/Levels/blocks/smallA.tscn" id="11_km3yp"]
+[ext_resource type="Texture2D" uid="uid://buw77r8f3h7fb" path="res://assets/textures/props/shells/rocks.png" id="11_kqfio"]
 [ext_resource type="PackedScene" uid="uid://ucctann5vnfg" path="res://scenes/Levels/blocks/smallB.tscn" id="12_ah3xm"]
 [ext_resource type="Texture2D" uid="uid://c3i7ffs6568mt" path="res://assets/textures/environment/level1/0-foreground.svg" id="12_wggoc"]
+[ext_resource type="Texture2D" uid="uid://de3xdsnisgfc1" path="res://assets/textures/props/shells/starfish.png" id="12_yee40"]
+[ext_resource type="Texture2D" uid="uid://dbqicp013klkb" path="res://assets/textures/props/shells/shell.png" id="13_42lph"]
+[ext_resource type="Texture2D" uid="uid://bnwp2hnkxq3m1" path="res://assets/textures/props/shells/shell_spiral.png" id="13_iaovn"]
 [ext_resource type="PackedScene" uid="uid://c7xh68riw0kf8" path="res://scenes/Levels/blocks/mediumB.tscn" id="13_vbqx5"]
 [ext_resource type="PackedScene" uid="uid://bitk4x3pdmgjb" path="res://scenes/Levels/blocks/largeA.tscn" id="14_ucd0q"]
 [ext_resource type="PackedScene" uid="uid://cw5cd8mpbft6b" path="res://scenes/Levels/blocks/largeB.tscn" id="15_536sj"]
@@ -87,7 +93,7 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3syn6"]
 resource_local_to_scene = true
 shader = SubResource("Shader_1nyio")
-shader_parameter/corruption = 1.0
+shader_parameter/corruption = 0.0
 shader_parameter/filter_color = Color(1, 1, 1, 1)
 shader_parameter/color_multiplier = 1.0
 shader_parameter/paper_texture = ExtResource("24_gvsql")
@@ -140,6 +146,30 @@ tracks/3/keys = {
 "times": PackedFloat32Array(),
 "transitions": PackedFloat32Array(),
 "values": []
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%PlayerPlankton:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.99506]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("%PlayerPlankton:material:shader_parameter/corruption")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_qcv60"]
@@ -194,6 +224,30 @@ tracks/3/keys = {
 "args": [],
 "method": &"contaminate"
 }]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%PlayerPlankton:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 17, 17.4667, 18.4333, 18.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [3.99506, 3.99506, 3.45575, 3.45575, 2.00713]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("%PlayerPlankton:material:shader_parameter/corruption")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(20.5667, 22.1333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o0wly"]
@@ -315,6 +369,48 @@ shader_parameter/filter_color = Color(1, 1, 1, 1)
 shader_parameter/color_multiplier = 1.0
 shader_parameter/paper_texture = ExtResource("24_gvsql")
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j3ajt"]
+radius = 11.0
+height = 62.0
+
+[sub_resource type="Shader" id="Shader_tutpu"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.3.stable's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mix;
+
+uniform sampler2D paper_texture;
+uniform float corruption : hint_range(0.0, 1.0) = 1.0;
+uniform vec4 filter_color: source_color;
+uniform float color_multiplier: hint_range(0.0, 1.0) = 1.0;
+
+//varying vec2 uv_scaled;
+void vertex() {
+	//uv_scaled = UV * length(MODEL_MATRIX[0].xy) * 0.5;
+}
+
+vec3 greyscale(vec3 color, float str) {
+    float g = dot(color, vec3(0.299, 0.587, 0.114));
+    return mix(color, vec3(g), str);
+}
+void fragment() {
+	// Apply paper texture
+	COLOR.rgb *= mix(vec3(0), vec3(1), (texture(paper_texture, UV * 0.5f).r - 0.3) / (1.0 - 0.3));
+	
+	// Apply \"corruption\" filter
+	COLOR.rgb = mix(filter_color.rgb, greyscale(COLOR.rgb, 1.0f - corruption), color_multiplier);
+	
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q5qjl"]
+resource_local_to_scene = true
+shader = SubResource("Shader_tutpu")
+shader_parameter/corruption = 1.0
+shader_parameter/filter_color = Color(1, 1, 1, 1)
+shader_parameter/color_multiplier = 1.0
+shader_parameter/paper_texture = ExtResource("24_gvsql")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ore20"]
 resource_local_to_scene = true
 shader = SubResource("Shader_1nyio")
@@ -347,7 +443,7 @@ shader_parameter/filter_color = Color(1, 1, 1, 1)
 shader_parameter/color_multiplier = 1.0
 shader_parameter/paper_texture = ExtResource("24_gvsql")
 
-[sub_resource type="Shader" id="Shader_tutpu"]
+[sub_resource type="Shader" id="Shader_11kcm"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.3.stable's CanvasItemMaterial.
 
 shader_type canvas_item;
@@ -379,7 +475,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_01v07"]
 resource_local_to_scene = true
-shader = SubResource("Shader_tutpu")
+shader = SubResource("Shader_11kcm")
 shader_parameter/corruption = 1.0
 shader_parameter/filter_color = Color(1, 1, 1, 1)
 shader_parameter/color_multiplier = 1.0
@@ -439,10 +535,18 @@ metadata/_edit_horizontal_guides_ = [192.0, 420.0]
 
 [node name="Parallax" type="Node2D" parent="."]
 
+[node name="Sprite2D" type="Sprite2D" parent="Parallax"]
+modulate = Color(0.854902, 0.972549, 0.890196, 1)
+z_index = -1000
+z_as_relative = false
+material = ExtResource("5_7xe4u")
+position = Vector2(-140, 352)
+scale = Vector2(50, 50)
+
 [node name="Background" type="Parallax2D" parent="Parallax"]
 modulate = Color(0.402884, 0.793626, 0.725737, 1)
-scroll_scale = Vector2(0.1, 0.1)
-scroll_offset = Vector2(-2603, -389)
+scroll_scale = Vector2(0.7, 0.7)
+scroll_offset = Vector2(-2603, -243.415)
 repeat_size = Vector2(1920, 0)
 repeat_times = 2
 
@@ -454,7 +558,7 @@ texture = ExtResource("8_cuxfu")
 offset = Vector2(-29, -513)
 
 [node name="Midground" type="Parallax2D" parent="Parallax"]
-scroll_scale = Vector2(0.5, 0.5)
+scroll_scale = Vector2(0.6, 0.6)
 scroll_offset = Vector2(-96, -158)
 repeat_size = Vector2(1920, 0)
 repeat_times = 2
@@ -467,15 +571,15 @@ position = Vector2(-24, 179)
 texture = ExtResource("10_ypg8p")
 
 [node name="Foreground Parallax" type="Parallax2D" parent="Parallax"]
-visible = false
 z_index = 1000
-scroll_scale = Vector2(1.3, 1.3)
+scroll_scale = Vector2(1.5, 1.5)
 scroll_offset = Vector2(16, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax/Foreground Parallax"]
 modulate = Color(0.758192, 0.758192, 0.758192, 1)
 z_index = 1000
 z_as_relative = false
+use_parent_material = true
 position = Vector2(-187, 541)
 scale = Vector2(1.3455, 1.60782)
 texture = ExtResource("12_wggoc")
@@ -523,6 +627,24 @@ position = Vector2(162, -13)
 color = Color(2.06962e-06, 0.40394, 0.415024, 1)
 polygon = PackedVector2Array(1055, -472, 1042, -444, 1065, -427, 1072, -402, 1075, -400, 1078, -401, 1083, -406, 1087, -417, 1091, -428, 1096, -430, 1101, -428, 1123, -395, 1135, -355, 1131, -311, 1123, -268, 1103, -223, 1164, -186, 1287, -222, 1788, -198, 1733, -542, 1190, -539)
 
+[node name="Pebble" type="Sprite2D" parent="Environment/BackgroundProps"]
+modulate = Color(0.446777, 0.446777, 0.446777, 1)
+position = Vector2(74, 57)
+scale = Vector2(0.273438, 0.273438)
+texture = ExtResource("10_bg2wx")
+
+[node name="Rocks" type="Sprite2D" parent="Environment/BackgroundProps"]
+modulate = Color(0.767136, 0.864984, 0.790662, 1)
+position = Vector2(-398, 388)
+texture = ExtResource("11_kqfio")
+
+[node name="Rocks2" type="Sprite2D" parent="Environment/BackgroundProps"]
+modulate = Color(0.489622, 0.489622, 0.489622, 1)
+position = Vector2(289, 72)
+rotation = 0.0947455
+scale = Vector2(0.739425, 0.739425)
+texture = ExtResource("11_kqfio")
+
 [node name="OutOfViewProps" type="Node2D" parent="Environment"]
 z_index = 20
 z_as_relative = false
@@ -532,6 +654,28 @@ scale = Vector2(1, 1.00474)
 modulate = Color(0.801456, 0.503532, 0.445273, 1)
 position = Vector2(-298, 461)
 texture = ExtResource("7_eaosu")
+
+[node name="Starfish" type="Sprite2D" parent="Environment/OutOfViewProps"]
+modulate = Color(0.930788, 0.77293, 0.615882, 1)
+position = Vector2(-647, -289.627)
+rotation = -0.274967
+scale = Vector2(0.58204, 0.579702)
+skew = -0.00248146
+texture = ExtResource("12_yee40")
+
+[node name="Pebble" type="Sprite2D" parent="Environment/OutOfViewProps"]
+modulate = Color(0.198195, 0.367555, 0.509362, 1)
+position = Vector2(-43, -287.637)
+rotation = 0.32555
+scale = Vector2(0.910003, 0.910003)
+texture = ExtResource("10_bg2wx")
+
+[node name="Shell" type="Sprite2D" parent="Environment/OutOfViewProps"]
+modulate = Color(0.633805, 0.661229, 0.614324, 1)
+position = Vector2(-674, 69.6698)
+rotation = 0.808828
+scale = Vector2(0.445921, 0.445921)
+texture = ExtResource("13_42lph")
 
 [node name="ForegroundProps" type="Node2D" parent="Environment"]
 z_index = -200
@@ -552,6 +696,12 @@ position = Vector2(1409, -358)
 scale = Vector2(1.605, 300)
 texture = SubResource("GradientTexture1D_qa6cu")
 
+[node name="ShellSpiral" type="Sprite2D" parent="Environment/ForegroundProps"]
+modulate = Color(0.982144, 0.880998, 0.914642, 1)
+position = Vector2(96, -395)
+rotation = -0.166219
+texture = ExtResource("13_iaovn")
+
 [node name="NavigableMap" type="Node2D" parent="Environment"]
 modulate = Color(0, 0.521569, 0.67451, 1)
 
@@ -566,6 +716,7 @@ position = Vector2(-1140, 228)
 rotation = 3.40445
 
 [node name="MediumA" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("9_mua36")]
+use_parent_material = false
 position = Vector2(-342, 982)
 rotation = 1.52905
 
@@ -574,10 +725,12 @@ position = Vector2(-1000, 714)
 rotation = 1.26368
 
 [node name="SmallA" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("11_km3yp")]
+use_parent_material = false
 position = Vector2(-172, 390)
 rotation = -4.88836
 
 [node name="SmallA2" parent="Environment/NavigableMap/PlanktonCave" instance=ExtResource("11_km3yp")]
+use_parent_material = false
 position = Vector2(-176, 390)
 rotation = -4.88836
 
@@ -597,6 +750,7 @@ position = Vector2(-840, -86.6667)
 rotation = -0.540315
 
 [node name="SmallA3" parent="Environment/NavigableMap/AnchovyCave" instance=ExtResource("11_km3yp")]
+use_parent_material = false
 position = Vector2(-829.333, -462.667)
 rotation = -6.8709
 
@@ -648,22 +802,27 @@ position = Vector2(564, -21.3333)
 rotation = 0.68043
 
 [node name="SmallA4" parent="Environment/NavigableMap/EelCave" instance=ExtResource("11_km3yp")]
+use_parent_material = false
 position = Vector2(-102.667, -312)
 rotation = 3.04232
 
 [node name="MediumA2" parent="Environment/NavigableMap/EelCave" instance=ExtResource("9_mua36")]
+use_parent_material = false
 position = Vector2(1170.67, -694.667)
 rotation = 4.62127
 
 [node name="MediumA4" parent="Environment/NavigableMap/EelCave" instance=ExtResource("9_mua36")]
+use_parent_material = false
 position = Vector2(1992, -724)
 rotation = 4.90905
 
 [node name="MediumA5" parent="Environment/NavigableMap/EelCave" instance=ExtResource("9_mua36")]
+use_parent_material = false
 position = Vector2(2152, -222.667)
 rotation = 4.61202
 
 [node name="MediumA3" parent="Environment/NavigableMap/EelCave" instance=ExtResource("9_mua36")]
+use_parent_material = false
 position = Vector2(1137.33, -216)
 rotation = 10.9745
 
@@ -693,6 +852,7 @@ position = Vector2(-714, -83)
 script = ExtResource("17_shtic")
 plankton_bgs = [NodePath("../Environment/PlanktonsBg1"), NodePath("../Environment/PlanktonsBg2"), NodePath("../Environment/PlanktonsBg3")]
 nodes_to_hide = [NodePath("../Parallax/Foreground Parallax")]
+skip_opening = true
 
 [node name="BlackBackground" type="Polygon2D" parent="Opening"]
 z_index = -850
@@ -710,7 +870,8 @@ texture = SubResource("GradientTexture2D_i4a12")
 curve = SubResource("Curve2D_5docd")
 
 [node name="PlanktonPathFollow" type="PathFollow2D" parent="Opening/PlanktonPath"]
-position = Vector2(361, 339)
+position = Vector2(543, 497)
+progress = 377.93
 rotates = false
 cubic_interp = false
 loop = false
@@ -718,7 +879,7 @@ loop = false
 [node name="PlayerPlankton" parent="Opening/PlanktonPath/PlanktonPathFollow" instance=ExtResource("20_2o6hp")]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_3syn6")
-rotation = 1.5708
+rotation = 3.99506
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Opening"]
 libraries = {
@@ -734,7 +895,8 @@ position = Vector2(503, 124)
 curve = SubResource("Curve2D_glsyj")
 
 [node name="RunePathFollow" type="PathFollow2D" parent="Opening/RunePath"]
-position = Vector2(-5, -214)
+position = Vector2(48, 372)
+progress = 609.462
 rotates = false
 loop = false
 
@@ -802,6 +964,13 @@ position = Vector2(-437, -149)
 [node name="WaitingAnchovy" parent="Anchovies" instance=ExtResource("22_hx153")]
 material = SubResource("ShaderMaterial_6mrrb")
 position = Vector2(-166, 129)
+
+[node name="CollisionShape2D" parent="Anchovies/WaitingAnchovy/MouthArea2D" index="0"]
+position = Vector2(-19, 0)
+shape = SubResource("CapsuleShape2D_j3ajt")
+
+[node name="FoodBubble" parent="Anchovies/WaitingAnchovy" index="3"]
+material = SubResource("ShaderMaterial_q5qjl")
 
 [node name="PufferFishes" type="Node2D" parent="."]
 
@@ -876,4 +1045,5 @@ shape = SubResource("RectangleShape2D_3hqdy")
 [connection signal="body_entered" from="CaveEelPosition/Cave Eel/Scare Anim Area" to="CaveEelPosition/Cave Eel" method="_on_scare_anim_area_body_entered"]
 [connection signal="body_exited" from="CaveEelPosition/Cave Eel/Scare Anim Area" to="CaveEelPosition/Cave Eel" method="_on_scare_anim_area_body_exited"]
 
+[editable path="Anchovies/WaitingAnchovy"]
 [editable path="CaveEelPosition/Cave Eel"]
