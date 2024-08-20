@@ -7,13 +7,15 @@ extends Node2D
 @onready var path_2d: Path2D = $"../Path2D"
 @onready var path_follow_2d: PathFollow2D = $"../Path2D/PathFollow2D"
 @onready var collision_shape_2d: CollisionShape2D = $"../Eel/CollisionShape2D"
+@onready var fan_power_box: PowerBox = $"../Gameplay Elements/Fan PowerBox"
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	var eel := body as Eel
 	if(eel == null):
 		return
 		
-	electric_fan.isRotating = true
+	fan_power_box.audio_stream_player_2d.play()
+	electric_fan.power_start()
 	
 	var tween := get_tree().create_tween()
 	tween.tween_property(electric_fan, "rotation_speed", electric_fan.rotation_speed * 5.0, 0.5)\

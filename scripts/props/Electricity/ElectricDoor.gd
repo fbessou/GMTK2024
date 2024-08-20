@@ -4,6 +4,7 @@ extends IPowerable
 @export var rise_speed := 3.0
 @export var fall_speed := 1.0
 @export var max_height:=1.0
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var startPos : Vector2
 
@@ -20,7 +21,9 @@ func _physics_process(delta: float) -> void:
 		
 
 func power_start() -> void:
+	audio_stream_player_2d.play()
 	isPowered = true
 	
 func power_stop() -> void:
+	audio_stream_player_2d.play()
 	isPowered = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://diht24l3hw71d"]
+[gd_scene load_steps=26 format=3 uid="uid://diht24l3hw71d"]
 
 [ext_resource type="PackedScene" uid="uid://l4sjy0s8l2d" path="res://scenes/fishes/fish.tscn" id="1_3t67g"]
 [ext_resource type="Texture2D" uid="uid://btkts8qjh6lsj" path="res://assets/textures/eel/frame0000.png" id="2_6jwnt"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bqec3tilerluy" path="res://assets/textures/Paper001_1K-JPG_Color.jpg" id="15_ctmpv"]
 [ext_resource type="Texture2D" uid="uid://kkgxktyr7d88" path="res://assets/textures/eel/death/front.png" id="16_c873r"]
 [ext_resource type="Texture2D" uid="uid://d3cqae6sxnbka" path="res://assets/textures/eel/death/back.png" id="17_bbln4"]
+[ext_resource type="AudioStream" uid="uid://b6uu65v04dd86" path="res://assets/audio/sounds/Electricity/eel_electricity.mp3" id="18_risfq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ssdig"]
 animations = [{
@@ -134,6 +135,7 @@ accel = 1300.0
 drag = 0.75
 view_scale = 1.5
 max_inclination = 0.2
+state = 0
 
 [node name="ElectricityArea2D" type="Area2D" parent="." index="0"]
 position = Vector2(-35, 6)
@@ -192,3 +194,7 @@ z_index = 1500
 z_as_relative = false
 material = SubResource("ShaderMaterial_dp5pt")
 position = Vector2(-110, -164)
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="." index="8"]
+stream = ExtResource("18_risfq")
+bus = &"SoundFx"

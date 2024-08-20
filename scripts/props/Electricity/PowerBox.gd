@@ -1,3 +1,4 @@
+class_name PowerBox
 extends Node
 
 
@@ -5,6 +6,7 @@ extends Node
 @export var on_color: Color
 @export var off_color: Color
 @onready var sprite_2d: Sprite2D  = $Sprite2D
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -28,6 +30,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	eel.powering_off.disconnect(on_power_off)
 	
 func on_power_on()->void:
+	audio_stream_player_2d.play()
 	sprite_2d.modulate = on_color
 	associated_powerable.power_start()
 	

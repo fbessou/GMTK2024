@@ -6,9 +6,11 @@ extends Fish
 
 @onready var _default_max_speed := max_speed
 @onready var _default_drag := drag
+@onready var elec_sound: AudioStreamPlayer2D = $AudioStreamPlayer2D2
 
 signal powering_on
 signal powering_off
+
 
 func _ready() -> void:
 	super()
@@ -20,6 +22,7 @@ func _power_on() -> void:
 	max_speed = 0.0
 	drag = 0.97
 	powering_on.emit()
+	elec_sound.play()
 
 func _power_off() -> void:
 	electricity_area.hide()
@@ -27,7 +30,9 @@ func _power_off() -> void:
 	max_speed = _default_max_speed
 	drag = _default_drag
 	powering_off.emit()
+	elec_sound.stop()
 
 func _flip_horizontal(flip: bool) -> void:
 	super(flip)
 	electricity_area.position.x = absf(electricity_area.position.x) * (1 if flip else -1)
+	
