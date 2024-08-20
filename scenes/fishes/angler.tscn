@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dqidfykm4q6cs"]
+[gd_scene load_steps=19 format=3 uid="uid://dqidfykm4q6cs"]
 
 [ext_resource type="PackedScene" uid="uid://l4sjy0s8l2d" path="res://scenes/fishes/fish.tscn" id="1_i2gp8"]
 [ext_resource type="Material" uid="uid://c3ruw5j78qxr4" path="res://resources/materials/paper.material" id="2_35kur"]
@@ -48,15 +48,27 @@ height = 164.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_8a8gh"]
 radius = 80.0
 
+[sub_resource type="Gradient" id="Gradient_exdkn"]
+offsets = PackedFloat32Array(0.147399, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l8vpl"]
+gradient = SubResource("Gradient_exdkn")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
 [sub_resource type="Gradient" id="Gradient_jpi24"]
 interpolation_mode = 2
-offsets = PackedFloat32Array(0.179191, 0.404624)
+offsets = PackedFloat32Array(0.0809249, 0.219653)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_xggxc"]
 gradient = SubResource("Gradient_jpi24")
-width = 128
-height = 128
+width = 256
+height = 256
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
@@ -128,7 +140,15 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouthArea2D" index="0"]
 shape = SubResource("CircleShape2D_8a8gh")
 
-[node name="PointLight2D" type="PointLight2D" parent="." index="3"]
+[node name="LightHalo" type="Sprite2D" parent="." index="3"]
+visible = false
+modulate = Color(1, 1, 1, 0.815686)
+z_index = -1
+position = Vector2(-58, -36)
+scale = Vector2(8, 8)
+texture = SubResource("GradientTexture2D_l8vpl")
+
+[node name="PointLight2D" type="PointLight2D" parent="." index="4"]
 light_mask = 3
 visibility_layer = 3
 position = Vector2(-58, -36)
@@ -146,7 +166,7 @@ energy = 0.18
 texture = SubResource("GradientTexture2D_xggxc")
 texture_scale = 20.0
 
-[node name="FoodBubble" parent="." index="4" instance=ExtResource("7_51a7h")]
+[node name="FoodBubble" parent="." index="5" instance=ExtResource("7_51a7h")]
 z_index = 1500
 z_as_relative = false
 material = SubResource("ShaderMaterial_s6ajx")

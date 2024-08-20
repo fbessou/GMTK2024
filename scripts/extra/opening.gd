@@ -3,6 +3,7 @@ extends Node2D
 
 const PlanktonIdleScn = preload("res://scenes/extra/plankton_idle.tscn")
 @onready var level: Node2D = owner
+@onready var rune_path: Path2D = $RunePath
 @onready var rune: Sprite2D = $RunePath/RunePathFollow/Rune
 @onready var plankton_fg :Node2D = $PlanktonsForeground
 @onready var plankton_path :Path2D = $PlanktonPath
@@ -48,6 +49,9 @@ func _ready() -> void:
 		$PlanktonsForeground.add_child(plankton)
 	for node in nodes_to_hide:
 		node.hide()
+
+	if not skip_opening:
+		($AnimationPlayer as AnimationPlayer).animation_finished.connect(start_game.unbind(1))
 		
 func _process(_delta: float) -> void:
 	if skip_opening:
@@ -61,22 +65,23 @@ func _create_plankton() -> PlanktonIdle:
 	var y := randi_range(zone_down, zone_up)
 	sprite.global_position = Vector2(x, y)
 	return sprite
-	
-
-func contaminate() -> void:
-	var rune_mat := rune.material as ShaderMaterial
-	var rune_tween_callback := func(power: float) -> void:
-		rune_mat.set_shader_parameter("power", power)
-	var tween := get_tree().create_tween()
-	tween.parallel().tween_method(rune_tween_callback, 1., 0., 2.);
-	await tween.finished
-	start_game()
 
 
 func start_game() -> void:
+	# Ensure rune is at its final position
+	rune.global_position = rune_path.global_transform * rune_path.curve.get_point_position(rune_path.curve.point_count-1)
+	var rune_mat := rune.material as ShaderMaterial
+	rune_mat.set_shader_parameter("power", 0)
+	rune.reparent(level)
+	for child in rune.get_children():
+		rune.remove_child(child)
+	
+	# Start playing with our little plankton
 	elected_plankton.reparent(level)
 	elected_plankton.switch_to_player()
+	
+	GameManager.set_active_fish_camera(elected_plankton)
+
 	for node in nodes_to_hide:
 		node.show()
 	hide()
-	GameManager.set_active_fish_camera(elected_plankton)

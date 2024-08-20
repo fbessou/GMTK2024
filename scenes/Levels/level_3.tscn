@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dxq4nyclwtt1u"]
+[gd_scene load_steps=64 format=3 uid="uid://dxq4nyclwtt1u"]
 
 [ext_resource type="Script" path="res://scripts/levels/darkness.gd" id="1_6yl55"]
 [ext_resource type="PackedScene" uid="uid://c2to2hb2q2wvb" path="res://scenes/Levels/blocks/curveA.tscn" id="1_ctl1s"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cg2las1fcrbux" path="res://assets/textures/props/seaweed/leaves/frame0001.png" id="10_p0jen"]
 [ext_resource type="PackedScene" uid="uid://biasnyddsqpv1" path="res://scenes/Levels/blocks/spireB.tscn" id="10_xih3a"]
 [ext_resource type="PackedScene" uid="uid://n41mpk740rjq" path="res://scenes/Levels/water_current.tscn" id="12_fdivb"]
+[ext_resource type="AudioStream" uid="uid://dflos3hgtfemn" path="res://assets/audio/sounds/rune_noise.mp3" id="12_qipqn"]
 [ext_resource type="Shader" path="res://resources/shaders/paper.gdshader" id="13_0wmfx"]
 [ext_resource type="PackedScene" uid="uid://dqidfykm4q6cs" path="res://scenes/fishes/angler.tscn" id="13_4s6o7"]
 [ext_resource type="Texture2D" uid="uid://bqec3tilerluy" path="res://assets/textures/Paper001_1K-JPG_Color.jpg" id="14_nxrp5"]
@@ -34,6 +35,19 @@
 [ext_resource type="Texture2D" uid="uid://cdp7ltd4ntvma" path="res://assets/textures/cthulhu/frame0024.png" id="32_gmjqx"]
 [ext_resource type="Texture2D" uid="uid://cjsxp6pondh32" path="res://assets/textures/cthulhu/frame0026.png" id="33_juhqc"]
 [ext_resource type="Texture2D" uid="uid://crrkiqyw34chp" path="res://assets/textures/cthulhu/frame0028.png" id="34_6jg1x"]
+[ext_resource type="Texture2D" uid="uid://c7a6p4jyn67ik" path="res://assets/textures/cthulhu/eyes/frame0000.png" id="35_0w2q1"]
+[ext_resource type="Texture2D" uid="uid://bmskvygm0fdvn" path="res://assets/textures/cthulhu/eyes/frame0002.png" id="36_xilgp"]
+[ext_resource type="Texture2D" uid="uid://cefu28r4yx3xb" path="res://assets/textures/cthulhu/eyes/frame0004.png" id="37_wrp0p"]
+[ext_resource type="Texture2D" uid="uid://8cum656j5kjh" path="res://assets/textures/cthulhu/eyes/frame0007.png" id="38_5muho"]
+[ext_resource type="Texture2D" uid="uid://757cqakbqqib" path="res://assets/textures/cthulhu/eyes/frame0009.png" id="39_fdrca"]
+[ext_resource type="Texture2D" uid="uid://y0pehcarojqp" path="res://assets/textures/cthulhu/eyes/frame0011.png" id="40_7fyh6"]
+[ext_resource type="Texture2D" uid="uid://mq135rf8ttny" path="res://assets/textures/cthulhu/eyes/frame0013.png" id="41_7ojj5"]
+[ext_resource type="Texture2D" uid="uid://c47hw2dpt6guj" path="res://assets/textures/cthulhu/eyes/frame0016.png" id="42_rm0dx"]
+[ext_resource type="Texture2D" uid="uid://cbpbdtp3kb1fj" path="res://assets/textures/cthulhu/eyes/frame0022.png" id="43_820u2"]
+[ext_resource type="Texture2D" uid="uid://du60r422o71ax" path="res://assets/textures/cthulhu/eyes/frame0024.png" id="44_4vmc1"]
+[ext_resource type="Texture2D" uid="uid://dtb1vacn0nukr" path="res://assets/textures/cthulhu/eyes/frame0026.png" id="45_7kco2"]
+[ext_resource type="Texture2D" uid="uid://2iwj4na0g621" path="res://assets/textures/cthulhu/eyes/frame0028.png" id="46_xcnjy"]
+[ext_resource type="AudioStream" uid="uid://kwe04jv53ijf" path="res://assets/audio/ambience/underwater_ambience_deep.mp3" id="47_0u8sj"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mwqoh"]
 light_mode = 2
@@ -46,6 +60,14 @@ shader_parameter/corruption = 1.0
 shader_parameter/filter_color = Color(1, 1, 1, 1)
 shader_parameter/color_multiplier = 1.0
 shader_parameter/paper_texture = ExtResource("14_nxrp5")
+
+[sub_resource type="Gradient" id="Gradient_44ll3"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.147399, 0.297688, 0.401734, 0.476879, 0.742775, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.373308, 0, 0, 0, 0.787869, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0.572549, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ddt0l"]
+gradient = SubResource("Gradient_44ll3")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bxtvw"]
 animations = [{
@@ -86,7 +108,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("34_6jg1x")
 }],
-"loop": true,
+"loop": false,
 "name": &"awakening",
 "speed": 5.0
 }, {
@@ -99,153 +121,339 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_qo7rn"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bhh6x"]
+gradient = SubResource("Gradient_qo7rn")
+width = 1
+
 [sub_resource type="Gradient" id="Gradient_odf3d"]
 interpolation_mode = 2
-offsets = PackedFloat32Array(0.0231214, 0.517341, 0.973988)
+offsets = PackedFloat32Array(0.127168, 0.618497, 1)
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.635294, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_yps7u"]
 gradient = SubResource("Gradient_odf3d")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s466x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("35_0w2q1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_xilgp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_wrp0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_5muho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_fdrca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_7fyh6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_7ojj5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_rm0dx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_820u2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_4vmc1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_7kco2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_xcnjy")
+}],
+"loop": false,
+"name": &"awakening",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_ha4rl"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/Camera2D:position")
+tracks/0/path = NodePath("AnimationPlayer/Path2D/PathFollow2D/AnimatedCamera:zoom")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-1053, 8641)]
+"values": [Vector2(0.01, 0.01)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimationPlayer/Camera2D:zoom")
+tracks/1/path = NodePath("Cthulhu/DarkDepthSprite:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.01, 0.01)]
+"values": [Vector2(8700, 48903)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Cthulhu/DarkDepthSprite:position")
+tracks/2/path = NodePath("Cthulhu/DarkDepthSprite:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(8700, 48903)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Cthulhu/DarkDepthSprite:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(293.205, 100000)]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Cthulhu/CthulhuAnimatedSprite:animation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cthulhu/CthulhuAnimatedSprite:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [&"sleepy"]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationPlayer/Path2D/PathFollow2D:progress_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:camera_zoom_interpolated")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimationPlayer/Path2D2/CameraTopPosition:progress_ratio")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Cthulhu/CthulhuAnimatedSprite:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Cthulhu/EyesAnimatedSprite:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CanvasLayer:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_557vh"]
 resource_name = "ending"
-length = 15.0
+length = 25.0
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer/Camera2D:position")
-tracks/0/interp = 2
+tracks/0/enabled = false
+tracks/0/path = NodePath("AnimationPlayer/Path2D/PathFollow2D/AnimatedCamera:zoom")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.566667, 1.13333, 1.63333, 2.46667, 3.16667, 3.93333, 4.63333, 6.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.833333, 2.36667, 3.43333, 7.16667, 9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-1053, 8641), Vector2(-257, 8924), Vector2(394, 9375), Vector2(1275, 10676), Vector2(2508, 12430), Vector2(3538, 14817), Vector2(6049, 21078), Vector2(7876, 28689), Vector2(9456, 50592)]
+"values": [Vector2(1, 1), Vector2(0.173, 0.173), Vector2(0.049, 0.049), Vector2(0.03, 0.03), Vector2(0.0145443, 0.0145443), Vector2(0.0145443, 0.0145443)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimationPlayer/Camera2D:zoom")
-tracks/1/interp = 2
+tracks/1/path = NodePath("Cthulhu/DarkDepthSprite:position")
+tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.46667, 3.06667, 4.66667, 6.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(14.5333, 19.1667),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(0.3, 0.3), Vector2(0.1, 0.1), Vector2(0.03, 0.03), Vector2(0.011, 0.011)]
+"values": [Vector2(8700, 48903), Vector2(8700.1, 76551)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Cthulhu/DarkDepthSprite:position")
+tracks/2/path = NodePath("Cthulhu/DarkDepthSprite:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(6.3, 9),
+"times": PackedFloat32Array(14.5333, 19.1667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(8700, 48903), Vector2(8700, 73287)]
+"values": [Vector2(293.205, 100000), Vector2(138.205, 100000)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Cthulhu/DarkDepthSprite:scale")
+tracks/3/path = NodePath("Cthulhu/CthulhuAnimatedSprite:animation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(6.3, 9),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(293.205, 100000), Vector2(102.705, 100000)]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"sleepy"]
 }
-tracks/4/type = "value"
+tracks/4/type = "method"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Cthulhu/CthulhuAnimatedSprite:animation")
+tracks/4/path = NodePath("Cthulhu/CthulhuAnimatedSprite:play")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 9),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [&"sleepy", &"awakening"]
-}
-tracks/5/type = "method"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Cthulhu/CthulhuAnimatedSprite:play")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(9),
+"times": PackedFloat32Array(12),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [&"awakening", 1.0, false],
 "method": &"play"
 }]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimationPlayer/Path2D/PathFollow2D:progress_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:camera_zoom_interpolated")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AnimationPlayer/Path2D2/CameraTopPosition:progress_ratio")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Cthulhu/CthulhuAnimatedSprite:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 9, 14.5, 19.1667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0.205117, 0.205117, 0.205117, 1), Color(0.712129, 0.712129, 0.712129, 1)]
+}
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Cthulhu/EyesAnimatedSprite")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(12),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"awakening", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Cthulhu/EyesAnimatedSprite:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(10.9, 11.5333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CanvasLayer:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bpi5b"]
@@ -254,10 +462,30 @@ _data = {
 "ending": SubResource("Animation_557vh")
 }
 
+[sub_resource type="Curve2D" id="Curve2D_y5vcv"]
+_data = {
+"points": PackedVector2Array(-1472, -2112, 1472, 2112, 643, 9617, -867.657, -1601.61, 867.657, 1601.61, 3370, 14083, -1117.12, -2843.58, 1117.12, 2843.58, 5668, 19365, -857.572, -3631.88, 857.572, 3631.88, 8021, 26646, -477.645, -3863.77, 477.645, 3863.77, 9778, 35846, -58.0819, -3161.24, 58.0819, 3161.24, 10645, 47980, 26.3565, -6900.98, -26.3565, 6900.98, 10736, 59040)
+}
+point_count = 7
+
+[sub_resource type="LabelSettings" id="LabelSettings_67mbl"]
+font_size = 76
+
 [node name="Level3" type="Node2D"]
 material = SubResource("CanvasItemMaterial_mwqoh")
 position = Vector2(-346, -57)
 script = ExtResource("1_6yl55")
+
+[node name="Angler" parent="." instance=ExtResource("13_4s6o7")]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_ed46t")
+position = Vector2(-92, -1621)
+wall_min_slide_angle = 0.261799
+state = 0
+
+[node name="Camera2D" type="Camera2D" parent="Angler"]
+z_index = 1500
+z_as_relative = false
 
 [node name="background" type="Node2D" parent="."]
 modulate = Color(0.175616, 0.192126, 0.40684, 1)
@@ -270,14 +498,6 @@ use_parent_material = true
 position = Vector2(9728, 29696)
 scale = Vector2(50000, 50000)
 polygon = PackedVector2Array(-1, -1, 1, -1, 1, 1, -1, 1)
-
-[node name="Angler" parent="." instance=ExtResource("13_4s6o7")]
-material = SubResource("ShaderMaterial_ed46t")
-position = Vector2(-152, -1796)
-wall_min_slide_angle = 0.261799
-state = 0
-
-[node name="Camera2D" type="Camera2D" parent="Angler"]
 
 [node name="BackgroundProps" type="Node2D" parent="."]
 modulate = Color(0.556953, 0.556953, 0.556953, 1)
@@ -476,18 +696,46 @@ position = Vector2(-1111, 2459)
 rotation = -0.0110276
 texture = ExtResource("15_allbn")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="BackgroundProps/RunesR"]
+stream = ExtResource("12_qipqn")
+volume_db = -6.0
+autoplay = true
+max_distance = 750.0
+bus = &"SoundFx"
+
 [node name="RunesR2" type="Sprite2D" parent="BackgroundProps"]
-position = Vector2(-1715, 6808)
+position = Vector2(-1695, 6633)
 rotation = -0.0110276
 texture = ExtResource("15_allbn")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="BackgroundProps/RunesR2"]
+stream = ExtResource("12_qipqn")
+volume_db = -6.0
+autoplay = true
+max_distance = 750.0
+bus = &"SoundFx"
 
 [node name="RunesForkB" type="Sprite2D" parent="BackgroundProps"]
 position = Vector2(1449, 3795)
 texture = ExtResource("16_5t2ng")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="BackgroundProps/RunesForkB"]
+stream = ExtResource("12_qipqn")
+volume_db = -6.0
+autoplay = true
+max_distance = 750.0
+bus = &"SoundFx"
+
 [node name="RunesForkB2" type="Sprite2D" parent="BackgroundProps"]
 position = Vector2(-874, 6313)
 texture = ExtResource("16_5t2ng")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="BackgroundProps/RunesForkB2"]
+stream = ExtResource("12_qipqn")
+volume_db = -6.0
+autoplay = true
+max_distance = 750.0
+bus = &"SoundFx"
 
 [node name="RunesAlpha" type="Sprite2D" parent="BackgroundProps"]
 position = Vector2(-1561, 4496)
@@ -500,6 +748,13 @@ position = Vector2(-1276, 8734)
 rotation = -0.49689
 texture = ExtResource("17_d26sk")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="BackgroundProps/RunesAlpha3"]
+stream = ExtResource("12_qipqn")
+volume_db = -6.0
+autoplay = true
+max_distance = 500.0
+bus = &"SoundFx"
+
 [node name="ForegroundProps" type="Node2D" parent="."]
 z_index = -200
 z_as_relative = false
@@ -508,6 +763,12 @@ z_as_relative = false
 position = Vector2(-1652, 4485)
 scale = Vector2(2.05779, 2.05779)
 texture = ExtResource("17_d26sk")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ForegroundProps/RunesAlpha2"]
+stream = ExtResource("12_qipqn")
+autoplay = true
+max_distance = 950.0
+bus = &"SoundFx"
 
 [node name="Leaves" type="Node2D" parent="ForegroundProps"]
 use_parent_material = true
@@ -1307,59 +1568,27 @@ polygon = PackedVector2Array(-2328, 8292, -1453, 8954, -602, 8990, 250, 9489, 65
 
 [node name="WaterCurrents" type="Node2D" parent="."]
 
-[node name="WaterCurrent2" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
-position = Vector2(-1617, 4561)
-rotation = 3.1378
-scale = Vector2(1.84, 1.84)
-gravity_point_center = Vector2(-0.00379274, -0.999993)
-gravity_direction = Vector2(-0.00379274, -0.999993)
-gravity = 800.0
-width = 220
-length = 160
-intensity = 800
-
-[node name="WaterCurrent6" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
-position = Vector2(-1121, 2437)
-rotation = 3.1378
-scale = Vector2(1.25597, 1.25597)
-gravity_point_center = Vector2(-0.00379274, -0.999993)
-gravity_direction = Vector2(-0.00379274, -0.999993)
-gravity = 800.0
-width = 250
-length = 185
-intensity = 800
-
-[node name="WaterCurrent7" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
-position = Vector2(1465, 3746)
-rotation = -3.10373
-scale = Vector2(1.28061, 1.28061)
-gravity_point_center = Vector2(0.0378537, -0.999283)
-gravity_direction = Vector2(0.0378537, -0.999283)
-gravity = 800.0
-width = 255
-length = 215
-intensity = 800
-bubbles_amount = 50
-
 [node name="WaterCurrent3" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
-position = Vector2(-1152, 5434)
+position = Vector2(-1146, 5464)
 rotation = 0.146283
 gravity_point_center = Vector2(-0.145762, 0.98932)
 gravity_direction = Vector2(-0.145762, 0.98932)
 gravity = 1800.0
 width = 400
-length = 300
+length = 155
 intensity = 1800
+audio_max_distance = 750
 
 [node name="WaterCurrent5" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
-position = Vector2(-1626, 1988)
+position = Vector2(-1966, 1988)
 rotation = 1.53755
 gravity_point_center = Vector2(-0.999447, 0.0332403)
 gravity_direction = Vector2(-0.999447, 0.0332403)
 gravity = 1800.0
 width = 400
-length = 300
+length = 185
 intensity = 1800
+audio_max_distance = 750
 
 [node name="WaterCurrent12" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
 position = Vector2(-3158, 3963)
@@ -1369,147 +1598,148 @@ gravity_point_center = Vector2(-0.239759, 0.970832)
 gravity_direction = Vector2(-0.239759, 0.970832)
 gravity = 1800.0
 width = 400
-length = 300
+length = 190
 intensity = 1800
+audio_max_distance = 750
 
 [node name="WaterCurrent13" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
-position = Vector2(-986, 3454)
+position = Vector2(-937, 3544)
 rotation = -0.367832
 scale = Vector2(1.185, 1.185)
 gravity_point_center = Vector2(0.359593, 0.933109)
 gravity_direction = Vector2(0.359593, 0.933109)
 gravity = 1800.0
 width = 400
-length = 300
+length = 185
 intensity = 1800
+audio_max_distance = 750
 
 [node name="WaterCurrent4" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
-position = Vector2(-2288, 5604)
+position = Vector2(-2273, 5643)
 rotation = -0.476425
 gravity_point_center = Vector2(0.458605, 0.88864)
 gravity_direction = Vector2(0.458605, 0.88864)
 gravity = 1800.0
 width = 400
-length = 300
+length = 140
 intensity = 1800
+audio_max_distance = 750
 
 [node name="WaterCurrent8" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
 position = Vector2(-1341, 8558)
 rotation = -1.0359
 gravity_point_center = Vector2(0.860321, 0.509752)
 gravity_direction = Vector2(0.860321, 0.509752)
-gravity = 1500.0
+gravity = 2500.0
 width = 300
 length = 300
-intensity = 1500
+intensity = 2500
+audio_max_distance = 750
 
 [node name="WaterCurrent9" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
 position = Vector2(-732, 8722)
 rotation = -1.55883
 gravity_point_center = Vector2(0.999928, 0.011966)
 gravity_direction = Vector2(0.999928, 0.011966)
-gravity = 1500.0
+gravity = 2500.0
 width = 250
 length = 300
-intensity = 1500
+intensity = 2500
+audio_max_distance = 750
 
 [node name="WaterCurrent10" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
 position = Vector2(-1044, 8678)
 rotation = -1.55883
 gravity_point_center = Vector2(0.999928, 0.011966)
 gravity_direction = Vector2(0.999928, 0.011966)
-gravity = 1500.0
+gravity = 2500.0
 width = 250
 length = 300
-intensity = 1500
+intensity = 2500
+audio_max_distance = 750
 
 [node name="WaterCurrent17" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
 position = Vector2(-442, 8762)
 rotation = -1.36264
 gravity_point_center = Vector2(0.978414, 0.206656)
 gravity_direction = Vector2(0.978414, 0.206656)
-gravity = 1500.0
+gravity = 2500.0
 width = 260
 length = 300
-intensity = 1500
+intensity = 2500
+audio_max_distance = 750
 
 [node name="WaterCurrent19" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
 position = Vector2(-137, 8883)
 rotation = -1.19994
 gravity_point_center = Vector2(0.932017, 0.362414)
 gravity_direction = Vector2(0.932017, 0.362414)
-gravity = 1500.0
+gravity = 2500.0
 width = 360
 length = 350
-intensity = 1500
+intensity = 2500
+audio_max_distance = 750
 
 [node name="WaterCurrent18" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
 position = Vector2(158.001, 9006)
 rotation = -1.20198
 gravity_point_center = Vector2(0.932755, 0.360512)
 gravity_direction = Vector2(0.932755, 0.360512)
-gravity = 1500.0
+gravity = 2500.0
 width = 480
 length = 270
-intensity = 1500
+intensity = 2500
+audio_max_distance = 750
 
 [node name="WaterCurrent16" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
 position = Vector2(531, 9198)
 rotation = -0.814708
 gravity_point_center = Vector2(0.727525, 0.686081)
 gravity_direction = Vector2(0.727525, 0.686081)
-gravity = 1500.0
+gravity = 2500.0
 width = 510
 length = 510
-intensity = 1500
-
-[node name="WaterCurrent11" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
-position = Vector2(1477, 10604)
-rotation = -0.626342
-gravity_point_center = Vector2(0.586185, 0.810177)
-gravity_direction = Vector2(0.586185, 0.810177)
-gravity = 1700.0
-width = 1500
-length = 1500
-intensity = 1700
-bubbles_amount = 20
-bubbles_size = 1.0
-
-[node name="WaterCurrent14" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
-position = Vector2(2189, 11569)
-rotation = -0.626342
-gravity_point_center = Vector2(0.586185, 0.810177)
-gravity_direction = Vector2(0.586185, 0.810177)
-gravity = 1800.0
-width = 1900
-length = 1000
-intensity = 1800
-bubbles_size = 1.0
+intensity = 2500
+audio_max_distance = 750
 
 [node name="WaterCurrent15" parent="WaterCurrents" instance=ExtResource("12_fdivb")]
 position = Vector2(980, 9635)
 rotation = -0.659096
 gravity_point_center = Vector2(0.612402, 0.790546)
 gravity_direction = Vector2(0.612402, 0.790546)
-gravity = 1600.0
+gravity = 2500.0
 width = 750
 length = 600
-intensity = 1600
-bubbles_amount = 50
+intensity = 2500
+bubbles_amount = 20
+audio_max_distance = 750
 
 [node name="ExitArea" type="Area2D" parent="."]
 visible = false
 
+[node name="TunelDarkness" type="Sprite2D" parent="."]
+z_index = 1000
+position = Vector2(592.627, 9417.59)
+rotation = 1.09083
+scale = Vector2(19.4583, 8000)
+texture = SubResource("GradientTexture1D_ddt0l")
+
 [node name="Cthulhu" type="Node2D" parent="."]
 
 [node name="CthulhuAnimatedSprite" type="AnimatedSprite2D" parent="Cthulhu"]
-z_index = -200
+z_index = -800
 z_as_relative = false
-position = Vector2(8576, 66892)
-scale = Vector2(150, 150)
+position = Vector2(11648, 61260)
+scale = Vector2(270, 270)
 sprite_frames = SubResource("SpriteFrames_bxtvw")
 animation = &"sleepy"
 autoplay = "sleepy"
+
+[node name="OverallDarness" type="Sprite2D" parent="Cthulhu"]
+modulate = Color(0, 0, 0, 0.658824)
+position = Vector2(8832, 47852)
+scale = Vector2(99408, 76664)
+texture = SubResource("GradientTexture1D_bhh6x")
 
 [node name="DarkDepthSprite" type="Sprite2D" parent="Cthulhu"]
 position = Vector2(8700, 48903)
@@ -1517,11 +1747,63 @@ rotation = -1.5708
 scale = Vector2(293.205, 100000)
 texture = SubResource("GradientTexture1D_yps7u")
 
+[node name="EyesAnimatedSprite" type="AnimatedSprite2D" parent="Cthulhu"]
+z_as_relative = false
+position = Vector2(11648, 61260)
+scale = Vector2(270, 270)
+sprite_frames = SubResource("SpriteFrames_s466x")
+animation = &"awakening"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_bpi5b")
 }
 
-[node name="Camera2D" type="Camera2D" parent="AnimationPlayer"]
-position = Vector2(-1053, 8641)
+[node name="Path2D" type="Path2D" parent="AnimationPlayer"]
+curve = SubResource("Curve2D_y5vcv")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="AnimationPlayer/Path2D"]
+position = Vector2(643, 9617)
+rotation = 0.962107
+
+[node name="AnimatedCamera" type="Camera2D" parent="AnimationPlayer/Path2D/PathFollow2D"]
+unique_name_in_owner = true
 zoom = Vector2(0.01, 0.01)
+
+[node name="Path2D2" type="Path2D" parent="AnimationPlayer"]
+position = Vector2(0.00012207, 5149.71)
+scale = Vector2(1, 0.464521)
+curve = SubResource("Curve2D_y5vcv")
+
+[node name="CameraTopPosition" type="PathFollow2D" parent="AnimationPlayer/Path2D2"]
+unique_name_in_owner = true
+position = Vector2(643, 9617)
+rotation = 0.962107
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("47_0u8sj")
+volume_db = -8.039
+autoplay = true
+bus = &"Ambience"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "THE END"
+label_settings = SubResource("LabelSettings_67mbl")
+horizontal_alignment = 1
+vertical_alignment = 1
